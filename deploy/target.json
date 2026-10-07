@@ -1,0 +1,13 @@
+{
+  "sshHost": "main-server",
+  "directory": "/home/kite/mabimoba",
+  "repository": "quolu/mabimoba",
+  "branch": "main",
+  "domain": "mabimoba.kitepon.dev",
+  "zone": "kitepon.dev",
+  "tunnelName": "home-server",
+  "originService": "https://caddy:443",
+  "caddyFile": "/home/kite/license-server/Caddyfile",
+  "cloudflareCredentialFile": "/home/kite/.config/cloudflare-api.env",
+  "existingSmokeUrls": ["https://kitepon.dev/", "https://bank.kitepon.dev/"]
+}

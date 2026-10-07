@@ -1,0 +1,1874 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-07",
+  "region": "韓国版",
+  "sources": [
+    {
+      "id": "create",
+      "title": "キャラクター作成",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2750983",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2025-10-27"
+    },
+    {
+      "id": "quest",
+      "title": "クエスト",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751080",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": null
+    },
+    {
+      "id": "rune",
+      "title": "ルーンガイド",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751108",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-06-25"
+    },
+    {
+      "id": "enhance",
+      "title": "刻印強化",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751136",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-04-23"
+    },
+    {
+      "id": "dungeon",
+      "title": "ダンジョン・深層ダンジョン",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751110",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-06-25"
+    },
+    {
+      "id": "abyss",
+      "title": "アビス",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/3164452",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-07-02"
+    },
+    {
+      "id": "raid",
+      "title": "レイド",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2839865",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-09-21"
+    },
+    {
+      "id": "gems",
+      "title": "宝石",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751106",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-07-16"
+    },
+    {
+      "id": "gem-tags",
+      "title": "宝石スキルタグの変更",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/3428479",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-04-23"
+    },
+    {
+      "id": "tools",
+      "title": "生活道具",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751065",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-06-25"
+    },
+    {
+      "id": "craft",
+      "title": "製作",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751070",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-08-13"
+    },
+    {
+      "id": "campfire",
+      "title": "キャンプファイア",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751031",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": null
+    },
+    {
+      "id": "score",
+      "title": "キャラクタースコアと能力値",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751047",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": null
+    },
+    {
+      "id": "auto",
+      "title": "自動セットアップ",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/3521939",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-08-13"
+    },
+    {
+      "id": "preset",
+      "title": "記憶刻印プリセット",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/3545323",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": null
+    },
+    {
+      "id": "convert",
+      "title": "装備変換スクロール",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/3428478",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-04-23"
+    },
+    {
+      "id": "appraise",
+      "title": "鑑定・販売・分解",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751079",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": null
+    },
+    {
+      "id": "counter",
+      "title": "怒り・カウンター",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751058",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": null
+    },
+    {
+      "id": "home",
+      "title": "マイホーム",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/3311715",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": null
+    },
+    {
+      "id": "party",
+      "title": "パーティ",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751032",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-06-25"
+    },
+    {
+      "id": "collection",
+      "title": "図鑑",
+      "url": "https://mabinogimobile.nexon.com/Info/Guide/2751040",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": null
+    },
+    {
+      "id": "classes",
+      "title": "クラス紹介",
+      "url": "https://mabinogimobile.nexon.com/Main",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": null
+    },
+    {
+      "id": "patch-oct",
+      "title": "10月1日アップデート",
+      "url": "https://mabinogimobile.nexon.com/News/Update/3554043",
+      "kind": "official",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-10-01"
+    },
+    {
+      "id": "fishing-community",
+      "title": "釣りの始め方（韓国プレイヤー投稿）",
+      "url": "https://mabinogimobile.nexon.com/Community/Tip/2760254",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2025-03-27"
+    },
+    {
+      "id": "glas-community",
+      "title": "グラスギブネンの全滅攻撃対処（韓国プレイヤー投稿）",
+      "url": "https://mabinogimobile.nexon.com/Community/Tip/2849647",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-07",
+      "asOf": "2025-04-27"
+    },
+    {
+      "id": "jp-launch",
+      "title": "日本版の正式サービス開始（NEXON公式発表）",
+      "url": "https://jp.nexon.com/news/136006?category=4",
+      "kind": "official",
+      "language": "ja",
+      "region": "日本",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-10-07"
+    },
+    {
+      "id": "jp-gift",
+      "title": "正式サービス開始記念プレゼント",
+      "url": "https://mabinogimobile.nexon.co.jp/news/notice/3559220",
+      "kind": "official",
+      "language": "ja",
+      "region": "日本",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-10-07"
+    },
+    {
+      "id": "jp-classes",
+      "title": "日本版公式・職業の掲載一覧",
+      "url": "https://mabinogimobile.nexon.co.jp/",
+      "kind": "official",
+      "language": "ja",
+      "region": "日本",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-10-07"
+    },
+    {
+      "id": "tw-launch",
+      "title": "台湾・香港・マカオ版：正式開始と記念品の告知",
+      "url": "https://tw.nexon.com/mabinogimobile/home/news/notice/3506278",
+      "kind": "official",
+      "language": "zh-Hant",
+      "region": "台湾・香港・マカオ",
+      "checkedAt": "2026-10-07",
+      "asOf": "2026-07-22"
+    },
+    {
+      "id": "tw-chat",
+      "title": "繁体字版公式ガイド：チャット",
+      "url": "https://tw.nexon.com/mabinogimobile/home/info/guide/3474862",
+      "kind": "official",
+      "language": "zh-Hant",
+      "region": "台湾・香港・マカオ",
+      "checkedAt": "2026-10-07",
+      "asOf": null
+    }
+  ],
+  "articles": [
+    {
+      "id": "first-steps",
+      "title": "最初に進めることと、迷わない育成の順番",
+      "category": "初心者",
+      "description": "キャラクター作成から、装備を整えてパーティに参加するまで。解放された機能を一つずつ覚えよう。",
+      "sources": [
+        "create",
+        "quest"
+      ],
+      "sections": [
+        {
+          "title": "まずはメインクエストを進める",
+          "paragraphs": [
+            "最初に選ぶのは見習いクラス。武器を替えることで、同じキャラクターでも別のクラスを試せる。最初の選択だけでプレイスタイルが固定されるわけではない。",
+            "メインクエストは自動受注され、ストーリーとともに新しいシステムが開く。行き詰まったら、先行クエストと必要レベルを確認しよう。"
+          ]
+        },
+        {
+          "title": "サイドクエストを寄り道に使う",
+          "paragraphs": [
+            "サイドクエストはNPCとの会話などで受注する。報酬にはハートトークンやダンジョン用の銀貨が含まれる。メインの進行に合わせて受注できる依頼も増える。"
+          ]
+        },
+        {
+          "title": "次に覚える機能",
+          "paragraphs": [
+            "装備の鑑定、ルーン、キャンプファイアを順に試し、戦闘に慣れてから深層ダンジョンへ進む。詳細は下の関連記事から確認できる。"
+          ]
+        }
+      ],
+      "advice": [
+        "職業の強弱より、操作して楽しい武器を選ぶ。",
+        "解放されていない機能を探し続ける前に、クエスト一覧を確認する。",
+        "生活を楽しみたい時は、戦闘と並行して道具と製作を覚える。"
+      ],
+      "related": [
+        "rune-basics",
+        "dungeon-basics",
+        "life-tools"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "rune-basics",
+      "title": "ルーンと刻印を理解する",
+      "category": "装備・成長",
+      "description": "装備の効果を決めるルーン。上書き・分解・記憶刻印の違いを整理。",
+      "sources": [
+        "rune"
+      ],
+      "sections": [
+        {
+          "title": "ルーンは装備に刻印して使う",
+          "paragraphs": [
+            "ルーンを刻印すると、ルーンに示された希少度・戦闘能力値・スキル強化効果が装備に付く。鍛冶屋またはキャンプファイアで操作する。段階は★の数で表される。"
+          ]
+        },
+        {
+          "title": "上書きと分解に注意",
+          "paragraphs": [
+            "刻印に失敗すると装備が呪われ、能力値が下がり一部操作が制限される。新しいルーンを上書きすると、以前のルーンは通常、素材へ分解される。★8以上の伝説・神話ルーンには回収の例外がある。",
+            "装備を分解してルーンを取り出す場合、刻印強化ポイントは失われる。上書き・分解を同じ操作として扱わないようにしよう。"
+          ]
+        },
+        {
+          "title": "後半は記憶刻印を使う",
+          "paragraphs": [
+            "鑑定済みの★8以上の伝説・神話ルーンなどを獲得すると記憶へ登録される。同じ等級の装備に記憶したルーンを刻印して、効果の組み合わせを試せる。ルーンワードは選んだシーズンの効果が適用される。"
+          ]
+        }
+      ],
+      "advice": [
+        "刻印前に、元のルーンが戻るか素材になるか確認する。",
+        "★の段階・希少度・固有効果を分けて比較する。",
+        "シーズンが変わった時は、使っているルーンワードを確認する。"
+      ],
+      "related": [
+        "enhancement",
+        "rune-presets",
+        "gem-guide"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "enhancement",
+      "title": "刻印強化で損をしないために",
+      "category": "装備・成長",
+      "description": "成功率だけで判断せず、強化ポイントの引き継ぎ先まで確認しよう。",
+      "sources": [
+        "enhance"
+      ],
+      "sections": [
+        {
+          "title": "強化の仕組み",
+          "paragraphs": [
+            "刻印済みの装備を、ルーンの欠片とゴールドを使って強化する。公式ガイドでは最大20段階。一部のユニーク装備などは対象外。"
+          ]
+        },
+        {
+          "title": "失敗してもポイントはたまる",
+          "paragraphs": [
+            "成功で強化段階が上がり、呪いも解除される。失敗すると呪いが付くが、強化ポイントを獲得する。ポイントが満たされると、その段階の強化は確定する。"
+          ]
+        },
+        {
+          "title": "乗り換え時の扱い",
+          "paragraphs": [
+            "性能改善では、改善対象にした装備の強化ポイントが結果へ移る。素材にした装備のポイントは消える。新しいルーンを刻印した場合はポイントを引き継ぐが、ルーンの段階差によって表示される強化段階が変わることがある。"
+          ]
+        }
+      ],
+      "advice": [
+        "強化した装備を分解する前に、性能改善の対象として使えるか確認する。",
+        "素材側に高く強化した装備を置かない。",
+        "残りポイントと必要素材を見て、次の一回を決める。"
+      ],
+      "related": [
+        "rune-basics",
+        "equipment-conversion"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "gem-guide",
+      "title": "宝石の装着・合成・スキルタグ",
+      "category": "装備・成長",
+      "description": "空きスロットを埋めるところから、クラスに合うスキルタグの確認まで。",
+      "sources": [
+        "gems",
+        "gem-tags"
+      ],
+      "sections": [
+        {
+          "title": "まず装備のスロットを確認",
+          "paragraphs": [
+            "バッグから装備詳細を開き、宝石スロットに宝石を装着する。宝石はダンジョンや、曜日アルバイトで入る宝石ダンジョンで入手できる。"
+          ]
+        },
+        {
+          "title": "昇級と合成を分ける",
+          "paragraphs": [
+            "同じ宝石を合成して段階を上げる昇級と、同段階の異なる宝石を使う合成がある。必要な組み合わせは宝石の種類ごとに異なるので、実行画面で素材を確認しよう。"
+          ]
+        },
+        {
+          "title": "タグ変更は持っている宝石全体に及ぶ",
+          "paragraphs": [
+            "スキルタグ変更はイメンマハのNPCジョセリンの関連クエストで解放される。銀行NPCから利用でき、装着中だけでなくバッグ・保管箱などの宝石にも変更が及ぶ。ダメージと再使用時間のタグは、別々に変更する方法もある。"
+          ]
+        }
+      ],
+      "advice": [
+        "主に使うスキルのタグと、宝石が強化するタグを照合する。",
+        "タグ変更前に別クラス用の宝石も確認する。",
+        "合成は完成品と失う素材を見てから実行する。"
+      ],
+      "related": [
+        "equipment-appraisal",
+        "auto-setup"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "equipment-appraisal",
+      "title": "装備の鑑定とバッグ整理",
+      "category": "装備・成長",
+      "description": "未鑑定のまま比較しない。売却・分解の前に見る項目を整理。",
+      "sources": [
+        "appraise",
+        "score"
+      ],
+      "sections": [
+        {
+          "title": "鑑定で装備の値が決まる",
+          "paragraphs": [
+            "未鑑定装備は、攻撃力・防御力や宝石スロット数が確定していない。装備詳細の鑑定操作で値を確認する。"
+          ]
+        },
+        {
+          "title": "売却した物の再購入",
+          "paragraphs": [
+            "販売・廃棄した対象アイテムはNPC商店で再購入できるが、公式ガイドでは1時間を過ぎると消え、30件を超えると古い物から消える。分解した物がこの仕組みで戻るとは考えないようにしよう。"
+          ]
+        },
+        {
+          "title": "スコアを用途ごとに読む",
+          "paragraphs": [
+            "戦闘力は戦闘用の能力値、生活力は生活の成長、魅力は外見や交流に関わる指標。生活スキルや製作台の成長は同一サーバー内で共有されるが、装着道具の効果はキャラクター単位。"
+          ]
+        }
+      ],
+      "advice": [
+        "ルーン・強化・宝石の付いた装備は、処分前に詳細を確認する。",
+        "整理する時は売却と分解のボタンを区別する。",
+        "戦闘用装備と生活用道具は、別の目的で評価する。"
+      ],
+      "related": [
+        "rune-basics",
+        "gem-guide"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "dungeon-basics",
+      "title": "通常と深層ダンジョンの違い",
+      "category": "ダンジョン",
+      "description": "入口、消費する入場資源、パーティの使い方を比較。",
+      "sources": [
+        "dungeon"
+      ],
+      "sections": [
+        {
+          "title": "通常ダンジョン",
+          "paragraphs": [
+            "クエストを進めて入口を開き、マップから入場する。銀貨を消費し、銀貨は30分ごとに1枚回復する。初回入場の魔族の印、各層の最後の区画に進む魔族の鍵は、狩場で集める。"
+          ]
+        },
+        {
+          "title": "深層ダンジョン",
+          "paragraphs": [
+            "魔族の供物を消費して入場する。供物は12時間ごとに1個回復し、魔族の印・鍵は不要。通常より長く敵も強いため、公式はパーティでの挑戦を勧めている。"
+          ]
+        },
+        {
+          "title": "途中退出と同行",
+          "paragraphs": [
+            "クリア前に退出した場合は、消費した銀貨または供物が返還される。一部では仲間を同行させられる。同行中は偶然の出会いが無効になり、深層での同行にはハートトークンが必要。"
+          ]
+        }
+      ],
+      "advice": [
+        "まず通常でボスの動きを覚え、深層で装備更新を狙う。",
+        "参加設定を確認し、一人で難しい時は協力を使う。",
+        "回復待ちの資源は、使いたい難度を決めてから消費する。"
+      ],
+      "related": [
+        "combat-counter",
+        "abyss-guide",
+        "raid-guide"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "abyss-guide",
+      "title": "アビスの解放条件と週次報酬",
+      "category": "ダンジョン",
+      "description": "Lv.100以降の高難度攻略。時間条件と報酬回数を把握して挑もう。",
+      "sources": [
+        "abyss"
+      ],
+      "sections": [
+        {
+          "title": "解放と入場条件",
+          "paragraphs": [
+            "Lv.100到達後、「深い海の深淵へ」（깊은 바다의 심연으로・仮訳）を完了して解放する。入場には戦闘力と魔導抵抗の条件がある。パーティリーダーは条件を満たす必要がある。"
+          ]
+        },
+        {
+          "title": "最大4人、時間内クリアで次へ",
+          "paragraphs": [
+            "最大4人で入場できる。難度は入門・難しい・非常に難しい、そして地獄の各段階。次の難度を開くタイムアタック条件は11分。地域効果は週ごとに変わる。"
+          ]
+        },
+        {
+          "title": "報酬は週3回",
+          "paragraphs": [
+            "入場回数は制限されないが、クリア報酬はキャラクター単位で週3回。月曜6:00にリセットされる。段階ごとの初回タイムアタック報酬は一度だけ。報酬箱購入も残り報酬回数を消費する。"
+          ]
+        }
+      ],
+      "advice": [
+        "戦闘力だけでなく、魔導抵抗の条件も確認する。",
+        "入場前に今週の地域効果を読む。",
+        "報酬箱を買う前に、その週の残り回数を確認する。"
+      ],
+      "related": [
+        "raid-guide",
+        "combat-counter",
+        "gem-guide"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "raid-guide",
+      "title": "レイドの始め方と報酬の管理",
+      "category": "ダンジョン",
+      "description": "解放クエスト、人数、復活制限、週ごとの報酬を整理。",
+      "sources": [
+        "raid"
+      ],
+      "sections": [
+        {
+          "title": "Lv.65と関連クエストで解放",
+          "paragraphs": [
+            "Lv.65到達後の指定クエスト完了と、NPCエヴァンの「저 바다를 향하여」進行中の条件を満たして解放する。さらにボス・難度ごとに戦闘力や魔導抵抗の条件がある。"
+          ]
+        },
+        {
+          "title": "人数と復活はレイドごとに違う",
+          "paragraphs": [
+            "公式ガイドではカブラックは最大8人、ホワイトサキュバスとエイレルは最大4人。ソロと協力モードがあり、一部の攻撃パターンも異なる。復活回数にはアイテムと他プレイヤーによる復活の両方が含まれる。"
+          ]
+        },
+        {
+          "title": "各ボスの報酬は週1回",
+          "paragraphs": [
+            "難度にかかわらず、各ボスのクリア報酬はキャラクター単位で週1回。月曜6:00にリセット。報酬回数を使い切っても練習できる。報酬箱を購入した時点で残り回数を消費する。"
+          ]
+        }
+      ],
+      "advice": [
+        "練習と報酬獲得を分けて、ボスの動きを覚える。",
+        "残り復活回数を共有し、立て直せる状況を作る。",
+        "募集条件とモードを確認してから参加する。"
+      ],
+      "related": [
+        "glas-pattern",
+        "abyss-guide",
+        "combat-counter"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "combat-counter",
+      "title": "怒り・カウンターの色と攻撃タグ",
+      "category": "ダンジョン",
+      "description": "赤には強打、青には連打。ボスの状態から使う攻撃を判断。",
+      "sources": [
+        "counter"
+      ],
+      "sections": [
+        {
+          "title": "赤いオーラは怒り",
+          "paragraphs": [
+            "怒り状態では強打（강타）に弱く、連打（연타）のダメージを受けにくい。強打を繰り返すか、ブレイクで解除できる場合がある。"
+          ]
+        },
+        {
+          "title": "青いオーラはカウンター",
+          "paragraphs": [
+            "カウンター状態では連打に弱く、強打を受けにくい。連打を繰り返すと状態が解除される場合がある。"
+          ]
+        },
+        {
+          "title": "攻撃を見分ける",
+          "paragraphs": [
+            "自分のスキルがどのタグを持つか、スキル詳細で確認しておくと対応しやすい。タグは韓国語表示も併記しているので、ゲーム画面と照合できる。"
+          ]
+        }
+      ],
+      "advice": [
+        "戦闘前に、強打と連打のスキルを一つずつ確認する。",
+        "色だけでなくボスの状態表示も読む。",
+        "ブレイクを狙う場面では、使うスキルをパーティで合わせる。"
+      ],
+      "related": [
+        "dungeon-basics",
+        "raid-guide"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "life-tools",
+      "title": "生活道具をそろえて採集を始める",
+      "category": "生活",
+      "description": "雑貨店の入門道具から、製作・修理まで。",
+      "sources": [
+        "tools"
+      ],
+      "sections": [
+        {
+          "title": "最初の道具は雑貨店で",
+          "paragraphs": [
+            "採集や錬金術では、目的に合う生活道具が必要。錬金術用を除く入門道具は雑貨店でゴールド購入できる。バッグの道具タブから管理する。"
+          ]
+        },
+        {
+          "title": "良い道具を手に入れる",
+          "paragraphs": [
+            "より良い道具は製作や取引所で入手できる。採集道具はハンディクラフトを使い、多目的製作台で作る。錬金術道具はストーリー進行で手に入れる。"
+          ]
+        },
+        {
+          "title": "耐久度を回復する",
+          "paragraphs": [
+            "消耗した道具は各街の鍛冶屋で修理する。生活道具の耐久度修理は失敗しないと公式ガイドに明記されている。"
+          ]
+        }
+      ],
+      "advice": [
+        "集めたい素材を決めてから道具を買う。",
+        "採集が進まない時は、装着道具と耐久度を見る。",
+        "作る予定の品から必要素材を逆に調べる。"
+      ],
+      "related": [
+        "crafting",
+        "fishing",
+        "campfire-life"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "crafting",
+      "title": "製作を始める：素材・スキル・製作台",
+      "category": "生活",
+      "description": "不足している条件を見分けて、必要な素材だけ集めよう。",
+      "sources": [
+        "craft"
+      ],
+      "sections": [
+        {
+          "title": "三つの準備が必要",
+          "paragraphs": [
+            "製作には素材、生活スキルレベル、設備レベルが必要。武器・防具・薬品・料理・多目的・デコなど、目的に合う製作台を使う。すぐ製作できるレシピもある。"
+          ]
+        },
+        {
+          "title": "不足素材をクエストにする",
+          "paragraphs": [
+            "素材だけが不足している時は、製作画面の「クエスト作成」から不足素材の一覧を作れる。レシピは完成品や素材名で検索できる。製作台レベルは同一サーバー内で共有される。"
+          ]
+        },
+        {
+          "title": "成功率と期限を確認する",
+          "paragraphs": [
+            "推奨スキルレベルに足りないレシピは失敗する場合がある。連続製作は一度に最大10回。素材の期限切れによって中断した場合は、試みていない製作分の素材が返される。"
+          ]
+        }
+      ],
+      "advice": [
+        "成功率を確認し、足りない条件を一つずつ満たす。",
+        "先に完成品を選び、不足素材から採集の予定を作る。",
+        "期限付き素材は、製作完了までの時間を見て使う。"
+      ],
+      "related": [
+        "life-tools",
+        "campfire-life",
+        "my-home"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "campfire-life",
+      "title": "焚き火でできること",
+      "category": "生活",
+      "description": "休憩、料理、食事、ルーン。冒険の合間に使える機能を整理。",
+      "sources": [
+        "campfire"
+      ],
+      "sections": [
+        {
+          "title": "座ると回復とチェックポイント",
+          "paragraphs": [
+            "街や狩場、ダンジョンの焚き火を使える。キットを製作して設置する方法もある。火をつけて座るとHPが回復し、復活時のチェックポイントになる。"
+          ]
+        },
+        {
+          "title": "料理と食事を楽しむ",
+          "paragraphs": [
+            "レベル1の料理製作台に相当する料理を作れ、近くのキャラクターと食事を分け合える。料理を選び、素材をそろえて使おう。"
+          ]
+        },
+        {
+          "title": "ルーン操作の拠点にもなる",
+          "paragraphs": [
+            "関連クエスト解放後はルーン刻印・刻印強化・刻印再設定を使える。ダンジョンの自動進行時に立ち寄る設定は、ゲーム設定から選べる。"
+          ]
+        }
+      ],
+      "advice": [
+        "ボス前に回復と装備を確認する場所として使う。",
+        "焚き火の機能が見えない時は関連クエストの進行を見る。",
+        "立ち寄り設定は、回復を優先するか周回速度を優先するかで選ぶ。"
+      ],
+      "related": [
+        "rune-basics",
+        "crafting"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "fishing",
+      "title": "釣りを始める前に知っておきたいこと",
+      "category": "生活",
+      "description": "韓国のプレイヤー投稿を手がかりに、道具と操作を確認する。",
+      "sources": [
+        "fishing-community",
+        "tools"
+      ],
+      "sections": [
+        {
+          "title": "釣り竿と餌を確認",
+          "paragraphs": [
+            "2025年3月の韓国プレイヤー投稿では、デイアンで釣り竿を購入して釣りを始め、餌も同NPCで扱うと紹介されている。古い投稿なので、現在の販売条件はゲーム内で確認しよう。"
+          ]
+        },
+        {
+          "title": "通常と集中モード",
+          "paragraphs": [
+            "投稿では通常モードと集中モードの操作が紹介されている。集中モードはミニゲームのゲージを見ながら操作する。現在のUIや報酬の詳細はこの資料から確定できない。"
+          ]
+        },
+        {
+          "title": "公式の道具仕様を合わせて確認",
+          "paragraphs": [
+            "道具の装着と修理は公式生活道具ガイドを参照。魚の個別出現率・釣り場別ドロップは、確認できる資料がそろってから掲載する。"
+          ]
+        }
+      ],
+      "advice": [
+        "釣り竿の販売と必要クエストをゲーム内で確認する。",
+        "釣った素材は、料理の製作画面で用途を調べる。"
+      ],
+      "related": [
+        "life-tools",
+        "crafting"
+      ],
+      "image": "fishing.webp",
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "my-home",
+      "title": "マイホームの購入と解放",
+      "category": "生活",
+      "description": "ダンバートンから、自分の部屋づくりを始めよう。",
+      "sources": [
+        "home"
+      ],
+      "sections": [
+        {
+          "title": "関連クエストで解放",
+          "paragraphs": [
+            "メインクエスト「冒険者ギルド」（仮訳）完了後、ダンバートンの官庁でエヴァンに話す。続くマイホームのサイドクエストを受け、銀行のオースティンへ進む。"
+          ]
+        },
+        {
+          "title": "ゴールドで購入する",
+          "paragraphs": [
+            "マイホームはダンバートンやイメンマハで購入する。公式の一覧では小型は10,000ゴールド、デコ点数条件は0。大きな家ではゴールドとデコ点数の条件が上がる。"
+          ]
+        },
+        {
+          "title": "所有の単位を確認",
+          "paragraphs": [
+            "関連クエストはキャラクター単位で進めるが、マイホームはサーバー単位で1軒。購入前に同じサーバーのキャラクターでの利用を考えよう。"
+          ]
+        }
+      ],
+      "advice": [
+        "まず小型で配置とデコを試す。",
+        "大きな家の条件は購入画面と公式の最新表を照合する。"
+      ],
+      "related": [
+        "crafting",
+        "campfire-life"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "auto-setup",
+      "title": "自動セットアップで成長の抜けを確認",
+      "category": "装備・成長",
+      "description": "自動装着と成長支援がすることを理解して使う。",
+      "sources": [
+        "auto"
+      ],
+      "sections": [
+        {
+          "title": "装着の候補を選んでくれる",
+          "paragraphs": [
+            "より良い等級の宝石を装着し、同等級ならクラスのスキルタグとの一致を考慮する。空きアーティファクト枠や一部の消耗品枠にも対応する。"
+          ]
+        },
+        {
+          "title": "成長支援には素材を使う操作もある",
+          "paragraphs": [
+            "ルーン刻印・性能改善・装備の+10までの刻印強化・エンチャント・増幅を支援する。複数選ぶとクエストとして順番に進行し、最後の結果画面で呪いを解除できる。"
+          ]
+        },
+        {
+          "title": "手動比較と組み合わせる",
+          "paragraphs": [
+            "装着を提案する機能と、素材を使って強化する機能を区別しよう。所持素材や、残しておきたい装備を確認してから使うと進めやすい。"
+          ]
+        }
+      ],
+      "advice": [
+        "強化を一括実行する前に、支援項目を一つずつ読む。",
+        "自動装着後に主力スキルのタグが合うか確認する。"
+      ],
+      "related": [
+        "gem-guide",
+        "enhancement"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "rune-presets",
+      "title": "記憶刻印プリセットの使い方",
+      "category": "装備・成長",
+      "description": "ルーンの組み合わせを保存して、部位ごとに切り替える。",
+      "sources": [
+        "preset",
+        "rune"
+      ],
+      "sections": [
+        {
+          "title": "組み合わせを保存する",
+          "paragraphs": [
+            "編集画面でプリセット名と部位ごとのルーンを設定する。記憶刻印の操作で、装着している装備のルーンをまとめて切り替えられる。"
+          ]
+        },
+        {
+          "title": "星の段階を照合する",
+          "paragraphs": [
+            "プリセットのルーンと装着中のルーンで★の段階が異なる場合がある。保存した内容だけで判断せず、実行画面に表示される条件を確認しよう。"
+          ]
+        },
+        {
+          "title": "使い分けを試す",
+          "paragraphs": [
+            "まず一つの組み合わせを保存して、普段の装備へ戻せる状態を作る。クラスや戦闘目的を変える時は、関連する宝石のタグも合わせて確認する。"
+          ]
+        }
+      ],
+      "advice": [
+        "プリセット名にクラスと目的を書いておく。",
+        "切り替え後に部位ごとのルーンが想定どおりか見る。"
+      ],
+      "related": [
+        "rune-basics",
+        "gem-guide"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "equipment-conversion",
+      "title": "転職時に装備を引き継ぐ方法",
+      "category": "装備・成長",
+      "description": "装備変換スクロールの対象・保存される効果・使えない条件。",
+      "sources": [
+        "convert"
+      ],
+      "sections": [
+        {
+          "title": "武器とエンブレムを変換する",
+          "paragraphs": [
+            "スクロールでクラス制限のある武器やエンブレムを別クラスへ変える。刻印強化、エンチャント、増幅、装着宝石は保持される。"
+          ]
+        },
+        {
+          "title": "使える装備を確認",
+          "paragraphs": [
+            "関連する見習い卒業クエスト後、高級以上のルーンが付き、刻印強化+1以上の装備に使用できる。呪いは先に解除する。未鑑定・見習い用・ユニーク装備は対象外。"
+          ]
+        },
+        {
+          "title": "装着後の状態に注意",
+          "paragraphs": [
+            "装着中の武器は変換後も装着を維持するが、エンブレムはバッグへ入る。変換先の装着可能レベルやクエスト条件も満たす必要がある。"
+          ]
+        }
+      ],
+      "advice": [
+        "転職前に変換対象に出るか確認する。",
+        "変換後はエンブレムの装着とスキルタグを見直す。"
+      ],
+      "related": [
+        "gem-guide",
+        "enhancement"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 3
+    },
+    {
+      "id": "glas-pattern",
+      "title": "グラスギブネンの全滅攻撃：韓国の攻略記録",
+      "category": "ダンジョン",
+      "description": "古い実戦記録から、ブレイクのタイミングを学ぶ。",
+      "sources": [
+        "glas-community"
+      ],
+      "sections": [
+        {
+          "title": "投稿で確認できる対処",
+          "paragraphs": [
+            "2025年4月の韓国プレイヤー投稿では、ガーゴイル討伐後にボスがよろめく場面でブレイクゲージが現れ、即死攻撃に合わせたブレイクで対処する様子を紹介している。"
+          ]
+        },
+        {
+          "title": "現在の難度に合わせて確かめる",
+          "paragraphs": [
+            "ソロでの投稿者の記録を含むため、全モードに同じ挙動を当てはめない。原文の動画と現在のゲーム内予告を見比べ、パーティでブレイクを合わせる場面の参考にしよう。"
+          ]
+        }
+      ],
+      "advice": [
+        "この記録は現行全難度の確定攻略として扱わない。",
+        "ゲージの出現と攻撃予告を見て、ブレイク手段を温存する。"
+      ],
+      "related": [
+        "raid-guide",
+        "combat-counter"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "韓国版",
+      "readingMinutes": 2
+    },
+    {
+      "id": "taiwan-chat",
+      "title": "繁体字版ガイドで読む、チャットの使い分け",
+      "category": "生活",
+      "description": "台湾・香港・マカオの公式ガイドから、周囲・パーティ・ギルド・地域・ワールドの違いを整理。",
+      "sources": [
+        "tw-chat"
+      ],
+      "sections": [
+        {
+          "title": "会話する相手を選ぶ",
+          "paragraphs": [
+            "周囲チャットは近くのプレイヤーへ、パーティチャットは場所が違っていてもメンバーへ届く。地域チャットは同じ地域のプレイヤー向け。会話したい範囲に応じてチャンネルを切り替えよう。"
+          ]
+        },
+        {
+          "title": "ギルドとワールド",
+          "paragraphs": [
+            "ギルドではオフライン中のメンバーの会話も確認できる。ワールドチャットには対応する拡声器アイテムが必要。アイテムによっては別サーバーのワールドにも届く。"
+          ]
+        },
+        {
+          "title": "表示するチャンネルを整える",
+          "paragraphs": [
+            "チャット入力欄の拡張ボタンで全画面表示にできる。設定のコミュニティ・チャットから、全体欄に表示したいチャンネルを選べる。これらは繁体字版の資料であり、日本版の現在の表示と照合して使おう。"
+          ]
+        }
+      ],
+      "advice": [
+        "攻略中はパーティ、素材や交流の相談は目的に合った範囲のチャンネルを選ぶ。",
+        "流れるメッセージが多い時は、表示するチャンネルを絞る。"
+      ],
+      "related": [
+        "campfire-life",
+        "life-tools"
+      ],
+      "image": null,
+      "checkedAt": "2026-10-07",
+      "region": "台湾・香港・マカオ版",
+      "readingMinutes": 3
+    }
+  ],
+  "families": [
+    {
+      "id": "warrior",
+      "title": "戦士",
+      "korean": "전사",
+      "role": "近接・攻守",
+      "description": "剣と盾のカウンターを軸に、近接戦の手触りを選ぶ。",
+      "image": "warrior.webp",
+      "source": "classes",
+      "classes": [
+        {
+          "id": "knight",
+          "name": "騎士",
+          "korean": "기사",
+          "japanListed": false
+        },
+        {
+          "id": "warrior",
+          "name": "戦士",
+          "korean": "전사",
+          "japanListed": true
+        },
+        {
+          "id": "greatsword",
+          "name": "大剣戦士",
+          "korean": "대검전사",
+          "japanListed": true
+        },
+        {
+          "id": "swordsman",
+          "name": "剣術士",
+          "korean": "검술사",
+          "japanListed": true
+        }
+      ],
+      "sources": [
+        "classes",
+        "jp-classes",
+        "create"
+      ]
+    },
+    {
+      "id": "archer",
+      "title": "弓",
+      "korean": "궁수",
+      "role": "遠距離",
+      "description": "敵との距離を取りながら、弓やクロスボウの違いを試す。",
+      "image": "archer.webp",
+      "source": "classes",
+      "classes": [
+        {
+          "id": "archer",
+          "name": "弓使い",
+          "korean": "궁수",
+          "japanListed": true
+        },
+        {
+          "id": "crossbow",
+          "name": "クロスボウ使い",
+          "korean": "석궁사수",
+          "japanListed": true
+        },
+        {
+          "id": "longbow",
+          "name": "ロングボウ使い",
+          "korean": "장궁병",
+          "japanListed": true
+        }
+      ],
+      "sources": [
+        "classes",
+        "jp-classes",
+        "create"
+      ]
+    },
+    {
+      "id": "mage",
+      "title": "魔法",
+      "korean": "마법사",
+      "role": "魔法・属性",
+      "description": "魔法と属性を使う系統。詠唱やスキルの感触を確認する。",
+      "image": "mage.webp",
+      "source": "classes",
+      "classes": [
+        {
+          "id": "lightning",
+          "name": "雷術士",
+          "korean": "전격술사",
+          "japanListed": false
+        },
+        {
+          "id": "mage",
+          "name": "魔法使い",
+          "korean": "마법사",
+          "japanListed": true
+        },
+        {
+          "id": "fire",
+          "name": "火炎術師",
+          "korean": "화염술사",
+          "japanListed": true
+        },
+        {
+          "id": "ice",
+          "name": "氷結術師",
+          "korean": "빙결술사",
+          "japanListed": true
+        }
+      ],
+      "sources": [
+        "classes",
+        "jp-classes",
+        "create"
+      ]
+    },
+    {
+      "id": "healer",
+      "title": "ヒーラー",
+      "korean": "힐러",
+      "role": "回復・支援",
+      "description": "回復を起点に、支援や攻撃への広がりを選ぶ。",
+      "image": "healer.webp",
+      "source": "classes",
+      "classes": [
+        {
+          "id": "dark",
+          "name": "暗黒術士",
+          "korean": "암흑술사",
+          "japanListed": false
+        },
+        {
+          "id": "healer",
+          "name": "ヒーラー",
+          "korean": "힐러",
+          "japanListed": true
+        },
+        {
+          "id": "priest",
+          "name": "司祭",
+          "korean": "사제",
+          "japanListed": true
+        },
+        {
+          "id": "monk",
+          "name": "修道士",
+          "korean": "수도사",
+          "japanListed": true
+        }
+      ],
+      "sources": [
+        "classes",
+        "jp-classes",
+        "create"
+      ]
+    },
+    {
+      "id": "bard",
+      "title": "吟遊詩人",
+      "korean": "음유시인",
+      "role": "音楽・支援",
+      "description": "音楽を使う系統。演奏とパーティでの役割を楽しむ。",
+      "image": "bard.webp",
+      "source": "classes",
+      "classes": [
+        {
+          "id": "bard",
+          "name": "吟遊詩人",
+          "korean": "음유시인",
+          "japanListed": true
+        },
+        {
+          "id": "dancer",
+          "name": "ダンサー",
+          "korean": "댄서",
+          "japanListed": true
+        },
+        {
+          "id": "musician",
+          "name": "楽師",
+          "korean": "악사",
+          "japanListed": true
+        }
+      ],
+      "sources": [
+        "classes",
+        "jp-classes",
+        "create"
+      ]
+    },
+    {
+      "id": "rogue",
+      "title": "盗賊",
+      "korean": "도적",
+      "role": "近接・連続攻撃",
+      "description": "盗賊、格闘、二刀流から、近接攻撃のスタイルを選ぶ。",
+      "image": "rogue.webp",
+      "source": "classes",
+      "classes": [
+        {
+          "id": "rogue",
+          "name": "盗賊",
+          "korean": "도적",
+          "japanListed": true
+        },
+        {
+          "id": "fighter",
+          "name": "格闘家",
+          "korean": "격투가",
+          "japanListed": true
+        },
+        {
+          "id": "dualblade",
+          "name": "デュアルブレイド",
+          "korean": "듀얼블레이드",
+          "japanListed": true
+        }
+      ],
+      "sources": [
+        "classes",
+        "jp-classes",
+        "create"
+      ]
+    }
+  ],
+  "database": [
+    {
+      "id": "normal",
+      "name": "通常ダンジョン",
+      "korean": "던전",
+      "category": "ダンジョン",
+      "entry": "メイン進行・初回は魔族の印",
+      "resource": "銀貨／各層最後の区画は魔族の鍵",
+      "reward": "ボス撃破で報酬",
+      "reset": "銀貨は30分に1枚",
+      "sources": [
+        "dungeon"
+      ],
+      "article": "dungeon-basics"
+    },
+    {
+      "id": "deep",
+      "name": "深層ダンジョン",
+      "korean": "심층 던전",
+      "category": "ダンジョン",
+      "entry": "該当ダンジョンの解放",
+      "resource": "魔族の供物／印・鍵は不要",
+      "reward": "通常より希少な装備を狙う",
+      "reset": "供物は12時間に1個",
+      "sources": [
+        "dungeon"
+      ],
+      "article": "dungeon-basics"
+    },
+    {
+      "id": "abyss",
+      "name": "アビス",
+      "korean": "어비스",
+      "category": "ダンジョン",
+      "entry": "Lv.100＋指定クエスト、戦闘力・魔導抵抗",
+      "resource": "最大4人／入場自体は回数無制限",
+      "reward": "クリア報酬は週3回・キャラ単位",
+      "reset": "月曜6:00",
+      "sources": [
+        "abyss"
+      ],
+      "article": "abyss-guide"
+    },
+    {
+      "id": "cabrak",
+      "name": "カブラックレイド",
+      "korean": "카브락 레이드",
+      "category": "ダンジョン",
+      "entry": "レイド解放＋難度別条件",
+      "resource": "最大8人／ソロモードあり",
+      "reward": "ボスごと週1回・キャラ単位",
+      "reset": "月曜6:00",
+      "sources": [
+        "raid"
+      ],
+      "article": "raid-guide"
+    },
+    {
+      "id": "succubus",
+      "name": "ホワイトサキュバス",
+      "korean": "화이트 서큐버스",
+      "category": "ダンジョン",
+      "entry": "レイド解放＋難度別条件",
+      "resource": "最大4人／ソロモードあり",
+      "reward": "ボスごと週1回・キャラ単位",
+      "reset": "月曜6:00",
+      "sources": [
+        "raid"
+      ],
+      "article": "raid-guide"
+    },
+    {
+      "id": "airel",
+      "name": "エイレル",
+      "korean": "에이렐",
+      "category": "ダンジョン",
+      "entry": "レイド解放＋難度別条件",
+      "resource": "最大4人／ソロモードあり",
+      "reward": "ボスごと週1回・キャラ単位",
+      "reset": "月曜6:00",
+      "sources": [
+        "raid"
+      ],
+      "article": "raid-guide"
+    },
+    {
+      "id": "rune",
+      "name": "ルーン刻印",
+      "korean": "룬 각인",
+      "category": "装備・成長",
+      "entry": "関連クエスト後／鍛冶屋・焚き火",
+      "resource": "ルーン",
+      "reward": "希少度・能力値・スキル効果を装備へ",
+      "reset": "段階は★で表示",
+      "sources": [
+        "rune"
+      ],
+      "article": "rune-basics"
+    },
+    {
+      "id": "enhance",
+      "name": "刻印強化",
+      "korean": "각인 강화",
+      "category": "装備・成長",
+      "entry": "ルーン刻印済み装備",
+      "resource": "ルーンの欠片・ゴールド",
+      "reward": "最大20段階／失敗でもポイント蓄積",
+      "reset": "分解でポイント消失",
+      "sources": [
+        "enhance"
+      ],
+      "article": "enhancement"
+    },
+    {
+      "id": "gems",
+      "name": "宝石",
+      "korean": "보석",
+      "category": "装備・成長",
+      "entry": "装備詳細の宝石スロット",
+      "resource": "ダンジョン・宝石ダンジョンで入手",
+      "reward": "装備能力値を増やす",
+      "reset": "昇級と異種合成を区別",
+      "sources": [
+        "gems"
+      ],
+      "article": "gem-guide"
+    },
+    {
+      "id": "convert",
+      "name": "装備変換スクロール",
+      "korean": "장비 변환 스크롤",
+      "category": "装備・成長",
+      "entry": "関連クエスト後、高級以上・強化+1以上",
+      "resource": "武器用／エンブレム用",
+      "reward": "強化・エンチャント・宝石等を保持",
+      "reset": "未鑑定・見習い・ユニーク対象外",
+      "sources": [
+        "convert"
+      ],
+      "article": "equipment-conversion"
+    },
+    {
+      "id": "tools",
+      "name": "生活道具",
+      "korean": "생활도구",
+      "category": "生活",
+      "entry": "バッグの道具タブ",
+      "resource": "入門道具は雑貨店／錬金術は別",
+      "reward": "採集や錬金術の効果",
+      "reset": "鍛冶屋で耐久修理",
+      "sources": [
+        "tools"
+      ],
+      "article": "life-tools"
+    },
+    {
+      "id": "craft",
+      "name": "製作",
+      "korean": "제작",
+      "category": "生活",
+      "entry": "素材・生活スキル・設備レベル",
+      "resource": "用途に応じた製作台",
+      "reward": "レシピの完成品を製作",
+      "reset": "連続製作は最大10回",
+      "sources": [
+        "craft"
+      ],
+      "article": "crafting"
+    },
+    {
+      "id": "home",
+      "name": "小型マイホーム",
+      "korean": "소형 마이홈",
+      "category": "生活",
+      "entry": "エヴァン・オースティンの関連クエスト",
+      "resource": "10,000ゴールド／デコ点数0",
+      "reward": "サーバー単位で1軒",
+      "reset": "購入先はダンバートン等",
+      "sources": [
+        "home"
+      ],
+      "article": "my-home"
+    }
+  ],
+  "news": [
+    {
+      "id": "jp-2026-10-07",
+      "title": "日本版が10月7日に正式サービス開始",
+      "date": "2026-10-07",
+      "publishedAt": "2026-10-07",
+      "tag": "日本版ニュース",
+      "region": "日本版",
+      "source": "jp-launch",
+      "summary": "iOS・Android・Windowsで冒険が始まった。サービス開始記念のプレゼントと各種イベントも案内されている。",
+      "points": [
+        "日本版は2026年10月7日に正式サービス開始。",
+        "iOS・AndroidとWindowsに対応。スマホ・PCのクロスプレイを案内。",
+        "ゲーム内のイベント一覧で開始記念のミッションと報酬を確認できる。"
+      ],
+      "impact": "海外版の攻略を読む時は、日本版の実装内容とゲーム内表示を照合しよう。"
+    },
+    {
+      "id": "jp-gift-2026-10-07",
+      "title": "日本版：サービス開始記念の衣装・染色プレゼント",
+      "date": "2026-10-07",
+      "publishedAt": "2026-10-07",
+      "tag": "イベント",
+      "region": "日本版",
+      "source": "jp-gift",
+      "summary": "レイヤード衣装セット、染色アンプル選択ボックス、ファッションチケット10枚。受取期間は12月31日23:59まで。",
+      "points": [
+        "レイヤード衣装セットボックス、染色アンプル選択ボックス、ファッションチケット×10を配布。",
+        "受け取りはサーバーごとに1回。",
+        "期間は2026年10月7日のサービス開始から12月31日23:59まで。"
+      ],
+      "impact": "キャラクターを作ったら、ゲーム内のプレゼントと受取条件を確認しよう。"
+    },
+    {
+      "id": "2026-10-01",
+      "title": "10月1日更新：長弓兵の強化と新サイドゲーム",
+      "date": "2026-10-01",
+      "publishedAt": "2026-09-30",
+      "tag": "アップデート",
+      "source": "patch-oct",
+      "summary": "長弓兵の3スキルが20%強化。カラーラッシュブリッツが追加され、ダンバートンでポップアップストア関連クエストが始まった。",
+      "points": [
+        "長弓兵：デススティンガー／デッドリーショット／ドラゴンベインのダメージが20%増加。",
+        "ハートシーカーに装飾品ルーン「초음파」を適用すると連打タグが追加。",
+        "カラーラッシュブリッツがサイドゲームに追加。",
+        "ポップアップ関連クエストは10月29日5:59まで。前提はダンバートンへ向かうメインクエスト完了。"
+      ],
+      "impact": "長弓兵を使う人はスキルと宝石のタグを再確認。イベントは対象クエストの期間を確認しよう。"
+    },
+    {
+      "id": "tw-2026-07-22",
+      "title": "台湾・香港・マカオ版「瑪奇 Mobile」の正式開始",
+      "date": "2026-07-22",
+      "publishedAt": "2026-07-22",
+      "tag": "海外サービス",
+      "region": "台湾・香港・マカオ版",
+      "source": "tw-launch",
+      "summary": "繁体字版は7月22日にサービスを開始。地域別のイベントや攻略用語を確認するための、もう一つの海外公式情報源。",
+      "points": [
+        "公式告知で、台湾・香港・マカオでの7月22日開始を確認。",
+        "開始記念クーポンの期限は9月22日で終了済み。過去の告知にあるコードを有効扱いで掲載していない。",
+        "繁体字版は「瑪奇 Mobile」の名前で公式ガイドを提供。"
+      ],
+      "impact": "韓国版・日本版と同じ時期の仕様とは限らないので、地域を分けて資料を読む。"
+    }
+  ],
+  "roadmap": [
+    {
+      "id": "start",
+      "step": "01",
+      "stage": "ゲームを始めたら",
+      "title": "キャラクターを作り、メインクエストへ",
+      "body": "見習いクラスを選び、武器とスキルの使い方を覚える。進行によって新しい機能が解放される。",
+      "article": "first-steps",
+      "sources": [
+        "create",
+        "quest"
+      ],
+      "tasks": [
+        "気になる見習いクラスを選ぶ",
+        "メインクエストを進める",
+        "新しく開いた機能を一つ試す"
+      ]
+    },
+    {
+      "id": "equipment",
+      "step": "02",
+      "stage": "装備が増えてきたら",
+      "title": "鑑定・ルーン・宝石を覚える",
+      "body": "未鑑定装備を調べ、ルーンの効果と宝石スロットを確認する。処分する前に強化の引き継ぎを読む。",
+      "article": "rune-basics",
+      "sources": [
+        "rune",
+        "gems",
+        "enhance"
+      ],
+      "tasks": [
+        "装備を鑑定する",
+        "ルーンの上書きルールを確認する",
+        "宝石を装着する"
+      ]
+    },
+    {
+      "id": "dungeons",
+      "step": "03",
+      "stage": "通常ダンジョンに慣れたら",
+      "title": "深層で装備を集め、協力に慣れる",
+      "body": "銀貨と供物の違いを理解して周回する。ボスの赤・青のオーラと攻撃タグを対応させる。",
+      "article": "dungeon-basics",
+      "sources": [
+        "dungeon",
+        "counter"
+      ],
+      "tasks": [
+        "銀貨と供物の回復を確認する",
+        "強打・連打のスキルを見分ける",
+        "パーティで深層に挑戦する"
+      ]
+    },
+    {
+      "id": "raid",
+      "step": "04",
+      "stage": "Lv.65・関連クエスト後",
+      "title": "レイドを解放し、ボスごとの報酬を管理",
+      "body": "レベルだけで入場できるとは限らない。クエスト、戦闘力、魔導抵抗を確認して練習を始める。",
+      "article": "raid-guide",
+      "sources": [
+        "raid"
+      ],
+      "tasks": [
+        "レイドの解放クエストを確認する",
+        "募集条件とソロ・協力モードを見る",
+        "週1回の報酬をボスごとに確認する"
+      ]
+    },
+    {
+      "id": "abyss",
+      "step": "05",
+      "stage": "Lv.100・関連クエスト後",
+      "title": "アビスの時間条件と週次攻略へ",
+      "body": "11分のタイムアタックで次の難度を開く。週3回のクリア報酬と地域効果を見て進める。",
+      "article": "abyss-guide",
+      "sources": [
+        "abyss"
+      ],
+      "tasks": [
+        "アビスの入場条件を満たす",
+        "今週の地域効果を読む",
+        "残り報酬回数を確認する"
+      ]
+    },
+    {
+      "id": "life",
+      "step": "＋",
+      "stage": "どの段階でも",
+      "title": "採集・製作・焚き火も楽しもう",
+      "body": "戦闘の合間に、必要素材から生活の予定を立てる。道具の耐久と製作成功率を確認しよう。",
+      "article": "life-tools",
+      "sources": [
+        "tools",
+        "craft",
+        "campfire"
+      ],
+      "tasks": [
+        "必要な生活道具をそろえる",
+        "一つのレシピを選ぶ",
+        "焚き火で料理を試す"
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "japanese": "ルーン",
+      "korean": "룬",
+      "description": "装備に刻印して効果を付けるアイテム。",
+      "article": "rune-basics"
+    },
+    {
+      "japanese": "刻印強化",
+      "korean": "각인 강화",
+      "description": "ルーン刻印済み装備の段階を強化する。",
+      "article": "enhancement"
+    },
+    {
+      "japanese": "銀貨",
+      "korean": "은동전",
+      "description": "通常ダンジョンなどの入場資源。",
+      "article": "dungeon-basics"
+    },
+    {
+      "japanese": "魔族の供物",
+      "korean": "마족 공물",
+      "description": "深層ダンジョンの入場資源。",
+      "article": "dungeon-basics"
+    },
+    {
+      "japanese": "魔族の印",
+      "korean": "마족의 징표",
+      "description": "通常ダンジョンの初回入場に使う。",
+      "article": "dungeon-basics"
+    },
+    {
+      "japanese": "魔族の鍵",
+      "korean": "마족의 열쇠",
+      "description": "通常ダンジョン各層の最後の区画に使う。",
+      "article": "dungeon-basics"
+    },
+    {
+      "japanese": "アビス",
+      "korean": "어비스",
+      "description": "最大4人の高難度ダンジョン。",
+      "article": "abyss-guide"
+    },
+    {
+      "japanese": "強打",
+      "korean": "강타",
+      "description": "赤い怒り状態への対応に使う攻撃タグ。",
+      "article": "combat-counter"
+    },
+    {
+      "japanese": "連打",
+      "korean": "연타",
+      "description": "青いカウンター状態への対応に使う攻撃タグ。",
+      "article": "combat-counter"
+    },
+    {
+      "japanese": "宝石",
+      "korean": "보석",
+      "description": "装備スロットに付けて能力値を得る。",
+      "article": "gem-guide"
+    },
+    {
+      "japanese": "生活道具",
+      "korean": "생활도구",
+      "description": "採集や錬金術に使用する道具。",
+      "article": "life-tools"
+    },
+    {
+      "japanese": "焚き火",
+      "korean": "캠프파이어",
+      "description": "回復・料理・ルーン操作を行える場所。",
+      "article": "campfire-life"
+    }
+  ],
+  "social": [
+    {
+      "id": "2107669631427391565",
+      "author": "MabinogiM_JP",
+      "region": "日本",
+      "language": "ja",
+      "type": "公式告知",
+      "title": "日本版サービス開始を公式Xでも告知",
+      "summary": "日本公式が10月7日のサービス開始を案内。公式サイトの発表とも一致する。",
+      "note": "NEXONの公式発表と照合済み。",
+      "postedAt": "2026-10-07T03:09:33Z",
+      "checkedAt": "2026-10-07",
+      "url": "https://x.com/MabinogiM_JP/status/2107669631427391565",
+      "corroboratedBy": "jp-launch"
+    },
+    {
+      "id": "2107426930782015595",
+      "author": "MabinogiM_JP",
+      "region": "日本",
+      "language": "ja",
+      "type": "公式告知",
+      "title": "Appleサインインとスマホ・PC相互利用の案内",
+      "summary": "日本公式は、Appleサインインで同じアカウントをスマホ版とPC版で相互利用できない状態と、対応方針を説明している。",
+      "note": "10月6日の公式投稿。修正状況は最新告知で確認。",
+      "postedAt": "2026-10-06T11:05:09Z",
+      "checkedAt": "2026-10-07",
+      "url": "https://x.com/MabinogiM_JP/status/2107426930782015595",
+      "corroboratedBy": null
+    },
+    {
+      "id": "2107816809185591356",
+      "author": "mabimoba",
+      "region": "日本",
+      "language": "ja",
+      "type": "プレイ記録",
+      "title": "Lv.50到達まで約10時間というプレイ記録",
+      "summary": "日本語のプレイヤーが、約10時間でLv.50に到達したと報告。",
+      "note": "個人の記録。全員に共通する所要時間ではない。",
+      "postedAt": "2026-10-07T12:54:23Z",
+      "checkedAt": "2026-10-07",
+      "url": "https://x.com/mabimoba/status/2107816809185591356",
+      "corroboratedBy": null
+    },
+    {
+      "id": "2107816686787449272",
+      "author": "erufi_SR",
+      "region": "日本",
+      "language": "ja",
+      "type": "感想",
+      "title": "デュアルブレイドの操作感を楽しむ声",
+      "summary": "日本語のプレイヤーがデュアルブレイドの戦闘を楽しんでいると投稿。",
+      "note": "使用感の感想。性能順位を示す検証ではない。",
+      "postedAt": "2026-10-07T12:53:54Z",
+      "checkedAt": "2026-10-07",
+      "url": "https://x.com/erufi_SR/status/2107816686787449272",
+      "corroboratedBy": null
+    },
+    {
+      "id": "2097925479923847677",
+      "author": "48FW4",
+      "region": "韓国",
+      "language": "ko",
+      "type": "攻略記録",
+      "title": "アビス地獄2の戦術を共有",
+      "summary": "韓国プレイヤーが、自分の試したアビス地獄2の戦術を共有。複数の対処法があるため参考として読むよう案内している。",
+      "note": "詳細は投稿の添付資料を確認。本文だけでは戦術を検証できない。",
+      "postedAt": "2026-09-10T05:49:46Z",
+      "checkedAt": "2026-10-07",
+      "url": "https://x.com/48FW4/status/2097925479923847677",
+      "corroboratedBy": null
+    },
+    {
+      "id": "2107759783961063663",
+      "author": "mobinorick",
+      "region": "韓国",
+      "language": "ko",
+      "type": "告知の紹介",
+      "title": "ハングルの日オンタイムイベントの紹介",
+      "summary": "韓国の非公式アカウントが、ハングルの日イベントの告知を紹介。",
+      "note": "非公式の紹介。日時・報酬は韓国公式原文で確認。",
+      "postedAt": "2026-10-07T09:07:47Z",
+      "checkedAt": "2026-10-07",
+      "url": "https://x.com/mobinorick/status/2107759783961063663",
+      "corroboratedBy": null
+    },
+    {
+      "id": "2102231425328243048",
+      "author": "choiaeppo",
+      "region": "韓国",
+      "language": "ko",
+      "type": "プレイ記録",
+      "title": "アビス地獄3の魔導抵抗・毒エリアに言及",
+      "summary": "韓国の配信者が地獄3への挑戦予定と、魔導抵抗や毒エリアへの言及を投稿。",
+      "note": "挑戦の記録。記載値を入場条件の正本には採用していない。",
+      "postedAt": "2026-09-22T03:00:04Z",
+      "checkedAt": "2026-10-07",
+      "url": "https://x.com/choiaeppo/status/2102231425328243048",
+      "corroboratedBy": null
+    },
+    {
+      "id": "2107709361984520392",
+      "author": "mizuo69",
+      "region": "韓国",
+      "language": "ko",
+      "type": "告知の紹介",
+      "title": "日本版の開始に寄せられた韓国からの反応",
+      "summary": "韓国語の投稿で日本版の正式開始を祝い、日本の配信を紹介。",
+      "note": "日本版への反応。韓国版の攻略仕様を示す投稿ではない。",
+      "postedAt": "2026-10-07T05:47:25Z",
+      "checkedAt": "2026-10-07",
+      "url": "https://x.com/mizuo69/status/2107709361984520392",
+      "corroboratedBy": null
+    }
+  ]
+}

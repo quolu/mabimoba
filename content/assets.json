@@ -1,0 +1,110 @@
+{
+  "assets": [
+    {
+      "name": "Welcome to TirChonaill",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/e55138e1-2716-4b02-8eca-299708282b05/%ED%8B%B0%EB%A5%B4%EC%BD%94%EB%84%A4%EC%9D%BC%EC%97%90%EC%98%A4%EC%8B%A0%EA%B2%83%EC%9D%84%ED%99%98%EC%98%81%ED%95%A9%EB%8B%88%EB%8B%A4%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "公式一覧のサムネイル。画像内にロゴと著作権表記あり。",
+      "file": "tir-chonaill.webp"
+    },
+    {
+      "name": "Lazy Afternoon",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/8bed58be-a0bf-42a4-b33a-1dad308c809d/%ED%95%9C%EA%B0%80%EB%A1%9C%EC%9A%B4%EC%98%A4%ED%9B%84%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "公式一覧のサムネイル。画像内にロゴと著作権表記あり。",
+      "file": "fishing.webp"
+    },
+    {
+      "name": "Day in the Pastures",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/500312c0-c3f8-4963-9eb3-fe5aab9a7dde/%EB%AA%A9%EC%9E%A5%EC%97%90%EC%84%9C%EC%9D%98%ED%95%98%EB%A3%A8%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "公式一覧のサムネイル。画像内にロゴと著作権表記あり。",
+      "file": "pasture.webp"
+    },
+    {
+      "name": "warrior",
+      "url": "https://lwi.nexon.com/m_mabinogim/brand/info/class/warrior_line_2_37B2D3A04C09CC2F.png",
+      "dimensions": [
+        830,
+        1024
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Info/Class",
+      "sourceStylesheet": "https://lwres.nexon.com/css/mabinogim/global/en/info/class.css",
+      "note": "公式クラス紹介で使用される透明背景PNG。",
+      "file": "warrior.webp"
+    },
+    {
+      "name": "archer",
+      "url": "https://lwi.nexon.com/m_mabinogim/brand/info/class/archer_line_2_946AEAF0A67A9596.png",
+      "dimensions": [
+        512,
+        1144
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Info/Class",
+      "sourceStylesheet": "https://lwres.nexon.com/css/mabinogim/global/en/info/class.css",
+      "note": "公式クラス紹介で使用される透明背景PNG。",
+      "file": "archer.webp"
+    },
+    {
+      "name": "mage",
+      "url": "https://lwi.nexon.com/m_mabinogim/brand/info/class/mage_line_2_3B83737BEFFE2F1E.png",
+      "dimensions": [
+        466,
+        1112
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Info/Class",
+      "sourceStylesheet": "https://lwres.nexon.com/css/mabinogim/global/en/info/class.css",
+      "note": "公式クラス紹介で使用される透明背景PNG。",
+      "file": "mage.webp"
+    },
+    {
+      "name": "healer",
+      "url": "https://lwi.nexon.com/m_mabinogim/brand/info/class/healer_line_2_F36BCFDF34ADEF01.png",
+      "dimensions": [
+        418,
+        1172
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Info/Class",
+      "sourceStylesheet": "https://lwres.nexon.com/css/mabinogim/global/en/info/class.css",
+      "note": "公式クラス紹介で使用される透明背景PNG。",
+      "file": "healer.webp"
+    },
+    {
+      "name": "bard",
+      "url": "https://lwi.nexon.com/m_mabinogim/brand/info/class/bard_line_2_9BC13B02244F2CCE.png",
+      "dimensions": [
+        618,
+        1202
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Info/Class",
+      "sourceStylesheet": "https://lwres.nexon.com/css/mabinogim/global/en/info/class.css",
+      "note": "公式クラス紹介で使用される透明背景PNG。",
+      "file": "bard.webp"
+    },
+    {
+      "name": "thief",
+      "url": "https://lwi.nexon.com/m_mabinogim/brand/info/class/thief_line_2_329BACBB215B9685.png",
+      "dimensions": [
+        730,
+        1108
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Info/Class",
+      "sourceStylesheet": "https://lwres.nexon.com/css/mabinogim/global/en/info/class.css",
+      "note": "公式クラス紹介で使用される透明背景PNG。",
+      "file": "rogue.webp"
+    }
+  ],
+  "rightsObserved": "公式フッターにAll Rights reserved表記あり。画像の再配布・加工・ファンサイト利用を明示許可する素材利用規定は今回の確認範囲では未確認。"
+}

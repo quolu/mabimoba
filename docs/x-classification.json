@@ -1,0 +1,144 @@
+{
+  "model": "jev-1.13.0",
+  "usage": {
+    "input_tokens": 4691,
+    "output_tokens": 598
+  },
+  "rows": [
+    {
+      "url": "https://x.com/mabimoba/status/2107816809185591356",
+      "type": "choice",
+      "choice": "record",
+      "confidence": 1,
+      "probabilities": {
+        "record": 1,
+        "opinion": 0,
+        "other": 0,
+        "announcement": 0,
+        "issue": 0,
+        "official": 0,
+        "strategy": 0
+      }
+    },
+    {
+      "url": "https://x.com/erufi_SR/status/2107816686787449272",
+      "type": "choice",
+      "choice": "opinion",
+      "confidence": 1,
+      "probabilities": {
+        "strategy": 0,
+        "official": 0,
+        "record": 0,
+        "announcement": 0,
+        "issue": 0,
+        "opinion": 1,
+        "other": 0
+      }
+    },
+    {
+      "url": "https://x.com/kukuru_gotchani/status/2107816604377763912",
+      "type": "choice",
+      "choice": "issue",
+      "confidence": 1,
+      "probabilities": {
+        "other": 0,
+        "official": 0,
+        "strategy": 0,
+        "announcement": 0,
+        "issue": 1,
+        "record": 0,
+        "opinion": 0
+      }
+    },
+    {
+      "url": "https://x.com/mobinorick/status/2107759783961063663",
+      "type": "choice",
+      "choice": "announcement",
+      "confidence": 0.96,
+      "probabilities": {
+        "strategy": 0,
+        "official": 0.03,
+        "record": 0,
+        "announcement": 0.97,
+        "issue": 0,
+        "opinion": 0,
+        "other": 0
+      }
+    },
+    {
+      "url": "https://x.com/mobinorick/status/2107759255373992382",
+      "type": "choice",
+      "choice": "announcement",
+      "confidence": 0.94,
+      "probabilities": {
+        "strategy": 0,
+        "opinion": 0,
+        "record": 0,
+        "announcement": 0.95,
+        "issue": 0,
+        "other": 0,
+        "official": 0.05
+      }
+    },
+    {
+      "url": "https://x.com/mizuo69/status/2107709361984520392",
+      "type": "choice",
+      "choice": "announcement",
+      "confidence": 0.51,
+      "probabilities": {
+        "other": 0.17,
+        "official": 0.04,
+        "strategy": 0,
+        "announcement": 0.58,
+        "issue": 0,
+        "record": 0.02,
+        "opinion": 0.19
+      }
+    },
+    {
+      "url": "https://x.com/MabinogiM_JP/status/2107669631427391565",
+      "type": "choice",
+      "choice": "official",
+      "confidence": 0.93,
+      "probabilities": {
+        "record": 0,
+        "opinion": 0,
+        "other": 0.02,
+        "announcement": 0.04,
+        "issue": 0,
+        "official": 0.94,
+        "strategy": 0
+      }
+    },
+    {
+      "url": "https://x.com/choiaeppo/status/2102231425328243048",
+      "type": "choice",
+      "choice": "record",
+      "confidence": 0.33,
+      "probabilities": {
+        "strategy": 0.11,
+        "official": 0,
+        "record": 0.43,
+        "announcement": 0.01,
+        "issue": 0,
+        "opinion": 0.22,
+        "other": 0.23
+      }
+    },
+    {
+      "url": "https://x.com/48FW4/status/2097925479923847677",
+      "type": "choice",
+      "choice": "strategy",
+      "confidence": 1,
+      "probabilities": {
+        "other": 0,
+        "opinion": 0,
+        "official": 0,
+        "announcement": 0,
+        "issue": 0,
+        "record": 0,
+        "strategy": 1
+      }
+    }
+  ]
+}
