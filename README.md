@@ -20,6 +20,6 @@ npm run dev
 
 編集の正本は [content/portal.json](content/portal.json)。画像の出典は [content/assets.json](content/assets.json)。配置先と公開経路は [deploy/target.json](deploy/target.json) に置く。
 
-更新・公開は [docs/maintenance.md](docs/maintenance.md)、資料調査は [rag/INDEX.md](rag/INDEX.md) を参照。定期更新の設定は行っていない。
+更新・公開は [docs/maintenance.md](docs/maintenance.md)、資料調査は [rag/INDEX.md](rag/INDEX.md) を参照。毎日16:00（日本時間）に定期更新する。
 
 公式画像・ゲーム関連の著作物はNEXONおよびdevCAT等の権利者に帰属する。本サイトは公式・公認サイトではない。
