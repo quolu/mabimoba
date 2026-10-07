@@ -19,6 +19,8 @@
 - 日本公式紹介は18転職クラス、韓国公式紹介は21転職クラスを掲載。掲載の有無から未実装を断定しない。
 - 韓国公式のURLは日本IPから英語トップへredirectする場合がある。日本での閲覧失敗を資料消失として扱わない。
 - 2026-10-07実測（BellTeamコンテナとmain-server）: 韓国公式は一覧・個別記事とも `/en/Main` へ302で転送され本文を読めない。台湾公式は一覧が403（Cloudflareの確認画面）。日本公式のお知らせ・アップデート・イベント一覧は200で、記事リンクがHTMLに含まれる。
+- 同日、韓国公式を読む経路を調べた。`/ko/`・`/kr/`の接頭辞、言語ヘッダー、個別記事URL、`forum.nexon.com/mabinogimobile` はすべて同じ転送になる。`robots.txt` は全体許可、`sitemap.xml` はFAQと一覧だけを載せる。Nexon Open APIにマビノギモバイルの項目は無い。Internet Archiveは応答不能で未確認。
+- 動いた経路: Naver検索 `site:mabinogimobile.nexon.com` は公式URL・題名・抜粋を返し、5時間前の告知（News/Notice/3559028）も載っていた。Xの `mobinorick` は10/1アップデートノートを章別の画像で投稿しており、長弓兵の調整（3スキルのダメージ20%増）を画像から読めた。韓国App Store（`com.nexon.devcat.mm`、v3.3.150011、2026-09-16）は更新内容の要約を返す。
 - 同日、韓国の攻略媒体Inven（`mabimo.inven.co.kr`）は200で読めた。Xの `mobinorick` は韓国公式の告知題名とリンクを転記している（公式アカウントではない）。
 - 台湾・香港・マカオ版は公式の2026-07-22告知で開始を確認。過去クーポンは期限終了を確認。
 - Xはxarticleの既存ベルaccountで日本語・韓国語をread-only検索。投稿・follow・like等は行っていない。
