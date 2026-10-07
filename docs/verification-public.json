@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-07",
+  "url": "https://mabimoba.kitepon.dev",
+  "result": "成功",
+  "checks": [
+    "HTTPS表示200",
+    "CSP付きの実配信で日本語・韓国語検索、DB・日韓X分類",
+    "チェック保存と再読込",
+    "390pxの公開画面とメニュー",
+    "404ページ",
+    "公式画像9枚の読み込み",
+    "実行エラーなし"
+  ],
+  "deploymentNote": "最初の試験中、コンテナ再作成に伴う名前解決の一時失敗で初心者ページが502となったことをCaddyログで確認。更新完了後の残りの公開試験は成功。",
+  "revision": "93f2937c4e679a20131e809354b5f98c97005cc2",
+  "serverChecks": [
+    "専用コンテナhealthy",
+    "mabimoba HTTPS health200",
+    "kitepon.dev200",
+    "bank.kitepon.dev200"
+  ]
+}
