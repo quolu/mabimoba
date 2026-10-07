@@ -12,3 +12,5 @@
 .nav-close{display:none}.sidebar{overflow-y:auto}
 @media(max-width:760px){.nav-close{display:block;position:absolute;top:15px;right:15px;padding:4px 12px;background:none;color:#d2eee3;font-size:25px;line-height:1.5}.hero-art>span{display:none}.beginner-feature img{object-fit:contain;background:#dbeef0}}
 @media(max-width:450px){.hero-copy h1 br{display:initial}.hero-copy h1{font-size:28px}}
+.launch-strip{display:flex;gap:12px;align-items:center;margin-top:18px;padding:14px 18px;background:#eef4fb;border:1px solid #d5e3f3;border-radius:12px;font-size:13px}.launch-strip p{margin:0;line-height:1.7;flex:1}.launch-strip>a{margin-left:auto;padding:8px 14px;border-radius:8px;background:#38689e;color:#fff;font-weight:600;font-size:12px;white-space:nowrap}.launch-strip>a:hover{background:#2d5683}
+@media(max-width:760px){.launch-strip{flex-wrap:wrap;gap:8px;padding:12px 14px;font-size:12px}.launch-strip p{flex-basis:100%}.launch-strip>a{margin-left:0}}

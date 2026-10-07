@@ -12,7 +12,7 @@ export async function validate(data, assets) {
  for(const a of data.articles) {if(!allowed.has(a.category)||!a.region||!a.checkedAt||!a.sections.length||!a.sources.length)throw new Error(`ARTICLE_INCOMPLETE: ${a.id}`);for(const id of a.sources)if(!ids.has(id))throw new Error(`SOURCE_MISSING: ${a.id}/${id}`);for(const id of a.related)if(!articles.has(id))throw new Error(`ARTICLE_LINK_MISSING: ${id}`);}
  for(const item of [...data.database,...data.roadmap,...data.glossary]) {if(!articles.has(item.article))throw new Error(`ARTICLE_LINK_MISSING: ${item.article}`);for(const id of item.sources??[])if(!ids.has(id))throw new Error(`SOURCE_MISSING: ${id}`);}
  for(const f of data.families) {if(!ids.has(f.source))throw new Error(`SOURCE_MISSING: ${f.source}`);await access('public/assets/'+f.image);}
- for(const n of data.news) {if(!ids.has(n.source))throw new Error(`SOURCE_MISSING: ${n.source}`);if(!date.test(n.date)||!n.points.length)throw new Error(`NEWS_INVALID: ${n.id}`);}
+ for(const n of data.news) {for(const id of n.sources??[n.source])if(!ids.has(id))throw new Error(`SOURCE_MISSING: ${id}`);if(!date.test(n.date)||!n.points.length)throw new Error(`NEWS_INVALID: ${n.id}`);}
  for(const p of data.social) {if(!p.url.startsWith(`https://x.com/${p.author}/status/`)||!['日本','韓国'].includes(p.region)||!Number.isFinite(Date.parse(p.postedAt)))throw new Error(`SOCIAL_INVALID: ${p.id}`);if(p.corroboratedBy&&!ids.has(p.corroboratedBy))throw new Error(`SOURCE_MISSING: ${p.corroboratedBy}`);}
  for(const a of assets.assets)await access('public/assets/'+a.file);
  for(const a of data.articles.filter(a=>a.image))await access('public/assets/'+a.image);
