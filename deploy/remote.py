@@ -92,7 +92,8 @@ for url in ['https://' + TARGET['domain'] + '/healthz'] + TARGET['existingSmokeU
     last = None
     for attempt in range(5):
         try:
-            with urllib.request.urlopen(url, timeout=15) as response:
+            request = urllib.request.Request(url, headers={'User-Agent':'mabimoba-deploy/1.0'})
+            with urllib.request.urlopen(request, timeout=15) as response:
                 if response.status!=200:
                     raise RuntimeError('HTTPS_STATUS: ' + str(response.status))
                 if url.endswith('/healthz'):
