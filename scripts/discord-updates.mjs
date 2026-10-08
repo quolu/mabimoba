@@ -11,7 +11,7 @@ function itemField(data, item, origin, date) {
   const article = data.articles.find(row => url.pathname === `/guides/${row.id}/`);
   const news = url.pathname === '/news/' ? data.news.find(row => url.hash === `#${row.id}`) : null;
   const post = url.pathname === '/community/' ? data.social.find(row => url.hash === `#post-${row.id}`) : null;
-  const sourceIds = article?.sources ?? (news ? [news.source] : post?.corroboratedBy ? [post.corroboratedBy] : []);
+  const sourceIds = article?.sources ?? (news ? news.sources ?? [news.source] : post?.corroboratedBy ? [post.corroboratedBy] : []);
   const sources = sourceIds.map(id => {
     const source = data.sources.find(row => row.id === id);
     if (!source) throw new Error(`DISCORD_SOURCE_MISSING: ${id}`);

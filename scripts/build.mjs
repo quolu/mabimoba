@@ -60,7 +60,7 @@ function home() {
  <section>${sectionHeading('ADVENTURE GUIDE','次に読みたい攻略','/guides/','攻略ガイド一覧')}<div class="article-grid">${['rune-basics','dungeon-basics','gem-guide'].map(id=>articleCard(data.articles.find(a=>a.id===id))).join('')}</div></section>
  <section class="life-banner">${asset('fishing.webp','川辺で釣りを楽しむ冒険者')}<div><span class="eyebrow">LIFE IN ERIN</span><h2>戦う日も、のんびりする日も。</h2><p>採集、製作、焚き火、マイホーム。<br>エリンでの暮らしを、自分のペースで。</p><a class="button dark" href="/life/">生活ガイドを読む</a></div></section>`;
 }
-const revision = createHash('sha256').update(JSON.stringify(data)).update(await readFile('public/style.css')).update(await readFile('public/app.js')).update(await readFile('scripts/build.mjs')).digest('hex').slice(0,12);
+const revision = createHash('sha256').update(JSON.stringify(data)).update(await readFile('public/style.css')).update(await readFile('public/app.js')).update(await readFile('scripts/build.mjs')).update(await readFile('scripts/discord-updates.mjs')).update(botOrigin).digest('hex').slice(0,12);
 await rm('dist',{recursive:true,force:true}); await mkdir('dist',{recursive:true}); await cp('public','dist',{recursive:true});
 const pages = new Map();
 pages.set('/', {title:'ホーム',body:home()});

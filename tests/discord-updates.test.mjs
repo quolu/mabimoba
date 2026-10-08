@@ -32,3 +32,12 @@ test('長い日次通知は項目の境目で分割し、再掲載された項�
   assert.throws(() => planNotifications({ ...data, changelog: [{ ...data.changelog[0], items: [{ ...items[0], text: '長'.repeat(1100) }] }] }, [], origin), /DISCORD_ITEM_TOO_LONG/);
 });
 
+
+test('記事画面が扱う複数出典のニュースも通知できる', () => {
+  const data = current();
+  const news = data.news.find(news => data.changelog.some(day => day.items.some(item => item.url === '/news/#' + news.id)));
+  const source = data.sources.find(source => source.id === news.source);
+  news.sources = [news.source]; delete news.source;
+  const batches = planNotifications(data, [], origin);
+  assert.ok(batches.some(batch => batch.payload.embeds[0].fields.some(field => field.value.includes(source.url))));
+});
