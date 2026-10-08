@@ -104,6 +104,19 @@
       "sourceStylesheet": "https://lwres.nexon.com/css/mabinogim/global/en/info/class.css",
       "note": "公式クラス紹介で使用される透明背景PNG。",
       "file": "rogue.webp"
+    },
+    {
+      "name": "正式サービス開始記念プレゼント（日本公式のお知らせ画像）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20261007/318655d8-e377-4ccb-87c9-5c9454b79a99/bnrmm20261007PresentCampnews900x675.png",
+      "dimensions": [
+        900,
+        675
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/news/notice/3559220",
+      "note": "日本公式のお知らせ「正式サービス開始記念プレゼント！」に掲載された画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式の告知画像。制服姿の4人のキャラクターと、ファッションチケット×10、レイヤード衣装セットボックス、染色アンプル選択ボックス",
+      "caption": "日本公式のお知らせ「正式サービス開始記念プレゼント！」の画像（© NEXON Co., Ltd. & devCAT CO., LTD.／記事末尾に出典）",
+      "file": "jp-launch-present.webp"
     }
   ],
   "rightsObserved": "公式フッターにAll Rights reserved表記あり。画像の再配布・加工・ファンサイト利用を明示許可する素材利用規定は今回の確認範囲では未確認。"

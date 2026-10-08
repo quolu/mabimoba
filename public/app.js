@@ -3,7 +3,7 @@ menuButton?.addEventListener('click',()=>{const open=menuButton.getAttribute('ar
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){document.body.classList.remove('menu-open');menuButton?.setAttribute('aria-expanded','false')}if(event.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(event.target.tagName)){event.preventDefault();location.href='/search/'}});
 for(const bar of document.querySelectorAll('[data-filter-target]')) {
  const rows=[...document.querySelector('#'+bar.dataset.filterTarget).children];
- bar.addEventListener('click',event=>{const button=event.target.closest('[data-filter]');if(!button)return;for(const b of bar.querySelectorAll('button'))b.setAttribute('aria-pressed',String(b===button));for(const row of rows)row.hidden=button.dataset.filter!=='すべて'&&row.dataset.category!==button.dataset.filter;});
+ bar.addEventListener('click',event=>{const button=event.target.closest('[data-filter]');if(!button)return;for(const b of bar.querySelectorAll('button'))b.setAttribute('aria-pressed',String(b===button));for(const row of rows)row.hidden=button.dataset.filter!=='すべて'&&!row.dataset.category.split(' ').includes(button.dataset.filter);});
 }
 const checkboxes=[...document.querySelectorAll('[data-task]')];
 if(checkboxes.length) {
