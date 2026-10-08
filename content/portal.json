@@ -51,6 +51,11 @@
           "type": "サイトの改良",
           "text": "攻略ガイド一覧に「日本版」の絞り込みを追加",
           "url": "/guides/"
+        },
+        {
+          "type": "サイトの改良",
+          "text": "Discordボットを招待すると「攻略通信（kitepon.dev）」を自動作成し、更新情報を通知",
+          "url": "/discord/"
         }
       ]
     },
@@ -2582,6 +2587,6 @@
     }
   ],
   "discord": {
-    "enabled": false
+    "enabled": true
   }
 }

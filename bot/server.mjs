@@ -38,7 +38,7 @@ async function setupGuild(guild) {
   try {
     const result = await delivery.autoStart(guild.id, await loadPublishedSnapshot(origin), async () => {
       const channel = await guild.channels.create({ name: channelName, type: ChannelType.GuildText,
-        topic: 'マビモバ攻略ポータルの更新通知 https://mabimoba.kitepon.dev/', reason: '更新通知用の専用チャンネルを作成' });
+        topic: channelName + ' · マビモバ攻略ポータルの更新通知 ' + origin + '/', reason: '更新通知用の専用チャンネルを作成' });
       // Discordが名前を正規化しても、返されたIDを正本として登録する。
       return channel.id;
     });
