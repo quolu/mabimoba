@@ -1,0 +1,32 @@
+services:
+  discord:
+    build:
+      context: .
+      dockerfile: bot/Dockerfile
+    image: mabimoba-discord:${MABIMOBA_REVISION:?MABIMOBA_REVISIONを指定してください}
+    container_name: mabimoba-discord
+    restart: unless-stopped
+    read_only: true
+    init: true
+    secrets:
+      - discord-token
+    volumes:
+      - ${HOME}/.local/state/mabimoba/discord:/data
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - public-web
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+secrets:
+  discord-token:
+    file: ${HOME}/.config/mabimoba/discord-token
+networks:
+  public-web:
+    external: true
+    name: license-server_default

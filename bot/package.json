@@ -1,0 +1,7 @@
+{
+  "name": "mabimoba-discord",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "dependencies": { "discord.js": "14.27.0" }
+}

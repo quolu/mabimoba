@@ -23,3 +23,5 @@ npm run dev
 更新・公開は [docs/maintenance.md](docs/maintenance.md)、資料調査は [rag/INDEX.md](rag/INDEX.md) を参照。毎日16:00（日本時間）に定期更新する。
 
 公式画像・ゲーム関連の著作物はNEXONおよびdevCAT等の権利者に帰属する。本サイトは公式・公認サイトではない。
+
+Discordの更新通知は `npm run notify`。招待できるBotの初回接続と定期更新での実行順は [更新手順](docs/maintenance.md#招待できるdiscordボット) を参照。サーバーごとの通知先とBotトークンはリポジトリ外で管理する。

@@ -1,0 +1,11 @@
+const args = process.argv.slice(2);
+let options = {};
+if (!args.length) options = {};
+else if (args.length === 1 && args[0] === '--dry-run') options.dryRun = true;
+else if (args.length === 3 && args[0] === '--confirm-message' && args.slice(1).every(id => /^\d+$/.test(id))) options = { guildId: args[1], confirmMessage: args[2] };
+else if (args.length === 2 && args[0] === '--retry-unsent' && /^\d+$/.test(args[1])) options = { guildId: args[1], retryUnsent: true };
+else throw new Error('DISCORD_ARGUMENT_INVALID');
+const response = await fetch('http://127.0.0.1:8081/notify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(options) });
+const result = await response.json();
+console.log(JSON.stringify(result, null, 2));
+if (!response.ok || result.ok === false) process.exitCode = 1;

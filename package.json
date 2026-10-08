@@ -6,8 +6,11 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "node scripts/serve.mjs",
-    "check": "node scripts/validate.mjs",
-    "deploy": "node scripts/deploy.mjs"
+    "check": "node scripts/validate.mjs && node scripts/notify.mjs --validate",
+    "deploy": "node scripts/deploy.mjs",
+    "notify": "node scripts/notify.mjs",
+    "test:notify": "node --test tests/discord-*.test.mjs",
+    "discord:deploy": "node scripts/deploy-bot.mjs"
   },
   "engines": {
     "node": ">=24"
