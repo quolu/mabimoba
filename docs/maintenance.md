@@ -66,7 +66,9 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 5. `/discord/invite` がDiscordの招待ページへ転送することを確認する。招待リンクは「チャンネルの管理」「チャンネルを見る」「メッセージを送信」「埋め込みリンク」「メッセージ履歴を読む」を指定する。管理者権限は要求しない。
 6. 実際のサーバーへ招待し、通知先で開始・状態・停止を確認する。初回は最新日の更新だけを送り、過去の日付は既読の基準として記録する。
 
-Bot専用の依存パッケージは `bot/package.json` とlockfileで管理する。Node.jsとdiscord.jsを使い、Gateway接続は `Guilds` intentだけに限定する。ポータル本体の依存パッケージは増やさない。Caddy・Cloudflareの共有設定も変更しない。招待URLだけをポータルのnginxからBotへ中継し、配信操作のHTTP受付はコンテナ内のloopbackだけに限定する。
+Bot専用の依存パッケージは `bot/package.json` とlockfileで管理する。Node.jsとdiscord.jsを使い、Gateway接続は `Guilds` intentだけに限定する。ポータル本体の依存パッケージは増やさない。Caddy・Cloudflareの共有設定も変更しない。招待URLと導入サーバー数の取得だけをポータルのnginxからBotへ中継し、配信操作のHTTP受付はコンテナ内のloopbackだけに限定する。
+
+招待ページの導入サーバー数は、ページを開くたびに `/discord/stats` から取得する。Botが接続中に保持する参加サーバーの総数を返し、通知を停止したサーバーも含める。サーバー名・ID・通知先は公開しない。集計値を保存せず、応答はキャッシュしない。Discord未接続時は503を返し、ページにも取得失敗を表示する。
 
 状態はmain-serverの `~/.local/state/mabimoba/discord/subscriptions.json`。秘密トークンとは分け、コンテナを作り直しても保持する。Mac・ルピーの席はこの記録を直接編集せず、常駐Botの正規コマンドを呼ぶ。
 

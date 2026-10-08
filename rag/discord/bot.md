@@ -10,6 +10,12 @@ HTTP Interactionsも可能だが、Gatewayの `Guilds` intentを使うとサー�
 
 接続・再接続・429の待機はdiscord.jsが担当する。Bot専用のpackageとlockfileへ閉じ込め、ポータル本体は依存0個を保つ。ポータルの公開でBotを再起動する必要はなく、Botは公開済みの生成データを読む。
 
+## 導入サーバー数
+
+出典：[discord.js Client](https://discord.js.org/docs/packages/discord.js/14.27.0/Client:Class)、[GuildManager](https://discord.js.org/docs/packages/discord.js/14.27.0/GuildManager:Class)。確認日：2026-10-08。確度：公式資料で確認。
+
+単一プロセスで接続しているBotでは `client.guilds.cache` が参加サーバーを保持し、`size` で総数を取得できる。通知の登録件数とは区別し、停止中のサーバーも数える。招待ページはBotの公開HTTPから総数だけを読み、Discord接続前は503で失敗を明示する。プロセスを分割する時は全プロセスの集計が必要。
+
 ## 送信の境界
 
 Embedはタイトル256文字、本文4096文字、フィールド25個、フィールド値1024文字、全体6000文字まで。更新項目の途中は切り詰めず、項目単位で通知を分ける。メンションは `allowed_mentions.parse=[]`。

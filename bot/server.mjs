@@ -3,6 +3,7 @@ import { handleInteraction, neededPermissions } from './commands.mjs';
 import { createServer } from 'node:http';
 import { readFileSync } from 'node:fs';
 import { SubscriptionStore, DeliveryService, loadPublishedSnapshot, failureCode } from './core.mjs';
+import { createPublicHandler } from './public-http.mjs';
 
 const target = JSON.parse(readFileSync(new URL('../deploy/target.json', import.meta.url), 'utf8'));
 const origin = `https://${target.domain}`;
@@ -28,6 +29,7 @@ const command = new SlashCommandBuilder().setName('マビモバ').setDescription
 let commandsReady = false;
 const ready = () => client.isReady() && commandsReady;
 const invite = () => `https://discord.com/oauth2/authorize?client_id=${client.application.id}&scope=bot%20applications.commands&permissions=${needed}&integration_type=0`;
+const handlePublicRequest = createPublicHandler({ ready, invite, guildCount: () => client.guilds.cache.size });
 const logError = (kind, error) => console.error(JSON.stringify({ kind, code: failureCode(error) }));
 
 client.on(Events.InteractionCreate, interaction => handleInteraction(interaction, { delivery, store, loadSnapshot: () => loadPublishedSnapshot(origin), logError }));
@@ -68,8 +70,7 @@ createServer(async (request, response) => {
   response.setHeader('Content-Type', 'application/json; charset=utf-8');
   response.setHeader('Cache-Control', 'no-store');
   const path = new URL(request.url, 'http://localhost').pathname;
-  if (request.method === 'GET' && path === '/healthz') { response.writeHead(ready() ? 200 : 503); response.end(JSON.stringify({ status: ready() ? 'ok' : 'connecting' })); return; }
-  if (request.method === 'GET' && path === '/invite') { response.writeHead(ready() ? 302 : 503, ready() ? { Location: invite() } : {}); response.end(); return; }
+  if (handlePublicRequest(request, response)) return;
   if (request.method !== 'POST' || path !== '/notify' || request.socket.remoteAddress !== '127.0.0.1') { response.writeHead(404); response.end(JSON.stringify({ error: 'NOT_FOUND' })); return; }
   try {
     if (!ready()) throw new Error('DISCORD_NOT_READY');

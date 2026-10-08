@@ -56,6 +56,11 @@
           "type": "サイトの改良",
           "text": "Discordボットを招待すると「攻略通信（kitepon.dev）」を自動作成し、更新情報を通知",
           "url": "/discord/"
+        },
+        {
+          "type": "サイトの改良",
+          "text": "Discordボットの招待ページに、現在の導入サーバー数を表示",
+          "url": "/discord/"
         }
       ]
     },

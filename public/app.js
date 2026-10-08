@@ -1,4 +1,20 @@
 const menuButton = document.querySelector('.menu-button');
+const discordStats = document.querySelector('[data-discord-stats]');
+if (discordStats) {
+ discordStats.textContent = '導入サーバー数を確認しています…';
+ fetch('/discord/stats', { cache: 'no-store', signal: AbortSignal.timeout(10000) })
+  .then(response => { if (!response.ok) throw new Error('DISCORD_STATS_HTTP_' + response.status); return response.json(); })
+  .then(data => {
+   if (!Number.isSafeInteger(data.guildCount) || data.guildCount < 0) throw new Error('DISCORD_STATS_INVALID');
+   discordStats.textContent = new Intl.NumberFormat('ja-JP').format(data.guildCount) + ' サーバー';
+   discordStats.dataset.status = 'ready';
+  })
+  .catch(error => {
+   discordStats.textContent = '導入サーバー数を取得できません。時間を置いてページを再読み込みしてください。';
+   discordStats.dataset.status = 'error';
+   console.error(error);
+  });
+}
 menuButton?.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));document.body.classList.toggle('menu-open',!open)});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){document.body.classList.remove('menu-open');menuButton?.setAttribute('aria-expanded','false')}if(event.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(event.target.tagName)){event.preventDefault();location.href='/search/'}});
 for(const bar of document.querySelectorAll('[data-filter-target]')) {
