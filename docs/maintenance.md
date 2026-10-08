@@ -59,6 +59,10 @@ Bot専用の依存パッケージは `bot/package.json` とlockfileで管理す�
 
 状態はmain-serverの `~/.local/state/mabimoba/discord/subscriptions.json`。秘密トークンとは分け、コンテナを作り直しても保持する。Mac・ルピーの席はこの記録を直接編集せず、常駐Botの正規コマンドを呼ぶ。
 
+### Botプロフィールを更新する
+
+プロフィールの概要は `content/discord-profile.json` を正本にする。公開中の製品サイトで用途を確かめ、400文字以内に収める。変更をcheck・commit・pushした後、`npm run discord:profile` でDiscordへ反映する。Discord公式APIで概要だけを更新し、読み戻して一致を確認する。更新前の概要はmain-serverの専用stateへ保存する。Botの再起動は不要。
+
 ### 公開後に全登録先へ配信する
 
 `npm run notify` はSSHでmain-serverのBotを呼ぶ。Botは公開先のhealthと更新データが同じビルドのものか確認し、各サーバーの未送信分を順に配信する。`npm run notify -- --dry-run` は内容と保留状況を表示し、送信・状態変更は行わない。呼出し元にトークンは不要。

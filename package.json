@@ -6,12 +6,13 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "node scripts/serve.mjs",
-    "check": "node scripts/validate.mjs && node scripts/notify.mjs --validate",
+    "check": "node scripts/validate.mjs && node scripts/notify.mjs --validate && node scripts/update-bot-profile.mjs --validate",
     "deploy": "node scripts/deploy.mjs",
     "notify": "node scripts/notify.mjs",
     "test:notify": "node --test tests/discord-*.test.mjs",
     "discord:deploy": "node scripts/deploy-bot.mjs",
-    "discord:configure": "node scripts/configure-bot.mjs"
+    "discord:configure": "node scripts/configure-bot.mjs",
+    "discord:profile": "node scripts/update-bot-profile.mjs"
   },
   "engines": {
     "node": ">=24"
