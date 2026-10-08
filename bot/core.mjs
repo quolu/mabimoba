@@ -9,11 +9,14 @@ export class SubscriptionStore {
   constructor(path) {
     this.path = path;
     try { this.data = JSON.parse(readFileSync(path, 'utf8')); }
-    catch (error) { if (error.code !== 'ENOENT') throw error; this.data = { schemaVersion: 1, subscriptions: {} }; }
-    if (this.data.schemaVersion !== 1 || !this.data.subscriptions || Array.isArray(this.data.subscriptions)) throw new Error('DISCORD_STATE_INVALID');
+    catch (error) { if (error.code !== 'ENOENT') throw error; this.data = { schemaVersion: 2, subscriptions: {}, stopped: [] }; }
+    const migrate = this.data.schemaVersion === 1;
+    if (migrate) this.data = { ...this.data, schemaVersion: 2, stopped: [] };
+    if (!Array.isArray(this.data.stopped) || this.data.schemaVersion !== 2 || !this.data.subscriptions || Array.isArray(this.data.subscriptions)) throw new Error('DISCORD_STATE_INVALID');
     for (const [id, row] of Object.entries(this.data.subscriptions)) {
       if (!/^\d+$/.test(id) || !/^\d+$/.test(row.channelId) || !Array.isArray(row.seen)) throw new Error('DISCORD_STATE_INVALID');
     }
+    if (migrate) this.save();
   }
   save() {
     mkdirSync(dirname(this.path), { recursive: true, mode: 0o700 });
@@ -41,17 +44,38 @@ export class DeliveryService {
   // 状態ファイルの所有者は常駐プロセス一つ。コマンドと配信を同じ順番で処理する。
   serialize(operation) { const task = this.tail.then(operation, operation); this.tail = task; return task; }
   start(guildId, channelId, snapshot) {
+    return this.serialize(() => this.startGuild(guildId, channelId, snapshot));
+  }
+  autoStart(guildId, snapshot, ensureChannel) {
     return this.serialize(async () => {
-      const old = this.store.data.subscriptions[guildId];
-      if (old?.channelId === channelId) return this.deliverGuild(guildId, snapshot);
-      if (old?.pending) throw new Error('DISCORD_DELIVERY_PENDING');
-      const seen = snapshot.batches.filter(batch => batch.date !== snapshot.latestDate).flatMap(batch => batch.keys);
-      this.store.data.subscriptions[guildId] = { channelId, seen, pending: null, error: null, startedAt: new Date().toISOString() };
-      this.store.save();
-      return this.deliverGuild(guildId, snapshot);
+      if (this.store.data.stopped.includes(guildId) || this.store.data.subscriptions[guildId]) return { guildId, mode: 'unchanged' };
+      return this.startGuild(guildId, await ensureChannel(), snapshot);
     });
   }
-  stop(guildId) { return this.serialize(() => { delete this.store.data.subscriptions[guildId]; this.store.save(); }); }
+  async startGuild(guildId, channelId, snapshot) {
+    const old = this.store.data.subscriptions[guildId];
+    if (old?.channelId === channelId) return this.deliverGuild(guildId, snapshot);
+    if (old?.pending) throw new Error('DISCORD_DELIVERY_PENDING');
+    const seen = snapshot.batches.filter(batch => batch.date !== snapshot.latestDate).flatMap(batch => batch.keys);
+    this.store.data.stopped = this.store.data.stopped.filter(id => id !== guildId);
+    this.store.data.subscriptions[guildId] = { channelId, seen, pending: null, error: null, startedAt: new Date().toISOString() };
+    this.store.save();
+    return this.deliverGuild(guildId, snapshot);
+  }
+  stop(guildId) {
+    return this.serialize(() => {
+      delete this.store.data.subscriptions[guildId];
+      this.store.data.stopped = [...new Set([...this.store.data.stopped, guildId])];
+      this.store.save();
+    });
+  }
+  removeGuild(guildId) {
+    return this.serialize(() => {
+      delete this.store.data.subscriptions[guildId];
+      this.store.data.stopped = this.store.data.stopped.filter(id => id !== guildId);
+      this.store.save();
+    });
+  }
   reconcile(guildId, messageId) {
     return this.serialize(async () => {
       const sub = this.store.data.subscriptions[guildId];

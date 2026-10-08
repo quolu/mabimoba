@@ -11,11 +11,11 @@ export async function handleInteraction(interaction, { delivery, store, loadSnap
     const action = interaction.options.getSubcommand();
     if (action === '停止') {
       await delivery.stop(interaction.guildId);
-      await interaction.editReply('このサーバーへの通知を停止し、登録情報を削除しました。'); return;
+      await interaction.editReply('このサーバーへの通知を停止し、通知先と配信履歴を削除しました。停止状態だけを保存します。'); return;
     }
     if (action === '状態') {
       const sub = store.data.subscriptions[interaction.guildId];
-      await interaction.editReply(sub ? `通知先：<#${sub.channelId}>\n${sub.pending ? '送信結果の確認が必要です。運営へご連絡ください。' : sub.error ? '直近の送信に失敗しています。チャンネルの権限を確認してください。' : '更新情報を受け取る設定です。'}${sub.lastDelivery ? `\n最終送信：${sub.lastDelivery.sentAt}` : ''}` : '通知は未設定です。通知先のチャンネルで `/マビモバ 開始` を実行してください。'); return;
+      await interaction.editReply(sub ? `通知先：<#${sub.channelId}>\n${sub.pending ? '送信結果の確認が必要です。運営へご連絡ください。' : sub.error ? '直近の送信に失敗しています。チャンネルの権限を確認してください。' : '更新情報を受け取る設定です。'}${sub.lastDelivery ? `\n最終送信：${sub.lastDelivery.sentAt}` : ''}` : store.data.stopped.includes(interaction.guildId) ? '通知は停止中です。再開するチャンネルで `/マビモバ 開始` を実行してください。' : '通知は未設定です。通知先のチャンネルで `/マビモバ 開始` を実行してください。'); return;
     }
     if (![ChannelType.GuildText, ChannelType.GuildAnnouncement].includes(interaction.channel?.type) || !interaction.appPermissions.has(neededPermissions)) {
       await interaction.editReply('テキストまたはアナウンスチャンネルで実行し、ボットに「チャンネルを見る」「メッセージを送信」「埋め込みリンク」「メッセージ履歴を読む」の権限を付けてください。'); return;

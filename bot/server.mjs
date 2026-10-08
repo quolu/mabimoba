@@ -1,4 +1,4 @@
-import { Client, Events, GatewayIntentBits, PermissionFlagsBits, Routes, SlashCommandBuilder } from 'discord.js';
+import { Client, Events, GatewayIntentBits, PermissionFlagsBits, ChannelType, Routes, SlashCommandBuilder } from 'discord.js';
 import { handleInteraction, neededPermissions } from './commands.mjs';
 import { createServer } from 'node:http';
 import { readFileSync } from 'node:fs';
@@ -18,11 +18,12 @@ const delivery = new DeliveryService(store, {
     return message;
   }
 });
-const needed = neededPermissions;
+const needed = neededPermissions | PermissionFlagsBits.ManageChannels;
+const channelName = '攻略通信（kitepon.dev）';
 const command = new SlashCommandBuilder().setName('マビモバ').setDescription('マビモバ攻略ポータルの更新通知を管理します')
   .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild).setContexts(0).setIntegrationTypes(0)
   .addSubcommand(option => option.setName('開始').setDescription('このチャンネルで更新通知を受け取ります'))
-  .addSubcommand(option => option.setName('停止').setDescription('このサーバーへの更新通知を停止し、登録情報を削除します'))
+  .addSubcommand(option => option.setName('停止').setDescription('このサーバーへの更新通知を停止します'))
   .addSubcommand(option => option.setName('状態').setDescription('通知先と直近の送信状況を確認します'));
 let commandsReady = false;
 const ready = () => client.isReady() && commandsReady;
@@ -30,15 +31,37 @@ const invite = () => `https://discord.com/oauth2/authorize?client_id=${client.ap
 const logError = (kind, error) => console.error(JSON.stringify({ kind, code: failureCode(error) }));
 
 client.on(Events.InteractionCreate, interaction => handleInteraction(interaction, { delivery, store, loadSnapshot: () => loadPublishedSnapshot(origin), logError }));
-client.on(Events.GuildDelete, guild => { delivery.stop(guild.id).catch(error => logError('guild-delete-failed', error)); });
+client.on(Events.GuildDelete, guild => { delivery.removeGuild(guild.id).catch(error => logError('guild-delete-failed', error)); });
 client.on(Events.Error, error => logError('gateway-error', error));
+async function setupGuild(guild) {
+  if (!guild.available || store.data.stopped.includes(guild.id) || store.data.subscriptions[guild.id]) return;
+  try {
+    const result = await delivery.autoStart(guild.id, await loadPublishedSnapshot(origin), async () => {
+      const channel = await guild.channels.create({ name: channelName, type: ChannelType.GuildText,
+        topic: 'マビモバ攻略ポータルの更新通知 https://mabimoba.kitepon.dev/', reason: '更新通知用の専用チャンネルを作成' });
+      // Discordが名前を正規化しても、返されたIDを正本として登録する。
+      return channel.id;
+    });
+    console.log(JSON.stringify({ event: 'guild-configured', ...result }));
+  } catch (error) {
+    logError('auto-setup-failed', error);
+    if (guild.systemChannelId) {
+      await client.rest.post(Routes.channelMessages(guild.systemChannelId), { body: {
+        content: 'マビモバ更新通知の初期設定に失敗しました。ボットの「チャンネルの管理」と投稿権限を確認してください。設定後に管理者が通知先で /マビモバ 開始 を実行すると登録できます。', allowed_mentions: { parse: [] }
+      } }).catch(failure => logError('setup-error-notification-failed', failure));
+    }
+  }
+}
+client.on(Events.GuildCreate, guild => { setupGuild(guild).catch(error => logError('guild-setup-failed', error)); });
+
 client.once(Events.ClientReady, async () => {
   try {
     await client.rest.put(Routes.applicationCommands(client.application.id), { body: [command.toJSON()] });
     // オフライン中に退会したサーバーの記録も削除する。
-    for (const guildId of Object.keys(store.data.subscriptions)) if (!client.guilds.cache.has(guildId)) await delivery.stop(guildId);
+    for (const guildId of new Set([...Object.keys(store.data.subscriptions), ...store.data.stopped])) if (!client.guilds.cache.has(guildId)) await delivery.removeGuild(guildId);
     commandsReady = true;
     console.log(JSON.stringify({ event: 'ready', applicationId: client.application.id, inviteUrl: invite() }));
+    for (const guild of client.guilds.cache.values()) await setupGuild(guild);
   } catch (error) { logError('startup-failed', error); process.exit(1); }
 });
 createServer(async (request, response) => {

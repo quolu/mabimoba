@@ -9,7 +9,7 @@ function scenario({ manager = true, guild = true, permissions = true, type = 0, 
     options: { getSubcommand: () => action }, reply: async value => messages.push(value),
     deferReply: async () => { interaction.deferred = true; calls.push('defer'); }, editReply: async value => messages.push(value) };
   const deps = { delivery: { start: async (guildId, channelId) => calls.push(['start', guildId, channelId]), stop: async guildId => calls.push(['stop', guildId]) },
-    store: { data: { subscriptions: { '111': { channelId: '222' }, '999': { channelId: '888' } } } },
+    store: { data: { stopped: [], subscriptions: { '111': { channelId: '222' }, '999': { channelId: '888' } } } },
     loadSnapshot: async () => { calls.push('snapshot'); return {}; }, logError: () => assert.fail('予期しないエラー') };
   return { interaction, deps, messages, calls };
 }

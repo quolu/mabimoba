@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { SubscriptionStore, DeliveryService, loadPublishedSnapshot } from '../bot/core.mjs';
@@ -92,4 +92,38 @@ test('HTTPSの配信内容とhealthが不一致なら通知しない', async () 
   const fetcher = async url => Response.json(url.endsWith('/healthz') ? { status: 'ok', revision: good.revision } : good);
   assert.equal((await loadPublishedSnapshot(origin, fetcher)).revision, good.revision);
   await assert.rejects(loadPublishedSnapshot(origin, async url => Response.json(url.endsWith('/healthz') ? { status: 'ok', revision: 'bad' } : good)), /DISCORD_PUBLIC_REVISION_MISMATCH/);
+});
+
+test('招待時の同時処理と再起動でチャンネルを重複作成しない', async t => {
+  const { service, store, posted, api } = await setup(t);
+  let created = 0;
+  const ensure = async () => { created++; return '222'; };
+  await Promise.all([service.autoStart('111', snapshot(), ensure), service.autoStart('111', snapshot(), ensure)]);
+  assert.equal(created, 1); assert.equal(posted.length, 1);
+  assert.equal(store.data.subscriptions['111'].channelId, '222');
+  const restarted = new DeliveryService(new SubscriptionStore(store.path), api);
+  await restarted.autoStart('111', snapshot(), ensure);
+  assert.equal(created, 1); assert.equal(posted.length, 1);
+});
+test('停止状態を再起動後も守り、退会では停止状態も削除する', async t => {
+  const { service, store, api } = await setup(t);
+  await service.start('111', '222', snapshot()); await service.stop('111');
+  const restarted = new DeliveryService(new SubscriptionStore(store.path), api);
+  await restarted.autoStart('111', snapshot(), () => assert.fail('停止中に作成してはいけない'));
+  assert.deepEqual(restarted.store.data.stopped, ['111']);
+  await restarted.removeGuild('111');
+  assert.deepEqual(new SubscriptionStore(store.path).data.stopped, []);
+});
+test('旧形式の配信履歴を失わずに停止状態を持つ形式へ移行する', async t => {
+  const { store } = await setup(t);
+  await writeFile(store.path, JSON.stringify({ schemaVersion: 1, subscriptions: { '111': { channelId: '222', seen: ['past'], pending: null } } }));
+  const migrated = new SubscriptionStore(store.path);
+  assert.equal(migrated.data.schemaVersion, 2); assert.deepEqual(migrated.data.stopped, []);
+  assert.deepEqual(migrated.data.subscriptions['111'].seen, ['past']);
+  assert.equal(JSON.parse(await readFile(store.path)).schemaVersion, 2);
+});
+test('チャンネル作成に失敗したら登録と送信を行わない', async t => {
+  const { service, store, posted } = await setup(t);
+  await assert.rejects(service.autoStart('111', snapshot(), async () => { throw Object.assign(new Error('forbidden'), { status: 403 }); }), { status: 403 });
+  assert.equal(store.data.subscriptions['111'], undefined); assert.equal(posted.length, 0);
 });
