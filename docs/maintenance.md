@@ -72,7 +72,7 @@ Bot専用の依存パッケージは `bot/package.json` とlockfileで管理す�
 
 ### Botプロフィールを更新する
 
-プロフィールの概要は `content/discord-profile.json` を正本にする。公開中の製品サイトで用途を確かめ、400文字以内に収める。変更をcheck・commit・pushした後、`npm run discord:profile` でDiscordへ反映する。Discord公式APIで概要だけを更新し、読み戻して一致を確認する。更新前の概要はmain-serverの専用stateへ保存する。Botの再起動は不要。
+プロフィールの概要は `content/discord-profile.json` を正本にする。公開中の製品サイトで用途を確かめ、400文字以内に収める。変更をcheck・commit・pushした後、`npm run discord:profile` でDiscordへ反映する。`avatar`・`banner` に `bot/assets/` のPNGを指定すると、Botの画像とアプリのアイコンも同じコマンドで揃える。生成条件・寸法・ハッシュは `bot/assets/artwork.json` に記録する。Discord公式APIで指定項目を更新し、読み戻して確認する。更新前の概要と画像はmain-serverの専用stateへ保存する。Botの再起動は不要。
 
 ### 公開後に全登録先へ配信する
 

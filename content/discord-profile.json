@@ -1,3 +1,5 @@
 {
-  "description": "招待すると「攻略通信（kitepon.dev）」を自動作成し、マビノギモバイルの攻略・ニュースを届ける非公式Botです。\n\n運営：kitepon.dev\nAIと一緒に、ゲームや暮らしの「あったらいいな」を形にする個人開発ブランドです。\n\nMMO仲間に役立つツールも公開中！\n・AuctionBOT：ギルドのオークション・精算\n・MMOBank：ゲーム内通貨の台帳・相殺計算\n・ReminderBOT：集合やイベントの予定共有・通知\n・KITE BINGO：仲間と遊べるオンラインビンゴ\n\nツール一覧 https://kitepon.dev/\n攻略ポータル https://mabimoba.kitepon.dev/\n設定確認 /マビモバ 状態 ／ 停止 /マビモバ 停止"
+  "description": "招待すると「攻略通信（kitepon.dev）」を自動作成し、マビノギモバイルの攻略・ニュースを届ける非公式Botです。\n\n運営：kitepon.dev\nAIと一緒に、ゲームや暮らしの「あったらいいな」を形にする個人開発ブランドです。\n\nMMO仲間に役立つツールも公開中！\n・AuctionBOT：ギルドのオークション・精算\n・MMOBank：ゲーム内通貨の台帳・相殺計算\n・ReminderBOT：集合やイベントの予定共有・通知\n・KITE BINGO：仲間と遊べるオンラインビンゴ\n\nツール一覧 https://kitepon.dev/\n攻略ポータル https://mabimoba.kitepon.dev/\n設定確認 /マビモバ 状態 ／ 停止 /マビモバ 停止",
+  "avatar": "bot/assets/discord-guide-avatar-v1.png",
+  "banner": "bot/assets/discord-meadow-banner-v1.png"
 }
