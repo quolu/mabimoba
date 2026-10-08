@@ -58,5 +58,20 @@
   "firstMessageItems": 9,
   "followupMessageItems": 1,
   "repeatedDispatchMessages": 0,
-  "publishedPage": "https://mabimoba.kitepon.dev/discord/"
+  "publishedPage": "https://mabimoba.kitepon.dev/discord/",
+  "profile": {
+    "source": "content/discord-profile.json",
+    "sourceRevision": "e367ebc",
+    "characters": 335,
+    "apiReadbackMatches": true,
+    "discordProfileVisible": true,
+    "tools": [
+      "AuctionBOT",
+      "MMOBank",
+      "ReminderBOT",
+      "KITE BINGO"
+    ],
+    "selection": "公開サイトの確認とJevによる候補整理",
+    "serviceHealth": "running healthy"
+  }
 }
