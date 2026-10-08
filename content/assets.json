@@ -117,6 +117,17 @@
       "alt": "日本公式の告知画像。制服姿の4人のキャラクターと、ファッションチケット×10、レイヤード衣装セットボックス、染色アンプル選択ボックス",
       "caption": "日本公式のお知らせ「正式サービス開始記念プレゼント！」の画像（© NEXON Co., Ltd. & devCAT CO., LTD.／記事末尾に出典）",
       "file": "jp-launch-present.webp"
+    },
+    {
+      "name": "SNS共有用カード（リンクを貼った時に表示される画像）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/500312c0-c3f8-4963-9eb3-fe5aab9a7dde/%EB%AA%A9%EC%9E%A5%EC%97%90%EC%84%9C%EC%9D%98%ED%95%98%EB%A3%A8%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        1200,
+        630
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "公式イラスト「Day in the Pastures」を縮小して右側に置き、左側にサイト名と紹介文を添えた共有用の画像。イラストには文字を重ねず、画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "file": "og-card.jpg"
     }
   ],
   "rightsObserved": "公式フッターにAll Rights reserved表記あり。画像の再配布・加工・ファンサイト利用を明示許可する素材利用規定は今回の確認範囲では未確認。"

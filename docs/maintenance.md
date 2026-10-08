@@ -25,6 +25,17 @@
 - `updatedAt` と `changelog` の先頭の日付が違うと、ビルドが `CHANGELOG_STALE` で失敗する。`updatedAt` を進めた日は必ず書く。
 - フィードの項目のIDは `type` と `text` から作る。公開した項目の文を直すと、フィードリーダーには新しい項目として届く。
 
+### 共有用カード画像を作り直す
+
+XやDiscordでリンクを貼った時に出るカードは、全ページ共通で `public/assets/og-card.jpg`（1200×630）。2026-10-08にオーナーの指摘で設けた。元は `docs/og-card.html`。
+
+1. `docs/og-card.html` を直す。公式イラストには文字を重ねず、画像内のロゴと著作権表記が見える形を保つ。
+2. ヘッドレスのChromiumで `--window-size=1200,630 --force-device-scale-factor=1 --allow-file-access-from-files --virtual-time-budget=6000 --screenshot=<PNG> file://<リポジトリ>/docs/og-card.html` を撮る。
+3. `convert <PNG> -quality 90 -sampling-factor 4:4:4 -strip public/assets/og-card.jpg` で保存し、画像を開いて文字の折り返しを確かめる。
+4. 使うイラストを替えた時は `content/assets.json` の出典も直す。
+
+画像のURLには内容から作った `?v=` が付く。作り直すとURLが変わり、新しく貼られたリンクから新しい画像になる。共有先が以前のカードを覚えている間は、古い表示が残る。
+
 Xの調査は既存のxarticle connectorの `x_search` を使える。初版は日本公式 `MabinogiM_JP`、日本語「マビノギモバイル」、韓国語「마비노기 모바일」「마비노기모바일」に攻略・ルーン・アビス等の語を加えて検索した。短い種類分けはJevで行い、最終的な採否と検証は担当AIが行う。投稿・返信・follow・likeなどの操作は、このサイトの収集依頼には含まれない。
 
 ## 公開する
