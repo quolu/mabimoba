@@ -15,13 +15,13 @@
 
 オーナーから「個人でいいよ進めて。」のGOを受け、個人所有・規約同意・作成を実行した。DiscordがhCaptchaの本人確認を求めたため、その画面を保持して本人操作を待っている。アプリが作成されたかは本人確認後に読む。Botトークンはまだ発行していない。
 
-決裁箱へ本人確認の申請を出した。ログイン済みのChromeタブはCUAで保持している。
+決裁箱K-UU283Bへ本人確認の申請を出した。ログイン済みのChromeタブはCUAで保持している。
 ルピーとの通話は `7576c19d-647e-4126-a556-954d27eed299`。新セッションへ移る場合は返信先を先に通知する。ルピーのWebhook入力カードは未入力、不要と通知済み。Botトークンの入力カードもブラウザ作成へ切り替えたため使わないよう通知済み。
 
 ## 続き
 
 1. 本人確認後にDiscordアプリの作成結果を読み、Public Bot/Guild Installを設定する。Privileged Intentは全てOFF、OAuth2 Code GrantもOFF。
 2. Botトークンを表示せずmain-serverの ~/.config/mabimoba/discord-token へ0600で保存する。
-3. 対象パスだけcommit・通常pushし、npm run discord:deploy、npm run deployを行う。今のコードはまだcommit・push・本番配備していない。
+3. 対象パスだけcommit・通常pushし、npm run discord:deploy、npm run deployを行う。本体コードは5f9a5a0でmainへcommit・push済み。本番配備は未実施。
 4. 招待ページから実サーバー（情報サイト（kitepon.dev））へ導入し、開始・状態・停止・再開と実通知を確認する。不要な合成通知は送らない。
 5. npm run notifyの結果と重複なしを確認し、ルピーへ確定コマンドと公開結果を伝える。進行記録は完了後に検証記録へまとめる。
