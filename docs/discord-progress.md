@@ -13,19 +13,18 @@
 
 ## 止まっている所
 
-個人所有のDiscordアプリ作成は成功。公開BotはON、OAuth2 Code GrantとPrivileged IntentはOFFを確認した。トークンの初回発行でDiscordの多要素認証が出たため、本人操作を待っている。トークンは未発行・未保存。
+個人所有のDiscordアプリ作成と本人認証は完了。トークンは正規discord:configureからDiscordのアプリIDを照合してmain-serverへ直接保管した。Botは24a24c1から独立コンテナへ配備し、healthyとglobal commands登録を確認した。
 
-Bot未接続のまま案内が公開されないよう、portal.jsonのdiscord.enabledはfalseにした。メニュー・案内ページを生成せず、公開済みの更新情報からもBot追加の行を外した。実際の公開日に有効化して記録する。
+portal.jsonのdiscord.enabledはfalseで、公開案内・公開済みのお知らせにはまだ出していない。DockerのCOPY漏れは0fd9d9cで修理・公開済み。実Dockerビルドと公開後smokeも成功。
 
-Dockerfileへdeploy/target.jsonのCOPYを追加した。修理前と同じコピー内容でENOENTを再現し、修理後のコピー構成でビルド成功を確認した。非公開・公開の各設定でも生成結果を確認済み。
+初回の導入先サーバーが未確定だったため、マビノギモバイルサーバーへの認可ボタン直前で止めている。決裁箱K-6FQHPDで、指定の専用『情報サイト（kitepon.dev）』を作るか、既存『攻略サイト』を使うか、別サーバーかを確認中。Chromeタブ181548909を保持。背景タブの招待画面が止まったためCDP focus emulationを有効にして進んだ。作業後は必ず無効へ戻す。
 
-多要素認証の申請K-7R95LSを決裁箱へ出し、Chromeの画面を保持している。
 ルピーとの通話は `7576c19d-647e-4126-a556-954d27eed299`。新セッションへ移る場合は返信先を先に通知する。ルピーのWebhook入力カードは未入力、不要と通知済み。Botトークンの入力カードもブラウザ作成へ切り替えたため使わないよう通知済み。
 
 ## 続き
 
-1. 多要素認証後にBotトークンを安全に読み、Guild Installを設定する。Privileged Intentは全てOFF、OAuth2 Code GrantもOFF。
-2. Botトークンを表示せずmain-serverの ~/.config/mabimoba/discord-token へ0600で保存する。
-3. 対象パスだけcommit・通常pushし、npm run discord:deploy、npm run deployを行う。本体コードは5f9a5a0、ビルド・先行案内の修理は0fd9d9cでmainへpush済み。0fd9d9cのポータル公開とHTTPS smokeは成功。Botコンテナは未配備。
-4. 招待ページから実サーバー（情報サイト（kitepon.dev））へ導入し、開始・状態・停止・再開と実通知を確認する。不要な合成通知は送らない。
-5. npm run notifyの結果と重複なしを確認し、ルピーへ確定コマンドと公開結果を伝える。進行記録は完了後に検証記録へまとめる。
+1. 決裁箱K-6FQHPDの回答に従ってサーバーへ招待し、指定のチャンネルでスラッシュコマンドと実通知を確認する。
+2. 実接続を確認後、discord.enabled=trueへ進め、実際に公開する日のchangelogへBot追加を記録してcheck/build・commit/push・npm run deploy。
+3. 公開された案内・招待リンク・スマホ表示、npm run notifyの重複なしを確認する。
+4. Botデプロイとポータル公開は別コマンド。通常のコンテンツ更新でBotを再起動する必要はない。
+5. ルピーへ確定コマンドと公開結果を伝え、進行記録を完了の検証記録へまとめる。

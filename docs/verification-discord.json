@@ -2,8 +2,8 @@
   "date": "2026-10-08",
   "applicationId": "1557695991744958525",
   "owner": "個人",
-  "botStatus": "トークン発行時の本人認証待ち",
-  "botTokenStored": false,
+  "botStatus": "起動済み・初回導入先の確認待ち",
+  "botTokenStored": true,
   "publicBot": true,
   "oauth2CodeGrant": false,
   "privilegedIntents": false,
@@ -25,8 +25,13 @@
     "prematureMenu": false,
     "prematureAnnouncement": false,
     "inactivePageStatus": 404,
-    "publishedUpdateDataStatus": 200
+    "publishedUpdateDataStatus": 200,
+    "botHealth": "healthy",
+    "globalCommands": "登録済み",
+    "inviteRedirectStatus": 302,
+    "noSubscriberDryRun": "成功"
   },
   "liveInvitation": "未実施",
-  "liveDelivery": "未実施"
+  "liveDelivery": "未実施",
+  "botDeploymentRevision": "24a24c1befb56aeb377ea5019bf25c0af00b4ac1"
 }
