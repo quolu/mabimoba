@@ -1,5 +1,6 @@
 import { readFile, access } from 'node:fs/promises';
 export async function validate(data, assets) {
+ if(typeof data.discord?.enabled!=='boolean')throw new Error('DISCORD_PUBLICATION_INVALID: Discord案内の公開設定が不正です');
  if(data.schemaVersion!==1)throw new Error('SCHEMA_UNSUPPORTED: 未対応の内容形式です');
  const date = /^\d{4}-\d{2}-\d{2}$/;
  if(!date.test(data.updatedAt))throw new Error('DATE_INVALID: 全体の確認日が不正です');

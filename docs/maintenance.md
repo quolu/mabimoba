@@ -46,6 +46,8 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 
 ### ボットを接続・配備する
 
+`content/portal.json` の `discord.enabled` がfalseの間は、メニューと `/discord/` を生成しない。Botの配備・招待URLの確認後にtrueへ進め、実際に公開する日付の `changelog` へ追加する。先の日付に公開済みと記録しない。
+
 1. Discord Developer Portalでアプリ「マビモバ更新通知」を作る。BotのPublic Botを有効、Requires OAuth2 Code Grantを無効、Privileged Gateway Intentsは全て無効にする。InstallationはGuild Installを有効、Scopesに `bot` と `applications.commands` を設定する。
 2. Botトークンは入力カードまたはログイン済みのブラウザから、SSHの標準入力でmain-serverの `~/.config/mabimoba/discord-token` へ直接保管する。フォルダ0700・ファイル0600・実行ユーザーUID1000で読み取り可能にする。値は会話・引数・ログ・リポジトリへ出さない。Application IDは接続時にDiscordから取得する。
 3. cleanなmainのcheckoutで `npm run discord:deploy` を実行する。既定ブランチの祖先commitだけを対象に、ポータルから独立した専用コンテナを起動する。Botコードを変えた時も同じコマンドで更新する。
