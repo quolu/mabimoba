@@ -1,19 +1,21 @@
 {
-  "date": "2026-10-08",
+  "date": "2026-10-09",
   "url": "https://mabimoba.kitepon.dev",
   "result": "成功",
   "checks": [
-    "HTTPS表示200（ホーム・サイトの更新情報・更新フィード・Discord案内・情報の読み方・検索・health）",
-    "公開ページ5種（ホーム・ニュース・更新情報・Discord案内・スタートガイド）に twitter:card=summary_large_image と og:image を確認",
-    "共有用カード /assets/og-card.jpg は image/jpeg・1200×630・142125バイト。Twitterbot・Discordbot・facebookexternalhit・Slackbot・LINEのUser-Agentで、ページと画像がどちらも200",
-    "公開前の確認：カード画像を開いて文字の折り返しと著作権表記を確認。check・build（39ページ）と、公開用コンテナと同じファイルだけの隔離ビルドが成功",
-    "Discord通知は内容の変更が無いので送信なし。npm run notify -- --dry-run で登録先1件・未送信0件"
+    "HTTPS表示200（ホーム・新記事 /guides/water-bottle/・攻略ガイド一覧・日韓のX情報・サイトの更新情報・更新フィード・データベース・情報の読み方・検索・Discord案内・health）",
+    "新記事の公開ページに、題名、日本公式ゲームガイドの記述、出典欄の「攻略媒体」表示、og:image を確認。スマホ幅390pxで表示崩れなし",
+    "検索で「水が入った瓶」が2件（攻略ガイド・韓国語の用語）。索引に韓国語名「물이 든 병」あり",
+    "日韓のX情報に追加した2件のアンカー、更新情報の10月9日の件を確認",
+    "公開前の確認：check・build（40ページ）。手元の画面でPC幅1280pxとスマホ幅390pxの記事・出典欄・X情報を確認。通知のテストは18件中17件成功",
+    "Discord通知は送信していない。npm run notify -- --dry-run で登録先1件、未送信は10月8日の1項目と10月9日の4項目。16時の定期更新で送る"
   ],
   "notChecked": [
-    "X・Discordの実際の投稿画面での表示（各サービスの取得結果は確認していない）"
+    "tests/discord-commands.test.mjs は更新担当の席に discord.js が無く実行できない（変更前から同じ）",
+    "記事の内容のうち、水汲み場の場所、空き瓶の値段と減り方、ケアラの物々交換の内容、「金属の光沢剤」の卵とハーブの数は実機で未確認（記事にも未確認と記載）"
   ],
-  "deploymentNote": "deployは1回で経路確認と公開後確認まで完了。",
-  "revision": "7a5a0cfcc747694d7cf95fb13c1a4ee58f9cf5ed",
+  "deploymentNote": "deployは2回。1回目 c8c8224 で記事を公開、2回目 f8ae06d で「情報の読み方」の追記と更新情報のリンク先を直した。どちらも1回で経路確認と公開後確認まで完了。",
+  "revision": "f8ae06dd651a17ece6eed4a07a5e98c01ecf146a",
   "serverChecks": [
     "mabimoba HTTPS health200",
     "kitepon.dev200",
