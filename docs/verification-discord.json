@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-08",
+  "applicationId": "1557695991744958525",
+  "owner": "個人",
+  "botStatus": "トークン発行時の本人認証待ち",
+  "botTokenStored": false,
+  "publicBot": true,
+  "oauth2CodeGrant": false,
+  "privilegedIntents": false,
+  "codeRevision": "5f9a5a0520138c11498d747c265e010b78de3d3e",
+  "packagingRepairRevision": "0fd9d9c4185bf54e60804c8564e27955f160cd20",
+  "checks": {
+    "unitTests": {
+      "passed": 13
+    },
+    "siteCheck": "成功",
+    "siteBuildInactivePages": 38,
+    "siteBuildActiveFixturePages": 39,
+    "dockerBuildAndDeploy": "成功",
+    "publicHealth": 200,
+    "existingServiceSmoke": [
+      200,
+      200
+    ],
+    "prematureMenu": false,
+    "prematureAnnouncement": false,
+    "inactivePageStatus": 404,
+    "publishedUpdateDataStatus": 200
+  },
+  "liveInvitation": "未実施",
+  "liveDelivery": "未実施"
+}

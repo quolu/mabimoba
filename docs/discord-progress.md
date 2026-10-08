@@ -19,13 +19,13 @@ Bot未接続のまま案内が公開されないよう、portal.jsonのdiscord.e
 
 Dockerfileへdeploy/target.jsonのCOPYを追加した。修理前と同じコピー内容でENOENTを再現し、修理後のコピー構成でビルド成功を確認した。非公開・公開の各設定でも生成結果を確認済み。
 
-多要素認証の申請を決裁箱へ出し、Chromeの画面を保持している。
+多要素認証の申請K-7R95LSを決裁箱へ出し、Chromeの画面を保持している。
 ルピーとの通話は `7576c19d-647e-4126-a556-954d27eed299`。新セッションへ移る場合は返信先を先に通知する。ルピーのWebhook入力カードは未入力、不要と通知済み。Botトークンの入力カードもブラウザ作成へ切り替えたため使わないよう通知済み。
 
 ## 続き
 
 1. 多要素認証後にBotトークンを安全に読み、Guild Installを設定する。Privileged Intentは全てOFF、OAuth2 Code GrantもOFF。
 2. Botトークンを表示せずmain-serverの ~/.config/mabimoba/discord-token へ0600で保存する。
-3. 対象パスだけcommit・通常pushし、npm run discord:deploy、npm run deployを行う。本体コードは5f9a5a0でmainへcommit・push済み。本番配備は未実施。
+3. 対象パスだけcommit・通常pushし、npm run discord:deploy、npm run deployを行う。本体コードは5f9a5a0、ビルド・先行案内の修理は0fd9d9cでmainへpush済み。0fd9d9cのポータル公開とHTTPS smokeは成功。Botコンテナは未配備。
 4. 招待ページから実サーバー（情報サイト（kitepon.dev））へ導入し、開始・状態・停止・再開と実通知を確認する。不要な合成通知は送らない。
 5. npm run notifyの結果と重複なしを確認し、ルピーへ確定コマンドと公開結果を伝える。進行記録は完了後に検証記録へまとめる。
