@@ -3,14 +3,17 @@
   "url": "https://mabimoba.kitepon.dev",
   "result": "成功",
   "checks": [
-    "HTTPS表示200（ホーム・サイトの更新情報・更新フィード・サイトマップ・ニュース・攻略ガイド・不具合対応状況の記事・X情報・情報の読み方・検索）",
-    "公開ホームに更新情報の欄とフィードの案内（link rel=alternate）、「この日の更新をすべて見る（全9件）」を確認。390pxの公開ホームを撮影して表示を確認",
-    "公開フィードはAtomとして解析でき、15項目",
-    "公開前のローカル確認：ホームとサイトの更新情報（390px・1366px）",
-    "公開前の検査：updatedAtと更新情報の日付の不一致、種類の誤り、日付順の誤りでビルドが失敗することを確認"
+    "HTTPS表示200（ホーム・サイトの更新情報・更新フィード・Discord案内・情報の読み方・検索・health）",
+    "公開ページ5種（ホーム・ニュース・更新情報・Discord案内・スタートガイド）に twitter:card=summary_large_image と og:image を確認",
+    "共有用カード /assets/og-card.jpg は image/jpeg・1200×630・142125バイト。Twitterbot・Discordbot・facebookexternalhit・Slackbot・LINEのUser-Agentで、ページと画像がどちらも200",
+    "公開前の確認：カード画像を開いて文字の折り返しと著作権表記を確認。check・build（39ページ）と、公開用コンテナと同じファイルだけの隔離ビルドが成功",
+    "Discord通知は内容の変更が無いので送信なし。npm run notify -- --dry-run で登録先1件・未送信0件"
+  ],
+  "notChecked": [
+    "X・Discordの実際の投稿画面での表示（各サービスの取得結果は確認していない）"
   ],
   "deploymentNote": "deployは1回で経路確認と公開後確認まで完了。",
-  "revision": "20cab6c33e3fe7fed9019eec38aa0023c49f4437",
+  "revision": "7a5a0cfcc747694d7cf95fb13c1a4ee58f9cf5ed",
   "serverChecks": [
     "mabimoba HTTPS health200",
     "kitepon.dev200",
