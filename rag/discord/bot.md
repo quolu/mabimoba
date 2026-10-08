@@ -1,10 +1,10 @@
 # 招待できるDiscord更新通知ボット
 
-出典：Discord公式の[OAuth2](https://docs.discord.com/developers/topics/oauth2)、[Application Commands](https://docs.discord.com/developers/interactions/application-commands)、[Gateway](https://docs.discord.com/developers/events/gateway)、[Message](https://docs.discord.com/developers/resources/message)、[discord.js RESTOptions](https://discord.js.org/docs/packages/discord.js/main/RESTOptions:Interface)。取得日：2026-10-08。確度：API仕様は公式資料で確認、実接続と招待は別途確認が必要。
+出典：Discord公式の[OAuth2](https://docs.discord.com/developers/topics/oauth2)、[Application Commands](https://docs.discord.com/developers/interactions/application-commands)、[Gateway](https://docs.discord.com/developers/events/gateway)、[Message](https://docs.discord.com/developers/resources/message)、[discord.js RESTOptions](https://discord.js.org/docs/packages/discord.js/main/RESTOptions:Interface)。取得日：2026-10-08。確度：API仕様は公式資料で確認、実接続・招待・自動作成・実通知は検証記録で確認済み。
 
 ## 採用した構成
 
-第三者が自分のサーバーへ招待する用途なので、Incoming WebhookではなくBotを使う。招待は `bot` と `applications.commands` のスコープ、Guild Installを使う。通知先の設定はスラッシュコマンドで受け、操作する人の「サーバーの管理」権限を確認する。
+第三者が自分のサーバーへ招待する用途なので、Incoming WebhookではなくBotを使う。招待は `bot` と `applications.commands` のスコープ、Guild Installを使う。招待時に専用テキストチャンネルを作り、返されたIDで自動登録する。変更・停止のスラッシュコマンドは「サーバーの管理」権限を確認する。
 
 HTTP Interactionsも可能だが、Gatewayの `Guilds` intentを使うとサーバーからの退会を受けて登録情報を削除できる。専用コンテナは外向きの接続だけで動き、共有Caddy・Cloudflare設定の追加が不要。会話本文・メンバー一覧のPrivileged Intentは使わない。
 
@@ -20,4 +20,6 @@ BotのCreate Messageには `nonce` と `enforce_nonce` があり、同じ投稿�
 
 - npmの公開版を確認し、Bot専用のlockfileを作成。依存の監査は脆弱性0件。
 - 実データの通知文生成、複数サーバーの独立配信、同日追記、部分失敗、再起動後の保留、本文照合、停止、同時実行、公開データの一致確認はfocused testで検証。
-- MacのChromeへのJev接続は成功。最初の判断要求は応答検証エラーで操作なし、再試行ではDeveloper Portalからログイン画面へ到達した。本人ログイン後もJevの新規タブではログイン状態を引き継げず、既存タブにはログイン済みであることを確認した。理由を報告し、既存タブを操作するCUAへ切り替えた。本人から個人所有で進めるGOを受け、規約同意・作成を実行した。本人がhCaptchaを完了し、アプリ作成を確認した。Bot tokenの初回発行はDiscordの多要素認証待ち。
+- MacのChromeへのJev接続は成功。最初の判断要求は応答検証エラーで操作なし、再試行ではDeveloper Portalからログイン画面へ到達した。本人ログイン後もJevの新規タブではログイン状態を引き継げず、既存タブにはログイン済みであることを確認した。理由を報告し、既存タブを操作するCUAへ切り替えた。本人から個人所有で進めるGOを受け、規約同意・作成を実行した。本人がhCaptchaを完了し、アプリ作成を確認した。本人が多要素認証を完了し、トークンを表示せずDiscordでアプリIDを照合してmain-serverへ直接保管した。
+
+- Discordの実APIは「攻略通信（kitepon.dev）」を「攻略通信（kitepondev）」へ正規化した。説明欄へ正式名を残し、IDで管理する。自動チャンネル作成・実通知と再実行時の0件、Bot再配備でチャンネルが増えないことを確認した。

@@ -2,7 +2,7 @@
   "date": "2026-10-08",
   "applicationId": "1557695991744958525",
   "owner": "個人",
-  "botStatus": "起動済み・初回導入先の確認待ち",
+  "botStatus": "稼働中・招待時の自動通知を確認済み",
   "botTokenStored": true,
   "publicBot": true,
   "oauth2CodeGrant": false,
@@ -11,7 +11,7 @@
   "packagingRepairRevision": "0fd9d9c4185bf54e60804c8564e27955f160cd20",
   "checks": {
     "unitTests": {
-      "passed": 13
+      "passed": 18
     },
     "siteCheck": "成功",
     "siteBuildInactivePages": 38,
@@ -29,9 +29,34 @@
     "botHealth": "healthy",
     "globalCommands": "登録済み",
     "inviteRedirectStatus": 302,
-    "noSubscriberDryRun": "成功"
+    "noSubscriberDryRun": "成功",
+    "autoChannelCreation": "成功",
+    "channelCountAfterBotRestart": 1,
+    "subscriptionSchemaVersion": 2,
+    "slashStatusCommand": "実Discordで成功",
+    "publicMobileWidth": 390,
+    "publicMobileOverflow": false,
+    "publicMobileMenu": "成功",
+    "publicPageStatus": 200,
+    "invitePermissions": 85008,
+    "customProfileInvite": "同じ公開招待URLを設定済み",
+    "privacyAndTermsLinks": "Discord APIから保存済みを確認",
+    "pendingDeliveries": 0
   },
-  "liveInvitation": "未実施",
-  "liveDelivery": "未実施",
-  "botDeploymentRevision": "24a24c1befb56aeb377ea5019bf25c0af00b4ac1"
+  "liveInvitation": "成功",
+  "liveDelivery": "成功",
+  "botDeploymentRevision": "3306818bd0fcda5983fbd54fbf6abf479210248a",
+  "publicDeploymentRevision": "142bb3a9ec8fc1112af9cdafea059e8ba467f01c",
+  "guildId": "1553067510797181154",
+  "requestedChannelName": "攻略通信（kitepon.dev）",
+  "actualChannelName": "攻略通信（kitepondev）",
+  "channelId": "1557701831927406632",
+  "messageIds": [
+    "1557701833575637138",
+    "1557703479835893791"
+  ],
+  "firstMessageItems": 9,
+  "followupMessageItems": 1,
+  "repeatedDispatchMessages": 0,
+  "publishedPage": "https://mabimoba.kitepon.dev/discord/"
 }
