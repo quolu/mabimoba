@@ -17,9 +17,10 @@ test('実データの全項目を文字数制限内で通知でき、地域と�
     assert.ok(embed.fields.every(field => field.name.length <= 256 && field.value.length <= 1024));
     assert.ok([embed.title, embed.description, embed.footer.text, ...embed.fields.flatMap(field => [field.name, field.value])].join('').length <= 6000);
   }
-  const latest = batches.at(-1).payload.embeds[0];
-  assert.ok(latest.fields.some(field => field.name.includes('日本版') && field.value.includes('出典')));
-  assert.ok(latest.fields.some(field => field.name.includes('韓国版')));
+  // 最新日に韓国版の項目が無い日もあるので、地域と出典は全日分の項目で確かめる。
+  const fields = batches.flatMap(batch => batch.payload.embeds[0].fields);
+  assert.ok(fields.some(field => field.name.includes('日本版') && field.value.includes('出典')));
+  assert.ok(fields.some(field => field.name.includes('韓国版')));
 });
 
 test('長い日次通知は項目の境目で分割し、再掲載された項目は重複させない', () => {

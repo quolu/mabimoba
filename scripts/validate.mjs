@@ -8,7 +8,7 @@ export async function validate(data, assets) {
  if(ids.size!==data.sources.length) throw new Error('SOURCE_ID_DUPLICATE: 出典IDが重複しています');
  const articles = new Set(data.articles.map(a=>a.id));
  if(articles.size!==data.articles.length) throw new Error('ARTICLE_ID_DUPLICATE: 記事IDが重複しています');
- for(const s of data.sources) {if(!s.title||!s.checkedAt||!s.region||!s.language||!['official','community','x-official','x-community'].includes(s.kind)||!s.url.startsWith('https://'))throw new Error(`SOURCE_INVALID: ${s.id}`);}
+ for(const s of data.sources) {if(!s.title||!s.checkedAt||!s.region||!s.language||!['official','community','media','x-official','x-community'].includes(s.kind)||!s.url.startsWith('https://'))throw new Error(`SOURCE_INVALID: ${s.id}`);}
  const allowed = new Set(['初心者','装備・成長','ダンジョン','生活']);
  for(const a of data.articles) {if(!allowed.has(a.category)||!a.region||!a.checkedAt||!a.sections.length||!a.sources.length)throw new Error(`ARTICLE_INCOMPLETE: ${a.id}`);for(const id of a.sources)if(!ids.has(id))throw new Error(`SOURCE_MISSING: ${a.id}/${id}`);for(const id of a.related)if(!articles.has(id))throw new Error(`ARTICLE_LINK_MISSING: ${id}`);}
  for(const item of [...data.database,...data.roadmap,...data.glossary]) {if(!articles.has(item.article))throw new Error(`ARTICLE_LINK_MISSING: ${item.article}`);for(const id of item.sources??[])if(!ids.has(id))throw new Error(`SOURCE_MISSING: ${id}`);}
