@@ -10,7 +10,8 @@
     "deploy": "node scripts/deploy.mjs",
     "notify": "node scripts/notify.mjs",
     "test:notify": "node --test tests/discord-*.test.mjs",
-    "discord:deploy": "node scripts/deploy-bot.mjs"
+    "discord:deploy": "node scripts/deploy-bot.mjs",
+    "discord:configure": "node scripts/configure-bot.mjs"
   },
   "engines": {
     "node": ">=24"
