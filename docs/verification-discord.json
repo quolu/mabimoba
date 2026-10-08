@@ -73,5 +73,29 @@
     ],
     "selection": "公開サイトの確認とJevによる候補整理",
     "serviceHealth": "running healthy"
+  },
+  "artwork": {
+    "sourceRevision": "e909603",
+    "manifest": "bot/assets/artwork.json",
+    "generator": "組み込みimagegen",
+    "direction": "オリジナルの人物と風景",
+    "avatarDimensions": [
+      1254,
+      1254
+    ],
+    "bannerDimensions": [
+      2112,
+      744
+    ],
+    "applicationIconHash": "38fdb936fcae988364166d529c5b5252",
+    "avatarHash": "38fdb936fcae988364166d529c5b5252",
+    "bannerHash": "7ce917c0c840fc8d6085d1996a276af3",
+    "apiReadbackMatches": true,
+    "discordProfileVisible": true,
+    "smallAvatarVisible": true,
+    "previousProfileBackedUp": true,
+    "serviceHealth": "running healthy",
+    "check": "成功",
+    "build": "39ページ・成功"
   }
 }
