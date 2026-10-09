@@ -25,16 +25,26 @@ export class SubscriptionStore {
   }
 }
 
+// 日次要約はその日の最初の通知だけに付ける。追記の通知へ同じ要約を付けると、毎回同じ書き出しになる。
+const followUpSummary = fields => {
+  const counts = new Map();
+  for (const field of fields) { const type = field.name.split(' · ')[0]; counts.set(type, (counts.get(type) ?? 0) + 1); }
+  return 'この日の追加分：' + [...counts].map(([type, count]) => `${type} ${count}件`).join('・');
+};
+
 export function pendingBatches(snapshot, seen) {
   const known = new Set(seen);
+  const started = new Set(snapshot.batches.filter(batch => batch.keys.some(key => known.has(key))).map(batch => batch.date));
   return snapshot.batches.flatMap(batch => {
     const indexes = batch.keys.flatMap((key, i) => known.has(key) ? [] : [i]);
     if (!indexes.length) return [];
     const keys = indexes.map(i => batch.keys[i]);
     const id = hash(keys.join('\n')).slice(0, 16);
     const embed = batch.payload.embeds[0];
+    const fields = indexes.map(i => embed.fields[i]);
     return [{ id, keys, payload: { ...batch.payload, embeds: [{ ...embed,
-      fields: indexes.map(i => embed.fields[i]), footer: { text: embed.footer.text.replace(/通知ID [0-9a-f]+$/, `通知ID ${id}`) }
+      description: started.has(batch.date) ? followUpSummary(fields) : embed.description,
+      fields, footer: { text: embed.footer.text.replace(/通知ID [0-9a-f]+$/, `通知ID ${id}`) }
     }] } }];
   });
 }

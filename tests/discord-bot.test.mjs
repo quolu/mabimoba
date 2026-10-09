@@ -49,6 +49,24 @@ test('同日の追記だけを全登録先へ送り、一部403でも他サー�
   assert.equal(store.data.subscriptions['111'].seen.includes('2026-10-08:new'), false);
 });
 
+test('日次要約は最初の通知だけに付け、同日の追記は追加分の件数を見出しにする', async t => {
+  const { service, posted } = await setup(t);
+  const day = portal.changelog[0];
+  const first = structuredClone(portal);
+  first.changelog[0].items = day.items.slice(0, 1);
+  const plan = data => ({ ...snapshot(), batches: planNotifications(data, [], origin) });
+  await service.start('111', '222', plan(first));
+  assert.equal(posted[0].payload.embeds[0].description, day.summary);
+  const result = await service.dispatch(snapshot());
+  assert.equal(result.results[0].messages.length, 1);
+  const embed = posted[1].payload.embeds[0];
+  assert.equal(embed.fields.length, day.items.length - 1);
+  assert.match(embed.description, /^この日の追加分：/);
+  const counted = [...embed.description.matchAll(/ (\d+)件/g)].reduce((sum, row) => sum + Number(row[1]), 0);
+  assert.equal(counted, embed.fields.length);
+  assert.ok(!embed.description.includes(day.summary));
+});
+
 test('通信結果不明はサーバーごとに保留し、再起動後も自動再送しない', async t => {
   const { service, store, api } = await setup(t, async () => { throw new Error('timeout'); });
   await assert.rejects(service.start('111', '222', snapshot()), /DISCORD_DELIVERY_UNKNOWN/);
