@@ -15,7 +15,7 @@
 
 ### 出典の種類と、日本公式ゲームガイド
 
-`sources` の `kind` は、`official`（公式）、`media`（攻略媒体の記事）、`community`（掲示板などのプレイヤー投稿）、`x-official`・`x-community` のいずれか。記事末尾の出典欄に「公式」「攻略媒体」「プレイヤー投稿」と表示される。GameWithやInvenの編集部の記事は `media`、Invenの掲示板投稿は `community` にする。
+`sources` の `kind` は、`official`（公式）、`media`（攻略媒体の記事）、`community`（掲示板などのプレイヤー投稿）、`x-official`・`x-community` のいずれか。記事末尾の出典欄に「公式」「公式X」「攻略媒体」「プレイヤー投稿」と表示される。公式サイトに同じ内容の告知が無く、公式Xの投稿だけが根拠になる時は、その投稿を `x-official` で登録する（2026-10-10、3連休のログインプレゼントで初めて使った）。GameWithやInvenの編集部の記事は `media`、Invenの掲示板投稿は `community` にする。
 
 日本公式サイトには[ゲームガイド](https://mabinogimobile.nexon.co.jp/about/guide)がある（2026-10-09に確認、84件、掲載日2026-10-01）。採集・生活道具・加工・製作・バッグ・クエストの種類などが日本語の名称で読める。日本版の記事を書く時は、韓国公式ガイドより先にここを読み、日本語の名称をここに合わせる。
 
