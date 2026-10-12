@@ -126,6 +126,7 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 - どこまで選んだかは、部品の `custom_id`（`mat:<種類>:<個数>:<分類>:<グループ>:<ページ>`）に持たせる。ボットの側に状態を残さない。1つのグループが25品を超える時は、前後のボタンでページを替える。防具は、鎧の種類（`group.sub`）でもう一段分けてある。
 - データは公開サイトの `/data/recipes.json` を読む。10分たつと取り直し、取得に失敗した時は前のデータで答える。
 - 計算は `scripts/recipes.mjs` の `baseMaterials`、画面と返事の組み立ては `bot/materials.mjs`。ボットのコンテナには `scripts/recipes.mjs` も入れている。
+- サイトの案内は `/discord/`（メニューの名前は「Discordボット」。2026-10-13に「Discord更新通知」から変えた）。できる事、`/材料` の手順、計算の例を載せる。製作・加工の一覧の各ページとホームからも、この案内へ送る（`scripts/recipes.mjs` の `botBox`）。ボットにできる事が増えたら、この案内と `content/discord-profile.json` の紹介文も直す。
 - 中身を変えた時は `npm run test:notify` を通してから `npm run discord:deploy`。コマンドの登録は、ボットの起動時に行う。分類やグループを増やした時は、どの画面も部品の上限（選ぶ欄は25件まで）に収まる事を、同じテストが確かめる。
 
 ### ボットを接続・配備する
