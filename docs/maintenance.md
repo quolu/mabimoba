@@ -133,7 +133,7 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 
 `content/portal.json` の `discord.enabled` がfalseの間は、メニューと `/discord/` を生成しない。Botの配備・招待URLの確認後にtrueへ進め、実際に公開する日付の `changelog` へ追加する。先の日付に公開済みと記録しない。
 
-1. Discord Developer Portalでアプリ「マビモバ更新通知」を作る。BotのPublic Botを有効、Requires OAuth2 Code Grantを無効、Privileged Gateway Intentsは全て無効にする。InstallationはGuild Installを有効にし、インストールリンクをカスタムURLの `https://mabimoba.kitepon.dev/discord/invite` にする。正規URLが `bot` と `applications.commands` のスコープ、必要な権限を指定する。
+1. Discord Developer Portalでアプリ「マビモバ攻略ポータル」を作る（2026-10-13に「マビモバ更新通知」から名前を変えた）。BotのPublic Botを有効、Requires OAuth2 Code Grantを無効、Privileged Gateway Intentsは全て無効にする。InstallationはGuild Installを有効にし、インストールリンクをカスタムURLの `https://mabimoba.kitepon.dev/discord/invite` にする。正規URLが `bot` と `applications.commands` のスコープ、必要な権限を指定する。
 2. Botトークンは入力カードまたはログイン済みのブラウザから、SSHの標準入力でmain-serverの `~/.config/mabimoba/discord-token` へ直接保管する。フォルダ0700・ファイル0600・実行ユーザーUID1000で読み取り可能にする。値は会話・引数・ログ・リポジトリへ出さない。読み取ったトークンを標準入力に渡して `npm run discord:configure -- <アプリID>` を実行すると、DiscordでアプリIDを照合してから保管する。Botの接続時にもApplication IDをDiscordから取得する。
 3. cleanなmainのcheckoutで `npm run discord:deploy` を実行する。既定ブランチの祖先commitだけを対象に、ポータルから独立した専用コンテナを起動する。Botコードを変えた時も同じコマンドで更新する。
 4. ポータルを `npm run deploy` で公開する。通常のコンテンツ更新ではBotを再起動しない。Botは公開済みの `discord-updates.json` を読むため、サイトの公開だけで最新内容へ追従する。
@@ -149,6 +149,8 @@ Bot専用の依存パッケージは `bot/package.json` とlockfileで管理す�
 ### Botプロフィールを更新する
 
 プロフィールの概要は `content/discord-profile.json` を正本にする。公開中の製品サイトで用途を確かめ、400文字以内に収める。変更をcheck・commit・pushした後、`npm run discord:profile` でDiscordへ反映する。`avatar`・`banner` に `bot/assets/` のPNGを指定すると、Botの画像とアプリのアイコンも同じコマンドで揃える。生成条件・寸法・ハッシュは `bot/assets/artwork.json` に記録する。Discord公式APIで指定項目を更新し、読み戻して確認する。更新前の概要と画像はmain-serverの専用stateへ保存する。Botの再起動は不要。
+
+`name` を書くと、Botの名前（メンバー一覧とメッセージに出る名前）も同じコマンドで変える。2026-10-13、オーナーの決裁で「マビモバ更新通知」から「マビモバ攻略ポータル」に変えた。変える前の名前は、画像と同じ控えに残る。Discordは名前を短い間に何度も変えられないので、決まった名前を1回だけ流す。招待の画面に出るアプリの名前は、Developer PortalのGeneral Informationで直す（このコマンドでは変えられない）。
 
 ### 公開後に全登録先へ配信する
 

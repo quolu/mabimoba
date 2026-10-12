@@ -5,6 +5,8 @@ try {
   const profile = JSON.parse(await readFile(new URL('../content/discord-profile.json', import.meta.url), 'utf8'));
   const description = profile.description;
   if (typeof description !== 'string' || !description.trim() || description.length > 400) throw new Error('DISCORD_PROFILE_INVALID: 概要は1〜400文字で指定してください');
+  const name = profile.name;
+  if (name !== undefined && (typeof name !== 'string' || name.trim() !== name || [...name].length < 2 || [...name].length > 32)) throw new Error('DISCORD_PROFILE_NAME_INVALID: 名前は2〜32文字で指定してください');
   const images = {}, dimensions = {};
   for (const key of ['avatar', 'banner']) {
     if (profile[key] === undefined) continue;
@@ -16,7 +18,7 @@ try {
   }
   const args = process.argv.slice(2);
   if (args.length === 1 && args[0] === '--validate') {
-    console.log(`Discordプロフィール確認: ${description.length}文字 ${JSON.stringify(dimensions)}`);
+    console.log(`Discordプロフィール確認: ${name ? `名前「${name}」 ` : ''}${description.length}文字 ${JSON.stringify(dimensions)}`);
   } else {
     if (args.length) throw new Error('DISCORD_PROFILE_ARGUMENT_INVALID');
     const target = JSON.parse(await readFile(new URL('../deploy/target.json', import.meta.url), 'utf8'));
@@ -28,7 +30,7 @@ try {
 import {readFileSync, mkdirSync, writeFileSync} from 'node:fs';
 import {homedir} from 'node:os';
 import {join} from 'node:path';
-const desired = ${JSON.stringify({ description, images })};
+const desired = ${JSON.stringify({ description, images, name: name ?? null })};
 const token = readFileSync(join(homedir(), '.config/mabimoba/discord-token'), 'utf8').trim();
 const request = async (resource, method, body) => {
   const response = await fetch('https://discord.com/api/v10/'+resource+'/@me', {method, redirect:'error',
@@ -45,25 +47,28 @@ const oldImage = async (kind,id,hash) => {
 };
 try {
   const before = await request('applications','GET');
-  const beforeUser = Object.keys(desired.images).length ? await request('users','GET') : null;
+  const beforeUser = (Object.keys(desired.images).length || desired.name) ? await request('users','GET') : null;
   const state = join(homedir(), '.local/state/mabimoba');
   mkdirSync(state,{recursive:true,mode:0o700});
   const backup = join(state,'profile-before-'+Date.now()+'.json');
   const previous = {applicationId:before.id,application:{description:before.description}};
   if(desired.images.avatar) previous.application.icon = await oldImage('app-icons',before.id,before.icon);
   if(beforeUser) {
-    previous.user = {};
+    previous.user = {username:beforeUser.username};
     if(desired.images.avatar) previous.user.avatar = await oldImage('avatars',beforeUser.id,beforeUser.avatar);
     if(desired.images.banner) previous.user.banner = await oldImage('banners',beforeUser.id,beforeUser.banner);
   }
   writeFileSync(backup,JSON.stringify(previous),{mode:0o600});
-  const updatedUser = beforeUser ? await request('users','PATCH',desired.images) : null;
+  // ボットの名前（メンバー一覧とメッセージに出る方）。招待の画面に出るアプリの名前は、Developer Portalでしか変えられない。
+  if(desired.name && beforeUser.username!==desired.name) await request('users','PATCH',{username:desired.name});
+  const updatedUser = Object.keys(desired.images).length ? await request('users','PATCH',desired.images) : null;
   const updatedApp = await request('applications','PATCH',{description:desired.description,...(desired.images.avatar?{icon:desired.images.avatar}:{})});
   const after = await request('applications','GET');
   const afterUser = beforeUser ? await request('users','GET') : null;
   if(after.description!==desired.description || (desired.images.avatar && (!updatedApp.icon || after.icon!==updatedApp.icon))) throw new Error('DISCORD_PROFILE_MISMATCH');
   for(const key of Object.keys(desired.images)) if(!updatedUser[key] || afterUser[key]!==updatedUser[key]) throw new Error('DISCORD_PROFILE_IMAGE_MISMATCH_'+key);
-  console.log(JSON.stringify({applicationId:after.id,name:after.name,characters:after.description.length,icon:after.icon,
+  if(desired.name && afterUser.username!==desired.name) throw new Error('DISCORD_PROFILE_NAME_MISMATCH');
+  console.log(JSON.stringify({applicationId:after.id,name:after.name,username:afterUser?.username,previousUsername:beforeUser?.username,characters:after.description.length,icon:after.icon,
     avatar:afterUser?.avatar,banner:afterUser?.banner,verified:true,backup},null,2));
 } catch(error) {console.error(error.message?.startsWith('DISCORD_')?error.message:'DISCORD_PROFILE_FAILED');process.exitCode=1;}
 `;

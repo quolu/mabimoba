@@ -53,7 +53,7 @@ async function setupGuild(guild) {
     logError('auto-setup-failed', error);
     if (guild.systemChannelId) {
       await client.rest.post(Routes.channelMessages(guild.systemChannelId), { body: {
-        content: 'マビモバ更新通知の初期設定に失敗しました。ボットの「チャンネルの管理」と投稿権限を確認してください。設定後に管理者が通知先で /マビモバ 開始 を実行すると登録できます。', allowed_mentions: { parse: [] }
+        content: 'マビモバ攻略ポータルの更新通知の初期設定に失敗しました。ボットの「チャンネルの管理」と投稿権限を確認してください。設定後に管理者が通知先で /マビモバ 開始 を実行すると登録できます。', allowed_mentions: { parse: [] }
       } }).catch(failure => logError('setup-error-notification-failed', failure));
     }
   }
