@@ -1,7 +1,28 @@
 import { PermissionFlagsBits, ChannelType, MessageFlags } from 'discord.js';
+import { searchItems, resolveItem, materialPayload } from './materials.mjs';
 export const neededPermissions = PermissionFlagsBits.ViewChannel | PermissionFlagsBits.SendMessages | PermissionFlagsBits.EmbedLinks | PermissionFlagsBits.ReadMessageHistory;
 
-export async function handleInteraction(interaction, { delivery, store, loadSnapshot, logError }) {
+// 「/材料」は、サーバーの誰でも使える。通知の設定（/マビモバ）とは別のコマンドにしてある。
+export async function handleMaterials(interaction, { loadRecipes, origin, logError }) {
+  if (interaction.isAutocomplete?.()) {
+    try { await interaction.respond(searchItems(await loadRecipes(), interaction.options.getFocused())); }
+    catch (error) { logError('materials-autocomplete-failed', error); await interaction.respond([]).catch(() => {}); }
+    return;
+  }
+  if (!interaction.isChatInputCommand()) return;
+  try {
+    await interaction.deferReply();
+    const recipes = await loadRecipes();
+    const count = interaction.options.getInteger('個数') ?? 1;
+    await interaction.editReply(materialPayload(recipes, resolveItem(recipes, interaction.options.getString('品物', true)), count, origin));
+  } catch (error) {
+    logError('materials-failed', error);
+    if (interaction.deferred) await interaction.editReply('材料の計算に失敗しました。時間をおいて、もう一度お試しください。').catch(failure => logError('reply-failed', failure));
+  }
+}
+
+export async function handleInteraction(interaction, { delivery, store, loadSnapshot, logError, loadRecipes, origin }) {
+  if (interaction.commandName === '材料') return handleMaterials(interaction, { loadRecipes, origin, logError });
   if (!interaction.isChatInputCommand() || interaction.commandName !== 'マビモバ') return;
   try {
     if (!interaction.inGuild() || !interaction.memberPermissions.has(PermissionFlagsBits.ManageGuild)) {

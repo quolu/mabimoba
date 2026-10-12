@@ -4,6 +4,7 @@ import { createServer } from 'node:http';
 import { readFileSync } from 'node:fs';
 import { SubscriptionStore, DeliveryService, loadPublishedSnapshot, failureCode } from './core.mjs';
 import { createPublicHandler } from './public-http.mjs';
+import { createRecipeCache } from './materials.mjs';
 
 const target = JSON.parse(readFileSync(new URL('../deploy/target.json', import.meta.url), 'utf8'));
 const origin = `https://${target.domain}`;
@@ -26,13 +27,17 @@ const command = new SlashCommandBuilder().setName('マビモバ').setDescription
   .addSubcommand(option => option.setName('開始').setDescription('このチャンネルで更新通知を受け取ります'))
   .addSubcommand(option => option.setName('停止').setDescription('このサーバーへの更新通知を停止します'))
   .addSubcommand(option => option.setName('状態').setDescription('通知先と直近の送信状況を確認します'));
+const materialCommand = new SlashCommandBuilder().setName('材料').setDescription('品物を作るのに集める、元の材料を調べます').setContexts(0).setIntegrationTypes(0)
+  .addStringOption(option => option.setName('品物').setDescription('作りたい品物の名前（日本語か韓国語。途中まで入れると候補が出ます）').setRequired(true).setAutocomplete(true))
+  .addIntegerOption(option => option.setName('個数').setDescription('そろえたい個数（省略すると1個）').setMinValue(1).setMaxValue(999));
+const recipeCache = createRecipeCache(origin);
 let commandsReady = false;
 const ready = () => client.isReady() && commandsReady;
 const invite = () => `https://discord.com/oauth2/authorize?client_id=${client.application.id}&scope=bot%20applications.commands&permissions=${needed}&integration_type=0`;
 const handlePublicRequest = createPublicHandler({ ready, invite, guildCount: () => client.guilds.cache.size });
 const logError = (kind, error) => console.error(JSON.stringify({ kind, code: failureCode(error) }));
 
-client.on(Events.InteractionCreate, interaction => handleInteraction(interaction, { delivery, store, loadSnapshot: () => loadPublishedSnapshot(origin), logError }));
+client.on(Events.InteractionCreate, interaction => handleInteraction(interaction, { delivery, store, loadSnapshot: () => loadPublishedSnapshot(origin), logError, loadRecipes: recipeCache.load, origin }).catch(error => logError('interaction-failed', error)));
 client.on(Events.GuildDelete, guild => { delivery.removeGuild(guild.id).catch(error => logError('guild-delete-failed', error)); });
 client.on(Events.Error, error => logError('gateway-error', error));
 async function setupGuild(guild) {
@@ -58,7 +63,8 @@ client.on(Events.GuildCreate, guild => { setupGuild(guild).catch(error => logErr
 
 client.once(Events.ClientReady, async () => {
   try {
-    await client.rest.put(Routes.applicationCommands(client.application.id), { body: [command.toJSON()] });
+    await client.rest.put(Routes.applicationCommands(client.application.id), { body: [command.toJSON(), materialCommand.toJSON()] });
+    recipeCache.load().catch(error => logError('recipes-load-failed', error));
     // オフライン中に退会したサーバーの記録も削除する。
     for (const guildId of new Set([...Object.keys(store.data.subscriptions), ...store.data.stopped])) if (!client.guilds.cache.has(guildId)) await delivery.removeGuild(guildId);
     commandsReady = true;

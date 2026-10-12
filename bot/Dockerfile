@@ -3,6 +3,7 @@ WORKDIR /app
 COPY bot/package.json bot/package-lock.json ./bot/
 RUN npm --prefix bot ci --omit=dev --ignore-scripts
 COPY bot/*.mjs ./bot/
+COPY scripts/recipes.mjs ./scripts/recipes.mjs
 COPY deploy/target.json ./deploy/target.json
 USER node
 EXPOSE 8081
