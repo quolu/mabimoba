@@ -1,28 +1,30 @@
 import { PermissionFlagsBits, ChannelType, MessageFlags } from 'discord.js';
-import { searchItems, resolveItem, materialPayload } from './materials.mjs';
+import { sectionMenu, route } from './materials.mjs';
 export const neededPermissions = PermissionFlagsBits.ViewChannel | PermissionFlagsBits.SendMessages | PermissionFlagsBits.EmbedLinks | PermissionFlagsBits.ReadMessageHistory;
 
 // 「/材料」は、サーバーの誰でも使える。通知の設定（/マビモバ）とは別のコマンドにしてある。
+// コマンドの後は、分類 → グループ → 品物 の順に一覧から選ぶ。選ぶ画面と結果は本人にだけ見え、ボタンでチャンネルへ出せる。
 export async function handleMaterials(interaction, { loadRecipes, origin, logError }) {
-  if (interaction.isAutocomplete?.()) {
-    try { await interaction.respond(searchItems(await loadRecipes(), interaction.options.getFocused())); }
-    catch (error) { logError('materials-autocomplete-failed', error); await interaction.respond([]).catch(() => {}); }
-    return;
-  }
-  if (!interaction.isChatInputCommand()) return;
+  const component = interaction.isStringSelectMenu?.() || interaction.isButton?.();
   try {
-    await interaction.deferReply();
-    const recipes = await loadRecipes();
-    const count = interaction.options.getInteger('個数') ?? 1;
-    await interaction.editReply(materialPayload(recipes, resolveItem(recipes, interaction.options.getString('品物', true)), count, origin));
+    if (component) {
+      const publish = String(interaction.customId).startsWith('mat:p:');
+      if (publish) await interaction.deferReply(); else await interaction.deferUpdate();
+      const next = route(await loadRecipes(), interaction.customId, interaction.values, origin);
+      await interaction.editReply(next.payload);
+      return;
+    }
+    if (!interaction.isChatInputCommand()) return;
+    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+    await interaction.editReply(sectionMenu(await loadRecipes(), interaction.options.getInteger('個数') ?? 1));
   } catch (error) {
     logError('materials-failed', error);
-    if (interaction.deferred) await interaction.editReply('材料の計算に失敗しました。時間をおいて、もう一度お試しください。').catch(failure => logError('reply-failed', failure));
+    if (interaction.deferred) await interaction.editReply({ content: '材料の計算に失敗しました。時間をおいて、もう一度お試しください。', embeds: [], components: [] }).catch(failure => logError('reply-failed', failure));
   }
 }
 
 export async function handleInteraction(interaction, { delivery, store, loadSnapshot, logError, loadRecipes, origin }) {
-  if (interaction.commandName === '材料') return handleMaterials(interaction, { loadRecipes, origin, logError });
+  if (interaction.commandName === '材料' || String(interaction.customId ?? '').startsWith('mat:')) return handleMaterials(interaction, { loadRecipes, origin, logError });
   if (!interaction.isChatInputCommand() || interaction.commandName !== 'マビモバ') return;
   try {
     if (!interaction.inGuild() || !interaction.memberPermissions.has(PermissionFlagsBits.ManageGuild)) {

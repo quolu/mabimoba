@@ -4,12 +4,13 @@
  "region": "韓国版",
  "lead": "製作台と加工施設で作れる品物と、その材料の一覧。韓国版の攻略掲示板にまとめられた表を元にしていて、日本版で同じかどうかは、一部しか確かめられていない。",
  "points": [
-  "載せているのは、加工6施設と、武器、防具、アクセサリ、生活道具、フード、ポーション、多目的製作の作り方。",
+  "載せているのは、加工6施設と、武器、防具、アクセサリ、生活道具、フード、ポーション・包帯・秘薬、多目的製作の作り方。",
   "元の資料は韓国版（2025年4月〜6月の投稿）。日本版と品物や個数が違う事がある。",
-  "品物の名前は、日本版の資料で確かめられた物に「日本版の名前」の印を付けた。印の無い名前は仮訳。韓国語の元の名前を併記している。",
+  "品物の名前は、日本版の画面や公式ガイドで確かめられた物に「日本版の名前」の印を付けた。印の無い名前は、日本版の名前の付け方に揃えた仮訳。韓国語の元の名前を併記している。",
+  "日本版の画面と見比べられた作り方は4件。4件とも、材料と個数、製作台とスキルのレベル、加工の時間が同じだった。",
   "材料の名前を押すと、その材料の作り方へ移る。"
  ],
- "legend": "「日本版の名前」は、日本公式ゲームガイド、日本版の攻略媒体、日本版の実機で同じ名前を確かめた物。加工の時間は、元の表の注記によるとライフメンバーシップを使っている時の値で、使っていない時は2倍。",
+ "legend": "「日本版の名前」は、日本公式ゲームガイド、日本版の攻略媒体、日本版の製作や加工の画面で同じ名前を確かめた物。加工の時間は、元の表の注記によるとライフメンバーシップを使っている時の値で、使っていない時は2倍。",
  "stations": [
   {
    "id": "weapon-bench",
@@ -80,7 +81,7 @@
   {
    "id": "no-bench",
    "ko": "바로 제작",
-   "ja": "製作台なし（その場で製作）",
+   "ja": "その場で製作",
    "kind": "craft"
   }
  ],
@@ -151,21 +152,21 @@
   {
    "id": "tools",
    "ko": "도구 제작",
-   "ja": "生活道具の製作",
+   "ja": "生活道具製作",
    "kind": "craft",
    "source": "inven-recipes-133"
   },
   {
    "id": "food",
    "ko": "음식",
-   "ja": "フード（料理）",
+   "ja": "フード",
    "kind": "craft",
    "source": "inven-recipes-134"
   },
   {
    "id": "potions",
    "ko": "회복 · 강화",
-   "ja": "回復と強化（ポーション）",
+   "ja": "ポーション・包帯・秘薬",
    "kind": "craft",
    "source": "inven-recipes-135"
   },
@@ -176,6 +177,13 @@
    "kind": "craft",
    "source": "inven-recipes-466"
   }
+ ],
+ "jpSources": [
+  "x-recipe-armor",
+  "x-recipe-facility",
+  "x-recipe-wood",
+  "x-recipe-potion",
+  "x-recipe-ingot"
  ],
  "items": [
   {
@@ -188,112 +196,112 @@
   {
    "id": "i4c1582a8",
    "ko": "가죽 가공 시설 설계도 (3레벨)",
-   "ja": "革加工施設の設計図（Lv.3）",
+   "ja": "革加工施設の設計図(レベル3)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "id3110897",
    "ko": "가죽 갑옷 상의",
-   "ja": "革鎧の上衣",
+   "ja": "革鎧(上)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i1497c458",
    "ko": "가죽 갑옷 상의S",
-   "ja": "革鎧の上衣S",
+   "ja": "革鎧(上)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i61616e44",
    "ko": "가죽 갑옷 상의SS",
-   "ja": "革鎧の上衣SS",
+   "ja": "革鎧(上)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i9e9ca53c",
    "ko": "가죽 갑옷 신발",
-   "ja": "革鎧の靴",
+   "ja": "革鎧(足)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i0e4d9fd6",
    "ko": "가죽 갑옷 신발S",
-   "ja": "革鎧の靴S",
+   "ja": "革鎧(足)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "icc3e2eb1",
    "ko": "가죽 갑옷 신발SS",
-   "ja": "革鎧の靴SS",
+   "ja": "革鎧(足)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "iec7da134",
    "ko": "가죽 갑옷 장갑",
-   "ja": "革鎧の手袋",
+   "ja": "革鎧(手)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i3a9287de",
    "ko": "가죽 갑옷 장갑S",
-   "ja": "革鎧の手袋S",
+   "ja": "革鎧(手)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ib5ebc11d",
    "ko": "가죽 갑옷 장갑SS",
-   "ja": "革鎧の手袋SS",
+   "ja": "革鎧(手)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i676c5fa1",
    "ko": "가죽 갑옷 투구",
-   "ja": "革鎧の兜",
+   "ja": "革鎧(頭)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i64fa58cd",
    "ko": "가죽 갑옷 투구S",
-   "ja": "革鎧の兜S",
+   "ja": "革鎧(頭)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "id40463b2",
    "ko": "가죽 갑옷 투구SS",
-   "ja": "革鎧の兜SS",
+   "ja": "革鎧(頭)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i4924de99",
    "ko": "가죽 갑옷 하의",
-   "ja": "革鎧の下衣",
+   "ja": "革鎧(下)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i86486009",
    "ko": "가죽 갑옷 하의S",
-   "ja": "革鎧の下衣S",
+   "ja": "革鎧(下)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i87e84803",
    "ko": "가죽 갑옷 하의SS",
-   "ja": "革鎧の下衣SS",
+   "ja": "革鎧(下)SS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -329,7 +337,7 @@
    "id": "i53db50a9",
    "ko": "강철괴",
    "ja": "スチールインゴット",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -349,70 +357,70 @@
   {
    "id": "ie04970ad",
    "ko": "강화된 전투복 상의S",
-   "ja": "強化された戦闘服の上衣S",
+   "ja": "強化バトルトップスS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i1b453193",
    "ko": "강화된 전투복 상의SS",
-   "ja": "強化された戦闘服の上衣SS",
+   "ja": "強化バトルトップスSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ica106cce",
    "ko": "강화된 전투복 신발S",
-   "ja": "強化された戦闘服の靴S",
+   "ja": "強化バトルシューズS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i01063ad7",
    "ko": "강화된 전투복 신발SS",
-   "ja": "強化された戦闘服の靴SS",
+   "ja": "強化バトルシューズSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i9c007028",
    "ko": "강화된 전투복 장갑S",
-   "ja": "強化された戦闘服の手袋S",
+   "ja": "強化バトルグローブS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i093af8b8",
    "ko": "강화된 전투복 장갑SS",
-   "ja": "強化された戦闘服の手袋SS",
+   "ja": "強化バトルグローブSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i83ece186",
    "ko": "강화된 전투복 투구S",
-   "ja": "強化された戦闘服の兜S",
+   "ja": "強化バトルハットS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i6e607e50",
    "ko": "강화된 전투복 투구SS",
-   "ja": "強化された戦闘服の兜SS",
+   "ja": "強化バトルハットSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i2467b33f",
    "ko": "강화된 전투복 하의S",
-   "ja": "強化された戦闘服の下衣S",
+   "ja": "強化バトルボトムスS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ibf7b1823",
    "ko": "강화된 전투복 하의SS",
-   "ja": "強化された戦闘服の下衣SS",
+   "ja": "強化バトルボトムスSS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -447,7 +455,7 @@
   {
    "id": "id0c742b8",
    "ko": "개량된 도구 부품",
-   "ja": "改良された道具の部品",
+   "ja": "改良された道具部品",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -531,7 +539,7 @@
   {
    "id": "i637254b5",
    "ko": "광산의 마나석",
-   "ja": "鉱山のマナ石",
+   "ja": "鉱山のマナストーン",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -734,8 +742,8 @@
   {
    "id": "i4b0986c8",
    "ko": "금속 가공 시설 설계도 (3레벨)",
-   "ja": "金属加工施設の設計図（Lv.3）",
-   "jaConfirmed": false,
+   "ja": "金属加工施設の設計図(レベル3)",
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -763,21 +771,21 @@
    "id": "id05f5ac8",
    "ko": "깔끔 버섯",
    "ja": "スッキリキノコ",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
    "id": "ie9761219",
    "ko": "깔끔 버섯 진액",
    "ja": "スッキリキノコのエキス",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
    "id": "ia34538be",
    "ko": "깔끔 버섯 포자",
    "ja": "スッキリキノコの胞子",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -819,7 +827,7 @@
    "id": "i806c4c7d",
    "ko": "나뭇가지",
    "ja": "木の枝",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -888,35 +896,35 @@
   {
    "id": "iea70d74d",
    "ko": "누비 전투복 상의SS",
-   "ja": "キルトの戦闘服の上衣SS",
+   "ja": "キルトバトルトップスSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i7f3affeb",
    "ko": "누비 전투복 신발SS",
-   "ja": "キルトの戦闘服の靴SS",
+   "ja": "キルトバトルシューズSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i788d2b78",
    "ko": "누비 전투복 장갑SS",
-   "ja": "キルトの戦闘服の手袋SS",
+   "ja": "キルトバトルグローブSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i4d16f6cf",
    "ko": "누비 전투복 투구SS",
-   "ja": "キルトの戦闘服の兜SS",
+   "ja": "キルトバトルハットSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i3743e940",
    "ko": "누비 전투복 하의SS",
-   "ja": "キルトの戦闘服の下衣SS",
+   "ja": "キルトバトルボトムスSS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -930,7 +938,7 @@
   {
    "id": "i8bcc0a82",
    "ko": "다목적 제작대 설계도 (3레벨)",
-   "ja": "多目的製作台の設計図（Lv.3）",
+   "ja": "多目的製作台の設計図(レベル3)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -986,7 +994,7 @@
   {
    "id": "i6c161563",
    "ko": "도구 부품",
-   "ja": "道具の部品",
+   "ja": "道具部品",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -1035,105 +1043,105 @@
   {
    "id": "i3dd9c9a1",
    "ko": "두꺼운 가죽 갑옷 상의",
-   "ja": "厚い革鎧の上衣",
+   "ja": "厚革鎧(上)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ibd80da9e",
    "ko": "두꺼운 가죽 갑옷 상의S",
-   "ja": "厚い革鎧の上衣S",
+   "ja": "厚革鎧(上)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i22916619",
    "ko": "두꺼운 가죽 갑옷 상의SS",
-   "ja": "厚い革鎧の上衣SS",
+   "ja": "厚革鎧(上)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "iec06d9dd",
    "ko": "두꺼운 가죽 갑옷 신발",
-   "ja": "厚い革鎧の靴",
+   "ja": "厚革鎧(足)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ie13d9cc4",
    "ko": "두꺼운 가죽 갑옷 신발S",
-   "ja": "厚い革鎧の靴S",
+   "ja": "厚革鎧(足)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ia8304358",
    "ko": "두꺼운 가죽 갑옷 신발SS",
-   "ja": "厚い革鎧の靴SS",
+   "ja": "厚革鎧(足)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i40461119",
    "ko": "두꺼운 가죽 갑옷 장갑",
-   "ja": "厚い革鎧の手袋",
+   "ja": "厚革鎧(手)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "icf7c5642",
    "ko": "두꺼운 가죽 갑옷 장갑S",
-   "ja": "厚い革鎧の手袋S",
+   "ja": "厚革鎧(手)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i271585c2",
    "ko": "두꺼운 가죽 갑옷 장갑SS",
-   "ja": "厚い革鎧の手袋SS",
+   "ja": "厚革鎧(手)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i1dfa1d3b",
    "ko": "두꺼운 가죽 갑옷 투구",
-   "ja": "厚い革鎧の兜",
+   "ja": "厚革鎧(頭)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i2d004f4b",
    "ko": "두꺼운 가죽 갑옷 투구S",
-   "ja": "厚い革鎧の兜S",
+   "ja": "厚革鎧(頭)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i87babc99",
    "ko": "두꺼운 가죽 갑옷 투구SS",
-   "ja": "厚い革鎧の兜SS",
+   "ja": "厚革鎧(頭)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i4f324e3e",
    "ko": "두꺼운 가죽 갑옷 하의",
-   "ja": "厚い革鎧の下衣",
+   "ja": "厚革鎧(下)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "id091faea",
    "ko": "두꺼운 가죽 갑옷 하의S",
-   "ja": "厚い革鎧の下衣S",
+   "ja": "厚革鎧(下)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "iba66da1c",
    "ko": "두꺼운 가죽 갑옷 하의SS",
-   "ja": "厚い革鎧の下衣SS",
+   "ja": "厚革鎧(下)SS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -1154,105 +1162,105 @@
   {
    "id": "i9405cc8e",
    "ko": "두꺼운 전투복 상의",
-   "ja": "厚い戦闘服の上衣",
+   "ja": "厚手バトルトップス",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ib4d9139e",
    "ko": "두꺼운 전투복 상의S",
-   "ja": "厚い戦闘服の上衣S",
+   "ja": "厚手バトルトップスS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ibd89b5fe",
    "ko": "두꺼운 전투복 상의SS",
-   "ja": "厚い戦闘服の上衣SS",
+   "ja": "厚手バトルトップスSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "icc26aa19",
    "ko": "두꺼운 전투복 신발",
-   "ja": "厚い戦闘服の靴",
+   "ja": "厚手バトルシューズ",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i221f45dc",
    "ko": "두꺼운 전투복 신발S",
-   "ja": "厚い戦闘服の靴S",
+   "ja": "厚手バトルシューズS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "iad80739e",
    "ko": "두꺼운 전투복 신발SS",
-   "ja": "厚い戦闘服の靴SS",
+   "ja": "厚手バトルシューズSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i42c18beb",
    "ko": "두꺼운 전투복 장갑",
-   "ja": "厚い戦闘服の手袋",
+   "ja": "厚手バトルグローブ",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "if2ff3fa3",
    "ko": "두꺼운 전투복 장갑S",
-   "ja": "厚い戦闘服の手袋S",
+   "ja": "厚手バトルグローブS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i739c8f03",
    "ko": "두꺼운 전투복 장갑SS",
-   "ja": "厚い戦闘服の手袋SS",
+   "ja": "厚手バトルグローブSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ia010ac95",
    "ko": "두꺼운 전투복 투구",
-   "ja": "厚い戦闘服の兜",
+   "ja": "厚手バトルハット",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i58b4b075",
    "ko": "두꺼운 전투복 투구S",
-   "ja": "厚い戦闘服の兜S",
+   "ja": "厚手バトルハットS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "idb953f90",
    "ko": "두꺼운 전투복 투구SS",
-   "ja": "厚い戦闘服の兜SS",
+   "ja": "厚手バトルハットSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i545cc1c2",
    "ko": "두꺼운 전투복 하의",
-   "ja": "厚い戦闘服の下衣",
+   "ja": "厚手バトルボトムス",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i5618f63f",
    "ko": "두꺼운 전투복 하의S",
-   "ja": "厚い戦闘服の下衣S",
+   "ja": "厚手バトルボトムスS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ib6c68ccd",
    "ko": "두꺼운 전투복 하의SS",
-   "ja": "厚い戦闘服の下衣SS",
+   "ja": "厚手バトルボトムスSS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -1351,7 +1359,7 @@
    "id": "i9ecd3ec6",
    "ko": "뛰어난 회복 물약",
    "ja": "優れた回復ポーション",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -1602,7 +1610,7 @@
   {
    "id": "if574af98",
    "ko": "마나석",
-   "ja": "マナ石",
+   "ja": "マナストーン",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -1630,7 +1638,7 @@
   {
    "id": "i78e8d0c0",
    "ko": "마법 유탄 부품",
-   "ja": "魔法榴弾の部品",
+   "ja": "マジックボム部品",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -1721,7 +1729,7 @@
   {
    "id": "ie9d1474f",
    "ko": "목재 가공 시설 설계도 (3레벨)",
-   "ja": "木材加工施設の設計図（Lv.3）",
+   "ja": "木材加工施設の設計図(レベル3)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -1729,7 +1737,7 @@
    "id": "idfcf06c2",
    "ko": "목재+",
    "ja": "木材+",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -1749,7 +1757,7 @@
   {
    "id": "iafdab333",
    "ko": "무기 제작대 설계도 (3레벨)",
-   "ja": "武器製作台の設計図（Lv.3）",
+   "ja": "武器製作台の設計図(レベル3)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -1819,7 +1827,7 @@
   {
    "id": "i29da68ca",
    "ko": "바람 마법 유탄",
-   "ja": "風の魔法榴弾",
+   "ja": "風マジックボム",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -1868,7 +1876,7 @@
   {
    "id": "id543ed2a",
    "ko": "방어구 제작대 설계도 (3레벨)",
-   "ja": "防具製作台の設計図（Lv.3）",
+   "ja": "防具製作台の設計図(レベル3)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -1889,7 +1897,7 @@
   {
    "id": "ifa4d274b",
    "ko": "번개 마법 유탄",
-   "ja": "雷の魔法榴弾",
+   "ja": "雷マジックボム",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -1973,7 +1981,7 @@
   {
    "id": "i7d7f0b82",
    "ko": "분해된 장비 부품",
-   "ja": "分解した装備の部品",
+   "ja": "分解された装備部品",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -2078,105 +2086,105 @@
   {
    "id": "ifb3e55e2",
    "ko": "비늘 갑옷 상의",
-   "ja": "うろこ鎧の上衣",
+   "ja": "鱗鎧(上)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i6bb90902",
    "ko": "비늘 갑옷 상의S",
-   "ja": "うろこ鎧の上衣S",
+   "ja": "鱗鎧(上)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i4102e6e3",
    "ko": "비늘 갑옷 상의SS",
-   "ja": "うろこ鎧の上衣SS",
+   "ja": "鱗鎧(上)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i4434cbd1",
    "ko": "비늘 갑옷 신발",
-   "ja": "うろこ鎧の靴",
+   "ja": "鱗鎧(足)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i4c383df2",
    "ko": "비늘 갑옷 신발S",
-   "ja": "うろこ鎧の靴S",
+   "ja": "鱗鎧(足)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i83846ee9",
    "ko": "비늘 갑옷 신발SS",
-   "ja": "うろこ鎧の靴SS",
+   "ja": "鱗鎧(足)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i46ecab07",
    "ko": "비늘 갑옷 장갑",
-   "ja": "うろこ鎧の手袋",
+   "ja": "鱗鎧(手)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i165b9aa4",
    "ko": "비늘 갑옷 장갑S",
-   "ja": "うろこ鎧の手袋S",
+   "ja": "鱗鎧(手)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "icb839d55",
    "ko": "비늘 갑옷 장갑SS",
-   "ja": "うろこ鎧の手袋SS",
+   "ja": "鱗鎧(手)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i47beefb6",
    "ko": "비늘 갑옷 투구",
-   "ja": "うろこ鎧の兜",
+   "ja": "鱗鎧(頭)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ib9a2335c",
    "ko": "비늘 갑옷 투구S",
-   "ja": "うろこ鎧の兜S",
+   "ja": "鱗鎧(頭)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i12cf3ea3",
    "ko": "비늘 갑옷 투구SS",
-   "ja": "うろこ鎧の兜SS",
+   "ja": "鱗鎧(頭)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i82f71eec",
    "ko": "비늘 갑옷 하의",
-   "ja": "うろこ鎧の下衣",
+   "ja": "鱗鎧(下)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i37773c4d",
    "ko": "비늘 갑옷 하의S",
-   "ja": "うろこ鎧の下衣S",
+   "ja": "鱗鎧(下)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ie5692045",
    "ko": "비늘 갑옷 하의SS",
-   "ja": "うろこ鎧の下衣SS",
+   "ja": "鱗鎧(下)SS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -2225,105 +2233,105 @@
   {
    "id": "i62a890ce",
    "ko": "사슬 갑옷 상의",
-   "ja": "鎖鎧の上衣",
+   "ja": "鎖鎧(上)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i418fa5a8",
    "ko": "사슬 갑옷 상의S",
-   "ja": "鎖鎧の上衣S",
+   "ja": "鎖鎧(上)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ide71a4ee",
    "ko": "사슬 갑옷 상의SS",
-   "ja": "鎖鎧の上衣SS",
+   "ja": "鎖鎧(上)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ia6946d1c",
    "ko": "사슬 갑옷 신발",
-   "ja": "鎖鎧の靴",
+   "ja": "鎖鎧(足)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i11f63ff7",
    "ko": "사슬 갑옷 신발S",
-   "ja": "鎖鎧の靴S",
+   "ja": "鎖鎧(足)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i1bd7be55",
    "ko": "사슬 갑옷 신발SS",
-   "ja": "鎖鎧の靴SS",
+   "ja": "鎖鎧(足)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ibe12dd28",
    "ko": "사슬 갑옷 장갑",
-   "ja": "鎖鎧の手袋",
+   "ja": "鎖鎧(手)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i527151cd",
    "ko": "사슬 갑옷 장갑S",
-   "ja": "鎖鎧の手袋S",
+   "ja": "鎖鎧(手)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i91a61d43",
    "ko": "사슬 갑옷 장갑SS",
-   "ja": "鎖鎧の手袋SS",
+   "ja": "鎖鎧(手)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "idc0261c2",
    "ko": "사슬 갑옷 투구",
-   "ja": "鎖鎧の兜",
+   "ja": "鎖鎧(頭)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ife0ea9c9",
    "ko": "사슬 갑옷 투구S",
-   "ja": "鎖鎧の兜S",
+   "ja": "鎖鎧(頭)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i5f650226",
    "ko": "사슬 갑옷 투구SS",
-   "ja": "鎖鎧の兜SS",
+   "ja": "鎖鎧(頭)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i4fd4fdbf",
    "ko": "사슬 갑옷 하의",
-   "ja": "鎖鎧の下衣",
+   "ja": "鎖鎧(下)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i60b4ea40",
    "ko": "사슬 갑옷 하의S",
-   "ja": "鎖鎧の下衣S",
+   "ja": "鎖鎧(下)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i16a1cbdb",
    "ko": "사슬 갑옷 하의SS",
-   "ja": "鎖鎧の下衣SS",
+   "ja": "鎖鎧(下)SS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -2337,7 +2345,7 @@
   {
    "id": "icbbb822d",
    "ko": "산성 마법 유탄",
-   "ja": "酸の魔法榴弾",
+   "ja": "酸マジックボム",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -2414,7 +2422,7 @@
   {
    "id": "if4116196",
    "ko": "상급 마법 유탄 부품",
-   "ja": "上級魔法榴弾の部品",
+   "ja": "上級マジックボム部品",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -2422,14 +2430,14 @@
    "id": "ib12120f2",
    "ko": "상급 목재",
    "ja": "上級木材",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
    "id": "i86a7c68c",
    "ko": "상급 목재+",
    "ja": "上級木材+",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -2442,7 +2450,7 @@
   {
    "id": "ic593a63f",
    "ko": "상급 바람 마법 유탄",
-   "ja": "上級風の魔法榴弾",
+   "ja": "上級風マジックボム",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -2456,7 +2464,7 @@
   {
    "id": "ibd964123",
    "ko": "상급 번개 마법 유탄",
-   "ja": "上級雷の魔法榴弾",
+   "ja": "上級雷マジックボム",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -2477,7 +2485,7 @@
   {
    "id": "iac998fb6",
    "ko": "상급 산성 마법 유탄",
-   "ja": "上級酸の魔法榴弾",
+   "ja": "上級酸マジックボム",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -2498,7 +2506,7 @@
   {
    "id": "idca8120f",
    "ko": "상급 설비 개량 부품",
-   "ja": "上級設備の改良部品",
+   "ja": "上級設備改良部品",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -2569,7 +2577,7 @@
    "id": "i0a1107b1",
    "ko": "상급 옷감+",
    "ja": "上級生地+",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -2603,21 +2611,21 @@
   {
    "id": "ia7484162",
    "ko": "상급 지배의 도안 (무기)",
-   "ja": "上級支配の図案（武器）",
+   "ja": "上級支配の図案(武器)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i082024ab",
    "ko": "상급 지배의 도안 (방어구)",
-   "ja": "上級支配の図案（防具）",
+   "ja": "上級支配の図案(防具)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i93f74515",
    "ko": "상급 지배의 도안 (장신구)",
-   "ja": "上級支配の図案（アクセサリ）",
+   "ja": "上級支配の図案(アクセサリ)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -2680,28 +2688,28 @@
   {
    "id": "i8235e77d",
    "ko": "상급 혼합 강화 비약(산사태)",
-   "ja": "上級混合強化の秘薬（山崩れ）",
+   "ja": "上級混合強化の秘薬(山崩れ)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "id4d59b31",
    "ko": "상급 혼합 강화 비약(성난 파도)",
-   "ja": "上級混合強化の秘薬（荒波）",
+   "ja": "上級混合強化の秘薬(荒波)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i8a58bd97",
    "ko": "상급 혼합 강화 비약(폭풍우)",
-   "ja": "上級混合強化の秘薬（暴風雨）",
+   "ja": "上級混合強化の秘薬(暴風雨)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ib9b29cd0",
    "ko": "상급 화염 마법 유탄",
-   "ja": "上級火炎の魔法榴弾",
+   "ja": "上級火炎マジックボム",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -2750,8 +2758,8 @@
   {
    "id": "ic08d0e23",
    "ko": "생명의 마나석",
-   "ja": "生命のマナ石",
-   "jaConfirmed": false,
+   "ja": "生命のマナストーン",
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -2862,15 +2870,15 @@
   {
    "id": "i065af9e9",
    "ko": "설비 개량 부품",
-   "ja": "設備の改良部品",
+   "ja": "設備改良部品",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i83b31290",
    "ko": "설비 개조 부품",
-   "ja": "設備の改造部品",
-   "jaConfirmed": false,
+   "ja": "設備改造部品",
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -2883,84 +2891,84 @@
   {
    "id": "i021b0836",
    "ko": "세공된 가넷",
-   "ja": "細工したガーネット",
+   "ja": "細工されたガーネット",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "ic6670aaf",
    "ko": "세공된 가넷S",
-   "ja": "細工したガーネットS",
+   "ja": "細工されたガーネットS",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i21ede209",
    "ko": "세공된 가넷SS",
-   "ja": "細工したガーネットSS",
+   "ja": "細工されたガーネットSS",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i1c65865d",
    "ko": "세공된 블루 스피넬",
-   "ja": "細工したブルースピネル",
+   "ja": "細工されたブルースピネル",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i7814fe78",
    "ko": "세공된 블루 스피넬S",
-   "ja": "細工したブルースピネルS",
+   "ja": "細工されたブルースピネルS",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i31ac17b3",
    "ko": "세공된 블루 스피넬SS",
-   "ja": "細工したブルースピネルSS",
+   "ja": "細工されたブルースピネルSS",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "ie0dd3c37",
    "ko": "세공된 지르콘",
-   "ja": "細工したジルコン",
+   "ja": "細工されたジルコン",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i1649a903",
    "ko": "세공된 지르콘S",
-   "ja": "細工したジルコンS",
+   "ja": "細工されたジルコンS",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i61f835f9",
    "ko": "세공된 지르콘SS",
-   "ja": "細工したジルコンSS",
+   "ja": "細工されたジルコンSS",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "icc994ee7",
    "ko": "세공된 페리도트",
-   "ja": "細工したペリドット",
+   "ja": "細工されたペリドット",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i5fbafb8d",
    "ko": "세공된 페리도트S",
-   "ja": "細工したペリドットS",
+   "ja": "細工されたペリドットS",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i20701198",
    "ko": "세공된 페리도트SS",
-   "ja": "細工したペリドットSS",
+   "ja": "細工されたペリドットSS",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -3177,7 +3185,7 @@
   {
    "id": "i3cabe989",
    "ko": "식재료 가공 시설 설계도 (3레벨)",
-   "ja": "食材加工施設の設計図（Lv.3）",
+   "ja": "食材加工施設の設計図(レベル3)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -3380,14 +3388,14 @@
   {
    "id": "i038150b8",
    "ko": "약품 가공 시설 설계도 (3레벨)",
-   "ja": "ポーション加工施設の設計図（Lv.3）",
+   "ja": "ポーション加工施設の設計図(レベル3)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "ibd32645e",
    "ko": "약품 제작대 설계도 (3레벨)",
-   "ja": "ポーション製作台の設計図（Lv.3）",
+   "ja": "ポーション製作台の設計図(レベル3)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -3478,70 +3486,70 @@
   {
    "id": "ia0e73712",
    "ko": "열처리 가죽 갑옷 상의S",
-   "ja": "熱処理した革鎧の上衣S",
+   "ja": "熱処理革鎧(上)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i8975e8ce",
    "ko": "열처리 가죽 갑옷 상의SS",
-   "ja": "熱処理した革鎧の上衣SS",
+   "ja": "熱処理革鎧(上)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i338667da",
    "ko": "열처리 가죽 갑옷 신발S",
-   "ja": "熱処理した革鎧の靴S",
+   "ja": "熱処理革鎧(足)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i6a26b5dc",
    "ko": "열처리 가죽 갑옷 신발SS",
-   "ja": "熱処理した革鎧の靴SS",
+   "ja": "熱処理革鎧(足)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i7fa215be",
    "ko": "열처리 가죽 갑옷 장갑S",
-   "ja": "熱処理した革鎧の手袋S",
+   "ja": "熱処理革鎧(手)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ied76aad1",
    "ko": "열처리 가죽 갑옷 장갑SS",
-   "ja": "熱処理した革鎧の手袋SS",
+   "ja": "熱処理革鎧(手)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i1a9d7c58",
    "ko": "열처리 가죽 갑옷 투구S",
-   "ja": "熱処理した革鎧の兜S",
+   "ja": "熱処理革鎧(頭)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "iacc6394b",
    "ko": "열처리 가죽 갑옷 투구SS",
-   "ja": "熱処理した革鎧の兜SS",
+   "ja": "熱処理革鎧(頭)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "iaceb7c1d",
    "ko": "열처리 가죽 갑옷 하의S",
-   "ja": "熱処理した革鎧の下衣S",
+   "ja": "熱処理革鎧(下)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i30d6b684",
    "ko": "열처리 가죽 갑옷 하의SS",
-   "ja": "熱処理した革鎧の下衣SS",
+   "ja": "熱処理革鎧(下)SS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -3576,7 +3584,7 @@
   {
    "id": "id7f0b201",
    "ko": "옷감 가공 시설 설계도 (3레벨)",
-   "ja": "生地加工施設の設計図（Lv.3）",
+   "ja": "生地加工施設の設計図(レベル3)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -3584,7 +3592,7 @@
    "id": "i56d0e6b9",
    "ko": "옷감+",
    "ja": "生地+",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -3639,28 +3647,28 @@
   {
    "id": "ic8ceaca4",
    "ko": "원형 나무 소환 의자 상자(베이지)",
-   "ja": "丸い木の召喚椅子ボックス（ベージュ）",
+   "ja": "丸い木の召喚椅子ボックス(ベージュ)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i24ed930c",
    "ko": "원형 나무 소환 의자 상자(브라운)",
-   "ja": "丸い木の召喚椅子ボックス（ブラウン）",
+   "ja": "丸い木の召喚椅子ボックス(ブラウン)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i8729a2d7",
    "ko": "원형 나무 의자 마감재(베이지)",
-   "ja": "丸い木の椅子の仕上げ材（ベージュ）",
+   "ja": "丸い木の椅子の仕上げ材(ベージュ)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i7bd52794",
    "ko": "원형 나무 의자 마감재(브라운)",
-   "ja": "丸い木の椅子の仕上げ材（ブラウン）",
+   "ja": "丸い木の椅子の仕上げ材(ブラウン)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -3730,7 +3738,7 @@
   {
    "id": "ic7697a46",
    "ko": "음식 제작대 설계도 (3레벨)",
-   "ja": "調理台の設計図（Lv.3）",
+   "ja": "調理台の設計図(レベル3)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -3800,105 +3808,105 @@
   {
    "id": "i133becb0",
    "ko": "전투복 상의",
-   "ja": "戦闘服の上衣",
+   "ja": "バトルトップス",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i01c22bb4",
    "ko": "전투복 상의S",
-   "ja": "戦闘服の上衣S",
+   "ja": "バトルトップスS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i4e343795",
    "ko": "전투복 상의SS",
-   "ja": "戦闘服の上衣SS",
+   "ja": "バトルトップスSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ibab63c20",
    "ko": "전투복 신발",
-   "ja": "戦闘服の靴",
+   "ja": "バトルシューズ",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i5025b863",
    "ko": "전투복 신발S",
-   "ja": "戦闘服の靴S",
+   "ja": "バトルシューズS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i664f3f84",
    "ko": "전투복 신발SS",
-   "ja": "戦闘服の靴SS",
+   "ja": "バトルシューズSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i55a5b54d",
    "ko": "전투복 장갑",
-   "ja": "戦闘服の手袋",
+   "ja": "バトルグローブ",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i1532fffa",
    "ko": "전투복 장갑S",
-   "ja": "戦闘服の手袋S",
+   "ja": "バトルグローブS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i21d3500d",
    "ko": "전투복 장갑SS",
-   "ja": "戦闘服の手袋SS",
+   "ja": "バトルグローブSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i2bf2a0b5",
    "ko": "전투복 투구",
-   "ja": "戦闘服の兜",
+   "ja": "バトルハット",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i460c634b",
    "ko": "전투복 투구S",
-   "ja": "戦闘服の兜S",
+   "ja": "バトルハットS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i62ed0e17",
    "ko": "전투복 투구SS",
-   "ja": "戦闘服の兜SS",
+   "ja": "バトルハットSS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ib8e88f8d",
    "ko": "전투복 하의",
-   "ja": "戦闘服の下衣",
-   "jaConfirmed": false,
+   "ja": "バトルボトムス",
+   "jaConfirmed": true,
    "craftable": true
   },
   {
    "id": "i256595a6",
    "ko": "전투복 하의S",
-   "ja": "戦闘服の下衣S",
+   "ja": "バトルボトムスS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i77062576",
    "ko": "전투복 하의SS",
-   "ja": "戦闘服の下衣SS",
+   "ja": "バトルボトムスSS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -3947,7 +3955,7 @@
   {
    "id": "icdd75520",
    "ko": "정교한 도구 부품",
-   "ja": "精巧な道具の部品",
+   "ja": "精巧な道具部品",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -4024,21 +4032,21 @@
   {
    "id": "i701b9885",
    "ko": "지배의 도안 (무기)",
-   "ja": "支配の図案（武器）",
+   "ja": "支配の図案(武器)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i3133a8ff",
    "ko": "지배의 도안 (방어구)",
-   "ja": "支配の図案（防具）",
+   "ja": "支配の図案(防具)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i49cf3bc2",
    "ko": "지배의 도안 (장신구)",
-   "ja": "支配の図案（アクセサリ）",
+   "ja": "支配の図案(アクセサリ)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -4066,35 +4074,35 @@
   {
    "id": "i35bf0bd2",
    "ko": "징박은 가죽 갑옷 상의SS",
-   "ja": "鋲打ちの革鎧の上衣SS",
+   "ja": "鋲打ち革鎧(上)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i61ff30d8",
    "ko": "징박은 가죽 갑옷 신발SS",
-   "ja": "鋲打ちの革鎧の靴SS",
+   "ja": "鋲打ち革鎧(足)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i3e5b0190",
    "ko": "징박은 가죽 갑옷 장갑SS",
-   "ja": "鋲打ちの革鎧の手袋SS",
+   "ja": "鋲打ち革鎧(手)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i17f61fa5",
    "ko": "징박은 가죽 갑옷 투구SS",
-   "ja": "鋲打ちの革鎧の兜SS",
+   "ja": "鋲打ち革鎧(頭)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "iaf411632",
    "ko": "징박은 가죽 갑옷 하의SS",
-   "ja": "鋲打ちの革鎧の下衣SS",
+   "ja": "鋲打ち革鎧(下)SS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -4129,35 +4137,35 @@
   {
    "id": "i52b04f97",
    "ko": "철판 갑옷 상의SS",
-   "ja": "鉄板鎧の上衣SS",
-   "jaConfirmed": false,
+   "ja": "鉄板鎧(上)SS",
+   "jaConfirmed": true,
    "craftable": true
   },
   {
    "id": "ifd15929b",
    "ko": "철판 갑옷 신발SS",
-   "ja": "鉄板鎧の靴SS",
+   "ja": "鉄板鎧(足)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i4d7647e6",
    "ko": "철판 갑옷 장갑SS",
-   "ja": "鉄板鎧の手袋SS",
+   "ja": "鉄板鎧(手)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i6cc0c816",
    "ko": "철판 갑옷 투구SS",
-   "ja": "鉄板鎧の兜SS",
+   "ja": "鉄板鎧(頭)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i6cd10a8f",
    "ko": "철판 갑옷 하의SS",
-   "ja": "鉄板鎧の下衣SS",
+   "ja": "鉄板鎧(下)SS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -4305,7 +4313,7 @@
    "id": "i4f677e56",
    "ko": "캠프파이어 키트",
    "ja": "キャンプファイアキット",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -4542,42 +4550,42 @@
   {
    "id": "i546ad9f1",
    "ko": "클래식 나무 소환 의자 상자(레드)",
-   "ja": "クラシックな木の召喚椅子ボックス（レッド）",
+   "ja": "クラシックな木の召喚椅子ボックス(レッド)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i48b48f89",
    "ko": "클래식 나무 소환 의자 상자(브라운)",
-   "ja": "クラシックな木の召喚椅子ボックス（ブラウン）",
+   "ja": "クラシックな木の召喚椅子ボックス(ブラウン)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "idfb85c01",
    "ko": "클래식 나무 소환 의자 상자(블루)",
-   "ja": "クラシックな木の召喚椅子ボックス（ブルー）",
+   "ja": "クラシックな木の召喚椅子ボックス(ブルー)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "iebc41973",
    "ko": "클래식 나무 의자 마감재(레드)",
-   "ja": "クラシックな木の椅子の仕上げ材（レッド）",
+   "ja": "クラシックな木の椅子の仕上げ材(レッド)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "ief51df2a",
    "ko": "클래식 나무 의자 마감재(브라운)",
-   "ja": "クラシックな木の椅子の仕上げ材（ブラウン）",
+   "ja": "クラシックな木の椅子の仕上げ材(ブラウン)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "ibce225f4",
    "ko": "클래식 나무 의자 마감재(블루)",
-   "ja": "クラシックな木の椅子の仕上げ材（ブルー）",
+   "ja": "クラシックな木の椅子の仕上げ材(ブルー)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -4640,8 +4648,8 @@
   {
    "id": "i53af6c36",
    "ko": "특수강괴",
-   "ja": "特殊鋼インゴット",
-   "jaConfirmed": false,
+   "ja": "特殊インゴット",
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -4759,70 +4767,70 @@
   {
    "id": "i8e20d231",
    "ko": "판금 갑옷 상의S",
-   "ja": "板金鎧の上衣S",
+   "ja": "板金鎧(上)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ib56d9e00",
    "ko": "판금 갑옷 상의SS",
-   "ja": "板金鎧の上衣SS",
+   "ja": "板金鎧(上)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i5a6ea81c",
    "ko": "판금 갑옷 신발S",
-   "ja": "板金鎧の靴S",
+   "ja": "板金鎧(足)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i222d120b",
    "ko": "판금 갑옷 신발SS",
-   "ja": "板金鎧の靴SS",
+   "ja": "板金鎧(足)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i9d3f5bb5",
    "ko": "판금 갑옷 장갑S",
-   "ja": "板金鎧の手袋S",
+   "ja": "板金鎧(手)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i2385be2f",
    "ko": "판금 갑옷 장갑SS",
-   "ja": "板金鎧の手袋SS",
+   "ja": "板金鎧(手)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ifeebff53",
    "ko": "판금 갑옷 투구S",
-   "ja": "板金鎧の兜S",
+   "ja": "板金鎧(頭)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ic67067de",
    "ko": "판금 갑옷 투구SS",
-   "ja": "板金鎧の兜SS",
+   "ja": "板金鎧(頭)SS",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i944abff5",
    "ko": "판금 갑옷 하의S",
-   "ja": "板金鎧の下衣S",
+   "ja": "板金鎧(下)S",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "ica74bec9",
    "ko": "판금 갑옷 하의SS",
-   "ja": "板金鎧の下衣SS",
+   "ja": "板金鎧(下)SS",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -4892,7 +4900,7 @@
   {
    "id": "i1106c735",
    "ko": "폐허의 마나석",
-   "ja": "廃墟のマナ石",
+   "ja": "廃墟のマナストーン",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -5018,8 +5026,8 @@
   {
    "id": "ia5886501",
    "ko": "합금강괴",
-   "ja": "合金鋼インゴット",
-   "jaConfirmed": false,
+   "ja": "合金インゴット",
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -5033,7 +5041,7 @@
    "id": "i266c0ac4",
    "ko": "항마석 가루",
    "ja": "抗魔石の粉",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -5067,7 +5075,7 @@
   {
    "id": "id235083e",
    "ko": "협곡의 마나석",
-   "ja": "峡谷のマナ石",
+   "ja": "峡谷のマナストーン",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -5081,21 +5089,21 @@
   {
    "id": "if19fdfb7",
    "ko": "혼합 강화 비약(산사태)",
-   "ja": "混合強化の秘薬（山崩れ）",
+   "ja": "混合強化の秘薬(山崩れ)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "icaee2a8f",
    "ko": "혼합 강화 비약(성난 파도)",
-   "ja": "混合強化の秘薬（荒波）",
+   "ja": "混合強化の秘薬(荒波)",
    "jaConfirmed": false,
    "craftable": true
   },
   {
    "id": "i4c729377",
    "ko": "혼합 강화 비약(폭풍우)",
-   "ja": "混合強化の秘薬（暴風雨）",
+   "ja": "混合強化の秘薬(暴風雨)",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -5130,7 +5138,7 @@
   {
    "id": "i54a19f20",
    "ko": "화염 마법 유탄",
-   "ja": "火炎の魔法榴弾",
+   "ja": "火炎マジックボム",
    "jaConfirmed": false,
    "craftable": true
   },
@@ -5172,21 +5180,21 @@
   {
    "id": "i8ec9293a",
    "ko": "흔들흔들 소환 의자 마감재(달콤한 향)",
-   "ja": "ゆらゆら召喚椅子の仕上げ材（甘い香り）",
+   "ja": "ゆらゆら召喚椅子の仕上げ材(甘い香り)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i3e9ae9b7",
    "ko": "흔들흔들 소환 의자 마감재(상쾌한 향)",
-   "ja": "ゆらゆら召喚椅子の仕上げ材（爽やかな香り）",
+   "ja": "ゆらゆら召喚椅子の仕上げ材(爽やかな香り)",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "id9a2b1d2",
    "ko": "흔들흔들 소환 의자 마감재(편안한 향)",
-   "ja": "ゆらゆら召喚椅子の仕上げ材（安らぐ香り）",
+   "ja": "ゆらゆら召喚椅子の仕上げ材(安らぐ香り)",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -5490,7 +5498,8 @@
      "item": "i21dedd55",
      "qty": 12
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r3a4ce4f8",
@@ -6339,7 +6348,8 @@
      "item": "ice2cf76a",
      "qty": 1
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r421189d8",
@@ -12204,7 +12214,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i47beefb6",
    "yield": 1,
@@ -12232,7 +12246,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "ifb3e55e2",
    "yield": 1,
@@ -12260,7 +12278,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i46ecab07",
    "yield": 1,
@@ -12288,7 +12310,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i82f71eec",
    "yield": 1,
@@ -12316,7 +12342,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i4434cbd1",
    "yield": 1,
@@ -12344,7 +12374,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "idc0261c2",
    "yield": 1,
@@ -12372,7 +12406,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "i62a890ce",
    "yield": 1,
@@ -12400,7 +12438,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "ibe12dd28",
    "yield": 1,
@@ -12428,7 +12470,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "i4fd4fdbf",
    "yield": 1,
@@ -12456,7 +12502,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "ia6946d1c",
    "yield": 1,
@@ -12484,7 +12534,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "ib9a2335c",
    "yield": 1,
@@ -12512,7 +12566,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i6bb90902",
    "yield": 1,
@@ -12540,7 +12598,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i165b9aa4",
    "yield": 1,
@@ -12568,7 +12630,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i37773c4d",
    "yield": 1,
@@ -12596,7 +12662,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i4c383df2",
    "yield": 1,
@@ -12624,7 +12694,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "ife0ea9c9",
    "yield": 1,
@@ -12652,7 +12726,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "i418fa5a8",
    "yield": 1,
@@ -12680,7 +12758,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "i527151cd",
    "yield": 1,
@@ -12708,7 +12790,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "i60b4ea40",
    "yield": 1,
@@ -12736,7 +12822,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "i11f63ff7",
    "yield": 1,
@@ -12764,7 +12854,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "판금 갑옷",
+     "ja": "板金鎧"
+    }
    },
    "item": "ifeebff53",
    "yield": 1,
@@ -12792,7 +12886,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "판금 갑옷",
+     "ja": "板金鎧"
+    }
    },
    "item": "i8e20d231",
    "yield": 1,
@@ -12820,7 +12918,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "판금 갑옷",
+     "ja": "板金鎧"
+    }
    },
    "item": "i9d3f5bb5",
    "yield": 1,
@@ -12848,7 +12950,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "판금 갑옷",
+     "ja": "板金鎧"
+    }
    },
    "item": "i944abff5",
    "yield": 1,
@@ -12876,7 +12982,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "판금 갑옷",
+     "ja": "板金鎧"
+    }
    },
    "item": "i5a6ea81c",
    "yield": 1,
@@ -12904,7 +13014,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i12cf3ea3",
    "yield": 1,
@@ -12932,7 +13046,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i4102e6e3",
    "yield": 1,
@@ -12960,7 +13078,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "icb839d55",
    "yield": 1,
@@ -12988,7 +13110,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "ie5692045",
    "yield": 1,
@@ -13016,7 +13142,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "비늘 갑옷",
+     "ja": "鱗鎧"
+    }
    },
    "item": "i83846ee9",
    "yield": 1,
@@ -13044,7 +13174,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "철판 갑옷",
+     "ja": "鉄板鎧"
+    }
    },
    "item": "i6cc0c816",
    "yield": 1,
@@ -13076,7 +13210,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "철판 갑옷",
+     "ja": "鉄板鎧"
+    }
    },
    "item": "i52b04f97",
    "yield": 1,
@@ -13101,14 +13239,19 @@
      "item": "i266c0ac4",
      "qty": 20
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r4d7647e6",
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "철판 갑옷",
+     "ja": "鉄板鎧"
+    }
    },
    "item": "i4d7647e6",
    "yield": 1,
@@ -13140,7 +13283,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "철판 갑옷",
+     "ja": "鉄板鎧"
+    }
    },
    "item": "i6cd10a8f",
    "yield": 1,
@@ -13172,7 +13319,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "철판 갑옷",
+     "ja": "鉄板鎧"
+    }
    },
    "item": "ifd15929b",
    "yield": 1,
@@ -13204,7 +13355,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "i5f650226",
    "yield": 1,
@@ -13240,7 +13395,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "ide71a4ee",
    "yield": 1,
@@ -13276,7 +13435,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "i91a61d43",
    "yield": 1,
@@ -13312,7 +13475,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "i16a1cbdb",
    "yield": 1,
@@ -13348,7 +13515,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "사슬 갑옷",
+     "ja": "鎖鎧"
+    }
    },
    "item": "i1bd7be55",
    "yield": 1,
@@ -13384,7 +13555,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "판금 갑옷",
+     "ja": "板金鎧"
+    }
    },
    "item": "ic67067de",
    "yield": 1,
@@ -13420,7 +13595,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "판금 갑옷",
+     "ja": "板金鎧"
+    }
    },
    "item": "ib56d9e00",
    "yield": 1,
@@ -13456,7 +13635,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "판금 갑옷",
+     "ja": "板金鎧"
+    }
    },
    "item": "i2385be2f",
    "yield": 1,
@@ -13492,7 +13675,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "판금 갑옷",
+     "ja": "板金鎧"
+    }
    },
    "item": "ica74bec9",
    "yield": 1,
@@ -13528,7 +13715,11 @@
    "section": "armor",
    "group": {
     "ko": "중갑",
-    "ja": "重甲"
+    "ja": "重甲",
+    "sub": {
+     "ko": "판금 갑옷",
+     "ja": "板金鎧"
+    }
    },
    "item": "i222d120b",
    "yield": 1,
@@ -13564,7 +13755,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "i676c5fa1",
    "yield": 1,
@@ -13592,7 +13787,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "id3110897",
    "yield": 1,
@@ -13620,7 +13819,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "iec7da134",
    "yield": 1,
@@ -13648,7 +13851,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "i4924de99",
    "yield": 1,
@@ -13676,7 +13883,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "i9e9ca53c",
    "yield": 1,
@@ -13704,7 +13915,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "i1dfa1d3b",
    "yield": 1,
@@ -13732,7 +13947,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "i3dd9c9a1",
    "yield": 1,
@@ -13760,7 +13979,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "i40461119",
    "yield": 1,
@@ -13788,7 +14011,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "i4f324e3e",
    "yield": 1,
@@ -13816,7 +14043,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "iec06d9dd",
    "yield": 1,
@@ -13844,7 +14075,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "i64fa58cd",
    "yield": 1,
@@ -13872,7 +14107,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "i1497c458",
    "yield": 1,
@@ -13900,7 +14139,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "i3a9287de",
    "yield": 1,
@@ -13928,7 +14171,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "i86486009",
    "yield": 1,
@@ -13956,7 +14203,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "i0e4d9fd6",
    "yield": 1,
@@ -13984,7 +14235,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "i2d004f4b",
    "yield": 1,
@@ -14012,7 +14267,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "ibd80da9e",
    "yield": 1,
@@ -14040,7 +14299,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "icf7c5642",
    "yield": 1,
@@ -14068,7 +14331,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "id091faea",
    "yield": 1,
@@ -14096,7 +14363,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "ie13d9cc4",
    "yield": 1,
@@ -14124,7 +14395,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "열처리 가죽 갑옷",
+     "ja": "熱処理革鎧"
+    }
    },
    "item": "i1a9d7c58",
    "yield": 1,
@@ -14152,7 +14427,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "열처리 가죽 갑옷",
+     "ja": "熱処理革鎧"
+    }
    },
    "item": "ia0e73712",
    "yield": 1,
@@ -14180,7 +14459,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "열처리 가죽 갑옷",
+     "ja": "熱処理革鎧"
+    }
    },
    "item": "i7fa215be",
    "yield": 1,
@@ -14208,7 +14491,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "열처리 가죽 갑옷",
+     "ja": "熱処理革鎧"
+    }
    },
    "item": "iaceb7c1d",
    "yield": 1,
@@ -14236,7 +14523,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "열처리 가죽 갑옷",
+     "ja": "熱処理革鎧"
+    }
    },
    "item": "i338667da",
    "yield": 1,
@@ -14264,7 +14555,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "id40463b2",
    "yield": 1,
@@ -14292,7 +14587,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "i61616e44",
    "yield": 1,
@@ -14320,7 +14619,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "ib5ebc11d",
    "yield": 1,
@@ -14348,7 +14651,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "i87e84803",
    "yield": 1,
@@ -14376,7 +14683,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "가죽 갑옷",
+     "ja": "革鎧"
+    }
    },
    "item": "icc3e2eb1",
    "yield": 1,
@@ -14404,7 +14715,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "징박은 가죽 갑옷",
+     "ja": "鋲打ち革鎧"
+    }
    },
    "item": "i17f61fa5",
    "yield": 1,
@@ -14436,7 +14751,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "징박은 가죽 갑옷",
+     "ja": "鋲打ち革鎧"
+    }
    },
    "item": "i35bf0bd2",
    "yield": 1,
@@ -14468,7 +14787,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "징박은 가죽 갑옷",
+     "ja": "鋲打ち革鎧"
+    }
    },
    "item": "i3e5b0190",
    "yield": 1,
@@ -14500,7 +14823,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "징박은 가죽 갑옷",
+     "ja": "鋲打ち革鎧"
+    }
    },
    "item": "iaf411632",
    "yield": 1,
@@ -14532,7 +14859,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "징박은 가죽 갑옷",
+     "ja": "鋲打ち革鎧"
+    }
    },
    "item": "i61ff30d8",
    "yield": 1,
@@ -14564,7 +14895,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "i87babc99",
    "yield": 1,
@@ -14600,7 +14935,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "i22916619",
    "yield": 1,
@@ -14636,7 +14975,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "i271585c2",
    "yield": 1,
@@ -14672,7 +15015,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "iba66da1c",
    "yield": 1,
@@ -14708,7 +15055,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "두꺼운 가죽 갑옷",
+     "ja": "厚革鎧"
+    }
    },
    "item": "ia8304358",
    "yield": 1,
@@ -14744,7 +15095,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "열처리 가죽 갑옷",
+     "ja": "熱処理革鎧"
+    }
    },
    "item": "iacc6394b",
    "yield": 1,
@@ -14780,7 +15135,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "열처리 가죽 갑옷",
+     "ja": "熱処理革鎧"
+    }
    },
    "item": "i8975e8ce",
    "yield": 1,
@@ -14816,7 +15175,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "열처리 가죽 갑옷",
+     "ja": "熱処理革鎧"
+    }
    },
    "item": "ied76aad1",
    "yield": 1,
@@ -14852,7 +15215,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "열처리 가죽 갑옷",
+     "ja": "熱処理革鎧"
+    }
    },
    "item": "i30d6b684",
    "yield": 1,
@@ -14888,7 +15255,11 @@
    "section": "armor",
    "group": {
     "ko": "경갑",
-    "ja": "軽甲"
+    "ja": "軽甲",
+    "sub": {
+     "ko": "열처리 가죽 갑옷",
+     "ja": "熱処理革鎧"
+    }
    },
    "item": "i6a26b5dc",
    "yield": 1,
@@ -14924,7 +15295,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i2bf2a0b5",
    "yield": 1,
@@ -14952,7 +15327,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i133becb0",
    "yield": 1,
@@ -14980,7 +15359,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i55a5b54d",
    "yield": 1,
@@ -15008,7 +15391,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "ib8e88f8d",
    "yield": 1,
@@ -15036,7 +15423,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "ibab63c20",
    "yield": 1,
@@ -15064,7 +15455,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "ia010ac95",
    "yield": 1,
@@ -15092,7 +15487,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "i9405cc8e",
    "yield": 1,
@@ -15123,7 +15522,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "i42c18beb",
    "yield": 1,
@@ -15151,7 +15554,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "i545cc1c2",
    "yield": 1,
@@ -15179,7 +15586,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "icc26aa19",
    "yield": 1,
@@ -15207,7 +15618,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i460c634b",
    "yield": 1,
@@ -15235,7 +15650,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i01c22bb4",
    "yield": 1,
@@ -15263,7 +15682,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i1532fffa",
    "yield": 1,
@@ -15291,7 +15714,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i256595a6",
    "yield": 1,
@@ -15319,7 +15746,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i5025b863",
    "yield": 1,
@@ -15347,7 +15778,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "i58b4b075",
    "yield": 1,
@@ -15375,7 +15810,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "ib4d9139e",
    "yield": 1,
@@ -15403,7 +15842,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "if2ff3fa3",
    "yield": 1,
@@ -15431,7 +15874,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "i5618f63f",
    "yield": 1,
@@ -15459,7 +15906,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "i221f45dc",
    "yield": 1,
@@ -15487,7 +15938,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "강화된 전투복",
+     "ja": "強化バトルシリーズ"
+    }
    },
    "item": "i83ece186",
    "yield": 1,
@@ -15515,7 +15970,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "강화된 전투복",
+     "ja": "強化バトルシリーズ"
+    }
    },
    "item": "ie04970ad",
    "yield": 1,
@@ -15543,7 +16002,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "강화된 전투복",
+     "ja": "強化バトルシリーズ"
+    }
    },
    "item": "i9c007028",
    "yield": 1,
@@ -15571,7 +16034,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "강화된 전투복",
+     "ja": "強化バトルシリーズ"
+    }
    },
    "item": "i2467b33f",
    "yield": 1,
@@ -15599,7 +16066,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "강화된 전투복",
+     "ja": "強化バトルシリーズ"
+    }
    },
    "item": "ica106cce",
    "yield": 1,
@@ -15627,7 +16098,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i62ed0e17",
    "yield": 1,
@@ -15655,7 +16130,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i4e343795",
    "yield": 1,
@@ -15683,7 +16162,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i21d3500d",
    "yield": 1,
@@ -15711,7 +16194,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i77062576",
    "yield": 1,
@@ -15739,7 +16226,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "전투복",
+     "ja": "バトルシリーズ"
+    }
    },
    "item": "i664f3f84",
    "yield": 1,
@@ -15767,7 +16258,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "누비 전투복",
+     "ja": "キルトバトルシリーズ"
+    }
    },
    "item": "i4d16f6cf",
    "yield": 1,
@@ -15799,7 +16294,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "누비 전투복",
+     "ja": "キルトバトルシリーズ"
+    }
    },
    "item": "iea70d74d",
    "yield": 1,
@@ -15831,7 +16330,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "누비 전투복",
+     "ja": "キルトバトルシリーズ"
+    }
    },
    "item": "i788d2b78",
    "yield": 1,
@@ -15863,7 +16366,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "누비 전투복",
+     "ja": "キルトバトルシリーズ"
+    }
    },
    "item": "i3743e940",
    "yield": 1,
@@ -15895,7 +16402,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "누비 전투복",
+     "ja": "キルトバトルシリーズ"
+    }
    },
    "item": "i7f3affeb",
    "yield": 1,
@@ -15927,7 +16438,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "idb953f90",
    "yield": 1,
@@ -15963,7 +16478,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "ibd89b5fe",
    "yield": 1,
@@ -15999,7 +16518,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "i739c8f03",
    "yield": 1,
@@ -16035,7 +16558,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "ib6c68ccd",
    "yield": 1,
@@ -16071,7 +16598,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "두꺼운 전투복",
+     "ja": "厚手バトルシリーズ"
+    }
    },
    "item": "iad80739e",
    "yield": 1,
@@ -16107,7 +16638,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "강화된 전투복",
+     "ja": "強化バトルシリーズ"
+    }
    },
    "item": "i6e607e50",
    "yield": 1,
@@ -16143,7 +16678,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "강화된 전투복",
+     "ja": "強化バトルシリーズ"
+    }
    },
    "item": "i1b453193",
    "yield": 1,
@@ -16179,7 +16718,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "강화된 전투복",
+     "ja": "強化バトルシリーズ"
+    }
    },
    "item": "i093af8b8",
    "yield": 1,
@@ -16215,7 +16758,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "강화된 전투복",
+     "ja": "強化バトルシリーズ"
+    }
    },
    "item": "ibf7b1823",
    "yield": 1,
@@ -16251,7 +16798,11 @@
    "section": "armor",
    "group": {
     "ko": "천옷",
-    "ja": "布製服"
+    "ja": "布製服",
+    "sub": {
+     "ko": "강화된 전투복",
+     "ja": "強化バトルシリーズ"
+    }
    },
    "item": "i01063ad7",
    "yield": 1,
@@ -18930,7 +19481,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "ib7ce4b5f",
    "yield": 5,
@@ -18958,7 +19509,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i8cb2985c",
    "yield": 10,
@@ -18982,7 +19533,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i3ba7b1f3",
    "yield": 5,
@@ -19010,7 +19561,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i44b9bd78",
    "yield": 5,
@@ -19042,7 +19593,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i72f6884f",
    "yield": 5,
@@ -19070,7 +19621,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i95ae06e5",
    "yield": 5,
@@ -19102,7 +19653,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "icd0297a9",
    "yield": 5,
@@ -19134,7 +19685,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i51fcb20c",
    "yield": 5,
@@ -19166,7 +19717,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i639335dd",
    "yield": 5,
@@ -19198,7 +19749,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "ia7c130ae",
    "yield": 5,
@@ -19230,7 +19781,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i2d7a49a7",
    "yield": 5,
@@ -19262,7 +19813,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i4d9d5b1d",
    "yield": 10,
@@ -19286,7 +19837,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "ie5f6d5b5",
    "yield": 5,
@@ -19314,7 +19865,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i859b2a88",
    "yield": 5,
@@ -19346,7 +19897,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i26e13da1",
    "yield": 5,
@@ -19378,7 +19929,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i12940a80",
    "yield": 5,
@@ -19410,7 +19961,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i0d40b360",
    "yield": 5,
@@ -19442,7 +19993,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "ifc6ee096",
    "yield": 5,
@@ -19474,7 +20025,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i9ecd3ec6",
    "yield": 5,
@@ -19499,14 +20050,15 @@
      "item": "ic08d0e23",
      "qty": 2
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r242001ce",
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i242001ce",
    "yield": 5,
@@ -19534,7 +20086,7 @@
    "section": "potions",
    "group": {
     "ko": "회복",
-    "ja": "回復"
+    "ja": "回復（ポーション・包帯）"
    },
    "item": "i127b1be7",
    "yield": 5,
@@ -19574,7 +20126,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i70da3aa9",
    "yield": 3,
@@ -19610,7 +20162,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "ic5c64f88",
    "yield": 3,
@@ -19646,7 +20198,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i7b22a1af",
    "yield": 3,
@@ -19682,7 +20234,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i2c5d4a47",
    "yield": 3,
@@ -19721,7 +20273,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "iaf6ef295",
    "yield": 3,
@@ -19757,7 +20309,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i1481b738",
    "yield": 3,
@@ -19793,7 +20345,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "ibe593f62",
    "yield": 3,
@@ -19829,7 +20381,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i765ec515",
    "yield": 3,
@@ -19868,7 +20420,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "if60aa105",
    "yield": 3,
@@ -19904,7 +20456,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i2c9bfe32",
    "yield": 3,
@@ -19940,7 +20492,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i0e9af476",
    "yield": 3,
@@ -19976,7 +20528,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "if19fdfb7",
    "yield": 2,
@@ -20016,7 +20568,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i4c729377",
    "yield": 2,
@@ -20056,7 +20608,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "icaee2a8f",
    "yield": 2,
@@ -20096,7 +20648,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i77190902",
    "yield": 3,
@@ -20132,7 +20684,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "if700b091",
    "yield": 3,
@@ -20168,7 +20720,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i47b6e02c",
    "yield": 3,
@@ -20204,7 +20756,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i8235e77d",
    "yield": 2,
@@ -20244,7 +20796,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "i8a58bd97",
    "yield": 2,
@@ -20284,7 +20836,7 @@
    "section": "potions",
    "group": {
     "ko": "강화",
-    "ja": "強化"
+    "ja": "強化（秘薬）"
    },
    "item": "id4d59b31",
    "yield": 2,
@@ -20352,7 +20904,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "마법 유탄",
-    "ja": "魔法榴弾"
+    "ja": "マジックボム"
    },
    "item": "i78e8d0c0",
    "yield": 5,
@@ -20388,7 +20940,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "마법 유탄",
-    "ja": "魔法榴弾"
+    "ja": "マジックボム"
    },
    "item": "i54a19f20",
    "yield": 3,
@@ -20416,7 +20968,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "마법 유탄",
-    "ja": "魔法榴弾"
+    "ja": "マジックボム"
    },
    "item": "ifa4d274b",
    "yield": 3,
@@ -20444,7 +20996,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "마법 유탄",
-    "ja": "魔法榴弾"
+    "ja": "マジックボム"
    },
    "item": "i29da68ca",
    "yield": 3,
@@ -20472,7 +21024,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "마법 유탄",
-    "ja": "魔法榴弾"
+    "ja": "マジックボム"
    },
    "item": "icbbb822d",
    "yield": 3,
@@ -20500,7 +21052,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "마법 유탄",
-    "ja": "魔法榴弾"
+    "ja": "マジックボム"
    },
    "item": "if4116196",
    "yield": 5,
@@ -20536,7 +21088,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "마법 유탄",
-    "ja": "魔法榴弾"
+    "ja": "マジックボム"
    },
    "item": "ib9b29cd0",
    "yield": 3,
@@ -20567,7 +21119,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "마법 유탄",
-    "ja": "魔法榴弾"
+    "ja": "マジックボム"
    },
    "item": "ibd964123",
    "yield": 3,
@@ -20598,7 +21150,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "마법 유탄",
-    "ja": "魔法榴弾"
+    "ja": "マジックボム"
    },
    "item": "ic593a63f",
    "yield": 3,
@@ -20629,7 +21181,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "마법 유탄",
-    "ja": "魔法榴弾"
+    "ja": "マジックボム"
    },
    "item": "iac998fb6",
    "yield": 3,
@@ -20660,7 +21212,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "ic3bb72ad",
    "yield": 10,
@@ -20684,7 +21236,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "ia2daa940",
    "yield": 1,
@@ -20712,7 +21264,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i66b89a95",
    "yield": 1,
@@ -20740,7 +21292,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i9b52dad6",
    "yield": 1,
@@ -20768,7 +21320,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "ibaed459e",
    "yield": 1,
@@ -20796,7 +21348,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "if846700b",
    "yield": 1,
@@ -20824,7 +21376,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i20b36e06",
    "yield": 1,
@@ -20852,7 +21404,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i8d2a324c",
    "yield": 1,
@@ -20880,7 +21432,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "ie9ea7a2e",
    "yield": 1,
@@ -20911,7 +21463,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "id6d22c8d",
    "yield": 1,
@@ -20939,7 +21491,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i7bc10431",
    "yield": 1,
@@ -20967,7 +21519,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i562b6510",
    "yield": 1,
@@ -20995,7 +21547,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "iac84b566",
    "yield": 1,
@@ -21027,7 +21579,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i9c3444dd",
    "yield": 1,
@@ -21059,7 +21611,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i24242ec1",
    "yield": 1,
@@ -21091,7 +21643,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i4f09c16a",
    "yield": 1,
@@ -21123,7 +21675,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i1e08c66e",
    "yield": 1,
@@ -21155,7 +21707,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i1b4b1b1d",
    "yield": 1,
@@ -21187,7 +21739,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i9940d0d9",
    "yield": 1,
@@ -21219,7 +21771,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i57508e04",
    "yield": 1,
@@ -21251,7 +21803,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "ife6bfa8a",
    "yield": 1,
@@ -21283,7 +21835,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "ic5c23888",
    "yield": 1,
@@ -21315,7 +21867,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "if508a951",
    "yield": 1,
@@ -21347,7 +21899,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "ib8c7c049",
    "yield": 1,
@@ -21375,7 +21927,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "ib3dee793",
    "yield": 1,
@@ -21403,7 +21955,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i75e2fb6e",
    "yield": 1,
@@ -21431,7 +21983,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i68f72c3a",
    "yield": 1,
@@ -21459,7 +22011,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i8ec32a2a",
    "yield": 1,
@@ -21487,7 +22039,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "iceccf790",
    "yield": 1,
@@ -21515,7 +22067,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i63567bf8",
    "yield": 1,
@@ -21547,7 +22099,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i508ddda8",
    "yield": 1,
@@ -21579,7 +22131,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "idaabae9a",
    "yield": 1,
@@ -21611,7 +22163,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i06fcf46a",
    "yield": 1,
@@ -21643,7 +22195,7 @@
    "section": "multipurpose",
    "group": {
     "ko": "재료",
-    "ja": "設備の材料"
+    "ja": "設備の部品"
    },
    "item": "i16c08c7a",
    "yield": 1,

@@ -9,6 +9,11 @@
       "items": [
         {
           "type": "データの更新",
+          "text": "「製作・加工の一覧」の日本語の名前を、日本版の呼び方に揃えた。合金インゴット、特殊インゴット、マジックボム、マナストーン、「鉄板鎧(上)SS」の形の防具など。日本版の画面と見比べて同じだった作り方4件に印を付け、日本版の名前を確かめた品物は103件に",
+          "url": "/recipes/"
+        },
+        {
+          "type": "データの更新",
           "text": "「製作・加工の一覧」を公開。加工6施設と、武器・防具・アクセサリ・生活道具・フード・ポーション・多目的製作の作り方559件と、その材料と個数。韓国版の資料が元で、日本版の名前を確かめた品物には印を付けた",
           "url": "/recipes/"
         },
@@ -101,6 +106,11 @@
           "type": "記事の更新",
           "text": "「サキュバスを探して」の記事に、ダンバートンの鍛冶屋ネリスのメニューに[ルーン刻印]と[刻印強化]があるのを実機で確かめたと追記",
           "url": "/guides/succubus-quest/#section-4"
+        },
+        {
+          "type": "サイトの改良",
+          "text": "Discordの「/材料」を、分類、グループ、品物の順に一覧から選ぶ形に変更。結果は「このチャンネルに表示」でチャンネルに出せる",
+          "url": "/discord/"
         },
         {
           "type": "サイトの改良",
@@ -1659,6 +1669,56 @@
       "region": "韓国",
       "checkedAt": "2026-10-12",
       "asOf": "2025-06-24"
+    },
+    {
+      "id": "x-recipe-armor",
+      "title": "Xの投稿：「鉄板鎧(上)SS」の製作の画面（日本のプレイヤー）",
+      "url": "https://x.com/gokouin_genraku/status/2108806212716495231",
+      "kind": "x-community",
+      "language": "ja",
+      "region": "日本",
+      "checkedAt": "2026-10-12",
+      "asOf": "2026-10-10"
+    },
+    {
+      "id": "x-recipe-facility",
+      "title": "Xの投稿：金属加工施設 Lv.3 に要る材料の画面（日本のプレイヤー）",
+      "url": "https://x.com/gokouin_genraku/status/2108394575702397250",
+      "kind": "x-community",
+      "language": "ja",
+      "region": "日本",
+      "checkedAt": "2026-10-12",
+      "asOf": "2026-10-09"
+    },
+    {
+      "id": "x-recipe-wood",
+      "title": "Xの投稿：「上級木材+」の加工の画面（日本のプレイヤー）",
+      "url": "https://x.com/mabimoba/status/2108535063382212849",
+      "kind": "x-community",
+      "language": "ja",
+      "region": "日本",
+      "checkedAt": "2026-10-12",
+      "asOf": "2026-10-09"
+    },
+    {
+      "id": "x-recipe-potion",
+      "title": "Xの投稿：「優れた回復ポーション」と「スッキリキノコのエキス」の画面（日本のプレイヤー）",
+      "url": "https://x.com/mabimoba/status/2108615744179372426",
+      "kind": "x-community",
+      "language": "ja",
+      "region": "日本",
+      "checkedAt": "2026-10-12",
+      "asOf": "2026-10-10"
+    },
+    {
+      "id": "x-recipe-ingot",
+      "title": "Xの投稿：スチールインゴット、合金インゴット、特殊インゴットの交換（日本のプレイヤー）",
+      "url": "https://x.com/nanafuku/status/2108551850391969858",
+      "kind": "x-community",
+      "language": "ja",
+      "region": "日本",
+      "checkedAt": "2026-10-12",
+      "asOf": "2026-10-09"
     }
   ],
   "articles": [
