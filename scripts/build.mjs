@@ -2,15 +2,18 @@ import { readFile, mkdir, writeFile, cp, rm } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { validate } from './validate.mjs';
 import { planNotifications } from './discord-updates.mjs';
+import { checkRecipes, recipeViews } from './recipes.mjs';
 const deployTarget = JSON.parse(await readFile(new URL('../deploy/target.json', import.meta.url), 'utf8'));
 const botOrigin = `https://${deployTarget.domain}`;
 const data = JSON.parse(await readFile('content/portal.json', 'utf8'));
 const assets = JSON.parse(await readFile('content/assets.json', 'utf8'));
 await validate(data, assets);
+const recipes = JSON.parse(await readFile('content/recipes.json', 'utf8'));
+checkRecipes(recipes, new Set(data.sources.map(s => s.id)));
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const e = escape;
 const sourceMap = Object.fromEntries(data.sources.map(s => [s.id, s]));
-const nav = [['/', 'ホーム', 'home'], ['/beginner/', '初心者ロードマップ', 'book'], ['/guides/', '攻略ガイド', 'compass'], ['/classes/', '職業図鑑', 'sword'], ['/database/', 'データベース', 'database'], ['/life/', '生活・ものづくり', 'leaf'], ['/gathering/', '採集図鑑', 'sprout'], ['/news/', '日本・海外ニュース', 'news'], ['/community/', '日韓のX情報', 'message'], ...(data.discord.enabled ? [['/discord/', 'Discord更新通知', 'message']] : []), ['/updates/', 'サイトの更新情報', 'clock']];
+const nav = [['/', 'ホーム', 'home'], ['/beginner/', '初心者ロードマップ', 'book'], ['/guides/', '攻略ガイド', 'compass'], ['/classes/', '職業図鑑', 'sword'], ['/database/', 'データベース', 'database'], ['/life/', '生活・ものづくり', 'leaf'], ['/gathering/', '採集図鑑', 'sprout'], ['/recipes/', '製作・加工の一覧', 'database'], ['/news/', '日本・海外ニュース', 'news'], ['/community/', '日韓のX情報', 'message'], ...(data.discord.enabled ? [['/discord/', 'Discord更新通知', 'message']] : []), ['/updates/', 'サイトの更新情報', 'clock']];
 const paths = {
  home:'M3 10 12 3l9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z',
  book:'M12 6c-3-2-6-2-9-1v15c3-1 6-1 9 1m0-15c3-2 6-2 9-1v15c-3-1-6-1-9 1V6',
@@ -69,7 +72,7 @@ function home() {
  return `<div class="home-hero"><div class="hero-copy"><span class="eyebrow">YOUR ADVENTURE IN ERIN</span><h1>エリンを、<br>もっと楽しむ。</h1><p>日本版を遊んで確かめた攻略。<br>韓国の先行情報も、日本語で。</p><a class="button light" href="/beginner/">初心者ロードマップ</a><span class="hero-note">マビノギモバイル 非公式攻略ポータル</span></div><div class="hero-art"><img src="/assets/pasture.webp" alt="青空の下、羊たちと過ごすエリンの草原。韓国公式イラスト" width="740" height="416" fetchpriority="high"><span>ILLUSTRATION : NEXON / devCAT</span></div></div>
  <div class="launch-strip">${badge('日本版 10月7日開始','blue')}<p>開始記念のプレゼント、毎日のボーナス、期限のあるイベントを日本公式の告知から整理しました。</p><a href="/guides/jp-launch-checklist/">スタートガイドを読む</a></div>
  <div class="notice-strip">${badge('韓国版の先行情報','green')}<p>攻略の仕様・解放条件は主に韓国版を参照。日本版との差分は、記事ごとの出典から確認できます。</p><a href="/about/">情報の読み方</a></div>
- <section>${sectionHeading('FIELD TESTED','日本版を遊んで確かめた事','/guides/','攻略ガイド一覧')}<div class="tested-grid">${data.articles.filter(a=>a.highlight).map(a=>`<a class="tested-card" href="${articleHref(a.id)}">${emblem(a.category,'small')}<span class="tested-label">${e(a.highlight.label)}</span><strong>${e(a.highlight.value)}</strong><h3>${e(a.highlight.title??a.title)}</h3><span class="tested-more">記事を読む ${icon('chevron')}</span></a>`).join('')}</div><a class="gather-banner" href="/gathering/">${emblem('生活','small')}<span><strong>採集図鑑</strong>8つの採集スキルと、実機で見た行き先${gatherTotal}件。要るレベルと道具を一覧で</span>${icon('chevron')}</a></section>
+ <section>${sectionHeading('FIELD TESTED','日本版を遊んで確かめた事','/guides/','攻略ガイド一覧')}<div class="tested-grid">${data.articles.filter(a=>a.highlight).map(a=>`<a class="tested-card" href="${articleHref(a.id)}">${emblem(a.category,'small')}<span class="tested-label">${e(a.highlight.label)}</span><strong>${e(a.highlight.value)}</strong><h3>${e(a.highlight.title??a.title)}</h3><span class="tested-more">記事を読む ${icon('chevron')}</span></a>`).join('')}</div><a class="gather-banner" href="/gathering/">${emblem('生活','small')}<span><strong>採集図鑑</strong>8つの採集スキルと、実機で見た行き先${gatherTotal}件。要るレベルと道具を一覧で</span>${icon('chevron')}</a><a class="gather-banner" href="/recipes/">${emblem('装備・成長','small')}<span><strong>製作・加工の一覧</strong>加工6施設と、武器・防具・フード・ポーションなどの作り方${recipes.recipes.length}件。材料と個数を一覧で（韓国版の資料）</span>${icon('chevron')}</a></section>
  <section class="update-panel">${sectionHeading('WHAT&#39;S NEW','サイトの更新情報','/updates/','これまでの更新を見る')}<p class="update-date">最新の更新 <time datetime="${latest.date}">${dotted(latest.date)}</time></p><ul class="update-items">${latest.items.slice(0,4).map(updateItem).join('')}</ul>${latest.items.length>4?`<a class="text-link" href="/updates/#u-${latest.date}">この日の更新をすべて見る（全${latest.items.length}件）</a>`:''}</section>
  <section class="quick-links" aria-label="目的から探す">${[['/beginner/','book','まずはここから','初心者ロードマップ'],['/classes/','sword','自分に合う職業を','職業図鑑'],['/database/','database','条件・報酬を比較','データベース'],['/life/','leaf','もう一つの冒険','生活・ものづくり']].map(([url,ico,small,title])=>`<a href="${url}"><span class="quick-icon">${icon(ico)}</span><span><small>${small}</small><strong>${title}</strong></span></a>`).join('')}</section>
  <div class="home-columns"><section>${sectionHeading('START YOUR JOURNEY','はじめてのエリン','/beginner/','ロードマップを見る')}<a class="beginner-feature" href="/beginner/"><div>${badge('初心者ガイド','green')}<h3>何から始める？<br>進行順でわかる、最初の冒険。</h3><p>クエスト、装備、ダンジョン。<br>今の自分に必要なことを、ひとつずつ。</p><span class="button dark">進行ガイドを読む</span></div>${asset('tir-chonaill.webp','ティルコネイルの広場と風車')}</a><div class="mini-roadmap">${data.roadmap.slice(0,3).map(s=>`<a href="/beginner/#${s.id}"><span>${s.step}</span><div><strong>${e(s.stage)}</strong><small>${e(s.title)}</small></div></a>`).join('')}</div></section>
@@ -78,7 +81,7 @@ function home() {
  <section>${sectionHeading('ADVENTURE GUIDE','次に読みたい攻略','/guides/','攻略ガイド一覧')}<div class="article-grid">${['rune-basics','dungeon-basics','gem-guide'].map(id=>articleCard(data.articles.find(a=>a.id===id))).join('')}</div></section>
  <section class="life-banner">${asset('fishing.webp','川辺で釣りを楽しむ冒険者')}<div><span class="eyebrow">LIFE IN ERIN</span><h2>戦う日も、のんびりする日も。</h2><p>採集、製作、焚き火、マイホーム。<br>エリンでの暮らしを、自分のペースで。</p><a class="button dark" href="/life/">生活ガイドを読む</a></div></section>`;
 }
-const revision = createHash('sha256').update(JSON.stringify(data)).update(await readFile('public/style.css')).update(await readFile('public/app.js')).update(await readFile('scripts/build.mjs')).update(await readFile('scripts/discord-updates.mjs')).update(botOrigin).digest('hex').slice(0,12);
+const revision = createHash('sha256').update(JSON.stringify(data)).update(await readFile('public/style.css')).update(await readFile('public/app.js')).update(await readFile('scripts/build.mjs')).update(await readFile('scripts/discord-updates.mjs')).update(await readFile('content/recipes.json')).update(await readFile('scripts/recipes.mjs')).update(botOrigin).digest('hex').slice(0,12);
 await rm('dist',{recursive:true,force:true}); await mkdir('dist',{recursive:true}); await cp('public','dist',{recursive:true});
 const pages = new Map();
 pages.set('/', {title:'ホーム',body:home()});
@@ -132,11 +135,13 @@ function feed() {
 function about() {
  return pageHeading('ABOUT THIS FIELD GUIDE','情報の読み方・出典','このサイトは、海外の先行情報を日本語で整理する非公式の攻略ポータルです。')+`<div class="article-body"><h2>地域と資料の基準日を見る</h2><p>攻略記事とDBの主な対象は韓国版です。日本版で使う場合はゲーム内の表示を照合してください。「確認日」は原文を確認した日、「資料の基準日」は公式ガイドが示したゲームの状態です。古い基準のガイドは現在の調整が反映されていない可能性があります。</p><h2>公式仕様と攻略の提案</h2><p>仕様はNEXONの公式ガイドを優先して掲載しています。記事の「進め方のヒント」とロードマップの順番は、読んだ資料をもとに編集部が組み立てた提案です。プレイヤーの実戦記録は投稿として表示し、単独の検証や感想を確定仕様と同じ扱いにしていません。記事末尾の出典欄では、「公式」「公式X」「攻略媒体」「プレイヤー投稿」を分けて表示します。「公式X」は、公式アカウントのXの投稿です。編集部が日本版の実機で確かめた内容は、確かめた日と範囲を本文に書いています。</p><h2>職業名と日本版の掲載状況</h2><p>日本公式で確認できる職業名は日本公式の表記を使い、韓国先行の名前と用語には仮訳を含みます。職業図鑑の「日本公式に掲載」は紹介ページに載っているという意味です。海外の性能や解放条件が日本版でも同じとは限りません。</p><h2>Xの情報</h2><p>日本語・韓国語を検索し、公式発表、攻略、プレイ記録、感想を分けて紹介しています。本文や画像の全文転載は行わず、投稿者・投稿時刻・原文リンクを掲載します。公式アカウントは日本公式サイトからのリンクも確認しました。</p><h2>画像の出典</h2><p>イラストと人物画像はマビノギモバイルの韓国公式メディア・公式クラス紹介を、日本版の記事の画像は日本公式のお知らせを参照しています。本サイトはNEXONやdevCATによる公式・公認サイトではありません。公式画像・ゲームの著作権は各権利者に帰属します。</p><p>${link('https://m.nexon.com/terms/1497','日本公式の著作物利用ガイドライン')}</p><div class="asset-list">${assets.assets.map(a=>`<div class="asset-credit">${asset(a.file,a.name)}<p>${e(a.name)} · ${a.dimensions.join(' × ')}<br>${e(a.note)}</p>${link(a.sourcePage,'公式の掲載元')}</div>`).join('')}</div><h2>参照した資料</h2>${sourceList(data.sources.map(s=>s.id))}<h2>情報の更新</h2><p>最終更新は ${data.updatedAt}。何を追加・変更したかは<a href="/updates/">サイトの更新情報</a>に日付ごとに記録しています。更新日時と各記事の出典を確認して利用してください。閲覧だけでXや公式サイトの新着を自動取得する仕組みではありません。</p></div>`;
 }
+const recipeView = recipeViews(recipes, { e, badge, icon, emblem, sourceList });
 const index = [
  ...data.articles.map(a=>({kind:'攻略ガイド',title:a.title,description:a.description,url:articleHref(a.id),text:[a.title,a.category,a.description,...(a.points??[]),...a.sections.flatMap(sectionText),...a.advice].join(' ')})),
  ...data.families.flatMap(f=>f.classes.map(c=>({kind:'職業図鑑',title:c.name+' / '+c.korean,description:f.title+'系統 · '+f.role+(c.japanListed?' · 日本公式に掲載':' · 韓国先行情報'),url:`/classes/${f.id}/#${c.id}`,text:f.title+' '+f.korean+' '+f.description+' '+c.name+' '+c.korean}))),
  ...data.database.map(r=>({kind:'データベース',title:r.name+' / '+r.korean,description:r.entry+' · '+r.reward,url:'/database/#'+r.id,text:Object.values(r).flat().join(' ')})),
  ...data.gathering.skills.map(k=>({kind:'採集図鑑',title:k.name+'の行き先と道具',description:'道具：'+k.tool+(k.destinations.length?' · '+k.destinations.map(d=>d.name+' Lv.'+d.level).join('、'):''),url:'/gathering/#skill-'+k.id,text:[k.name,k.tool,k.note??'',k.pending??'',...k.destinations.flatMap(d=>[d.name,d.place??''])].join(' ')})),
+ ...recipeView.index,
  ...data.glossary.map(g=>({kind:'韓国語の用語',title:g.japanese+' / '+g.korean,description:g.description,url:articleHref(g.article),text:g.japanese+' '+g.korean+' '+g.description})),
  ...data.news.map(n=>({kind:'ニュース',title:n.title,description:n.summary,url:'/news/#'+n.id,text:n.title+' '+n.summary+' '+n.points.join(' ')})),
  ...data.social.map(p=>({kind:'Xの情報',title:p.title,description:p.summary,url:'/community/#post-'+p.id,text:p.title+' '+p.summary+' '+p.region+' '+p.author}))
@@ -145,6 +150,7 @@ pages.set('/beginner/',{title:'初心者ロードマップ',body:beginner()});
 pages.set('/guides/',{title:'攻略ガイド',body:guideListing()});
 pages.set('/gathering/',{title:'採集図鑑',body:gatheringPage(),description:data.gathering.lead});
 pages.set('/life/',{title:'生活・ものづくり',body:guideListing(true)});
+for(const [route,page] of recipeView.pages)pages.set(route,page);
 pages.set('/classes/',{title:'職業図鑑',body:classes()});
 pages.set('/database/',{title:'データベース',body:database()});
 pages.set('/news/',{title:'日本・海外ニュース',body:newsPage()});
@@ -156,6 +162,7 @@ pages.set('/search/',{title:'攻略を検索',body:pageHeading('SEARCH THE FIELD
 for(const a of data.articles)pages.set(articleHref(a.id),{title:a.title,body:articlePage(a),description:a.description});
 for(const f of data.families)pages.set(`/classes/${f.id}/`,{title:f.title+'系統の職業',body:familyPage(f),description:f.description});
 await writeFile('dist/search-index.json',JSON.stringify(index));
+await mkdir('dist/data',{recursive:true});await writeFile('dist/data/recipes.json',JSON.stringify(recipes));
 await writeFile('dist/discord-updates.json', JSON.stringify({ schemaVersion: 1, revision, latestDate: data.changelog[0].date, batches: planNotifications(data, [], botOrigin) }));
 await writeFile('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+[...pages.keys()].map(route=>`<url><loc>https://mabimoba.kitepon.dev${route}</loc><lastmod>${data.updatedAt}</lastmod></url>`).join('')+'</urlset>');
 await writeFile('dist/feed.xml',feed());
@@ -172,7 +179,7 @@ for(const row of index) {
 for(const [route,html] of rendered) {
  for(const match of html.matchAll(/href="(\/[^"]*)"/g)) {
   const url=new URL(match[1].replaceAll('&amp;','&'),'https://mabimoba.kitepon.dev');
-  if(url.pathname==='/style.css'||url.pathname==='/favicon.svg'||url.pathname==='/feed.xml'||url.pathname==='/discord/invite')continue;
+  if(url.pathname==='/style.css'||url.pathname==='/favicon.svg'||url.pathname==='/feed.xml'||url.pathname==='/data/recipes.json'||url.pathname==='/discord/invite')continue;
   if(!rendered.has(url.pathname))throw new Error(`LOCAL_LINK_MISSING: ${route} → ${url.pathname}`);
   if(url.hash&&!rendered.get(url.pathname).includes(`id="${url.hash.slice(1)}"`))throw new Error(`LOCAL_ANCHOR_MISSING: ${match[1]}`);
  }

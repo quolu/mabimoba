@@ -2,7 +2,7 @@
 
 ## 内容を更新する
 
-内容の正本は `content/portal.json`。`sources`、`articles`、`families`、`database`、`news`、`roadmap`、`glossary`、`social` はサイトの各画面と検索へ連動する。`changelog` は「サイトの更新情報」（`/updates/`）、ホームの新着欄、更新フィード（`/feed.xml`）になる。
+内容の正本は `content/portal.json`。製作・加工の一覧だけは `content/recipes.json`（下の「製作・加工の一覧」）。`sources`、`articles`、`families`、`database`、`news`、`roadmap`、`glossary`、`social` はサイトの各画面と検索へ連動する。`changelog` は「サイトの更新情報」（`/updates/`）、ホームの新着欄、更新フィード（`/feed.xml`）になる。
 
 1. 公式の更新・ガイドと日本語／韓国語のXを読み、対象がマビノギモバイルであることを確認する。
 2. 韓国・繁体字版・日本版を区別し、出典URL・確認日・資料の基準日を登録する。Xは投稿者・投稿時刻・原文リンク・内容の種類を保存する。
@@ -60,6 +60,17 @@
 - 名前の表記が怪しい時は、日本公式ゲームガイドと攻略媒体の一覧で確かめる。確かめた資料は `gathering.sources` に入れる。
 - 下の `sections` は記事の節と同じ部品が使える。節から別のページへ送る時は `link: { href, label }`。
 - 行き先を足したら、ホームの帯とページの上の件数は自動で変わる。`checkedAt` と `changelog` は手で直す。
+
+### 製作・加工の一覧（2026-10-12から）
+
+`/recipes/` と分類ごとのページ（`/recipes/<分類ID>/`）は、`content/recipes.json` から作る。2026-10-12、オーナーの依頼で設けた。韓国 Inven の掲示板にある作り方のまとめ13本（2025年4月〜6月の韓国版）が元で、採集図鑑とは別の基準のデータ。全体に「韓国版」と出し、品物ごとに名前の確かさを分けて出す。
+
+- `items`：品物の1件。`ko`（元の表の名前）、`ja`（日本語の名前）、`jaConfirmed`（日本公式ゲームガイド、日本版の攻略媒体、日本版の実機で同じ名前を確かめた時だけ `true`。それ以外は仮訳）、`craftable`（この一覧に作り方があるか）。`id` は `ko` から作った値で、変えない。
+- `recipes`：作り方の1件。`item`、`yield`（1回でできる個数）、`station` と `stationLv`、`skill` と `skillLv`、`seconds`（加工の時間。元の表の注記ではライフメンバーシップを使っている時の値）、`materials`（`item` と `qty`。元の表に個数が無い時は `null`）、`notes`（元の表を直した所、欠けている所）。
+- 日本版で名前を確かめたら、`items` の `ja` を直して `jaConfirmed` を `true` にする。数や条件が日本版で違うと分かったら、その作り方の `notes` に書き、値を日本版に合わせる。仮訳のまま確かめた印を付けない。
+- 同じファイルを `/data/recipes.json` でも配る。項目の名前と `id` は、読む側があるので変えない。足す時は項目を増やす。
+- 品物を、作り方の無い材料（元の材料）まで辿る計算は `scripts/recipes.mjs` の `baseMaterials`。途中の品物は1回でできる個数で割って、回数を切り上げる。サイトのページには、直接の材料までを出す。
+- 検査は `npm run check`。品物や分類の参照が切れていると `RECIPES_INVALID` で失敗する。
 
 ### サイトの更新情報を書く
 

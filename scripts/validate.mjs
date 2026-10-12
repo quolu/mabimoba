@@ -26,4 +26,4 @@ export async function validate(data, assets) {
  for(const a of data.articles.filter(a=>a.image))await access('public/assets/'+a.image);
  console.log(`内容確認: 記事${data.articles.length}・出典${data.sources.length}・DB${data.database.length}・素材${assets.assets.length}・更新情報${data.changelog.length}日分`);
 }
-if(process.argv[1]?.endsWith('/validate.mjs'))await validate(JSON.parse(await readFile('content/portal.json')),JSON.parse(await readFile('content/assets.json')));
+if(process.argv[1]?.endsWith('/validate.mjs')){const portal=JSON.parse(await readFile('content/portal.json'));await validate(portal,JSON.parse(await readFile('content/assets.json')));const {checkRecipes}=await import('./recipes.mjs');const recipes=JSON.parse(await readFile('content/recipes.json'));checkRecipes(recipes,new Set(portal.sources.map(s=>s.id)));console.log(`製作・加工の一覧: 作り方${recipes.recipes.length}・品物${recipes.items.length}`);}
