@@ -58,3 +58,5 @@ document.querySelector('.nav-close').addEventListener('click',closeMenu);
 document.addEventListener('pointerdown',event=>{if(document.body.classList.contains('menu-open')&&!navigation.contains(event.target)&&!menuButton.contains(event.target))closeMenu()});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){syncNavigation();if(mobile.matches)menuButton.focus()}if(event.key==='Tab'&&mobile.matches&&document.body.classList.contains('menu-open')){const focusable=[...navigation.querySelectorAll('a,button')];const first=focusable[0],last=focusable.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}}});
 mobile.addEventListener('change',syncNavigation);syncNavigation();
+const sourcesFold=document.querySelector('#sources details');
+if(sourcesFold){const openSources=()=>{if(location.hash==='#sources')sourcesFold.open=true};addEventListener('hashchange',openSources);openSources()}
