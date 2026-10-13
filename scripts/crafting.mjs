@@ -41,8 +41,10 @@ export function buildCrafting(recipes, portal, extra) {
   const skill = skillById.get(d.skill) ?? bad(`行き先のスキル ${d.skill}`);
   const names = extra.yields[d.skill]?.[d.name];
   if (!names?.length || !checks.has(d.check)) bad(`行き先 ${d.skill}:${d.name}`);
-  const place = d.place?.match(/^\[(.+?)\](.+)$/);
-  if (d.place && !place) bad(`行き先の場所 ${d.place}`);
+  // 場所は「[種類]名前、名前」。種類が2つある行き先は「[種類]名前、[種類]名前」と続けて書く。
+  const groups = d.place ? [...d.place.matchAll(/\[(.+?)\]([^\[]+)/g)].map(m => ({ type: m[1], areas: m[2].split('、').filter(Boolean) })) : [];
+  if (d.place && (!groups.length || groups.some(g => !g.areas.length) || groups.map(g => `[${g.type}]${g.areas.join('、')}`).join('、') !== d.place)) bad(`行き先の場所 ${d.place}`);
+  const place = groups.length ? groups : null;
   const mediaAreas = extra.mediaAreas[d.skill]?.[d.name];
   const own = extra.destinationTools[d.skill]?.[d.name];
   // 実機で、その行き先から手に入ったのを見た品物。
@@ -50,9 +52,10 @@ export function buildCrafting(recipes, portal, extra) {
   for (const name of seen) if (!names.includes(name)) bad(`実機で見た品物が、採れる品物に無い ${d.skill}:${d.name} ${name}`);
   return {
    id: `${d.skill}:${d.name}`, skill: d.skill, skillName: skill.name, name: d.name, level: d.level, check: d.check,
-   areaType: place ? place[1] : null,
-   areas: place ? place[2].split('、') : mediaAreas ?? [],
+   areaType: place?.length === 1 ? place[0].type : null,
+   areas: place ? place.flatMap(g => g.areas) : mediaAreas ?? [],
    areaCheck: place ? 'screen' : mediaAreas ? 'media' : null,
+   areaGroups: place ?? [],
    tool: own ? own.tool : skill.tool, toolCheck: own ? own.toolCheck : skill.toolCheck,
    yields: names.map(name => { const t = tie(name); return { name, item: t.item?.id ?? null, sure: t.sure, check: seen.includes(name) ? 'screen' : 'media', ...(t.note ? { note: t.note } : {}) }; }),
    yieldsCheck: names.every(name => seen.includes(name)) ? 'screen' : 'media', yieldsSource: skill.source

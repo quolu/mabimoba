@@ -79,7 +79,8 @@
 | `id` | `<スキルのid>:<行き先の名前>`。行き先の名前を直した時は変わる |
 | `skill`、`skillName`、`name`、`level` | 採集スキル、行き先の名前、要るスキルレベル |
 | `check` | 行き先の名前とレベルを確かめた度合い |
-| `areaType`、`areas`、`areaCheck` | 場所。`areaType` は行き先のカードに出た「一般フィールド」「狩り場」。分かっていない時は `null` と空 |
+| `areaType`、`areas`、`areaCheck` | 場所。`areaType` は行き先のカードに出た「一般フィールド」「狩り場」。分かっていない時は `null` と空。カードに種類が2つ出た行き先（クモの糸、使えそうな木）は、`areaType` が `null` で、`areas` に全部の場所が入る |
+| `areaGroups` | カードに出た場所を、種類ごとに分けた物。`{ type, areas }` の並び（2026-10-13に足した）。画面で場所を見ていない行き先は空 |
 | `tool`、`toolCheck` | 要る道具。日常採集は `null`（道具なし）。水、井戸、乳牛は空き瓶 |
 | `yields` | 採れる品物。`{ name, item, sure, check }`。`name` は資料の表記、`item` は品物の `id`（この一覧に無い品物は `null`）。`sure` が `false` は、つながりが推測。`check` が `screen` は、日本版の実機でその行き先から手に入ったのを見た品物 |
 | `yieldsCheck`、`yieldsSource` | 採れる品物を確かめた度合い（全部の品物を実機で見た行き先だけ `screen`）と、攻略媒体の資料 |

@@ -15,7 +15,7 @@
   },
   "skills": [
     { "id": "daily", "tool": null, "toolCheck": "screen", "toolNote": "道具は要らない。水、井戸、乳牛は空き瓶が要る。", "source": "gamewith-daily-gathering" },
-    { "id": "logging", "tool": "伐採斧", "toolCheck": "guide", "toolNote": "道具の種類の名前。雑貨屋で買う品物の名前は確かめていない。", "source": "gamewith-logging" },
+    { "id": "logging", "tool": "入門用の伐採斧", "toolCheck": "screen", "source": "gamewith-logging" },
     { "id": "mining", "tool": "ツルハシ", "toolCheck": "guide", "toolNote": "道具の種類の名前。雑貨屋で買う品物の名前は確かめていない。", "source": "gamewith-mining" },
     { "id": "herb", "tool": "薬草鍬", "toolCheck": "guide", "toolNote": "道具の種類の名前。雑貨屋で買う品物の名前は確かめていない。", "source": "gamewith-herb-gathering" },
     { "id": "wool", "tool": "入門用の羊毛バサミ", "toolCheck": "screen", "source": "gamewith-wool-shearing" },
@@ -26,8 +26,8 @@
   ],
   "destinationTools": {
     "daily": {
-      "水": { "tool": "空き瓶", "toolCheck": "media" },
-      "井戸": { "tool": "空き瓶", "toolCheck": "media" },
+      "水": { "tool": "空き瓶", "toolCheck": "screen" },
+      "井戸": { "tool": "空き瓶", "toolCheck": "screen" },
       "乳牛": { "tool": "空き瓶", "toolCheck": "screen" }
     }
   },
@@ -123,7 +123,7 @@
   "ties": {
     "水の入った瓶": { "ko": "물이 든 병", "sure": true, "note": "攻略媒体の表記。日本版の実機で見た名前は「水が入った瓶」。" },
     "鉄鉱石": { "ko": "철 광석", "sure": true, "note": "攻略媒体の表記。日本版の実機で見た名前は「鉄鉱」。" },
-    "銅鉱石": { "ko": "동 광석", "sure": true, "note": "攻略媒体の表記。実機では見ていない。鉄と白銅の付け方に揃えて、この一覧では「銅鉱」（仮訳）にしている。" },
+    "銅鉱石": { "ko": "동 광석", "sure": true, "note": "攻略媒体の表記。日本版の実機で見た名前は「銅鉱」。" },
     "白銅石": { "ko": "백동 광석", "sure": true, "note": "攻略媒体の表記。日本版の実機で見た名前は「白銅鉱」。" },
     "高級羊毛": { "ko": "상급 양털", "sure": false, "note": "攻略媒体の表では、モジャモジャ羊で採れる物が「高級羊毛」。日本版の実機で見た「上級羊毛」と同じ品物と見ているが、モジャモジャ羊で採れる事は確かめていない。" }
   },
@@ -170,6 +170,7 @@
     { "id": "steel-ingot", "item": "강철괴", "count": 1 },
     { "id": "steel-ingot-from-iron-ore", "item": "강철괴", "count": 5, "prefer": { "철괴": 2 } },
     { "id": "alloy-ingot", "item": "합금강괴", "count": 2 },
+    { "id": "special-ingot", "item": "특수강괴", "count": 1 },
     { "id": "lumber", "item": "목재", "count": 10 },
     { "id": "lumber-plus", "item": "목재+", "count": 1 },
     { "id": "fine-lumber", "item": "상급 목재", "count": 1 },
