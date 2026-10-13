@@ -122,6 +122,9 @@ test('使えない作り方、勧める作り方、画面の字を持ってい�
   assert.deepEqual(time('목재'), [45, 'screen', 45, false]);
   assert.deepEqual(time('목재+'), [360, 'screen', 540, true]);
   assert.deepEqual(time('상급 목재'), [7200, 'table', 7200, true]);
+  assert.deepEqual(time('합금강괴'), [6000, 'screen', 7200, true]);
+  assert.deepEqual(time('철괴'), [30, 'screen', 30, false]);
+  assert.deepEqual(time('강철괴'), [480, 'table', 480, false]);
   assert.deepEqual(time('크림소스 스테이크'), [null, null, null, false]);
   for (const x of crafting.recipes) assert.ok(x.secondsCheck === null ? x.seconds === null : x.secondsCheck in crafting.checks, x.id);
 });
