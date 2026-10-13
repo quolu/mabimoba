@@ -81,6 +81,9 @@ export function buildCrafting(recipes, portal, extra) {
  }
  const recommended = new Map(Object.entries(extra.recommendedLv).map(([ko, lv]) => [itemOfKo(ko).id, lv]));
  const jpNotes = new Map(Object.entries(extra.jpNotes).map(([ko, text]) => [itemOfKo(ko).id, text]));
+ const secondsChecks = new Map(Object.entries(extra.secondsChecks).map(([ko, check]) => [itemOfKo(ko).id, check]));
+ const secondsNotes = new Map(Object.entries(extra.secondsNotes).map(([ko, text]) => [itemOfKo(ko).id, text]));
+ for (const [item, check] of secondsChecks) if (!checks.has(check) || !recipes.recipes.some(x => x.item === item && x.seconds !== null)) bad(`時間の確かめ ${item}`);
  const unusable = new Map(Object.entries(extra.unusable).map(([ko, why]) => [itemOfKo(ko).id, why]));
  const screenGroups = new Map(Object.entries(extra.screenGroups)), confirmedSkills = new Set(extra.confirmedSkills);
  for (const [section, list] of screenGroups) for (const ko of list) if (!recipes.recipes.some(x => x.section === section && x.group?.ko === ko)) bad(`分類のグループ ${section}:${ko}`);
@@ -95,7 +98,7 @@ export function buildCrafting(recipes, portal, extra) {
    station: x.station, stationLv: x.stationLv,
    skill: x.skill ? { ...x.skill, jaConfirmed: confirmedSkills.has(x.skill.ko) } : null,
    skillLv: x.skillLv, recommendedLv: recommended.get(x.item) ?? null,
-   seconds: x.seconds,
+   seconds: x.seconds, secondsCheck: x.seconds === null ? null : secondsChecks.get(x.item) ?? 'table', secondsTable: x.secondsTable ?? x.seconds, secondsNote: secondsNotes.get(x.item) ?? null,
    materials: x.materials.map(m => ({ item: m.item, qty: m.qty, ...(m.item === x.item ? { self: true } : {}) })),
    jpChecked: x.jpChecked === true, usable: !unusable.has(x.item), usableNote: unusable.get(x.item) ?? null, jpNote: jpNotes.get(x.item) ?? null, notes: x.notes ?? []
   };
