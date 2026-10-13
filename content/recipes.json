@@ -1,16 +1,16 @@
 {
  "schemaVersion": 1,
- "checkedAt": "2026-10-12",
+ "checkedAt": "2026-10-13",
  "region": "韓国版",
  "lead": "製作台と加工施設で作れる品物と、その材料の一覧。韓国版の攻略掲示板にまとめられた表を元にしていて、日本版で同じかどうかは、一部しか確かめられていない。",
  "points": [
   "載せているのは、加工6施設と、武器、防具、アクセサリ、生活道具、フード、ポーション・包帯・秘薬、多目的製作の作り方。",
   "元の資料は韓国版（2025年4月〜6月の投稿）。日本版と品物や個数が違う事がある。",
   "品物の名前は、日本版の画面や公式ガイドで確かめられた物に「日本版の名前」の印を付けた。印の無い名前は、日本版の名前の付け方に揃えた仮訳。韓国語の元の名前を併記している。",
-  "日本版の画面と見比べられた作り方は4件。4件とも、材料と個数、製作台とスキルのレベル、加工の時間が同じだった。",
+  "日本版の画面と見比べられた作り方は5件。5件とも、材料と個数、製作台とスキルのレベルが同じだった。加工の時間も、見比べた2件は同じだった。",
   "材料の名前を押すと、その材料の作り方へ移る。"
  ],
- "legend": "「日本版の名前」は、日本公式ゲームガイド、日本版の攻略媒体、日本版の製作や加工の画面で同じ名前を確かめた物。加工の時間は、元の表の注記によるとライフメンバーシップを使っている時の値で、使っていない時は2倍。",
+ "legend": "「日本版の名前」は、日本公式ゲームガイド、日本版の攻略媒体、日本版の実機の画面（製作、加工、持ち物）で同じ名前を確かめた物。加工の時間は、元の表の注記によるとライフメンバーシップを使っている時の値で、使っていない時は2倍。",
  "stations": [
   {
    "id": "weapon-bench",
@@ -498,7 +498,7 @@
    "id": "i77895dd5",
    "ko": "고기",
    "ja": "肉",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -974,7 +974,7 @@
    "id": "ia38485a8",
    "ko": "달걀 프라이",
    "ja": "目玉焼き",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -1029,8 +1029,8 @@
   {
    "id": "i276f836b",
    "ko": "동 광석",
-   "ja": "銅鉱石",
-   "jaConfirmed": true,
+   "ja": "銅鉱",
+   "jaConfirmed": false,
    "craftable": false
   },
   {
@@ -1618,7 +1618,7 @@
    "id": "i7a83acce",
    "ko": "마늘",
    "ja": "ニンニク",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -1890,8 +1890,8 @@
   {
    "id": "icb344c38",
    "ko": "백동 광석",
-   "ja": "白銅鉱石",
-   "jaConfirmed": false,
+   "ja": "白銅鉱",
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -1940,7 +1940,7 @@
    "id": "idc8baf59",
    "ko": "봉인의 결정",
    "ja": "封印の結晶",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -1989,7 +1989,7 @@
    "id": "i72c6b672",
    "ko": "불꽃의 결정",
    "ja": "炎の結晶",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -2353,7 +2353,7 @@
    "id": "id9c9a451",
    "ko": "삶은 달걀",
    "ja": "ゆで卵",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -2493,14 +2493,14 @@
    "id": "if506f03c",
    "ko": "상급 생가죽",
    "ja": "上級生皮",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
    "id": "i971ce6fd",
    "ko": "상급 생가죽+",
    "ja": "上級生皮+",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -2542,7 +2542,7 @@
    "id": "i032c6874",
    "ko": "상급 양털",
    "ja": "上級羊毛",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -2780,7 +2780,7 @@
    "id": "if3bb104f",
    "ko": "생크림",
    "ja": "生クリーム",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -2920,7 +2920,7 @@
    "id": "i7814fe78",
    "ko": "세공된 블루 스피넬S",
    "ja": "細工されたブルースピネルS",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -2941,7 +2941,7 @@
    "id": "i1649a903",
    "ko": "세공된 지르콘S",
    "ja": "細工されたジルコンS",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -3452,7 +3452,7 @@
    "id": "ifbbf5186",
    "ko": "여행자 간식",
    "ja": "旅人のおやつ",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -3633,7 +3633,7 @@
   {
    "id": "id75f94a1",
    "ko": "운철 광석",
-   "ja": "隕鉄鉱石",
+   "ja": "隕鉄鉱",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -3710,7 +3710,7 @@
   {
    "id": "ib88d6e98",
    "ko": "은 광석",
-   "ja": "銀鉱石",
+   "ja": "銀鉱",
    "jaConfirmed": false,
    "craftable": false
   },
@@ -3746,7 +3746,7 @@
    "id": "i29310b1c",
    "ko": "응축된 바람",
    "ja": "凝縮された風",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -4123,7 +4123,7 @@
   {
    "id": "i3a4e7067",
    "ko": "철 광석",
-   "ja": "鉄鉱石",
+   "ja": "鉄鉱",
    "jaConfirmed": true,
    "craftable": false
   },
@@ -4613,8 +4613,8 @@
   {
    "id": "i8e083c9c",
    "ko": "타닌 가루",
-   "ja": "タンニンの粉",
-   "jaConfirmed": false,
+   "ja": "タンニンパウダー",
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -4901,7 +4901,7 @@
    "id": "i1106c735",
    "ko": "폐허의 마나석",
    "ja": "廃墟のマナストーン",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -5076,7 +5076,7 @@
    "id": "id235083e",
    "ko": "협곡의 마나석",
    "ja": "峡谷のマナストーン",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -5174,7 +5174,7 @@
    "id": "if529b0a5",
    "ko": "후추",
    "ja": "コショウ",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -18284,7 +18284,7 @@
    "section": "food",
    "group": {
     "ko": "간편",
-    "ja": "手軽な物"
+    "ja": "簡単"
    },
    "item": "ifbbf5186",
    "yield": 1,
@@ -18312,7 +18312,7 @@
    "section": "food",
    "group": {
     "ko": "간편",
-    "ja": "手軽な物"
+    "ja": "簡単"
    },
    "item": "ia38485a8",
    "yield": 1,
@@ -18340,7 +18340,7 @@
    "section": "food",
    "group": {
     "ko": "간편",
-    "ja": "手軽な物"
+    "ja": "簡単"
    },
    "item": "id9c9a451",
    "yield": 1,
@@ -18368,7 +18368,7 @@
    "section": "food",
    "group": {
     "ko": "힘 특화",
-    "ja": "STR向け"
+    "ja": "STR特化"
    },
    "item": "i7dffe24b",
    "yield": 1,
@@ -18400,7 +18400,7 @@
    "section": "food",
    "group": {
     "ko": "힘 특화",
-    "ja": "STR向け"
+    "ja": "STR特化"
    },
    "item": "iaff06906",
    "yield": 1,
@@ -18432,7 +18432,7 @@
    "section": "food",
    "group": {
     "ko": "힘 특화",
-    "ja": "STR向け"
+    "ja": "STR特化"
    },
    "item": "ia319ad0f",
    "yield": 1,
@@ -18468,7 +18468,7 @@
    "section": "food",
    "group": {
     "ko": "힘 특화",
-    "ja": "STR向け"
+    "ja": "STR特化"
    },
    "item": "i6b751244",
    "yield": 1,
@@ -18504,7 +18504,7 @@
    "section": "food",
    "group": {
     "ko": "힘 특화",
-    "ja": "STR向け"
+    "ja": "STR特化"
    },
    "item": "i64ad4cdf",
    "yield": 1,
@@ -18540,7 +18540,7 @@
    "section": "food",
    "group": {
     "ko": "힘 특화",
-    "ja": "STR向け"
+    "ja": "STR特化"
    },
    "item": "i74df77fa",
    "yield": 1,
@@ -18569,14 +18569,15 @@
      "item": "if529b0a5",
      "qty": 3
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r22dd76b3",
    "section": "food",
    "group": {
     "ko": "힘 특화",
-    "ja": "STR向け"
+    "ja": "STR特化"
    },
    "item": "i22dd76b3",
    "yield": 1,
@@ -18616,7 +18617,7 @@
    "section": "food",
    "group": {
     "ko": "힘 특화",
-    "ja": "STR向け"
+    "ja": "STR特化"
    },
    "item": "i07b59496",
    "yield": 1,
@@ -18656,7 +18657,7 @@
    "section": "food",
    "group": {
     "ko": "솜씨 특화",
-    "ja": "DEX向け"
+    "ja": "DEX特化"
    },
    "item": "i803dcacd",
    "yield": 1,
@@ -18688,7 +18689,7 @@
    "section": "food",
    "group": {
     "ko": "솜씨 특화",
-    "ja": "DEX向け"
+    "ja": "DEX特化"
    },
    "item": "i41fdf8d6",
    "yield": 1,
@@ -18720,7 +18721,7 @@
    "section": "food",
    "group": {
     "ko": "솜씨 특화",
-    "ja": "DEX向け"
+    "ja": "DEX特化"
    },
    "item": "i771ce605",
    "yield": 1,
@@ -18756,7 +18757,7 @@
    "section": "food",
    "group": {
     "ko": "솜씨 특화",
-    "ja": "DEX向け"
+    "ja": "DEX特化"
    },
    "item": "i3fe43604",
    "yield": 1,
@@ -18788,7 +18789,7 @@
    "section": "food",
    "group": {
     "ko": "솜씨 특화",
-    "ja": "DEX向け"
+    "ja": "DEX特化"
    },
    "item": "ib8bbfe58",
    "yield": 1,
@@ -18824,7 +18825,7 @@
    "section": "food",
    "group": {
     "ko": "솜씨 특화",
-    "ja": "DEX向け"
+    "ja": "DEX特化"
    },
    "item": "i6897bbe7",
    "yield": 1,
@@ -18860,7 +18861,7 @@
    "section": "food",
    "group": {
     "ko": "솜씨 특화",
-    "ja": "DEX向け"
+    "ja": "DEX特化"
    },
    "item": "if8acd0e2",
    "yield": 1,
@@ -18900,7 +18901,7 @@
    "section": "food",
    "group": {
     "ko": "솜씨 특화",
-    "ja": "DEX向け"
+    "ja": "DEX特化"
    },
    "item": "i08c3b3fd",
    "yield": 1,
@@ -18940,7 +18941,7 @@
    "section": "food",
    "group": {
     "ko": "지력 특화",
-    "ja": "INT向け"
+    "ja": "INT特化"
    },
    "item": "i0aa89d64",
    "yield": 1,
@@ -18976,7 +18977,7 @@
    "section": "food",
    "group": {
     "ko": "지력 특화",
-    "ja": "INT向け"
+    "ja": "INT特化"
    },
    "item": "iea8e087f",
    "yield": 1,
@@ -19008,7 +19009,7 @@
    "section": "food",
    "group": {
     "ko": "지력 특화",
-    "ja": "INT向け"
+    "ja": "INT特化"
    },
    "item": "ib768214a",
    "yield": 1,
@@ -19044,7 +19045,7 @@
    "section": "food",
    "group": {
     "ko": "지력 특화",
-    "ja": "INT向け"
+    "ja": "INT特化"
    },
    "item": "i02fd1bdc",
    "yield": 1,
@@ -19080,7 +19081,7 @@
    "section": "food",
    "group": {
     "ko": "지력 특화",
-    "ja": "INT向け"
+    "ja": "INT特化"
    },
    "item": "i8cabd34a",
    "yield": 1,
@@ -19116,7 +19117,7 @@
    "section": "food",
    "group": {
     "ko": "지력 특화",
-    "ja": "INT向け"
+    "ja": "INT特化"
    },
    "item": "i3f8be5a2",
    "yield": 1,
@@ -19152,7 +19153,7 @@
    "section": "food",
    "group": {
     "ko": "지력 특화",
-    "ja": "INT向け"
+    "ja": "INT特化"
    },
    "item": "ia4bcd165",
    "yield": 1,
@@ -19192,7 +19193,7 @@
    "section": "food",
    "group": {
     "ko": "지력 특화",
-    "ja": "INT向け"
+    "ja": "INT特化"
    },
    "item": "ib1c0420b",
    "yield": 1,

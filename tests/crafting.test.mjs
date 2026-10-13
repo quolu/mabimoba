@@ -94,6 +94,27 @@ test('公開するデータは、参照が切れていない', () => {
   for (const s of portal.gathering.skills) for (const d of s.destinations) assert.ok(places.has(`${s.id}:${d.name}`), d.name);
 });
 
+test('使えない作り方、勧める作り方、画面の字を持っている', () => {
+  const items = new Map(crafting.items.map(i => [i.id, i]));
+  for (const x of crafting.recipes) {
+    assert.equal(x.usable, !x.materials.some(m => m.self), x.id);
+    assert.equal(x.usableNote === null, x.usable, x.id);
+    if (!x.usable) assert.equal(items.get(x.item).gatherOnly, false, x.id);
+  }
+  for (const i of crafting.items) {
+    assert.deepEqual(i.recipes, crafting.recipes.filter(x => x.item === i.id).map(x => x.id), i.ko);
+    assert.ok(i.recommendedRecipe === null ? i.recommendedWhy === null : i.recipes.length > 1 && i.recipes.includes(i.recommendedRecipe) && i.recommendedWhy, i.ko);
+  }
+  assert.equal(items.get(id('철괴')).recommendedRecipe, crafting.recipes.filter(x => x.item === id('철괴'))[1].id);
+  const station = sid => crafting.stations.find(s => s.id === sid);
+  assert.deepEqual(station('wood-facility').aliases.map(a => a.name), ['木材加工']);
+  assert.deepEqual(station('cooking-bench').aliases, []);
+  assert.equal(station('no-bench').jaCheck, null);
+  const steak = crafting.recipes.find(x => x.item === id('크림소스 스테이크'));
+  assert.deepEqual([steak.group.ja, steak.group.jaConfirmed, steak.skill.ja, steak.skill.jaConfirmed, steak.jpChecked], ['STR特化', true, '料理', true, true]);
+  assert.equal(crafting.gatherRun.max, 10);
+});
+
 test('名前まで確かで採集だけで揃う品物は、全部、答えの例に入っている', () => {
   const sure = crafting.items.filter(i => i.gatherOnlySure);
   assert.ok(sure.length >= 13);

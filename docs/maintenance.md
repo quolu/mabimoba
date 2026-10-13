@@ -78,7 +78,9 @@
 
 `/data/crafting.json` は、製作・加工の作り方に、採集の行き先をつないだデータ。`/data/crafting-examples.json` は、元の材料まで辿る計算の答えの例。どちらもビルドの時に `scripts/crafting.mjs` が作る。項目の説明と計算の決まりは `docs/crafting-data.md` が正本で、製作・加工の一覧のページからも案内している。
 
-- 材料：`content/recipes.json`（作り方）、`content/portal.json` の `gathering`（採集図鑑の行き先）、`content/crafting.json`（行き先で採れる品物、道具、別の書き方、推奨 Lv.、答えの例）。
+- 材料：`content/recipes.json`（作り方）、`content/portal.json` の `gathering`（採集図鑑の行き先）、`content/crafting.json`（行き先で採れる品物、道具、別の書き方、推奨 Lv.、設備の札の字、画面で見たタブの字と製作スキルの名前、使えない作り方、勧める作り方、答えの例）。
+- 攻略媒体の品物の名前が、実機の画面の名前と違う事がある（2026-10-13。画面は「鉄鉱」「白銅鉱」、攻略媒体は「鉄鉱石」「白銅石」）。画面で見た名前を `ja` にして、攻略媒体の表記は `ties` に入れる。画面で見ていない同じ種類の品物（「銅鉱」など）は、画面の付け方に揃えた仮訳へ戻す。
+- 名前まで確かで採集だけで揃う品物（`gatherOnlySure`）が増えた時は、その品物を `examples` に足す。足りないと `npm test` が失敗する。
 - 行き先で採れる品物（`yields`）は、攻略媒体（GameWith）の採集スキルごとのページの「主に入手できるもの」による。採集図鑑は実機で見た行き先だけを載せる決まりのままで、攻略媒体にしか無い行き先は `content/crafting.json` の `mediaDestinations` に置き、確かめた度合いを `media` で出す。
 - 資料の品物の名前が一覧の `ja` と違う時は、`ties` に韓国語の名前との対を書く。同じ品物と確かめていない対は `sure: false`。日本版で確かめたら、`content/recipes.json` の名前を直して `ties` から外す。
 - 読む側が手元に写しを置いて使うので、項目の名前と意味、`id` を変えない。足す時は項目を増やす。変える時は `schemaVersion` を上げ、`docs/crafting-data.md` に書く。

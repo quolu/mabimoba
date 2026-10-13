@@ -115,8 +115,43 @@
   },
   "ties": {
     "水の入った瓶": { "ko": "물이 든 병", "sure": true, "note": "攻略媒体の表記。日本版の実機で見た名前は「水が入った瓶」。" },
-    "白銅石": { "ko": "백동 광석", "sure": false, "note": "攻略媒体の表では、白銅の鉱脈で採れる物が「白銅石」。この一覧の「白銅鉱石」（仮訳）と同じ品物と見ているが、確かめていない。" },
-    "高級羊毛": { "ko": "상급 양털", "sure": false, "note": "攻略媒体の表では、モジャモジャ羊で採れる物が「高級羊毛」。この一覧の「上級羊毛」（仮訳）と同じ品物と見ているが、確かめていない。" }
+    "鉄鉱石": { "ko": "철 광석", "sure": true, "note": "攻略媒体の表記。日本版の実機で見た名前は「鉄鉱」。" },
+    "銅鉱石": { "ko": "동 광석", "sure": true, "note": "攻略媒体の表記。実機では見ていない。鉄と白銅の付け方に揃えて、この一覧では「銅鉱」（仮訳）にしている。" },
+    "白銅石": { "ko": "백동 광석", "sure": true, "note": "攻略媒体の表記。日本版の実機で見た名前は「白銅鉱」。" },
+    "高級羊毛": { "ko": "상급 양털", "sure": false, "note": "攻略媒体の表では、モジャモジャ羊で採れる物が「高級羊毛」。日本版の実機で見た「上級羊毛」と同じ品物と見ているが、モジャモジャ羊で採れる事は確かめていない。" }
+  },
+  "stationLabelNote": "クイックナビゲーターの[設備]に並ぶ札の字",
+  "stationLabels": {
+    "metal-facility": "金属加工",
+    "wood-facility": "木材加工",
+    "leather-facility": "革加工",
+    "fabric-facility": "生地加工",
+    "potion-facility": "ポーション加工",
+    "food-facility": "食材加工",
+    "weapon-bench": "武器製作台",
+    "armor-bench": "防具製作台",
+    "potion-bench": "ポーション製作台",
+    "cooking-bench": "調理台",
+    "multipurpose-bench": "多目的製作台"
+  },
+  "stationNameChecks": {
+    "metal-facility": "guide", "wood-facility": "guide", "leather-facility": "guide", "fabric-facility": "guide", "potion-facility": "guide", "food-facility": "guide",
+    "weapon-bench": "screen", "armor-bench": "screen", "potion-bench": "screen", "cooking-bench": "screen", "multipurpose-bench": "screen"
+  },
+  "screenGroups": {
+    "food": ["간편", "힘 특화", "솜씨 특화", "지력 특화", "쉐어링", "기타"]
+  },
+  "confirmedSkills": ["요리", "대장 기술", "목공", "매직 크래프트", "중갑 제작", "경갑 제작", "천옷 제작", "물약 조제"],
+  "unusable": {
+    "최상급 목재+": "元の表で、品物と同じ名前が材料に書かれている。誤記と見られ、正しい材料が分からない。"
+  },
+  "recommendedRecipes": {
+    "철괴": { "nth": 2, "why": "要る元の材料が半分（鉄鉱×10。もう1つの作り方は鉱石×20）。[近くで探す]の1回（採集10回）で、加工1回分が揃う見込み。確かめた事ではなく、編集部の見方。" }
+  },
+  "gatherRun": {
+    "max": 10,
+    "check": "screen",
+    "note": "行き先のカードの[近くで探す]の1回で、追跡に「採集 n/10」と出る。10は採集の回数。1回の採集で手に入る個数と、一緒に出る品物の割合は、確かめていない。"
   },
   "recommendedLv": {
     "뛰어난 회복 물약": 20,
@@ -138,6 +173,8 @@
     { "id": "flour", "item": "밀가루", "count": 5 },
     { "id": "bandage", "item": "붕대", "count": 15 },
     { "id": "campfire-kit", "item": "캠프파이어 키트", "count": 2 },
+    { "id": "flame-crystal", "item": "불꽃의 결정", "count": 1 },
+    { "id": "boiled-egg", "item": "삶은 달걀", "count": 3 },
     { "id": "shared-intermediates-sword", "item": "웨이브 엣지소드SS", "count": 1 },
     { "id": "shared-intermediates-silk", "item": "최상급 실크", "count": 1 },
     { "id": "not-gatherable-base", "item": "크림소스 스테이크", "count": 1 },
