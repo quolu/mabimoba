@@ -2,7 +2,7 @@
 
 ## 内容を更新する
 
-内容の正本は `content/portal.json`。製作・加工の一覧だけは `content/recipes.json`（下の「製作・加工の一覧」）。`sources`、`articles`、`families`、`database`、`news`、`roadmap`、`glossary`、`social` はサイトの各画面と検索へ連動する。`changelog` は「サイトの更新情報」（`/updates/`）、ホームの新着欄、更新フィード（`/feed.xml`）になる。
+内容の正本は `content/portal.json`。製作・加工の一覧だけは `content/recipes.json`（下の「製作・加工の一覧」）。採集とつないだデータの材料は `content/crafting.json`（下の「採集とつないだデータ」）。`sources`、`articles`、`families`、`database`、`news`、`roadmap`、`glossary`、`social` はサイトの各画面と検索へ連動する。`changelog` は「サイトの更新情報」（`/updates/`）、ホームの新着欄、更新フィード（`/feed.xml`）になる。
 
 1. 公式の更新・ガイドと日本語／韓国語のXを読み、対象がマビノギモバイルであることを確認する。
 2. 韓国・繁体字版・日本版を区別し、出典URL・確認日・資料の基準日を登録する。Xは投稿者・投稿時刻・原文リンク・内容の種類を保存する。
@@ -70,8 +70,19 @@
 - 仮訳は、日本版の画面で見た名前の付け方に揃える。インゴットは「アイアン／スチール／合金／特殊インゴット」、等級は「上級〜」「最上級〜」と後ろの「+」、重甲と軽甲は「鉄板鎧(上)SS」の形、設計図は「〜の設計図(レベル3)」、部品は「設備改造部品」のように「の」を入れない、括弧は半角。自分の言葉で言い換えない。
 - 日本版で名前を確かめたら、`items` の `ja` を直して `jaConfirmed` を `true` にする。数や条件が日本版で違うと分かったら、その作り方の `notes` に書き、値を日本版に合わせる。仮訳のまま確かめた印を付けない。
 - 同じファイルを `/data/recipes.json` でも配る。項目の名前と `id` は、読む側があるので変えない。足す時は項目を増やす。
-- 品物を、作り方の無い材料（元の材料）まで辿る計算は `scripts/recipes.mjs` の `baseMaterials`。途中の品物は1回でできる個数で割って、回数を切り上げる。サイトのページには、直接の材料までを出す。
+- 品物を、作り方の無い材料（元の材料）まで辿る計算は `scripts/recipes.mjs` の `craftPlan`（`baseMaterials` は、それを「/材料」の形に直した物）。途中の品物は、要る数を全部の枝から合わせてから、1回でできる個数で割って回数を切り上げる。決まりは `docs/crafting-data.md`。サイトのページには、直接の材料までを出す。
+- 材料を辿って元の品物へ戻る輪があると、`npm run check` が `RECIPES_INVALID` で失敗する。元の表で品物と同じ名前が材料に書かれている作り方（最上級木材+）は、その材料を数に入れずに `notes` で知らせる。
 - 検査は `npm run check`。品物や分類の参照が切れていると `RECIPES_INVALID` で失敗する。
+
+### 採集とつないだデータ（2026-10-13から）
+
+`/data/crafting.json` は、製作・加工の作り方に、採集の行き先をつないだデータ。`/data/crafting-examples.json` は、元の材料まで辿る計算の答えの例。どちらもビルドの時に `scripts/crafting.mjs` が作る。項目の説明と計算の決まりは `docs/crafting-data.md` が正本で、製作・加工の一覧のページからも案内している。
+
+- 材料：`content/recipes.json`（作り方）、`content/portal.json` の `gathering`（採集図鑑の行き先）、`content/crafting.json`（行き先で採れる品物、道具、別の書き方、推奨 Lv.、答えの例）。
+- 行き先で採れる品物（`yields`）は、攻略媒体（GameWith）の採集スキルごとのページの「主に入手できるもの」による。採集図鑑は実機で見た行き先だけを載せる決まりのままで、攻略媒体にしか無い行き先は `content/crafting.json` の `mediaDestinations` に置き、確かめた度合いを `media` で出す。
+- 資料の品物の名前が一覧の `ja` と違う時は、`ties` に韓国語の名前との対を書く。同じ品物と確かめていない対は `sure: false`。日本版で確かめたら、`content/recipes.json` の名前を直して `ties` から外す。
+- 読む側が手元に写しを置いて使うので、項目の名前と意味、`id` を変えない。足す時は項目を増やす。変える時は `schemaVersion` を上げ、`docs/crafting-data.md` に書く。
+- 検査は `npm run check`（つながりが切れていると `CRAFTING_INVALID`）と `npm test`（計算と、答えの例）。
 
 ### サイトの更新情報を書く
 
@@ -125,9 +136,9 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 - 通知の設定（`/マビモバ`）とは別のコマンドで、サーバーの誰でも使える。
 - どこまで選んだかは、部品の `custom_id`（`mat:<種類>:<個数>:<分類>:<グループ>:<ページ>`）に持たせる。ボットの側に状態を残さない。1つのグループが25品を超える時は、前後のボタンでページを替える。防具は、鎧の種類（`group.sub`）でもう一段分けてある。
 - データは公開サイトの `/data/recipes.json` を読む。10分たつと取り直し、取得に失敗した時は前のデータで答える。
-- 計算は `scripts/recipes.mjs` の `baseMaterials`、画面と返事の組み立ては `bot/materials.mjs`。ボットのコンテナには `scripts/recipes.mjs` も入れている。
+- 計算は `scripts/recipes.mjs` の `baseMaterials`（中身は `craftPlan`。同じ途中の品物が2か所で要る時は、合わせてから切り上げる。2026-10-13に、枝ごとに切り上げて多めに出ていたのを直した）、画面と返事の組み立ては `bot/materials.mjs`。ボットのコンテナには `scripts/recipes.mjs` も入れている。
 - サイトの案内は `/discord/`（メニューの名前は「Discordボット」。2026-10-13に「Discord更新通知」から変えた）。できる事、`/材料` の手順、計算の例を載せる。製作・加工の一覧の各ページとホームからも、この案内へ送る（`scripts/recipes.mjs` の `botBox`）。ボットにできる事が増えたら、この案内と `content/discord-profile.json` の紹介文も直す。
-- 中身を変えた時は `npm run test:notify` を通してから `npm run discord:deploy`。コマンドの登録は、ボットの起動時に行う。分類やグループを増やした時は、どの画面も部品の上限（選ぶ欄は25件まで）に収まる事を、同じテストが確かめる。
+- 中身を変えた時は `npm test`（`npm run test:notify` はボットの分だけ）を通してから `npm run discord:deploy`。コマンドの登録は、ボットの起動時に行う。分類やグループを増やした時は、どの画面も部品の上限（選ぶ欄は25件まで）に収まる事を、同じテストが確かめる。
 
 ### ボットを接続・配備する
 

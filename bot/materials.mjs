@@ -131,13 +131,15 @@ export function materialPayload(recipes, item, count, origin) {
   const fields = [{ name: '集める材料', value: lines(result.base.map(b => `・${label(b.item)} ×${b.qty}`)) || '（個数の分かる材料がありません）' }];
   const middle = result.steps.slice(1);
   if (middle.length) fields.push({ name: '途中で作る物', value: lines(middle.map(s => `・${label(s.item)}：${s.times}回（${s.makes}個できる）`)) });
-  if (result.unknown.length) fields.push({ name: '個数が分からない材料', value: lines(result.unknown.map(u => `・${label(u)}`)) });
+  const noQty = result.unknown.filter(u => u.why === 'qty'), same = result.unknown.filter(u => u.why === 'self');
+  if (noQty.length) fields.push({ name: '個数が分からない材料', value: lines(noQty.map(u => `・${label(u)}`)) });
+  if (same.length) fields.push({ name: '計算に入れていない材料', value: lines(same.map(u => `・${label(u)}（元の表で、品物と同じ名前が材料に書かれている）`)) });
   return {
     embeds: [{
       title: `${label(item)} を${count}個そろえる材料`.slice(0, 256),
       url: origin + recipeHref(recipe),
       color: 3308130,
-      description: [`${condition} で、製作を${top.times}回（${top.makes}個できる）。`, several ? '作り方が2つ以上ある品物は、一覧の最初の作り方で計算しています。' : '', '途中の品物は、1回でできる個数で割って、回数を切り上げています。'].filter(Boolean).join('\n'),
+      description: [`${condition} で、製作を${top.times}回（${top.makes}個できる）。`, several ? '作り方が2つ以上ある品物は、一覧の最初の作り方で計算しています。' : '', '途中の品物は、要る数を合わせてから、1回でできる個数で割って、回数を切り上げています。'].filter(Boolean).join('\n'),
       fields,
       footer: { text: '韓国版の資料による計算 · 日本版では個数や品物が違う事があります · ＊は仮訳の名前' }
     }],

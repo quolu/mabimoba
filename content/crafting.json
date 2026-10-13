@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-13",
+  "lead": "製作・加工の作り方に、採集の行き先とのつながりを足したデータ。品物から元の材料まで辿り、どの採集スキルのどの行き先で採れるかまでを1つのファイルで読める。",
+  "checks": {
+    "screen": "日本版のゲームの画面で見て確かめた",
+    "record": "日本版の実機の記録を、攻略媒体や公式の一覧と照らして、同じだった",
+    "guide": "日本公式ゲームガイドに書かれている",
+    "media": "日本版の攻略媒体（GameWith）の記事にだけ書かれている"
+  },
+  "time": {
+    "basis": "membership",
+    "withoutMembershipFactor": 2,
+    "note": "recipes の seconds は加工1回の時間。元の表（韓国版）の注記では、ライフメンバーシップを使っている時の値で、使っていない時は2倍。日本版の画面と見比べた4件は、元の表の値と同じだった。日本版でメンバーシップを使っていない時の時間は確かめていない。製作の時間は、元の表に無い。"
+  },
+  "skills": [
+    { "id": "daily", "tool": null, "toolCheck": "screen", "toolNote": "道具は要らない。水、井戸、乳牛は空き瓶が要る。", "source": "gamewith-daily-gathering" },
+    { "id": "logging", "tool": "伐採斧", "toolCheck": "guide", "toolNote": "道具の種類の名前。雑貨屋で買う品物の名前は確かめていない。", "source": "gamewith-logging" },
+    { "id": "mining", "tool": "ツルハシ", "toolCheck": "guide", "toolNote": "道具の種類の名前。雑貨屋で買う品物の名前は確かめていない。", "source": "gamewith-mining" },
+    { "id": "herb", "tool": "薬草鍬", "toolCheck": "guide", "toolNote": "道具の種類の名前。雑貨屋で買う品物の名前は確かめていない。", "source": "gamewith-herb-gathering" },
+    { "id": "wool", "tool": "入門用の羊毛バサミ", "toolCheck": "screen", "source": "gamewith-wool-shearing" },
+    { "id": "harvest", "tool": "入門用の鎌", "toolCheck": "screen", "source": "gamewith-harvest" },
+    { "id": "hoe", "tool": "入門用の鍬", "toolCheck": "screen", "source": "gamewith-hoe" },
+    { "id": "insect", "tool": "入門用の虫取り網", "toolCheck": "screen", "source": "gamewith-insect" },
+    { "id": "fishing", "name": "釣り", "tool": "釣り竿", "toolCheck": "guide", "toolNote": "道具の種類の名前。雑貨屋で買う品物の名前は確かめていない。", "source": "gamewith-fishing" }
+  ],
+  "destinationTools": {
+    "daily": {
+      "水": { "tool": "空き瓶", "toolCheck": "media" },
+      "井戸": { "tool": "空き瓶", "toolCheck": "media" },
+      "乳牛": { "tool": "空き瓶", "toolCheck": "screen" }
+    }
+  },
+  "mediaDestinations": [
+    { "skill": "herb", "name": "マナハーブ", "level": 1 },
+    { "skill": "herb", "name": "メキメキキノコ", "level": 1 },
+    { "skill": "fishing", "name": "小さな釣り場", "level": 1 },
+    { "skill": "fishing", "name": "南側の城壁釣り場", "level": 1 },
+    { "skill": "fishing", "name": "東側の城壁釣り場", "level": 10 },
+    { "skill": "fishing", "name": "海辺の釣り場", "level": 20 },
+    { "skill": "fishing", "name": "旧釣り場", "level": 25 }
+  ],
+  "mediaAreas": {
+    "insect": {
+      "光の群れ": ["ティルコネイル"],
+      "雪原の光の群れ": ["シドスネッター"],
+      "静かな光の群れ": ["オオカミの森"],
+      "温かな光の群れ": ["女神の庭"],
+      "冷たい光の群れ": ["氷の峡谷"]
+    }
+  },
+  "yields": {
+    "daily": {
+      "巣": ["卵"],
+      "クモの糸": ["クモの糸"],
+      "水": ["水の入った瓶"],
+      "井戸": ["水の入った瓶"],
+      "乳牛": ["牛乳"],
+      "リンゴの木": ["リンゴ"]
+    },
+    "logging": {
+      "木": ["丸太", "昆虫"],
+      "チクチクの木": ["丸太", "樹液"],
+      "太い木": ["丸太"],
+      "使えそうな木": ["上級丸太"],
+      "鎧の木": ["上級丸太+"]
+    },
+    "mining": {
+      "鉱脈": ["鉱石"],
+      "鉄の鉱脈": ["鉄鉱石"],
+      "氷": ["氷"],
+      "石炭の鉱脈": ["石炭"],
+      "銅の鉱脈": ["銅鉱石"],
+      "白銅の鉱脈": ["白銅石"]
+    },
+    "herb": {
+      "ハーブ": ["ハーブ"],
+      "ブラッディハーブ": ["ブラッディハーブ"],
+      "矢花": ["矢花"],
+      "マナハーブ": ["マナハーブ"],
+      "メキメキキノコ": ["メキメキキノコ"],
+      "元気キノコ": ["元気キノコ"],
+      "ネバネバ草": ["ネバネバ草"],
+      "ノビノビキノコ": ["ノビノビキノコ"],
+      "止血花": ["止血花"],
+      "スッキリキノコ": ["スッキリキノコ"]
+    },
+    "wool": {
+      "羊": ["羊毛"],
+      "モジャモジャ羊": ["高級羊毛"]
+    },
+    "harvest": {
+      "小麦": ["小麦"],
+      "トウモロコシ": ["トウモロコシ"]
+    },
+    "hoe": {
+      "ジャガイモ": ["ジャガイモ", "粘土"],
+      "タマネギ": ["タマネギ", "粘土"],
+      "貝": ["貝", "石ころ"]
+    },
+    "insect": {
+      "光の群れ": ["白花チョウ", "チクタクホタル", "カゲロウ"],
+      "雪原の光の群れ": ["ウィンターモス", "チクタクホタル", "カブトムシ"],
+      "静かな光の群れ": ["幽霊ホタル", "チクタクホタル", "コインテントウムシ", "白花チョウ"],
+      "温かな光の群れ": ["夕陽チョウ", "チクタクホタル", "カゲロウ", "白花チョウ", "コインテントウムシ"],
+      "冷たい光の群れ": ["白氷コガネムシ", "チクタクホタル", "カブトムシ", "ウィンターモス", "コインテントウムシ"]
+    },
+    "fishing": {
+      "小さな釣り場": ["銀鮒", "ブリフネ鯉", "真愛魚", "小さなザルーパー"],
+      "南側の城壁釣り場": ["アユ", "虹色マス", "真愛魚", "小さなザルーパー"],
+      "東側の城壁釣り場": ["アユ", "虹色マス", "真愛魚", "小さなザルーパー", "ザルーパー"],
+      "海辺の釣り場": ["貝", "サバ", "サケ", "真愛魚", "チョウチンアンコウ", "小さなザルーパー", "ザルーパー"],
+      "旧釣り場": ["虹色マス", "ナマズ", "闇の幽霊魚", "小さなザルーパー", "ザルーパー", "大きなザルーパー"]
+    }
+  },
+  "ties": {
+    "水の入った瓶": { "ko": "물이 든 병", "sure": true, "note": "攻略媒体の表記。日本版の実機で見た名前は「水が入った瓶」。" },
+    "白銅石": { "ko": "백동 광석", "sure": false, "note": "攻略媒体の表では、白銅の鉱脈で採れる物が「白銅石」。この一覧の「白銅鉱石」（仮訳）と同じ品物と見ているが、確かめていない。" },
+    "高級羊毛": { "ko": "상급 양털", "sure": false, "note": "攻略媒体の表では、モジャモジャ羊で採れる物が「高級羊毛」。この一覧の「上級羊毛」（仮訳）と同じ品物と見ているが、確かめていない。" }
+  },
+  "recommendedLv": {
+    "뛰어난 회복 물약": 20,
+    "철판 갑옷 상의SS": 22
+  },
+  "examples": [
+    { "id": "iron-ingot", "item": "철괴", "count": 1 },
+    { "id": "iron-ingot-from-iron-ore", "item": "철괴", "count": 4, "prefer": { "철괴": 2 } },
+    { "id": "steel-ingot", "item": "강철괴", "count": 1 },
+    { "id": "steel-ingot-from-iron-ore", "item": "강철괴", "count": 5, "prefer": { "철괴": 2 } },
+    { "id": "alloy-ingot", "item": "합금강괴", "count": 2 },
+    { "id": "lumber", "item": "목재", "count": 10 },
+    { "id": "lumber-plus", "item": "목재+", "count": 1 },
+    { "id": "fine-lumber", "item": "상급 목재", "count": 1 },
+    { "id": "fine-lumber-plus", "item": "상급 목재+", "count": 3 },
+    { "id": "fabric", "item": "옷감", "count": 1 },
+    { "id": "silk", "item": "실크", "count": 3 },
+    { "id": "fabric-plus", "item": "옷감+", "count": 1 },
+    { "id": "flour", "item": "밀가루", "count": 5 },
+    { "id": "bandage", "item": "붕대", "count": 15 },
+    { "id": "campfire-kit", "item": "캠프파이어 키트", "count": 2 },
+    { "id": "shared-intermediates-sword", "item": "웨이브 엣지소드SS", "count": 1 },
+    { "id": "shared-intermediates-silk", "item": "최상급 실크", "count": 1 },
+    { "id": "not-gatherable-base", "item": "크림소스 스테이크", "count": 1 },
+    { "id": "unknown-qty", "item": "두꺼운 옷감", "count": 1 },
+    { "id": "self-material", "item": "최상급 목재+", "count": 1 },
+    { "id": "have-partial", "item": "상급 목재+", "count": 3, "have": { "상급 목재": 2, "나무 진액": 10, "상급 통나무+": 5 } },
+    { "id": "have-covers-intermediate", "item": "합금강괴", "count": 2, "have": { "강철괴": 99, "석탄": 1 } },
+    { "id": "have-ignored-for-target", "item": "목재", "count": 3, "have": { "목재": 50 } }
+  ]
+}

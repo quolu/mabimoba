@@ -5,8 +5,18 @@
   "changelog": [
     {
       "date": "2026-10-13",
-      "summary": "Discordのボットの案内を作り直し、製作・加工の一覧から「/材料」の使い方へ進めるようにした",
+      "summary": "Discordのボットの案内を作り直し、「/材料」の計算を直した。製作・加工のデータに、採集の行き先とのつながりを足した",
       "items": [
+        {
+          "type": "データの更新",
+          "text": "製作・加工のデータに、採集の行き先とのつながりを足した「crafting.json」を公開。元の材料161件のうち48件で、採れる採集スキルと行き先が分かる",
+          "url": "/recipes/#data"
+        },
+        {
+          "type": "サイトの改良",
+          "text": "Discordボットの「/材料」の計算を訂正。同じ途中の品物が2か所で要る品物（1個作る時で、558品のうち29品）で、材料が多めに出ていた。合わせてから回数を切り上げる計算に直した",
+          "url": "/discord/"
+        },
         {
           "type": "サイトの改良",
           "text": "メニューの「Discord更新通知」を「Discordボット」に変更。案内のページに、できる事（材料を調べる「/材料」と更新通知）、「/材料」の手順、計算の例を掲載",
@@ -973,7 +983,7 @@
       "kind": "media",
       "language": "ja",
       "region": "日本",
-      "checkedAt": "2026-10-12",
+      "checkedAt": "2026-10-13",
       "asOf": "2026-10-07"
     },
     {
@@ -1213,7 +1223,7 @@
       "kind": "media",
       "language": "ja",
       "region": "日本",
-      "checkedAt": "2026-10-12",
+      "checkedAt": "2026-10-13",
       "asOf": "2026-10-07"
     },
     {
@@ -1223,7 +1233,7 @@
       "kind": "media",
       "language": "ja",
       "region": "日本",
-      "checkedAt": "2026-10-12",
+      "checkedAt": "2026-10-13",
       "asOf": "2026-10-07"
     },
     {
@@ -1233,7 +1243,7 @@
       "kind": "media",
       "language": "ja",
       "region": "日本",
-      "checkedAt": "2026-10-12",
+      "checkedAt": "2026-10-13",
       "asOf": "2026-10-07"
     },
     {
@@ -1243,7 +1253,7 @@
       "kind": "media",
       "language": "ja",
       "region": "日本",
-      "checkedAt": "2026-10-12",
+      "checkedAt": "2026-10-13",
       "asOf": "2026-10-07"
     },
     {
@@ -1253,7 +1263,7 @@
       "kind": "media",
       "language": "ja",
       "region": "日本",
-      "checkedAt": "2026-10-12",
+      "checkedAt": "2026-10-13",
       "asOf": "2026-10-07"
     },
     {
@@ -1323,7 +1333,7 @@
       "kind": "media",
       "language": "ja",
       "region": "日本",
-      "checkedAt": "2026-10-12",
+      "checkedAt": "2026-10-13",
       "asOf": "2026-10-07"
     },
     {
@@ -1333,7 +1343,17 @@
       "kind": "media",
       "language": "ja",
       "region": "日本",
-      "checkedAt": "2026-10-12",
+      "checkedAt": "2026-10-13",
+      "asOf": "2026-10-07"
+    },
+    {
+      "id": "gamewith-fishing",
+      "title": "釣りのやり方と入手できるアイテム（GameWith）",
+      "url": "https://gamewith.jp/mabinogimobile/578405",
+      "kind": "media",
+      "language": "ja",
+      "region": "日本",
+      "checkedAt": "2026-10-13",
       "asOf": "2026-10-07"
     },
     {

@@ -18,6 +18,16 @@ export function checkRecipes(r, sourceIds) {
   if (!Number.isInteger(x.yield) || x.yield < 1 || !x.materials.length) bad(`作り方 ${x.id} の個数`);
   for (const m of x.materials) if (!items.has(m.item) || !(m.qty === null || (Number.isInteger(m.qty) && m.qty > 0))) bad(`作り方 ${x.id} の材料`);
  }
+ // 品物と同じ材料を除いて、材料を辿ると元の品物へ戻る輪が無い事。段取りの計算は、輪が無い前提で辿る。
+ const state = new Map();
+ const walk = id => {
+  if (state.get(id) === 'open') bad(`材料が輪になっている ${id}`);
+  if (state.has(id)) return;
+  state.set(id, 'open');
+  for (const x of r.recipes) if (x.item === id) for (const m of x.materials) if (m.item !== id) walk(m.item);
+  state.set(id, 'done');
+ };
+ for (const id of made) walk(id);
 }
 
 const indexOf = r => {
@@ -35,34 +45,72 @@ export function duration(seconds) {
  return (h ? `${h}時間` : '') + (m ? `${m}分` : '');
 }
 
-// 品物を count 個そろえる時に、作り方が載っていない材料（元の材料）まで辿る。
-// 途中の品物は、1回の製作でできる個数で割って、回数を切り上げる。作り方が2つある品物は、最初の作り方を使う。
-export function baseMaterials(r, itemId, count = 1) {
+// 品物を count 個作る時の段取り。作り方が載っていない材料（元の材料）まで辿る。
+// 決まりは docs/crafting-data.md。途中の品物は、要る数を全部の枝から合算してから、1回でできる個数で割って回数を切り上げる。
+// have は持っている数（品物ID → 個数）。作る品物そのものには使わない。prefer は作り方が2つ以上ある品物で使う作り方（品物ID → 作り方ID）。
+export function craftPlan(r, itemId, count = 1, { have = {}, prefer = {} } = {}) {
  const { items, byItem } = indexOf(r);
- const base = new Map(), steps = [], unknown = new Set();
- const walk = (id, need, path) => {
-  const recipe = byItem.get(id)?.[0];
-  if (!recipe || path.includes(id)) { base.set(id, (base.get(id) ?? 0) + need); return; }
-  const times = Math.ceil(need / recipe.yield);
-  steps.push({ item: id, recipe: recipe.id, times, makes: times * recipe.yield, depth: path.length });
-  for (const m of recipe.materials) {
-   if (m.qty === null) { unknown.add(m.item); continue; }
-   walk(m.item, m.qty * times, [...path, id]);
-  }
- };
  if (!items.has(itemId)) throw new Error(`RECIPE_ITEM_UNKNOWN: ${itemId}`);
- walk(itemId, count, []);
+ if (!Number.isInteger(count) || count < 1) throw new Error(`RECIPE_COUNT_INVALID: ${count}`);
+ const recipeOf = id => {
+  const list = byItem.get(id);
+  if (!list) return null;
+  if (prefer[id] === undefined) return list[0];
+  const chosen = list.find(x => x.id === prefer[id]);
+  if (!chosen) throw new Error(`RECIPE_PREFER_UNKNOWN: ${prefer[id]}`);
+  return chosen;
+ };
+ // 個数の無い材料と、品物と同じ材料は辿らない。
+ const counted = x => x.materials.filter(m => m.qty !== null && m.item !== x.item);
+ const order = [], seen = new Set();
+ const visit = id => {
+  if (seen.has(id)) return;
+  seen.add(id);
+  const x = recipeOf(id);
+  if (x) for (const m of counted(x)) visit(m.item);
+  order.push(id);
+ };
+ visit(itemId);
+ const need = new Map([[itemId, count]]), rows = new Map();
+ for (const id of order.toReversed()) {
+  const n = need.get(id) ?? 0;
+  if (!n) continue;
+  const fromStock = id === itemId ? 0 : Math.min(Math.max(0, Math.floor(have[id] ?? 0)), n);
+  const short = n - fromStock, x = recipeOf(id);
+  if (!x) { rows.set(id, { kind: 'base', item: id, need: n, fromStock, gather: short }); continue; }
+  if (!short) { rows.set(id, { kind: 'covered', item: id, need: n, fromStock }); continue; }
+  const times = Math.ceil(short / x.yield), makes = times * x.yield;
+  rows.set(id, { kind: 'step', item: id, recipe: x.id, need: n, fromStock, times, makes, surplus: makes - short, station: x.station, stationLv: x.stationLv, skill: x.skill, skillLv: x.skillLv, seconds: x.seconds, totalSeconds: x.seconds === null ? null : x.seconds * times });
+  for (const m of counted(x)) need.set(m.item, (need.get(m.item) ?? 0) + m.qty * times);
+ }
+ const list = kind => order.filter(id => rows.get(id)?.kind === kind).map(id => { const { kind: _, ...row } = rows.get(id); return row; });
+ const steps = list('step');
+ return {
+  item: itemId,
+  count,
+  steps,
+  base: list('base'),
+  covered: list('covered'),
+  unknown: steps.flatMap(s => r.recipes.find(x => x.id === s.recipe).materials.filter(m => m.qty === null || m.item === s.item).map(m => ({ recipe: s.recipe, item: m.item, why: m.qty === null ? 'qty' : 'self' }))),
+  alternatives: steps.filter(s => byItem.get(s.item).length > 1).map(s => ({ item: s.item, used: s.recipe, recipes: byItem.get(s.item).map(x => x.id) }))
+ };
+}
+
+// 「/材料」とサイトの計算の例で使う形。作る品物が先頭、元の材料は個数の多い順。
+export function baseMaterials(r, itemId, count = 1) {
+ const { items } = indexOf(r);
+ const plan = craftPlan(r, itemId, count);
  return {
   item: items.get(itemId),
   count,
-  base: [...base].map(([id, qty]) => ({ item: items.get(id), qty })).sort((a, b) => b.qty - a.qty),
-  steps: steps.map(s => ({ ...s, item: items.get(s.item) })),
-  unknown: [...unknown].map(id => items.get(id))
+  base: plan.base.map(b => ({ item: items.get(b.item), qty: b.gather })).sort((a, b) => b.qty - a.qty),
+  steps: plan.steps.toReversed().map(s => ({ item: items.get(s.item), recipe: s.recipe, times: s.times, makes: s.makes })),
+  unknown: plan.unknown.map(u => ({ ...items.get(u.item), why: u.why }))
  };
 }
 
 export function recipeViews(r, h) {
- const { e, badge, icon, emblem, sourceList, discord } = h;
+ const { e, badge, icon, emblem, sourceList, discord, gatherable } = h;
  // 集める材料まで辿る計算は、Discordのボットで出す。ページには、その案内と計算の例を置く。
  const botBox = rows => {
   if (!discord) return '';
@@ -90,7 +138,7 @@ export function recipeViews(r, h) {
  const fixed = r.recipes.filter(x => x.notes);
  pages.push(['/recipes/', {
   title: '製作・加工の一覧', description: r.lead,
-  body: `${crumbs('製作・加工の一覧')}<div class="article-layout single"><article class="article-body"><div class="article-head"><div>${badge('生活')} ${badge(r.region, 'amber')}<h1>製作・加工の一覧：作れる品物と、その材料</h1></div>${emblem('生活')}</div><p class="lead">${e(r.lead)}</p><div class="article-meta"><span>確認 ${r.checkedAt}</span><span>作り方 ${r.recipes.length}件</span><span>日本版の名前を確かめた品物 ${confirmed}件</span><span>日本版の画面と同じだった作り方 ${r.recipes.filter(x => x.jpChecked).length}件</span></div><div class="points-box"><h2>この一覧のポイント</h2><ul>${r.points.map(p => `<li>${icon('check')}<span>${e(p)}</span></li>`).join('')}</ul></div>${botBox(r.recipes)}<h2 id="sections">分類から探す</h2><div class="recipe-sections">${r.sections.map(s => { const n = r.recipes.filter(x => x.section === s.id).length; return `<a class="recipe-section" href="/recipes/${s.id}/"><span class="recipe-kind">${s.kind === 'process' ? '加工' : '製作'}</span><strong>${e(s.ja)}</strong><small>${n}件 · <span lang="ko">${e(s.ko)}</span></small></a>`; }).join('')}</div><p class="section-note">${e(r.legend)}</p><h2 id="fixed">元の表から直して載せた所</h2><p>元の表に、誤記と見られる所と、書かれていない所があった。下の作り方は、直した内容か、欠けたままの内容で載せている。</p><ul class="recipe-fixed">${fixed.map(x => `<li><a href="${recipeHref(x)}">${e(items.get(x.item).ja)}</a>：${x.notes.map(e).join('／')}</li>`).join('')}</ul><h2 id="data">データ</h2><p>この一覧の中身は、<a href="/data/recipes.json">recipes.json</a> でも読める。品物ごとに、韓国語の元の名前、日本語の名前、日本版の名前を確かめたかどうか、材料と個数を持っている。</p><section id="sources" class="sources-section"><details><summary>出典と資料の基準日（${r.sections.length + (r.jpSources?.length ?? 0)}件）</summary><p class="section-note">作り方は韓国の掲示板のまとめによる。日本版の名前と、日本版の画面と同じだった作り方は、下の日本のプレイヤーの投稿の画像と、日本公式ゲームガイドで確かめた。</p>${sourceList([...(r.jpSources ?? []), ...r.sections.map(s => s.source)])}</details></section></article></div>`
+  body: `${crumbs('製作・加工の一覧')}<div class="article-layout single"><article class="article-body"><div class="article-head"><div>${badge('生活')} ${badge(r.region, 'amber')}<h1>製作・加工の一覧：作れる品物と、その材料</h1></div>${emblem('生活')}</div><p class="lead">${e(r.lead)}</p><div class="article-meta"><span>確認 ${r.checkedAt}</span><span>作り方 ${r.recipes.length}件</span><span>日本版の名前を確かめた品物 ${confirmed}件</span><span>日本版の画面と同じだった作り方 ${r.recipes.filter(x => x.jpChecked).length}件</span></div><div class="points-box"><h2>この一覧のポイント</h2><ul>${r.points.map(p => `<li>${icon('check')}<span>${e(p)}</span></li>`).join('')}</ul></div>${botBox(r.recipes)}<h2 id="sections">分類から探す</h2><div class="recipe-sections">${r.sections.map(s => { const n = r.recipes.filter(x => x.section === s.id).length; return `<a class="recipe-section" href="/recipes/${s.id}/"><span class="recipe-kind">${s.kind === 'process' ? '加工' : '製作'}</span><strong>${e(s.ja)}</strong><small>${n}件 · <span lang="ko">${e(s.ko)}</span></small></a>`; }).join('')}</div><p class="section-note">${e(r.legend)}</p><h2 id="fixed">元の表から直して載せた所</h2><p>元の表に、誤記と見られる所と、書かれていない所があった。下の作り方は、直した内容か、欠けたままの内容で載せている。</p><ul class="recipe-fixed">${fixed.map(x => `<li><a href="${recipeHref(x)}">${e(items.get(x.item).ja)}</a>：${x.notes.map(e).join('／')}</li>`).join('')}</ul><h2 id="data">データ</h2><p>この一覧の中身は、<a href="/data/recipes.json">recipes.json</a> でも読める。品物ごとに、韓国語の元の名前、日本語の名前、日本版の名前を確かめたかどうか、材料と個数を持っている。</p><p>採集の行き先とつないだ <a href="/data/crafting.json">crafting.json</a> もある。元の材料が、どの採集スキルのどの行き先で採れるかを、確かめた度合いの印と一緒に持っている。行き先が分かっている元の材料は、${r.items.filter(i => !i.craftable).length}件のうち${gatherable}件。項目の説明と、元の材料まで辿る計算の決まりは<a href="https://github.com/quolu/mabimoba/blob/main/docs/crafting-data.md" target="_blank" rel="noopener noreferrer">データの説明</a>に書いた。</p><section id="sources" class="sources-section"><details><summary>出典と資料の基準日（${r.sections.length + (r.jpSources?.length ?? 0)}件）</summary><p class="section-note">作り方は韓国の掲示板のまとめによる。日本版の名前と、日本版の画面と同じだった作り方は、下の日本のプレイヤーの投稿の画像と、日本公式ゲームガイドで確かめた。</p>${sourceList([...(r.jpSources ?? []), ...r.sections.map(s => s.source)])}</details></section></article></div>`
  }]);
  for (const s of r.sections) {
   const rows = r.recipes.filter(x => x.section === s.id);

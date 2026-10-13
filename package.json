@@ -9,6 +9,7 @@
     "check": "node scripts/validate.mjs && node scripts/notify.mjs --validate && node scripts/update-bot-profile.mjs --validate",
     "deploy": "node scripts/deploy.mjs",
     "notify": "node scripts/notify.mjs",
+    "test": "node --test tests/*.test.mjs",
     "test:notify": "node --test tests/discord-*.test.mjs",
     "discord:deploy": "node scripts/deploy-bot.mjs",
     "discord:configure": "node scripts/configure-bot.mjs",
