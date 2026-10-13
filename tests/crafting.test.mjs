@@ -113,6 +113,11 @@ test('使えない作り方、勧める作り方、画面の字を持ってい�
   const steak = crafting.recipes.find(x => x.item === id('크림소스 스테이크'));
   assert.deepEqual([steak.group.ja, steak.group.jaConfirmed, steak.skill.ja, steak.skill.jaConfirmed, steak.jpChecked], ['STR特化', true, '料理', true, true]);
   assert.equal(crafting.gatherRun.max, 10);
+  const thick = crafting.destinations.find(d => d.id === 'logging:太い木'), tree = crafting.destinations.find(d => d.id === 'logging:チクチクの木');
+  assert.deepEqual([thick.yieldsCheck, thick.yields.map(y => y.check)], ['screen', ['screen']]);
+  assert.deepEqual([tree.yieldsCheck, tree.yields.map(y => y.check)], ['media', ['media', 'media']]);
+  assert.ok(crafting.recipes.find(x => x.item === id('부드러운 목재')).jpNote);
+  assert.equal(crafting.recipes.find(x => x.item === id('목재')).jpNote, null);
 });
 
 test('名前まで確かで採集だけで揃う品物は、全部、答えの例に入っている', () => {

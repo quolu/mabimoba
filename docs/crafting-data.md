@@ -58,6 +58,7 @@
 | `seconds` | 加工1回の時間。製作は `null`（元の表に無い）。下の「時間」を読む |
 | `materials` | `{ item, qty }`。`qty` が `null` は、元の表に個数が無い。`self: true` は、元の表で品物と同じ名前が材料に書かれている物（誤記と見られる） |
 | `jpChecked` | `true` は、日本版の製作や加工の画面と見比べて、条件、材料と個数が同じだった作り方。加工は時間も同じ |
+| `jpNote` | 日本版の実機で、元の表と違う様子が見えた時の覚え書き（一覧に出ていなかった、など）。ほかは `null` |
 | `usable`、`usableNote` | `false` は、書かれた通りには作れない作り方（品物と同じ名前が材料に書かれている）。訳は `usableNote` |
 | `notes` | 元の表を直した所、欠けている所 |
 
@@ -80,10 +81,10 @@
 | `check` | 行き先の名前とレベルを確かめた度合い |
 | `areaType`、`areas`、`areaCheck` | 場所。`areaType` は行き先のカードに出た「一般フィールド」「狩り場」。分かっていない時は `null` と空 |
 | `tool`、`toolCheck` | 要る道具。日常採集は `null`（道具なし）。水、井戸、乳牛は空き瓶 |
-| `yields` | 採れる品物。`{ name, item, sure }`。`name` は資料の表記、`item` は品物の `id`（この一覧に無い品物は `null`）。`sure` が `false` は、つながりが推測 |
-| `yieldsCheck`、`yieldsSource` | 採れる品物を確かめた度合いと、その資料 |
+| `yields` | 採れる品物。`{ name, item, sure, check }`。`name` は資料の表記、`item` は品物の `id`（この一覧に無い品物は `null`）。`sure` が `false` は、つながりが推測。`check` が `screen` は、日本版の実機でその行き先から手に入ったのを見た品物 |
+| `yieldsCheck`、`yieldsSource` | 採れる品物を確かめた度合い（全部の品物を実機で見た行き先だけ `screen`）と、攻略媒体の資料 |
 
-採れる品物は、今は全部、攻略媒体の表の「主に入手できるもの」による。先頭の品物が狙いの品物で、後ろの品物は一緒に出る事がある物、と読める並びだが、出る割合は書かれていない。
+採れる品物は、攻略媒体の表の「主に入手できるもの」による。実機で見た品物には、`check` に `screen` を付けている。先頭の品物が狙いの品物で、後ろの品物は一緒に出る事がある物、と読める並びだが、出る割合は書かれていない。
 
 `gatherRun.max` は、行き先のカードの[近くで探す]の1回で採集する回数（10）。画面の追跡に「採集 n/10」と出る。1回の採集で手に入る個数は確かめていないので、採れた数は持ち物の数で数える。
 
@@ -130,9 +131,9 @@
 ## 中身を直す時
 
 - 行き先を足す、名前やレベルを直す：`content/portal.json` の `gathering`（採集図鑑）。攻略媒体にしか載っていない行き先は、`content/crafting.json` の `mediaDestinations`。
-- 行き先で採れる品物：`content/crafting.json` の `yields`。品物の名前が一覧の `ja` と違う時は、`ties` に韓国語の名前との対を書く。確かめていない対は `sure: false`。
+- 行き先で採れる品物：`content/crafting.json` の `yields`。実機でその行き先から手に入ったのを見た品物は `screenYields` にも書く。品物の名前が一覧の `ja` と違う時は、`ties` に韓国語の名前との対を書く。確かめていない対は `sure: false`。
 - 道具：`content/crafting.json` の `skills` と `destinationTools`。
-- 推奨 Lv.：`content/crafting.json` の `recommendedLv`。
+- 推奨 Lv.：`content/crafting.json` の `recommendedLv`。日本版の実機で元の表と違う様子が見えた作り方は `jpNotes`。
 - 設備の札の字（`stationLabels`）、画面で見たタブの字（`screenGroups`）と製作スキルの名前（`confirmedSkills`）、使えない作り方（`unusable`）、勧める作り方（`recommendedRecipes`）、1回の採集の回数（`gatherRun`）：どれも `content/crafting.json`。
 - 名前、個数、条件：`content/recipes.json`（手順書の「製作・加工の一覧」）。
 

@@ -45,19 +45,22 @@ export function buildCrafting(recipes, portal, extra) {
   if (d.place && !place) bad(`行き先の場所 ${d.place}`);
   const mediaAreas = extra.mediaAreas[d.skill]?.[d.name];
   const own = extra.destinationTools[d.skill]?.[d.name];
+  // 実機で、その行き先から手に入ったのを見た品物。
+  const seen = extra.screenYields[d.skill]?.[d.name] ?? [];
+  for (const name of seen) if (!names.includes(name)) bad(`実機で見た品物が、採れる品物に無い ${d.skill}:${d.name} ${name}`);
   return {
    id: `${d.skill}:${d.name}`, skill: d.skill, skillName: skill.name, name: d.name, level: d.level, check: d.check,
    areaType: place ? place[1] : null,
    areas: place ? place[2].split('、') : mediaAreas ?? [],
    areaCheck: place ? 'screen' : mediaAreas ? 'media' : null,
    tool: own ? own.tool : skill.tool, toolCheck: own ? own.toolCheck : skill.toolCheck,
-   yields: names.map(name => { const t = tie(name); return { name, item: t.item?.id ?? null, sure: t.sure, ...(t.note ? { note: t.note } : {}) }; }),
-   yieldsCheck: 'media', yieldsSource: skill.source
+   yields: names.map(name => { const t = tie(name); return { name, item: t.item?.id ?? null, sure: t.sure, check: seen.includes(name) ? 'screen' : 'media', ...(t.note ? { note: t.note } : {}) }; }),
+   yieldsCheck: names.every(name => seen.includes(name)) ? 'screen' : 'media', yieldsSource: skill.source
   };
  });
  if (new Set(destinations.map(d => d.id)).size !== destinations.length) bad('行き先が重複');
  for (const [skill, rows] of Object.entries(extra.yields)) for (const name of Object.keys(rows)) if (!destinations.some(d => d.id === `${skill}:${name}`)) bad(`採れる品物の行き先が無い ${skill}:${name}`);
- for (const group of [extra.mediaAreas, extra.destinationTools]) for (const [skill, rows] of Object.entries(group)) for (const name of Object.keys(rows)) if (!destinations.some(d => d.id === `${skill}:${name}`)) bad(`行き先が無い ${skill}:${name}`);
+ for (const group of [extra.mediaAreas, extra.destinationTools, extra.screenYields]) for (const [skill, rows] of Object.entries(group)) for (const name of Object.keys(rows)) if (!destinations.some(d => d.id === `${skill}:${name}`)) bad(`行き先が無い ${skill}:${name}`);
 
  // 品物。採れる行き先と、別の書き方を足す。
  const nameOf = new Map(recipes.items.map(i => [i.id, i]));
@@ -74,6 +77,7 @@ export function buildCrafting(recipes, portal, extra) {
   aliasesOf.get(item.id).push({ name, sure: t.sure, note: t.note });
  }
  const recommended = new Map(Object.entries(extra.recommendedLv).map(([ko, lv]) => [itemOfKo(ko).id, lv]));
+ const jpNotes = new Map(Object.entries(extra.jpNotes).map(([ko, text]) => [itemOfKo(ko).id, text]));
  const unusable = new Map(Object.entries(extra.unusable).map(([ko, why]) => [itemOfKo(ko).id, why]));
  const screenGroups = new Map(Object.entries(extra.screenGroups)), confirmedSkills = new Set(extra.confirmedSkills);
  for (const [section, list] of screenGroups) for (const ko of list) if (!recipes.recipes.some(x => x.section === section && x.group?.ko === ko)) bad(`分類のグループ ${section}:${ko}`);
@@ -90,7 +94,7 @@ export function buildCrafting(recipes, portal, extra) {
    skillLv: x.skillLv, recommendedLv: recommended.get(x.item) ?? null,
    seconds: x.seconds,
    materials: x.materials.map(m => ({ item: m.item, qty: m.qty, ...(m.item === x.item ? { self: true } : {}) })),
-   jpChecked: x.jpChecked === true, usable: !unusable.has(x.item), usableNote: unusable.get(x.item) ?? null, notes: x.notes ?? []
+   jpChecked: x.jpChecked === true, usable: !unusable.has(x.item), usableNote: unusable.get(x.item) ?? null, jpNote: jpNotes.get(x.item) ?? null, notes: x.notes ?? []
   };
  });
  const recommendedRecipe = new Map(Object.entries(extra.recommendedRecipes).map(([ko, c]) => {
