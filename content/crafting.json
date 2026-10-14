@@ -17,7 +17,7 @@
   "skills": [
     { "id": "daily", "tool": null, "toolCheck": "screen", "toolNote": "道具は要らない。水、井戸、乳牛は空き瓶が要る。", "source": "gamewith-daily-gathering" },
     { "id": "logging", "tool": "入門用の伐採斧", "toolCheck": "screen", "source": "gamewith-logging" },
-    { "id": "mining", "tool": "ツルハシ", "toolCheck": "guide", "toolNote": "道具の種類の名前。雑貨屋で買う品物の名前は確かめていない。", "source": "gamewith-mining" },
+    { "id": "mining", "tool": "入門用のツルハシ", "toolCheck": "screen", "source": "gamewith-mining" },
     { "id": "herb", "tool": "薬草鍬", "toolCheck": "guide", "toolNote": "道具の種類の名前。雑貨屋で買う品物の名前は確かめていない。", "source": "gamewith-herb-gathering" },
     { "id": "wool", "tool": "入門用の羊毛バサミ", "toolCheck": "screen", "source": "gamewith-wool-shearing" },
     { "id": "harvest", "tool": "入門用の鎌", "toolCheck": "screen", "source": "gamewith-harvest" },
