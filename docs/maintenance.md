@@ -2,7 +2,7 @@
 
 ## 内容を更新する
 
-内容の正本は `content/portal.json`。製作・加工の一覧だけは `content/recipes.json`（下の「製作・加工の一覧」）。採集とつないだデータの材料は `content/crafting.json`（下の「採集とつないだデータ」）。`sources`、`articles`、`families`、`database`、`news`、`roadmap`、`glossary`、`social` はサイトの各画面と検索へ連動する。`changelog` は「サイトの更新情報」（`/updates/`）、ホームの新着欄、更新フィード（`/feed.xml`）になる。
+内容の正本は `content/portal.json`。製作・加工の一覧だけは `content/recipes.json`（下の「製作・加工の一覧」）、物々交換の一覧は `content/barter.json`（下の「物々交換の一覧」）。採集とつないだデータの材料は `content/crafting.json`（下の「採集とつないだデータ」）。`sources`、`articles`、`families`、`database`、`news`、`roadmap`、`glossary`、`social` はサイトの各画面と検索へ連動する。`changelog` は「サイトの更新情報」（`/updates/`）、ホームの新着欄、更新フィード（`/feed.xml`）になる。
 
 1. 公式の更新・ガイドと日本語／韓国語のXを読み、対象がマビノギモバイルであることを確認する。
 2. 韓国・繁体字版・日本版を区別し、出典URL・確認日・資料の基準日を登録する。Xは投稿者・投稿時刻・原文リンク・内容の種類を保存する。
@@ -73,6 +73,18 @@
 - 品物を、作り方の無い材料（元の材料）まで辿る計算は `scripts/recipes.mjs` の `craftPlan`（`baseMaterials` は、それを「/材料」の形に直した物）。途中の品物は、要る数を全部の枝から合わせてから、1回でできる個数で割って回数を切り上げる。決まりは `docs/crafting-data.md`。サイトのページには、直接の材料までを出す。
 - 材料を辿って元の品物へ戻る輪があると、`npm run check` が `RECIPES_INVALID` で失敗する。元の表で品物と同じ名前が材料に書かれている作り方（最上級木材+）は、その材料を数に入れずに `notes` で知らせる。
 - 検査は `npm run check`。品物や分類の参照が切れていると `RECIPES_INVALID` で失敗する。
+
+### 物々交換の一覧（2026-10-14から）
+
+`/barter/` は `content/barter.json` から作る。2026-10-14、オーナーの依頼で、記事 `/guides/barter-picks/`（おすすめの物々交換）と一緒に設けた。交換の中身は韓国のナムウィキ「마비노기 모바일/특별 상점」の物々交換の表（出典 `namu-special-shop`）による。全体に「韓国版」と出し、NPCと品物ごとに名前の確かさを分けて出す。
+
+- `regions`・`npcs`：`ko`、`ja`、`jaConfirmed`。NPCの `region` は `regions` の `id`。
+- `trades`：交換の1件。`npc`、`get`（もらう物）と `give`（渡す物）は `{ item: 韓国語の名前, qty }`、`limit` は `{ count, per: day|week, scope: character|server }`（回数の制限が無い時は `count` と `per` を `null`）。`pick` はおすすめの理由で、付けた交換に「おすすめ」の印が出る。`id` は変えない。
+- 品物の名前：製作・加工の一覧（`content/recipes.json`）にある品物は、そちらの `ja` と `jaConfirmed` を使う。`barter.json` の `items` には、一覧に無い品物だけを置く。同じ品物を両方に置くと `npm run check` が `BARTER_INVALID` で失敗する。日本版で名前を確かめたら、置いてある方を直す。
+- `jaConfirmed` を `true` にしてよいのは、日本公式ゲームガイド、日本公式の告知、日本版の攻略媒体、日本版の実機の画面で同じ名前を確かめた時だけ。確かめた資料は `jpSources` に入れる。
+- 日本版の交換の画面と見比べて違ったら、その交換を日本版の値に直し、記事 `barter-picks` も直す。
+- ビルドは `/data/barter.json` も出す（品物の日本語の名前を足した形）。
+- 検査は `npm run check`（`BARTER_INVALID`）。
 
 ### 採集とつないだデータ（2026-10-13から）
 

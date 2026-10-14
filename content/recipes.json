@@ -1,6 +1,6 @@
 {
  "schemaVersion": 1,
- "checkedAt": "2026-10-13",
+ "checkedAt": "2026-10-14",
  "region": "韓国版",
  "lead": "製作台と加工施設で作れる品物と、その材料の一覧。韓国版の攻略掲示板にまとめられた表を元にしていて、日本版で同じかどうかは、一部しか確かめられていない。",
  "points": [
@@ -186,7 +186,8 @@
   "x-recipe-potion",
   "x-recipe-ingot",
   "x-recipe-highwood-a",
-  "x-recipe-highwood-b"
+  "x-recipe-highwood-b",
+  "gamewith-heart-token"
  ],
  "items": [
   {
@@ -4112,8 +4113,8 @@
   {
    "id": "ie660895f",
    "ko": "짜먹는 간식",
-   "ja": "しぼって食べるおやつ",
-   "jaConfirmed": false,
+   "ja": "チューブ型おやつ",
+   "jaConfirmed": true,
    "craftable": true
   },
   {

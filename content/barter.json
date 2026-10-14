@@ -1,0 +1,3026 @@
+{
+ "schemaVersion": 1,
+ "checkedAt": "2026-10-14",
+ "asOf": "2026-10-14",
+ "region": "韓国版",
+ "lead": "NPCに品物を渡して、別の品物を受け取る物々交換の一覧。町ごとに、渡す物ともらう物、回数の上限を並べた。韓国版の今の内容で、日本版で同じかはまだ確かめていない。",
+ "points": [
+  "回数は毎日6:00（週ごとの交換は月曜6:00）に戻る（韓国版）。「サーバーで」と書いた交換は、同じサーバーのキャラクター全員で回数を分け合う。",
+  "加工に何時間もかかるインゴットや生地を、加工なしで受け取れる交換がある。おすすめの印の付いた交換から回すと早い。",
+  "日本版で名前を確かめたNPCと品物には「日本版の名前」の印を付けた。印の無い名前は韓国語からの仮訳。",
+  "日本版の実機では、コレンのケアラの所に「傭兵事務所（物々交換）」の入り口が出る所まで確かめた（10月9日）。交換の中身はまだ見ていない。"
+ ],
+ "legend": "名前の横の印：「日本版の名前」は、日本公式ゲームガイド、日本公式の告知、日本版の攻略媒体、日本版の実機の画面のどれかで同じ名前を確かめた物。「仮訳」は韓国語から訳した名前で、日本版の表示と違う事がある。",
+ "sources": [
+  "namu-special-shop",
+  "inven-barter"
+ ],
+ "jpSources": [
+  "jp-guide-cat-merchant",
+  "jp-guide-alchemy",
+  "jp-guide-music",
+  "jp-guide-class-emblem",
+  "jp-guide-rune",
+  "jp-guide-heart-token",
+  "jp-event-playtime",
+  "jp-event-checkin",
+  "gamewith-heart-token",
+  "gamewith-fishing"
+ ],
+ "regions": [
+  {
+   "id": "tir",
+   "ko": "티르코네일",
+   "ja": "ティルコネイル",
+   "jaConfirmed": true
+  },
+  {
+   "id": "dugald",
+   "ko": "두갈드아일",
+   "ja": "トウガルドアイル",
+   "jaConfirmed": true
+  },
+  {
+   "id": "dunbarton",
+   "ko": "던바튼",
+   "ja": "ダンバートン",
+   "jaConfirmed": true
+  },
+  {
+   "id": "ice",
+   "ko": "얼음 협곡",
+   "ja": "氷の峡谷",
+   "jaConfirmed": true,
+   "note": "仮設の詰所にいる（韓国版）"
+  },
+  {
+   "id": "colhen",
+   "ko": "콜헨",
+   "ja": "コレン",
+   "jaConfirmed": true
+  },
+  {
+   "id": "gairech",
+   "ko": "가이레흐 언덕",
+   "ja": "ガイレフの丘",
+   "jaConfirmed": false
+  },
+  {
+   "id": "bangor",
+   "ko": "반호르",
+   "ja": "バンホール",
+   "jaConfirmed": false
+  },
+  {
+   "id": "senmag",
+   "ko": "센마이 평원",
+   "ja": "センマイ平原",
+   "jaConfirmed": false,
+   "note": "仮設のキャンプにいる（韓国版）"
+  },
+  {
+   "id": "emain",
+   "ko": "이멘마하",
+   "ja": "イメンマハ",
+   "jaConfirmed": false
+  },
+  {
+   "id": "cat",
+   "ko": "고양이 상인",
+   "ja": "ネコ商人",
+   "jaConfirmed": true,
+   "note": "町やダンジョン、狩り場のキャンプファイアに出る商人"
+  }
+ ],
+ "npcs": [
+  {
+   "id": "nf35bae2e",
+   "ko": "노라",
+   "ja": "ノラ",
+   "jaConfirmed": true,
+   "region": "tir"
+  },
+  {
+   "id": "n2f54e9bc",
+   "ko": "데이안",
+   "ja": "ディアン",
+   "jaConfirmed": true,
+   "region": "tir"
+  },
+  {
+   "id": "n7ee3cc6d",
+   "ko": "딜리스",
+   "ja": "ディリス",
+   "jaConfirmed": true,
+   "region": "tir"
+  },
+  {
+   "id": "ndc639dc8",
+   "ko": "라사",
+   "ja": "ラサ",
+   "jaConfirmed": true,
+   "region": "tir"
+  },
+  {
+   "id": "ncf27b5ff",
+   "ko": "레이널드",
+   "ja": "レイナルド",
+   "jaConfirmed": true,
+   "region": "tir"
+  },
+  {
+   "id": "nc4cead5a",
+   "ko": "말콤",
+   "ja": "マルコム",
+   "jaConfirmed": false,
+   "region": "tir"
+  },
+  {
+   "id": "n23a4dd7e",
+   "ko": "메이븐",
+   "ja": "メイブン",
+   "jaConfirmed": true,
+   "region": "tir"
+  },
+  {
+   "id": "n3e4f0949",
+   "ko": "알리사",
+   "ja": "アリサ",
+   "jaConfirmed": true,
+   "region": "tir"
+  },
+  {
+   "id": "ncdbab07d",
+   "ko": "엔델리온",
+   "ja": "エンデリオン",
+   "jaConfirmed": false,
+   "region": "tir"
+  },
+  {
+   "id": "n82ad0f58",
+   "ko": "케이틴",
+   "ja": "ケイティン",
+   "jaConfirmed": true,
+   "region": "tir"
+  },
+  {
+   "id": "n73428fd0",
+   "ko": "퍼거스",
+   "ja": "ファーガス",
+   "jaConfirmed": true,
+   "region": "tir"
+  },
+  {
+   "id": "na11a1463",
+   "ko": "앨빈",
+   "ja": "アルヴィン",
+   "jaConfirmed": true,
+   "region": "dugald"
+  },
+  {
+   "id": "n4c3b25e3",
+   "ko": "트레이시",
+   "ja": "トレイシー",
+   "jaConfirmed": true,
+   "region": "dugald"
+  },
+  {
+   "id": "ndda3ced4",
+   "ko": "글리니스",
+   "ja": "グリニス",
+   "jaConfirmed": true,
+   "region": "dunbarton"
+  },
+  {
+   "id": "nf8f8ab45",
+   "ko": "네리스",
+   "ja": "ネリス",
+   "jaConfirmed": true,
+   "region": "dunbarton"
+  },
+  {
+   "id": "n958b2633",
+   "ko": "마누스",
+   "ja": "マヌス",
+   "jaConfirmed": false,
+   "region": "dunbarton"
+  },
+  {
+   "id": "nf0bcff0e",
+   "ko": "발터",
+   "ja": "ウォルター",
+   "jaConfirmed": false,
+   "region": "dunbarton"
+  },
+  {
+   "id": "nd779007f",
+   "ko": "스튜어트",
+   "ja": "スチュアート",
+   "jaConfirmed": true,
+   "region": "dunbarton"
+  },
+  {
+   "id": "n251688e9",
+   "ko": "시몬",
+   "ja": "サイモン",
+   "jaConfirmed": false,
+   "region": "dunbarton"
+  },
+  {
+   "id": "n2415ea1c",
+   "ko": "아란웬",
+   "ja": "アランウェン",
+   "jaConfirmed": false,
+   "region": "dunbarton"
+  },
+  {
+   "id": "ncc222e5e",
+   "ko": "아이라",
+   "ja": "アイラ",
+   "jaConfirmed": false,
+   "region": "dunbarton"
+  },
+  {
+   "id": "n3c204db7",
+   "ko": "제롬",
+   "ja": "ジェローム",
+   "jaConfirmed": false,
+   "region": "dunbarton"
+  },
+  {
+   "id": "ne8dfc7ce",
+   "ko": "제이미",
+   "ja": "ジェイミー",
+   "jaConfirmed": true,
+   "region": "dunbarton"
+  },
+  {
+   "id": "n365547e1",
+   "ko": "칼릭스",
+   "ja": "カリクス",
+   "jaConfirmed": false,
+   "region": "dunbarton"
+  },
+  {
+   "id": "n16d2ea0f",
+   "ko": "플로라",
+   "ja": "フローラ",
+   "jaConfirmed": false,
+   "region": "dunbarton"
+  },
+  {
+   "id": "nc79bcaab",
+   "ko": "카린",
+   "ja": "カリン",
+   "jaConfirmed": false,
+   "region": "ice"
+  },
+  {
+   "id": "n69b5fe1e",
+   "ko": "아르미스",
+   "ja": "アルミス",
+   "jaConfirmed": true,
+   "region": "colhen"
+  },
+  {
+   "id": "n94f1c0ed",
+   "ko": "케아라",
+   "ja": "ケアラ",
+   "jaConfirmed": true,
+   "region": "colhen"
+  },
+  {
+   "id": "n7fff7a2c",
+   "ko": "코너",
+   "ja": "コナー",
+   "jaConfirmed": false,
+   "region": "colhen"
+  },
+  {
+   "id": "nb0d52da6",
+   "ko": "킬리언",
+   "ja": "キリアン",
+   "jaConfirmed": false,
+   "region": "colhen"
+  },
+  {
+   "id": "naadd5061",
+   "ko": "셰이머스",
+   "ja": "シェイマス",
+   "jaConfirmed": false,
+   "region": "gairech"
+  },
+  {
+   "id": "ne1e9ad53",
+   "ko": "길모어",
+   "ja": "ギルモア",
+   "jaConfirmed": false,
+   "region": "bangor"
+  },
+  {
+   "id": "n507d31b5",
+   "ko": "숀",
+   "ja": "ショーン",
+   "jaConfirmed": false,
+   "region": "bangor"
+  },
+  {
+   "id": "n81eec322",
+   "ko": "아이데른",
+   "ja": "エイデルン",
+   "jaConfirmed": false,
+   "region": "bangor"
+  },
+  {
+   "id": "n286b51c9",
+   "ko": "에일렌",
+   "ja": "エイレン",
+   "jaConfirmed": false,
+   "region": "bangor"
+  },
+  {
+   "id": "ncd697fcc",
+   "ko": "이비",
+   "ja": "イヴィ",
+   "jaConfirmed": true,
+   "region": "bangor"
+  },
+  {
+   "id": "nf59b406b",
+   "ko": "제니퍼",
+   "ja": "ジェニファー",
+   "jaConfirmed": false,
+   "region": "bangor"
+  },
+  {
+   "id": "n3ffe576c",
+   "ko": "컴건",
+   "ja": "コムガン",
+   "jaConfirmed": false,
+   "region": "bangor"
+  },
+  {
+   "id": "n4d29feef",
+   "ko": "일레인",
+   "ja": "エレイン",
+   "jaConfirmed": false,
+   "region": "senmag"
+  },
+  {
+   "id": "n74f91aeb",
+   "ko": "갈빈",
+   "ja": "ガルビン",
+   "jaConfirmed": false,
+   "region": "emain"
+  },
+  {
+   "id": "nb12410b0",
+   "ko": "고든",
+   "ja": "ゴードン",
+   "jaConfirmed": false,
+   "region": "emain"
+  },
+  {
+   "id": "na2e768a0",
+   "ko": "델",
+   "ja": "デル",
+   "jaConfirmed": false,
+   "region": "emain"
+  },
+  {
+   "id": "n6bc23ec9",
+   "ko": "델렌",
+   "ja": "デレン",
+   "jaConfirmed": false,
+   "region": "emain"
+  },
+  {
+   "id": "n225815f8",
+   "ko": "도나",
+   "ja": "ドナ",
+   "jaConfirmed": false,
+   "region": "emain"
+  },
+  {
+   "id": "n2017a5b9",
+   "ko": "엘레노아",
+   "ja": "エレノア",
+   "jaConfirmed": false,
+   "region": "emain"
+  },
+  {
+   "id": "n7fcaae64",
+   "ko": "오슬라",
+   "ja": "オスラ",
+   "jaConfirmed": false,
+   "region": "emain"
+  },
+  {
+   "id": "n9b9ab77d",
+   "ko": "크레이그",
+   "ja": "クレイグ",
+   "jaConfirmed": false,
+   "region": "emain"
+  },
+  {
+   "id": "n716ffb8b",
+   "ko": "프레이저",
+   "ja": "フレイザー",
+   "jaConfirmed": false,
+   "region": "emain"
+  },
+  {
+   "id": "nb79272b9",
+   "ko": "고양이 상인",
+   "ja": "ネコ商人",
+   "jaConfirmed": true,
+   "region": "cat"
+  }
+ ],
+ "items": [
+  {
+   "ko": "가든 샐러드",
+   "ja": "ガーデンサラダ",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "강화 재연소 촉매",
+   "ja": "強化再燃触媒",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "건강 드링크",
+   "ja": "健康ドリンク",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "고급 연금술 재연소 촉매",
+   "ja": "高級錬金術再燃触媒",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "고풍스러운 포장지",
+   "ja": "古風な包装紙",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "글리니스 수제 케이크",
+   "ja": "グリニスの手作りケーキ",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "글리니스의 애플 밀크티",
+   "ja": "グリニスのアップルミルクティー",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "금은 매운탕",
+   "ja": "金銀の辛い鍋",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "넛츠 초코 비스킷",
+   "ja": "ナッツチョコビスケット",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "녹차 크레이프 케이크",
+   "ja": "緑茶のクレープケーキ",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "단단한 통나무",
+   "ja": "硬い丸太",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "달콤쌉쌀 푸딩",
+   "ja": "ほろ苦プリン",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "라벤더 꽃",
+   "ja": "ラベンダーの花",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "레어 연금술 재연소 촉매",
+   "ja": "レア錬金術再燃触媒",
+   "jaConfirmed": true
+  },
+  {
+   "ko": "만찬 재료: 꺼지지 않는 불",
+   "ja": "晩餐の材料：消えない火",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "만찬 재료: 휘몰아치는 바람",
+   "ja": "晩餐の材料：吹き荒れる風",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "말콤의 푹신한 양털 베개",
+   "ja": "マルコムのふかふか羊毛枕",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "매콤 파프리카 스튜",
+   "ja": "ピリ辛パプリカシチュー",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "묵직한 감자",
+   "ja": "ずっしりジャガイモ",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "미가공 골드 원석",
+   "ja": "未加工の金の原石",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "백금강괴",
+   "ja": "白金インゴット",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "변형의 마나석",
+   "ja": "変形のマナストーン",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "부드러운 통나무",
+   "ja": "柔らかい丸太",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "불사의 가루",
+   "ja": "不死の粉",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "빈 악보",
+   "ja": "空の楽譜",
+   "jaConfirmed": true
+  },
+  {
+   "ko": "선물용 꽃다발",
+   "ja": "贈り物の花束",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "성수",
+   "ja": "聖水",
+   "jaConfirmed": true
+  },
+  {
+   "ko": "성수 묶음 상자",
+   "ja": "聖水まとめ箱",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "애벌레",
+   "ja": "イモムシ",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "야채 볶음",
+   "ja": "野菜炒め",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "어둠유령고기",
+   "ja": "闇の幽霊魚",
+   "jaConfirmed": true
+  },
+  {
+   "ko": "오트밀 영양죽",
+   "ja": "オートミールの栄養粥",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "일반 붕대",
+   "ja": "普通の包帯",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "저주 해제 물약",
+   "ja": "呪い解除ポーション",
+   "jaConfirmed": true
+  },
+  {
+   "ko": "정령의 흔적",
+   "ja": "精霊の痕跡",
+   "jaConfirmed": true
+  },
+  {
+   "ko": "정성 담긴 꽃다발",
+   "ja": "心のこもった花束",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "주인 없는 소설책",
+   "ja": "持ち主のいない小説",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "참사랑어",
+   "ja": "真愛魚",
+   "jaConfirmed": true
+  },
+  {
+   "ko": "초롱아귀",
+   "ja": "チョウチンアンコウ",
+   "jaConfirmed": true
+  },
+  {
+   "ko": "최상급 내열 붕대",
+   "ja": "最上級耐熱の包帯",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "최상급 방한 붕대",
+   "ja": "最上級防寒の包帯",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "최상급 봉인의 붕대",
+   "ja": "最上級封印の包帯",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "최상급 절연 붕대",
+   "ja": "最上級絶縁の包帯",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "최상급 축복의 붕대",
+   "ja": "最上級祝福の包帯",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "카레라이스",
+   "ja": "カレーライス",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "케이틴 특제 통밀빵",
+   "ja": "ケイティン特製の全粒粉パン",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "클래스 마스터 메달",
+   "ja": "クラスマスターメダル",
+   "jaConfirmed": true
+  },
+  {
+   "ko": "트레이시의 원목 오르골",
+   "ja": "トレイシーの木のオルゴール",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "특급 가죽",
+   "ja": "特級革",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "특급 목재",
+   "ja": "特級木材",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "특급 실크",
+   "ja": "特級シルク",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "특급 옷감",
+   "ja": "特級生地",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "파란 수국",
+   "ja": "青いアジサイ",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "펫 먹이",
+   "ja": "ペットのエサ",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "하트 토큰",
+   "ja": "ハートトークン",
+   "jaConfirmed": true
+  },
+  {
+   "ko": "호박 수프",
+   "ja": "カボチャのスープ",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "호박 파이",
+   "ja": "カボチャのパイ",
+   "jaConfirmed": false
+  },
+  {
+   "ko": "황야의 마나석",
+   "ja": "荒野のマナストーン",
+   "jaConfirmed": false
+  }
+ ],
+ "trades": [
+  {
+   "id": "tb981e1d2",
+   "npc": "nf35bae2e",
+   "get": {
+    "item": "여행자 간식",
+    "qty": 1
+   },
+   "give": {
+    "item": "말콤의 푹신한 양털 베개",
+    "qty": 1
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tb03c301d",
+   "npc": "n2f54e9bc",
+   "get": {
+    "item": "상급 양털",
+    "qty": 4
+   },
+   "give": {
+    "item": "펫 먹이",
+    "qty": 1
+   },
+   "limit": {
+    "count": 10,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "te7f4abf1",
+   "npc": "n7ee3cc6d",
+   "get": {
+    "item": "네잎클로버",
+    "qty": 1
+   },
+   "give": {
+    "item": "쑥쑥 버섯",
+    "qty": 3
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t14b9547f",
+   "npc": "ndc639dc8",
+   "get": {
+    "item": "고급 연금술 재연소 촉매",
+    "qty": 1
+   },
+   "give": {
+    "item": "사과 주스",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   },
+   "pick": "錬金術とルーンの昇級で使う触媒。リンゴジュースか錬金術のくず3個で受け取れる。"
+  },
+  {
+   "id": "td037d996",
+   "npc": "ndc639dc8",
+   "get": {
+    "item": "고급 연금술 재연소 촉매",
+    "qty": 1
+   },
+   "give": {
+    "item": "연금술 부스러기",
+    "qty": 3
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   },
+   "pick": "錬金術のくず3個でも、同じ高級の触媒を受け取れる。リンゴジュースの交換とは別に数える。"
+  },
+  {
+   "id": "t2e2f3189",
+   "npc": "ndc639dc8",
+   "get": {
+    "item": "레어 연금술 재연소 촉매",
+    "qty": 1
+   },
+   "give": {
+    "item": "고급 연금술 재연소 촉매",
+    "qty": 15
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   },
+   "pick": "高級の触媒15個を、レアの触媒1個にまとめられる。"
+  },
+  {
+   "id": "t250bf01d",
+   "npc": "ncf27b5ff",
+   "get": {
+    "item": "치명타 비약",
+    "qty": 1
+   },
+   "give": {
+    "item": "마요네즈 고기볶음",
+    "qty": 2
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t532811eb",
+   "npc": "nc4cead5a",
+   "get": {
+    "item": "빈 악보",
+    "qty": 1
+   },
+   "give": {
+    "item": "양털",
+    "qty": 50
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t232da0e6",
+   "npc": "nc4cead5a",
+   "get": {
+    "item": "말콤의 푹신한 양털 베개",
+    "qty": 1
+   },
+   "give": {
+    "item": "거미줄",
+    "qty": 5
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t04b76575",
+   "npc": "nc4cead5a",
+   "get": {
+    "item": "다목적 제작대 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "전문 캠프파이어 키트",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t6d5ca211",
+   "npc": "n23a4dd7e",
+   "get": {
+    "item": "성수",
+    "qty": 1
+   },
+   "give": {
+    "item": "케이틴 특제 통밀빵",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t825560ec",
+   "npc": "n3e4f0949",
+   "get": {
+    "item": "연금술 부스러기",
+    "qty": 1
+   },
+   "give": {
+    "item": "달걀",
+    "qty": 10
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tf9deb7eb",
+   "npc": "n3e4f0949",
+   "get": {
+    "item": "연금술 부스러기",
+    "qty": 1
+   },
+   "give": {
+    "item": "라벤더 꽃",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t8ff9e371",
+   "npc": "n3e4f0949",
+   "get": {
+    "item": "밀가루",
+    "qty": 1
+   },
+   "give": {
+    "item": "달걀",
+    "qty": 3
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tdd36ee07",
+   "npc": "n3e4f0949",
+   "get": {
+    "item": "밀가루",
+    "qty": 1
+   },
+   "give": {
+    "item": "라벤더 꽃",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t042aea52",
+   "npc": "ncdbab07d",
+   "get": {
+    "item": "성수",
+    "qty": 10
+   },
+   "give": {
+    "item": "케이틴 특제 통밀빵",
+    "qty": 10
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t6d8c749d",
+   "npc": "n82ad0f58",
+   "get": {
+    "item": "케이틴 특제 통밀빵",
+    "qty": 3
+   },
+   "give": {
+    "item": "우유",
+    "qty": 10
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t81b91c8a",
+   "npc": "n82ad0f58",
+   "get": {
+    "item": "식재료 가공 시설 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "밀가루",
+    "qty": 10
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "ta8d6a178",
+   "npc": "n73428fd0",
+   "get": {
+    "item": "철 광석",
+    "qty": 1
+   },
+   "give": {
+    "item": "분해된 장비 부품",
+    "qty": 1
+   },
+   "limit": {
+    "count": 10,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tf8e5d4d9",
+   "npc": "n73428fd0",
+   "get": {
+    "item": "석탄",
+    "qty": 3
+   },
+   "give": {
+    "item": "분해된 장비 부품",
+    "qty": 1
+   },
+   "limit": {
+    "count": 10,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tf35dbd4d",
+   "npc": "n73428fd0",
+   "get": {
+    "item": "합금강괴",
+    "qty": 1
+   },
+   "give": {
+    "item": "강철괴",
+    "qty": 2
+   },
+   "limit": {
+    "count": 4,
+    "per": "day",
+    "scope": "character"
+   },
+   "pick": "合金インゴットは、加工に1時間40分（3個で）かかる。スチールインゴット2個で1個受け取れて、ネリスの特殊インゴットへつなげられる。"
+  },
+  {
+   "id": "t62c2bfa2",
+   "npc": "n73428fd0",
+   "get": {
+    "item": "분해된 장비 부품",
+    "qty": 10
+   },
+   "give": {
+    "item": "광석",
+    "qty": 100
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "te7d17554",
+   "npc": "na11a1463",
+   "get": {
+    "item": "타닌 가루",
+    "qty": 5
+   },
+   "give": {
+    "item": "생가죽",
+    "qty": 5
+   },
+   "limit": {
+    "count": 10,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t39b0af5f",
+   "npc": "na11a1463",
+   "get": {
+    "item": "상급 통나무",
+    "qty": 1
+   },
+   "give": {
+    "item": "상급 가죽",
+    "qty": 1
+   },
+   "limit": {
+    "count": 10,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tfc92637c",
+   "npc": "na11a1463",
+   "get": {
+    "item": "상급 목재",
+    "qty": 4
+   },
+   "give": {
+    "item": "야채 볶음",
+    "qty": 1
+   },
+   "limit": {
+    "count": 2,
+    "per": "day",
+    "scope": "character"
+   },
+   "pick": "野菜炒め1個で上級木材4個。上級木材は、加工に2時間（3個で）かかる（元の表）。"
+  },
+  {
+   "id": "t6e23e536",
+   "npc": "na11a1463",
+   "get": {
+    "item": "가죽 가공 시설 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "옷감+",
+    "qty": 5
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t3bf0dd01",
+   "npc": "n4c3b25e3",
+   "get": {
+    "item": "생가죽",
+    "qty": 1
+   },
+   "give": {
+    "item": "통나무",
+    "qty": 1
+   },
+   "limit": {
+    "count": 10,
+    "per": "day",
+    "scope": "character"
+   },
+   "pick": "伐採の丸太1個で生皮1個。1日10回。"
+  },
+  {
+   "id": "teaa856d4",
+   "npc": "n4c3b25e3",
+   "get": {
+    "item": "상급 생가죽",
+    "qty": 1
+   },
+   "give": {
+    "item": "통나무",
+    "qty": 10
+   },
+   "limit": {
+    "count": 10,
+    "per": "day",
+    "scope": "character"
+   },
+   "pick": "丸太10個で上級生皮1個。伐採だけで上級の革の材料がそろう。"
+  },
+  {
+   "id": "tc2b4971d",
+   "npc": "n4c3b25e3",
+   "get": {
+    "item": "나무 진액",
+    "qty": 4
+   },
+   "give": {
+    "item": "상급 통나무",
+    "qty": 1
+   },
+   "limit": {
+    "count": 5,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t75aa5ee3",
+   "npc": "n4c3b25e3",
+   "get": {
+    "item": "트레이시의 원목 오르골",
+    "qty": 1
+   },
+   "give": {
+    "item": "조개찜",
+    "qty": 2
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tcea7ef04",
+   "npc": "n4c3b25e3",
+   "get": {
+    "item": "목재 가공 시설 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "애벌레",
+    "qty": 5
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t3736a0ce",
+   "npc": "ndda3ced4",
+   "get": {
+    "item": "글리니스 수제 케이크",
+    "qty": 1
+   },
+   "give": {
+    "item": "포크 인 밀크",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t4e3c711e",
+   "npc": "ndda3ced4",
+   "get": {
+    "item": "글리니스의 애플 밀크티",
+    "qty": 1
+   },
+   "give": {
+    "item": "생크림",
+    "qty": 4
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t61879c75",
+   "npc": "ndda3ced4",
+   "get": {
+    "item": "음식 제작대 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "사과 수플레",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t02e7c2e6",
+   "npc": "nf8f8ab45",
+   "get": {
+    "item": "상급 생가죽",
+    "qty": 1
+   },
+   "give": {
+    "item": "동 광석",
+    "qty": 1
+   },
+   "limit": {
+    "count": 10,
+    "per": "day",
+    "scope": "character"
+   },
+   "pick": "採掘で余りやすい銅鉱1個が、狩りでしか集まりにくい上級生皮1個になる。"
+  },
+  {
+   "id": "t913d73d4",
+   "npc": "nf8f8ab45",
+   "get": {
+    "item": "특수강괴",
+    "qty": 1
+   },
+   "give": {
+    "item": "합금강괴",
+    "qty": 2
+   },
+   "limit": {
+    "count": 4,
+    "per": "day",
+    "scope": "character"
+   },
+   "pick": "特殊インゴットは、加工に5時間（3個で）かかる（元の表）。ファーガスの合金インゴットとつなぐと、毎日2個を加工なしで受け取れる。"
+  },
+  {
+   "id": "tf86fd59a",
+   "npc": "n958b2633",
+   "get": {
+    "item": "생명의 마나석",
+    "qty": 1
+   },
+   "give": {
+    "item": "펫 먹이",
+    "qty": 10
+   },
+   "limit": {
+    "count": 2,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t8dcb5645",
+   "npc": "nf0bcff0e",
+   "get": {
+    "item": "가죽",
+    "qty": 6
+   },
+   "give": {
+    "item": "트레이시의 원목 오르골",
+    "qty": 1
+   },
+   "limit": {
+    "count": 2,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t9fe15139",
+   "npc": "nf0bcff0e",
+   "get": {
+    "item": "하트 토큰",
+    "qty": 1
+   },
+   "give": {
+    "item": "참사랑어",
+    "qty": 5
+   },
+   "limit": {
+    "count": 2,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t7c7abc24",
+   "npc": "nf0bcff0e",
+   "get": {
+    "item": "화염 마법 유탄",
+    "qty": 1
+   },
+   "give": {
+    "item": "어둠유령고기",
+    "qty": 5
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t6475bd99",
+   "npc": "nf0bcff0e",
+   "get": {
+    "item": "번개 마법 유탄",
+    "qty": 1
+   },
+   "give": {
+    "item": "어둠유령고기",
+    "qty": 5
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t9b5e883b",
+   "npc": "nf0bcff0e",
+   "get": {
+    "item": "바람 마법 유탄",
+    "qty": 1
+   },
+   "give": {
+    "item": "어둠유령고기",
+    "qty": 5
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tfbc35816",
+   "npc": "nf0bcff0e",
+   "get": {
+    "item": "산성 마법 유탄",
+    "qty": 1
+   },
+   "give": {
+    "item": "어둠유령고기",
+    "qty": 5
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t0d272d21",
+   "npc": "nd779007f",
+   "get": {
+    "item": "불꽃의 결정",
+    "qty": 1
+   },
+   "give": {
+    "item": "연금술 부스러기",
+    "qty": 1
+   },
+   "limit": {
+    "count": 5,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t4280f0df",
+   "npc": "nd779007f",
+   "get": {
+    "item": "얼음의 결정",
+    "qty": 1
+   },
+   "give": {
+    "item": "연금술 부스러기",
+    "qty": 1
+   },
+   "limit": {
+    "count": 5,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tfdb3dc62",
+   "npc": "nd779007f",
+   "get": {
+    "item": "전기의 결정",
+    "qty": 1
+   },
+   "give": {
+    "item": "연금술 부스러기",
+    "qty": 1
+   },
+   "limit": {
+    "count": 5,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t4b2a5c79",
+   "npc": "nd779007f",
+   "get": {
+    "item": "광휘의 결정",
+    "qty": 1
+   },
+   "give": {
+    "item": "연금술 부스러기",
+    "qty": 1
+   },
+   "limit": {
+    "count": 5,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tbf93598c",
+   "npc": "nd779007f",
+   "get": {
+    "item": "봉인의 결정",
+    "qty": 1
+   },
+   "give": {
+    "item": "연금술 부스러기",
+    "qty": 1
+   },
+   "limit": {
+    "count": 5,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t08681f98",
+   "npc": "nd779007f",
+   "get": {
+    "item": "미가공 골드 원석",
+    "qty": 7
+   },
+   "give": {
+    "item": "강화 재연소 촉매",
+    "qty": 5
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tc3c46b83",
+   "npc": "nd779007f",
+   "get": {
+    "item": "미가공 골드 원석",
+    "qty": 7
+   },
+   "give": {
+    "item": "레어 연금술 재연소 촉매",
+    "qty": 50
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "te71d8f7b",
+   "npc": "n251688e9",
+   "get": {
+    "item": "염색약 베이스",
+    "qty": 3
+   },
+   "give": {
+    "item": "상급 실크",
+    "qty": 10
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   },
+   "pick": "染色をする人向け。上級シルク10個で染色アンプルのベース3個。"
+  },
+  {
+   "id": "t18dd798e",
+   "npc": "n251688e9",
+   "get": {
+    "item": "옷감 가공 시설 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "유령 반딧불이",
+    "qty": 2
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t6966c2e2",
+   "npc": "n251688e9",
+   "get": {
+    "item": "방어구 제작대 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "세공된 페리도트S",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t39604fc8",
+   "npc": "n251688e9",
+   "get": {
+    "item": "옷감+",
+    "qty": 10
+   },
+   "give": {
+    "item": "뛰어난 붕대",
+    "qty": 100
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t944e0e35",
+   "npc": "n2415ea1c",
+   "get": {
+    "item": "궁극기 비약",
+    "qty": 1
+   },
+   "give": {
+    "item": "감자 샐러드",
+    "qty": 2
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t2e1a90bc",
+   "npc": "n2415ea1c",
+   "get": {
+    "item": "정령의 흔적",
+    "qty": 20
+   },
+   "give": {
+    "item": "클래스 마스터 메달",
+    "qty": 1
+   },
+   "limit": {
+    "count": null,
+    "per": null,
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t7ebd6d0a",
+   "npc": "ncc222e5e",
+   "get": {
+    "item": "종이",
+    "qty": 10
+   },
+   "give": {
+    "item": "주인 없는 소설책",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t3379e341",
+   "npc": "n3c204db7",
+   "get": {
+    "item": "실크",
+    "qty": 4
+   },
+   "give": {
+    "item": "리코타 치즈 샐러드",
+    "qty": 1
+   },
+   "limit": {
+    "count": 2,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t172b8d1c",
+   "npc": "n3c204db7",
+   "get": {
+    "item": "상급 실크",
+    "qty": 4
+   },
+   "give": {
+    "item": "크림소스 스테이크",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "td68c5b20",
+   "npc": "ne8dfc7ce",
+   "get": {
+    "item": "상급 옷감",
+    "qty": 4
+   },
+   "give": {
+    "item": "사과 수플레",
+    "qty": 1
+   },
+   "limit": {
+    "count": 2,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "te92cac16",
+   "npc": "ne8dfc7ce",
+   "get": {
+    "item": "상급 옷감+",
+    "qty": 4
+   },
+   "give": {
+    "item": "사과 생크림케이크",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   },
+   "pick": "加工に5時間（3個で）かかる上級生地+（元の表）を、リンゴショートケーキ1個で4個受け取れる。"
+  },
+  {
+   "id": "tc1270194",
+   "npc": "n365547e1",
+   "get": {
+    "item": "가죽+",
+    "qty": 10
+   },
+   "give": {
+    "item": "글리니스의 애플 밀크티",
+    "qty": 2
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tb2de6894",
+   "npc": "n365547e1",
+   "get": {
+    "item": "레몬",
+    "qty": 3
+   },
+   "give": {
+    "item": "불사의 가루",
+    "qty": 5
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t190511ca",
+   "npc": "n365547e1",
+   "get": {
+    "item": "후추",
+    "qty": 2
+   },
+   "give": {
+    "item": "불사의 가루",
+    "qty": 5
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t390fb334",
+   "npc": "n16d2ea0f",
+   "get": {
+    "item": "주인 없는 소설책",
+    "qty": 1
+   },
+   "give": {
+    "item": "글리니스 수제 케이크",
+    "qty": 2
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t8df2417b",
+   "npc": "nc79bcaab",
+   "get": {
+    "item": "펫 먹이",
+    "qty": 10
+   },
+   "give": {
+    "item": "감자수프",
+    "qty": 3
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t2dca9af4",
+   "npc": "n69b5fe1e",
+   "get": {
+    "item": "은합금괴",
+    "qty": 1
+   },
+   "give": {
+    "item": "특수강괴",
+    "qty": 2
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t5ef1157f",
+   "npc": "n69b5fe1e",
+   "get": {
+    "item": "동 광석",
+    "qty": 10
+   },
+   "give": {
+    "item": "백동 광석",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t6bd20cce",
+   "npc": "n69b5fe1e",
+   "get": {
+    "item": "금속 가공 시설 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "석탄",
+    "qty": 20
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t52ff35a3",
+   "npc": "n69b5fe1e",
+   "get": {
+    "item": "무기 제작대 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "내열 붕대",
+    "qty": 5
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tbf398138",
+   "npc": "n69b5fe1e",
+   "get": {
+    "item": "성수",
+    "qty": 10
+   },
+   "give": {
+    "item": "저주 해제 물약",
+    "qty": 100
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tba6606e1",
+   "npc": "n94f1c0ed",
+   "get": {
+    "item": "응축된 바람",
+    "qty": 3
+   },
+   "give": {
+    "item": "상급 목재+",
+    "qty": 10
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "ta192dc95",
+   "npc": "n94f1c0ed",
+   "get": {
+    "item": "독주머니",
+    "qty": 3
+   },
+   "give": {
+    "item": "상급 목재+",
+    "qty": 10
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t7e8ee459",
+   "npc": "n94f1c0ed",
+   "get": {
+    "item": "상급 치명타 비약",
+    "qty": 1
+   },
+   "give": {
+    "item": "얼음 딸기주스",
+    "qty": 2
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t90d53e5f",
+   "npc": "n94f1c0ed",
+   "get": {
+    "item": "물이 든 병",
+    "qty": 50
+   },
+   "give": {
+    "item": "성수",
+    "qty": 10
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   },
+   "pick": "聖水10個で水が入った瓶50本。料理や包帯で瓶をたくさん使う時に。"
+  },
+  {
+   "id": "t611ab6aa",
+   "npc": "n7fff7a2c",
+   "get": {
+    "item": "네잎클로버",
+    "qty": 3
+   },
+   "give": {
+    "item": "건강 드링크",
+    "qty": 1
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t13228495",
+   "npc": "n7fff7a2c",
+   "get": {
+    "item": "하트 토큰",
+    "qty": 1
+   },
+   "give": {
+    "item": "초롱아귀",
+    "qty": 5
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t64728bb3",
+   "npc": "n7fff7a2c",
+   "get": {
+    "item": "폐허의 마나석",
+    "qty": 1
+   },
+   "give": {
+    "item": "생명의 마나석",
+    "qty": 1
+   },
+   "limit": {
+    "count": 5,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t31fe098e",
+   "npc": "n7fff7a2c",
+   "get": {
+    "item": "협곡의 마나석",
+    "qty": 1
+   },
+   "give": {
+    "item": "생명의 마나석",
+    "qty": 1
+   },
+   "limit": {
+    "count": 10,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "teae98962",
+   "npc": "nb0d52da6",
+   "get": {
+    "item": "건강 드링크",
+    "qty": 1
+   },
+   "give": {
+    "item": "깔끔 버섯 포자",
+    "qty": 5
+   },
+   "limit": {
+    "count": 5,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t27049c2b",
+   "npc": "nb0d52da6",
+   "get": {
+    "item": "네잎클로버",
+    "qty": 8
+   },
+   "give": {
+    "item": "알리오 올리오",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t494d9112",
+   "npc": "nb0d52da6",
+   "get": {
+    "item": "약품 가공 시설 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "독주머니",
+    "qty": 3
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "ta1e3fe7d",
+   "npc": "nb0d52da6",
+   "get": {
+    "item": "약품 제작대 설계도 (3레벨)",
+    "qty": 1
+   },
+   "give": {
+    "item": "석양나비",
+    "qty": 2
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t08674d47",
+   "npc": "naadd5061",
+   "get": {
+    "item": "고풍스러운 포장지",
+    "qty": 1
+   },
+   "give": {
+    "item": "물이 든 병",
+    "qty": 10
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t61f18a27",
+   "npc": "naadd5061",
+   "get": {
+    "item": "뛰어난 붕대",
+    "qty": 5
+   },
+   "give": {
+    "item": "샤와르마",
+    "qty": 1
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   },
+   "pick": "作るのに5種類の材料が要る優れた包帯を、シャワルマ1個で5個受け取れる。"
+  },
+  {
+   "id": "tc3f8fcf2",
+   "npc": "ne1e9ad53",
+   "get": {
+    "item": "최상급 실크",
+    "qty": 5
+   },
+   "give": {
+    "item": "최상급 목재",
+    "qty": 10
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t751c860d",
+   "npc": "ne1e9ad53",
+   "get": {
+    "item": "광산의 마나석",
+    "qty": 1
+   },
+   "give": {
+    "item": "생명의 마나석",
+    "qty": 1
+   },
+   "limit": {
+    "count": 5,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "ta9cd6282",
+   "npc": "ne1e9ad53",
+   "get": {
+    "item": "황야의 마나석",
+    "qty": 1
+   },
+   "give": {
+    "item": "생명의 마나석",
+    "qty": 1
+   },
+   "limit": {
+    "count": 10,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t2c82ec2f",
+   "npc": "n507d31b5",
+   "get": {
+    "item": "물이 든 병",
+    "qty": 10
+   },
+   "give": {
+    "item": "생채기꽃",
+    "qty": 10
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t2972f4da",
+   "npc": "n507d31b5",
+   "get": {
+    "item": "정성 담긴 꽃다발",
+    "qty": 1
+   },
+   "give": {
+    "item": "고풍스러운 포장지",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t5aea8c44",
+   "npc": "n81eec322",
+   "get": {
+    "item": "은합금괴",
+    "qty": 10
+   },
+   "give": {
+    "item": "농어 매운탕",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "week",
+    "scope": "character"
+   },
+   "pick": "週1回だけ。スズキの辛い鍋1個で銀合金インゴット10個。"
+  },
+  {
+   "id": "t742487fa",
+   "npc": "n286b51c9",
+   "get": {
+    "item": "은합금괴",
+    "qty": 1
+   },
+   "give": {
+    "item": "특수강괴",
+    "qty": 3
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tae872365",
+   "npc": "n286b51c9",
+   "get": {
+    "item": "은합금괴",
+    "qty": 1
+   },
+   "give": {
+    "item": "합금강괴",
+    "qty": 30
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tda27c969",
+   "npc": "ncd697fcc",
+   "get": {
+    "item": "낙엽나방",
+    "qty": 10
+   },
+   "give": {
+    "item": "정성 담긴 꽃다발",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tdf0a76ac",
+   "npc": "nf59b406b",
+   "get": {
+    "item": "담백한 고기",
+    "qty": 15
+   },
+   "give": {
+    "item": "콩",
+    "qty": 10
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "ta494d8be",
+   "npc": "n3ffe576c",
+   "get": {
+    "item": "뛰어난 회복 물약",
+    "qty": 6
+   },
+   "give": {
+    "item": "두유 파스닙 케이크",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "td05d722f",
+   "npc": "n4d29feef",
+   "get": {
+    "item": "가죽+",
+    "qty": 3
+   },
+   "give": {
+    "item": "운철 광석",
+    "qty": 100
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tf71263e0",
+   "npc": "n4d29feef",
+   "get": {
+    "item": "부드러운 통나무",
+    "qty": 3
+   },
+   "give": {
+    "item": "최상급 통나무+",
+    "qty": 100
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tedf51395",
+   "npc": "n4d29feef",
+   "get": {
+    "item": "단단한 통나무",
+    "qty": 3
+   },
+   "give": {
+    "item": "최상급 통나무+",
+    "qty": 100
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tcfd52af5",
+   "npc": "n74f91aeb",
+   "get": {
+    "item": "튼튼한 밧줄",
+    "qty": 1
+   },
+   "give": {
+    "item": "분해된 장비 부품",
+    "qty": 1000
+   },
+   "limit": {
+    "count": 1,
+    "per": "week",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t8b7cea67",
+   "npc": "nb12410b0",
+   "get": {
+    "item": "밀가루",
+    "qty": 10
+   },
+   "give": {
+    "item": "쌀",
+    "qty": 30
+   },
+   "limit": {
+    "count": 5,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "taac6f76e",
+   "npc": "nb12410b0",
+   "get": {
+    "item": "묵직한 감자",
+    "qty": 5
+   },
+   "give": {
+    "item": "발효된 찻잎",
+    "qty": 10
+   },
+   "limit": {
+    "count": 1,
+    "per": "week",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "tca7f35cd",
+   "npc": "na2e768a0",
+   "get": {
+    "item": "화살꽃",
+    "qty": 10
+   },
+   "give": {
+    "item": "파란 수국",
+    "qty": 10
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t9e350f08",
+   "npc": "na2e768a0",
+   "get": {
+    "item": "숨숨꽃",
+    "qty": 10
+   },
+   "give": {
+    "item": "파란 수국",
+    "qty": 10
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t7672b827",
+   "npc": "na2e768a0",
+   "get": {
+    "item": "생채기꽃",
+    "qty": 10
+   },
+   "give": {
+    "item": "파란 수국",
+    "qty": 10
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "ta1e28a11",
+   "npc": "na2e768a0",
+   "get": {
+    "item": "진정초",
+    "qty": 10
+   },
+   "give": {
+    "item": "파란 수국",
+    "qty": 10
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t9fe7fb4a",
+   "npc": "na2e768a0",
+   "get": {
+    "item": "선물용 꽃다발",
+    "qty": 1
+   },
+   "give": {
+    "item": "점토",
+    "qty": 100
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tdbca453c",
+   "npc": "n6bc23ec9",
+   "get": {
+    "item": "최상급 가죽+",
+    "qty": 1
+   },
+   "give": {
+    "item": "호박 수프",
+    "qty": 2
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t3f4e3716",
+   "npc": "n6bc23ec9",
+   "get": {
+    "item": "최상급 목재+",
+    "qty": 1
+   },
+   "give": {
+    "item": "호박 수프",
+    "qty": 2
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tdc17aff9",
+   "npc": "n6bc23ec9",
+   "get": {
+    "item": "변형의 마나석",
+    "qty": 7
+   },
+   "give": {
+    "item": "생명의 마나석",
+    "qty": 7
+   },
+   "limit": {
+    "count": 5,
+    "per": "week",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t3b78a2b1",
+   "npc": "n6bc23ec9",
+   "get": {
+    "item": "특급 가죽",
+    "qty": 1
+   },
+   "give": {
+    "item": "오트밀 영양죽",
+    "qty": 2
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "ta30eaf9f",
+   "npc": "n6bc23ec9",
+   "get": {
+    "item": "특급 목재",
+    "qty": 1
+   },
+   "give": {
+    "item": "가든 샐러드",
+    "qty": 2
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tdb4b5b46",
+   "npc": "n225815f8",
+   "get": {
+    "item": "성수 묶음 상자",
+    "qty": 1
+   },
+   "give": {
+    "item": "호박 파이",
+    "qty": 3
+   },
+   "limit": {
+    "count": 1,
+    "per": "week",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "te215bcec",
+   "npc": "n225815f8",
+   "get": {
+    "item": "성수",
+    "qty": 1
+   },
+   "give": {
+    "item": "선물용 꽃다발",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "week",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t63f0b617",
+   "npc": "n2017a5b9",
+   "get": {
+    "item": "상급 양털",
+    "qty": 50
+   },
+   "give": {
+    "item": "옷감",
+    "qty": 4
+   },
+   "limit": {
+    "count": 1,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t9fbb466c",
+   "npc": "n2017a5b9",
+   "get": {
+    "item": "상급 양털+",
+    "qty": 50
+   },
+   "give": {
+    "item": "옷감+",
+    "qty": 4
+   },
+   "limit": {
+    "count": 1,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "ted589e18",
+   "npc": "n2017a5b9",
+   "get": {
+    "item": "최상급 양털",
+    "qty": 50
+   },
+   "give": {
+    "item": "상급 옷감",
+    "qty": 4
+   },
+   "limit": {
+    "count": 1,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t70b30478",
+   "npc": "n2017a5b9",
+   "get": {
+    "item": "최상급 옷감+",
+    "qty": 1
+   },
+   "give": {
+    "item": "녹차 크레이프 케이크",
+    "qty": 2
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t80b2dcf4",
+   "npc": "n2017a5b9",
+   "get": {
+    "item": "특급 옷감",
+    "qty": 1
+   },
+   "give": {
+    "item": "달콤쌉쌀 푸딩",
+    "qty": 2
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t80629fa7",
+   "npc": "n2017a5b9",
+   "get": {
+    "item": "특급 실크",
+    "qty": 1
+   },
+   "give": {
+    "item": "넛츠 초코 비스킷",
+    "qty": 2
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t6b7e40b9",
+   "npc": "n7fcaae64",
+   "get": {
+    "item": "철괴",
+    "qty": 5
+   },
+   "give": {
+    "item": "카레라이스",
+    "qty": 1
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "ta6ea7d8a",
+   "npc": "n7fcaae64",
+   "get": {
+    "item": "운철괴",
+    "qty": 1
+   },
+   "give": {
+    "item": "카레라이스",
+    "qty": 2
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tf60ec36a",
+   "npc": "n7fcaae64",
+   "get": {
+    "item": "백금강괴",
+    "qty": 1
+   },
+   "give": {
+    "item": "매콤 파프리카 스튜",
+    "qty": 2
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t3a427fdc",
+   "npc": "n9b9ab77d",
+   "get": {
+    "item": "최상급 내열 붕대",
+    "qty": 3
+   },
+   "give": {
+    "item": "금은 매운탕",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "te34b4da0",
+   "npc": "n9b9ab77d",
+   "get": {
+    "item": "최상급 방한 붕대",
+    "qty": 3
+   },
+   "give": {
+    "item": "금은 매운탕",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t9cd2af8f",
+   "npc": "n9b9ab77d",
+   "get": {
+    "item": "최상급 절연 붕대",
+    "qty": 3
+   },
+   "give": {
+    "item": "금은 매운탕",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "tc8ae4756",
+   "npc": "n9b9ab77d",
+   "get": {
+    "item": "최상급 축복의 붕대",
+    "qty": 3
+   },
+   "give": {
+    "item": "금은 매운탕",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t449f797c",
+   "npc": "n9b9ab77d",
+   "get": {
+    "item": "최상급 봉인의 붕대",
+    "qty": 3
+   },
+   "give": {
+    "item": "금은 매운탕",
+    "qty": 1
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "t5081f555",
+   "npc": "n716ffb8b",
+   "get": {
+    "item": "만찬 재료: 휘몰아치는 바람",
+    "qty": 1
+   },
+   "give": {
+    "item": "만찬 재료: 꺼지지 않는 불",
+    "qty": 3
+   },
+   "limit": {
+    "count": 2,
+    "per": "week",
+    "scope": "server"
+   }
+  },
+  {
+   "id": "tcc3c47e6",
+   "npc": "nb79272b9",
+   "get": {
+    "item": "새록 버섯",
+    "qty": 1
+   },
+   "give": {
+    "item": "블러디 허브",
+    "qty": 1
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "tafbadf7a",
+   "npc": "nb79272b9",
+   "get": {
+    "item": "하트 토큰",
+    "qty": 1
+   },
+   "give": {
+    "item": "짜먹는 간식",
+    "qty": 1
+   },
+   "limit": {
+    "count": 3,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "t46942555",
+   "npc": "nb79272b9",
+   "get": {
+    "item": "소금",
+    "qty": 2
+   },
+   "give": {
+    "item": "여행자 간식",
+    "qty": 100
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "td55382a1",
+   "npc": "nb79272b9",
+   "get": {
+    "item": "설탕",
+    "qty": 2
+   },
+   "give": {
+    "item": "일반 붕대",
+    "qty": 100
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  },
+  {
+   "id": "ta9a47f1a",
+   "npc": "nb79272b9",
+   "get": {
+    "item": "양배추",
+    "qty": 2
+   },
+   "give": {
+    "item": "회복 물약",
+    "qty": 100
+   },
+   "limit": {
+    "count": 1,
+    "per": "day",
+    "scope": "character"
+   }
+  }
+ ]
+}

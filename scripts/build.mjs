@@ -4,6 +4,7 @@ import { validate } from './validate.mjs';
 import { planNotifications } from './discord-updates.mjs';
 import { checkRecipes, recipeViews, baseMaterials } from './recipes.mjs';
 import { buildCrafting } from './crafting.mjs';
+import { checkBarter, barterViews } from './barter.mjs';
 const deployTarget = JSON.parse(await readFile(new URL('../deploy/target.json', import.meta.url), 'utf8'));
 const botOrigin = `https://${deployTarget.domain}`;
 const data = JSON.parse(await readFile('content/portal.json', 'utf8'));
@@ -11,12 +12,15 @@ const assets = JSON.parse(await readFile('content/assets.json', 'utf8'));
 await validate(data, assets);
 const recipes = JSON.parse(await readFile('content/recipes.json', 'utf8'));
 checkRecipes(recipes, new Set(data.sources.map(s => s.id)));
+const barterSource = await readFile('content/barter.json', 'utf8');
+const barter = JSON.parse(barterSource);
+checkBarter(barter, recipes, new Set(data.sources.map(s => s.id)));
 const craftingSource = await readFile('content/crafting.json', 'utf8');
 const { crafting, examples: craftingExamples } = buildCrafting(recipes, data, JSON.parse(craftingSource));
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const e = escape;
 const sourceMap = Object.fromEntries(data.sources.map(s => [s.id, s]));
-const nav = [['/', 'ホーム', 'home'], ['/beginner/', '初心者ロードマップ', 'book'], ['/guides/', '攻略ガイド', 'compass'], ['/classes/', '職業図鑑', 'sword'], ['/database/', 'データベース', 'database'], ['/life/', '生活・ものづくり', 'leaf'], ['/gathering/', '採集図鑑', 'sprout'], ['/recipes/', '製作・加工の一覧', 'database'], ['/news/', '日本・海外ニュース', 'news'], ['/community/', '日韓のX情報', 'message'], ...(data.discord.enabled ? [['/discord/', 'Discordボット', 'message']] : []), ['/updates/', 'サイトの更新情報', 'clock']];
+const nav = [['/', 'ホーム', 'home'], ['/beginner/', '初心者ロードマップ', 'book'], ['/guides/', '攻略ガイド', 'compass'], ['/classes/', '職業図鑑', 'sword'], ['/database/', 'データベース', 'database'], ['/life/', '生活・ものづくり', 'leaf'], ['/gathering/', '採集図鑑', 'sprout'], ['/recipes/', '製作・加工の一覧', 'database'], ['/barter/', '物々交換の一覧', 'swap'], ['/news/', '日本・海外ニュース', 'news'], ['/community/', '日韓のX情報', 'message'], ...(data.discord.enabled ? [['/discord/', 'Discordボット', 'message']] : []), ['/updates/', 'サイトの更新情報', 'clock']];
 const paths = {
  home:'M3 10 12 3l9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z',
  book:'M12 6c-3-2-6-2-9-1v15c3-1 6-1 9 1m0-15c3-2 6-2 9-1v15c-3-1-6-1-9 1V6',
@@ -30,6 +34,7 @@ const paths = {
  search:'M19 19l-5-5m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0',
  external:'M14 3h7v7M21 3l-9 9M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5',
  clock:'M12 7v5l3 2m6-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0',
+ swap:'M4 8h15l-4-4M20 16H5l4 4',
  chevron:'m9 5 7 7-7 7', check:'m5 12 4 4 10-10', menu:'M4 6h16M4 12h16M4 18h16'
 };
 const icon = name => `<svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${paths[name]}"></path></svg>`;
@@ -75,7 +80,7 @@ function home() {
  return `<div class="home-hero"><div class="hero-copy"><span class="eyebrow">YOUR ADVENTURE IN ERIN</span><h1>エリンを、<br>もっと楽しむ。</h1><p>日本版を遊んで確かめた攻略。<br>韓国の先行情報も、日本語で。</p><a class="button light" href="/beginner/">初心者ロードマップ</a><span class="hero-note">マビノギモバイル 非公式攻略ポータル</span></div><div class="hero-art"><img src="/assets/pasture.webp" alt="青空の下、羊たちと過ごすエリンの草原。韓国公式イラスト" width="740" height="416" fetchpriority="high"><span>ILLUSTRATION : NEXON / devCAT</span></div></div>
  <div class="launch-strip">${badge('日本版 10月7日開始','blue')}<p>開始記念のプレゼント、毎日のボーナス、期限のあるイベントを日本公式の告知から整理しました。</p><a href="/guides/jp-launch-checklist/">スタートガイドを読む</a></div>
  <div class="notice-strip">${badge('韓国版の先行情報','green')}<p>攻略の仕様・解放条件は主に韓国版を参照。日本版との差分は、記事ごとの出典から確認できます。</p><a href="/about/">情報の読み方</a></div>
- <section>${sectionHeading('FIELD TESTED','日本版を遊んで確かめた事','/guides/','攻略ガイド一覧')}<div class="tested-grid">${data.articles.filter(a=>a.highlight).map(a=>`<a class="tested-card" href="${articleHref(a.id)}">${emblem(a.category,'small')}<span class="tested-label">${e(a.highlight.label)}</span><strong>${e(a.highlight.value)}</strong><h3>${e(a.highlight.title??a.title)}</h3><span class="tested-more">記事を読む ${icon('chevron')}</span></a>`).join('')}</div><a class="gather-banner" href="/gathering/">${emblem('生活','small')}<span><strong>採集図鑑</strong>8つの採集スキルと、実機で見た行き先${gatherTotal}件。要るレベルと道具を一覧で</span>${icon('chevron')}</a><a class="gather-banner" href="/recipes/">${emblem('装備・成長','small')}<span><strong>製作・加工の一覧</strong>加工6施設と、武器・防具・フード・ポーションなどの作り方${recipes.recipes.length}件。材料と個数を一覧で（韓国版の資料）</span>${icon('chevron')}</a>${data.discord.enabled?`<a class="gather-banner" href="/discord/">${emblem('初心者','small')}<span><strong>Discordボット</strong>「/材料」で、品物を作るのに集める材料をまとめて計算。攻略の更新もサーバーに届く</span>${icon('chevron')}</a>`:''}</section>
+ <section>${sectionHeading('FIELD TESTED','日本版を遊んで確かめた事','/guides/','攻略ガイド一覧')}<div class="tested-grid">${data.articles.filter(a=>a.highlight).map(a=>`<a class="tested-card" href="${articleHref(a.id)}">${emblem(a.category,'small')}<span class="tested-label">${e(a.highlight.label)}</span><strong>${e(a.highlight.value)}</strong><h3>${e(a.highlight.title??a.title)}</h3><span class="tested-more">記事を読む ${icon('chevron')}</span></a>`).join('')}</div><a class="gather-banner" href="/gathering/">${emblem('生活','small')}<span><strong>採集図鑑</strong>8つの採集スキルと、実機で見た行き先${gatherTotal}件。要るレベルと道具を一覧で</span>${icon('chevron')}</a><a class="gather-banner" href="/recipes/">${emblem('装備・成長','small')}<span><strong>製作・加工の一覧</strong>加工6施設と、武器・防具・フード・ポーションなどの作り方${recipes.recipes.length}件。材料と個数を一覧で（韓国版の資料）</span>${icon('chevron')}</a><a class="gather-banner" href="/barter/">${emblem('生活','small')}<span><strong>物々交換の一覧</strong>NPC${barterView.npcCount}人の交換${barterView.total}件と、回数の上限。加工の時間を減らせるおすすめの交換も（韓国版の資料）</span>${icon('chevron')}</a>${data.discord.enabled?`<a class="gather-banner" href="/discord/">${emblem('初心者','small')}<span><strong>Discordボット</strong>「/材料」で、品物を作るのに集める材料をまとめて計算。攻略の更新もサーバーに届く</span>${icon('chevron')}</a>`:''}</section>
  <section class="update-panel">${sectionHeading('WHAT&#39;S NEW','サイトの更新情報','/updates/','これまでの更新を見る')}<p class="update-date">最新の更新 <time datetime="${latest.date}">${dotted(latest.date)}</time></p><ul class="update-items">${latest.items.slice(0,4).map(updateItem).join('')}</ul>${latest.items.length>4?`<a class="text-link" href="/updates/#u-${latest.date}">この日の更新をすべて見る（全${latest.items.length}件）</a>`:''}</section>
  <section class="quick-links" aria-label="目的から探す">${[['/beginner/','book','まずはここから','初心者ロードマップ'],['/classes/','sword','自分に合う職業を','職業図鑑'],['/database/','database','条件・報酬を比較','データベース'],['/life/','leaf','もう一つの冒険','生活・ものづくり']].map(([url,ico,small,title])=>`<a href="${url}"><span class="quick-icon">${icon(ico)}</span><span><small>${small}</small><strong>${title}</strong></span></a>`).join('')}</section>
  <div class="home-columns"><section>${sectionHeading('START YOUR JOURNEY','はじめてのエリン','/beginner/','ロードマップを見る')}<a class="beginner-feature" href="/beginner/"><div>${badge('初心者ガイド','green')}<h3>何から始める？<br>進行順でわかる、最初の冒険。</h3><p>クエスト、装備、ダンジョン。<br>今の自分に必要なことを、ひとつずつ。</p><span class="button dark">進行ガイドを読む</span></div>${asset('tir-chonaill.webp','ティルコネイルの広場と風車')}</a><div class="mini-roadmap">${data.roadmap.slice(0,3).map(s=>`<a href="/beginner/#${s.id}"><span>${s.step}</span><div><strong>${e(s.stage)}</strong><small>${e(s.title)}</small></div></a>`).join('')}</div></section>
@@ -84,9 +89,10 @@ function home() {
  <section>${sectionHeading('ADVENTURE GUIDE','次に読みたい攻略','/guides/','攻略ガイド一覧')}<div class="article-grid">${['rune-basics','dungeon-basics','gem-guide'].map(id=>articleCard(data.articles.find(a=>a.id===id))).join('')}</div></section>
  <section class="life-banner">${asset('fishing.webp','川辺で釣りを楽しむ冒険者')}<div><span class="eyebrow">LIFE IN ERIN</span><h2>戦う日も、のんびりする日も。</h2><p>採集、製作、焚き火、マイホーム。<br>エリンでの暮らしを、自分のペースで。</p><a class="button dark" href="/life/">生活ガイドを読む</a></div></section>`;
 }
-const revision = createHash('sha256').update(JSON.stringify(data)).update(await readFile('public/style.css')).update(await readFile('public/app.js')).update(await readFile('scripts/build.mjs')).update(await readFile('scripts/discord-updates.mjs')).update(await readFile('content/recipes.json')).update(await readFile('scripts/recipes.mjs')).update(craftingSource).update(await readFile('scripts/crafting.mjs')).update(botOrigin).digest('hex').slice(0,12);
+const revision = createHash('sha256').update(JSON.stringify(data)).update(await readFile('public/style.css')).update(await readFile('public/app.js')).update(await readFile('scripts/build.mjs')).update(await readFile('scripts/discord-updates.mjs')).update(await readFile('content/recipes.json')).update(await readFile('scripts/recipes.mjs')).update(craftingSource).update(await readFile('scripts/crafting.mjs')).update(barterSource).update(await readFile('scripts/barter.mjs')).update(botOrigin).digest('hex').slice(0,12);
 await rm('dist',{recursive:true,force:true}); await mkdir('dist',{recursive:true}); await cp('public','dist',{recursive:true});
 const pages = new Map();
+const barterView = barterViews(barter, recipes, { e, badge, icon, emblem, sourceList });
 pages.set('/', {title:'ホーム',body:home()});
 function guideListing(life=false) {
  const rows=data.articles.filter(a=>!life||a.category==='生活');
@@ -145,6 +151,7 @@ const index = [
  ...data.database.map(r=>({kind:'データベース',title:r.name+' / '+r.korean,description:r.entry+' · '+r.reward,url:'/database/#'+r.id,text:Object.values(r).flat().join(' ')})),
  ...data.gathering.skills.map(k=>({kind:'採集図鑑',title:k.name+'の行き先と道具',description:'道具：'+k.tool+(k.destinations.length?' · '+k.destinations.map(d=>d.name+' Lv.'+d.level).join('、'):''),url:'/gathering/#skill-'+k.id,text:[k.name,k.tool,k.note??'',k.pending??'',...k.destinations.flatMap(d=>[d.name,d.place??''])].join(' ')})),
  ...recipeView.index,
+ ...barterView.index,
  ...data.glossary.map(g=>({kind:'韓国語の用語',title:g.japanese+' / '+g.korean,description:g.description,url:articleHref(g.article),text:g.japanese+' '+g.korean+' '+g.description})),
  ...data.news.map(n=>({kind:'ニュース',title:n.title,description:n.summary,url:'/news/#'+n.id,text:n.title+' '+n.summary+' '+n.points.join(' ')})),
  ...data.social.map(p=>({kind:'Xの情報',title:p.title,description:p.summary,url:'/community/#post-'+p.id,text:p.title+' '+p.summary+' '+p.region+' '+p.author}))
@@ -154,6 +161,7 @@ pages.set('/guides/',{title:'攻略ガイド',body:guideListing()});
 pages.set('/gathering/',{title:'採集図鑑',body:gatheringPage(),description:data.gathering.lead});
 pages.set('/life/',{title:'生活・ものづくり',body:guideListing(true)});
 for(const [route,page] of recipeView.pages)pages.set(route,page);
+pages.set('/barter/',barterView.page);
 pages.set('/classes/',{title:'職業図鑑',body:classes()});
 pages.set('/database/',{title:'データベース',body:database()});
 pages.set('/news/',{title:'日本・海外ニュース',body:newsPage()});
@@ -166,7 +174,7 @@ pages.set('/search/',{title:'攻略を検索',body:pageHeading('SEARCH THE FIELD
 for(const a of data.articles)pages.set(articleHref(a.id),{title:a.title,body:articlePage(a),description:a.description});
 for(const f of data.families)pages.set(`/classes/${f.id}/`,{title:f.title+'系統の職業',body:familyPage(f),description:f.description});
 await writeFile('dist/search-index.json',JSON.stringify(index));
-await mkdir('dist/data',{recursive:true});await writeFile('dist/data/recipes.json',JSON.stringify(recipes));await writeFile('dist/data/crafting.json',JSON.stringify(crafting));await writeFile('dist/data/crafting-examples.json',JSON.stringify(craftingExamples));
+await mkdir('dist/data',{recursive:true});await writeFile('dist/data/recipes.json',JSON.stringify(recipes));await writeFile('dist/data/barter.json',JSON.stringify(barterView.data));await writeFile('dist/data/crafting.json',JSON.stringify(crafting));await writeFile('dist/data/crafting-examples.json',JSON.stringify(craftingExamples));
 await writeFile('dist/discord-updates.json', JSON.stringify({ schemaVersion: 1, revision, latestDate: data.changelog[0].date, batches: planNotifications(data, [], botOrigin) }));
 await writeFile('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+[...pages.keys()].map(route=>`<url><loc>https://mabimoba.kitepon.dev${route}</loc><lastmod>${data.updatedAt}</lastmod></url>`).join('')+'</urlset>');
 await writeFile('dist/feed.xml',feed());
