@@ -51,13 +51,16 @@ test('同日の追記だけを全登録先へ送り、一部403でも他サー�
 
 test('日次要約は最初の通知だけに付け、同日の追記は追加分の件数を見出しにする', async t => {
   const { service, posted } = await setup(t);
-  const day = portal.changelog[0];
-  const first = structuredClone(portal);
+  // 最新日が1項目だけの日もあるので、追記を確かめる項目を足した写しで試す。
+  const full = structuredClone(portal);
+  const day = full.changelog[0];
+  if (day.items.length < 2) day.items.push({ type: 'ニュース', text: '試験用の追記', url: '/news/' });
+  const first = structuredClone(full);
   first.changelog[0].items = day.items.slice(0, 1);
   const plan = data => ({ ...snapshot(), batches: planNotifications(data, [], origin) });
   await service.start('111', '222', plan(first));
   assert.equal(posted[0].payload.embeds[0].description, day.summary);
-  const result = await service.dispatch(snapshot());
+  const result = await service.dispatch(plan(full));
   assert.equal(result.results[0].messages.length, 1);
   const embed = posted[1].payload.embeds[0];
   assert.equal(embed.fields.length, day.items.length - 1);
