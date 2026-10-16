@@ -7,7 +7,10 @@ import { SubscriptionStore, DeliveryService, loadPublishedSnapshot } from '../bo
 import { planNotifications } from '../scripts/discord-updates.mjs';
 const portal = JSON.parse(await readFile(new URL('../content/portal.json', import.meta.url)));
 const origin = 'https://mabimoba.kitepon.dev';
-const snapshot = () => ({ schemaVersion: 1, revision: '123456789abc', latestDate: portal.changelog[0].date, batches: planNotifications(portal, [], origin) });
+// 最新日は1ページだけの形に揃える（1通は1ページなので、最新日のページ数で開始時の通数が変わる）。
+const fixture = structuredClone(portal);
+fixture.changelog[0].items = fixture.changelog[0].items.slice(0, 1);
+const snapshot = () => ({ schemaVersion: 2, revision: '123456789abc', latestDate: fixture.changelog[0].date, batches: planNotifications(fixture, [], origin) });
 async function setup(t, send) {
   const dir = await mkdtemp(join(tmpdir(), 'mabimoba-bot-'));
   t.after(() => rm(dir, { recursive: true, force: true }));
@@ -22,7 +25,7 @@ test('複数サーバーが独立に登録でき、初回は最新日のみ、�
   await service.start('111', '222', snapshot());
   await service.start('333', '444', snapshot());
   assert.deepEqual(posted.map(row => row.channel), ['222', '444']);
-  assert.ok(posted.every(row => row.payload.embeds[0].title.endsWith(portal.changelog[0].date)));
+  assert.ok(posted.every(row => row.payload.embeds[0].footer.text.includes(fixture.changelog[0].date)));
   assert.ok(posted.every(row => row.payload.enforce_nonce && row.payload.nonce.length <= 25));
   const result = await service.dispatch(snapshot());
   assert.ok(result.results.every(row => row.messages.length === 0));
@@ -36,7 +39,7 @@ test('同日の追記だけを全登録先へ送り、一部403でも他サー�
   await service.start('111', '222', snapshot()); await service.start('333', '444', snapshot());
   const changed = snapshot();
   const batch = structuredClone(changed.batches.at(-1));
-  batch.keys = ['2026-10-08:new']; batch.payload.embeds[0].fields = [{ name: 'ニュース', value: '追記' }];
+  batch.keys = ['2026-10-08:new']; batch.lines = ['**ニュース**　追記'];
   changed.batches.push(batch);
   const normal = api.send;
   api.send = async (channel, payload) => { if (channel === '222') throw Object.assign(new Error('forbidden'), { status: 403 }); return normal(channel, payload); };
@@ -44,30 +47,29 @@ test('同日の追記だけを全登録先へ送り、一部403でも他サー�
   assert.equal(result.ok, false);
   assert.equal(result.results[0].error, 'DISCORD_HTTP_403');
   assert.equal(result.results[1].messages.length, 1);
-  assert.equal(posted.at(-1).payload.embeds[0].fields.length, 1);
+  assert.equal(posted.at(-1).payload.embeds[0].description, '**ニュース**　追記');
   assert.equal(store.data.subscriptions['111'].pending, null);
   assert.equal(store.data.subscriptions['111'].seen.includes('2026-10-08:new'), false);
 });
 
-test('日次要約は最初の通知だけに付け、同日の追記は追加分の件数を見出しにする', async t => {
+test('同じページの更新の一部だけが未送信なら、残りの行だけを送る', async t => {
   const { service, posted } = await setup(t);
-  // 最新日が1項目だけの日もあるので、追記を確かめる項目を足した写しで試す。
   const full = structuredClone(portal);
-  const day = full.changelog[0];
-  if (day.items.length < 2) day.items.push({ type: 'ニュース', text: '試験用の追記', url: '/news/' });
+  full.changelog[0] = { date: portal.changelog[0].date, summary: '試験', items: [
+    { type: '記事の更新', text: '一つめ', url: '/guides/crafting/' },
+    { type: '記事の更新', text: '二つめ', url: '/guides/crafting/#section-7' }
+  ] };
   const first = structuredClone(full);
-  first.changelog[0].items = day.items.slice(0, 1);
+  first.changelog[0].items = full.changelog[0].items.slice(0, 1);
   const plan = data => ({ ...snapshot(), batches: planNotifications(data, [], origin) });
   await service.start('111', '222', plan(first));
-  assert.equal(posted[0].payload.embeds[0].description, day.summary);
+  assert.equal(posted[0].payload.embeds[0].description, '**記事の更新**　一つめ');
   const result = await service.dispatch(plan(full));
   assert.equal(result.results[0].messages.length, 1);
   const embed = posted[1].payload.embeds[0];
-  assert.equal(embed.fields.length, day.items.length - 1);
-  assert.match(embed.description, /^この日の追加分：/);
-  const counted = [...embed.description.matchAll(/ (\d+)件/g)].reduce((sum, row) => sum + Number(row[1]), 0);
-  assert.equal(counted, embed.fields.length);
-  assert.ok(!embed.description.includes(day.summary));
+  assert.equal(embed.description, '**記事の更新**　二つめ');
+  assert.match(embed.footer.text, /通知ID [0-9a-f]{16}$/);
+  assert.notEqual(embed.footer.text, posted[0].payload.embeds[0].footer.text);
 });
 
 test('通信結果不明はサーバーごとに保留し、再起動後も自動再送しない', async t => {

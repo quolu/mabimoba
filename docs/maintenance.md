@@ -113,12 +113,15 @@
 
 ### 共有用カード画像を作り直す
 
-XやDiscordでリンクを貼った時に出るカードは、全ページ共通で `public/assets/og-card.jpg`（1200×630）。2026-10-08にオーナーの指摘で設けた。元は `docs/og-card.html`。
+XやDiscordでリンクを貼った時に出るカード（1200×630）は、ページごとと、ニュースの1件ずつにある（2026-10-16、オーナーの指示）。ホームと404は共通のカード `public/assets/og-card.jpg`（元は `docs/og-card.html`）を使う。
 
-1. `docs/og-card.html` を直す。公式イラストには文字を重ねず、画像内のロゴと著作権表記が見える形を保つ。
-2. ヘッドレスのChromiumで `--window-size=1200,630 --force-device-scale-factor=1 --allow-file-access-from-files --virtual-time-budget=6000 --screenshot=<PNG> file://<リポジトリ>/docs/og-card.html` を撮る。
-3. `convert <PNG> -quality 90 -sampling-factor 4:4:4 -strip public/assets/og-card.jpg` で保存し、画像を開いて文字の折り返しを確かめる。
-4. 使うイラストを替えた時は `content/assets.json` の出典も直す。
+- 型は `scripts/cards.mjs`。左に分類の札・題名・説明、右に記事の挿絵（無い記事は分類の挿絵、職業は公式のキャラクター画像、一覧はナビの印）。題名は長さで字の大きさを変え、3行に収める。
+- 撮った絵は `public/assets/cards/<名前>.jpg`、撮った時の値のハッシュは `content/cards.json`。ビルドはページの題名・説明・挿絵のどれかが変わったのに撮り直していないと `CARDS_STALE` で止まる。
+- 撮り直しは `npm run cards`。手元の chrome-headless-shell（`~/.cache/ms-playwright/` か環境変数 `MABIMOBA_CHROME`）とImageMagickの `convert` を使い、変わったカードだけを撮る。使われなくなったカードは消す。字体（Noto Sans JP）は先に手元へ落としてから撮る。
+- 記事・ニュースを足した時や題名・説明を直した時は、`npm run cards` で撮った絵と `content/cards.json` を同じcommitに入れる。撮った後は何枚かを開いて、文字の折り返しと欠けを確かめる。
+- 公式イラストには文字を重ねず、画像内のロゴと著作権表記が見える形を保つ。キャラクター画像の下には著作権表記を入れる。
+
+共通のカードを作り直す時は、`docs/og-card.html` を直し、ヘッドレスのChromiumで `--window-size=1200,630 --force-device-scale-factor=1 --allow-file-access-from-files --virtual-time-budget=6000 --screenshot=<PNG> file://<リポジトリ>/docs/og-card.html` を撮って、`convert <PNG> -quality 90 -sampling-factor 4:4:4 -strip public/assets/og-card.jpg` で保存する。使うイラストを替えた時は `content/assets.json` の出典も直す。
 
 画像のURLには内容から作った `?v=` が付く。作り直すとURLが変わり、新しく貼られたリンクから新しい画像になる。共有先が以前のカードを覚えている間は、古い表示が残る。
 
@@ -182,10 +185,12 @@ Bot専用の依存パッケージは `bot/package.json` とlockfileで管理す�
 
 `npm run notify` はSSHでmain-serverのBotを呼ぶ。Botは公開先のhealthと更新データが同じビルドのものか確認し、各サーバーの未送信分を順に配信する。`npm run notify -- --dry-run` は内容と保留状況を表示し、送信・状態変更は行わない。呼出し元にトークンは不要。
 
-- 通知の正本は `changelog`。日付・種類・対象地域・更新内容・記事へのリンク・代表出典と資料基準日を載せる。出典の全件と確認日はリンク先の記事で読める。
-- 同日の追記も拾う。送信済み判定はAtomと同じ日付・`type`・`text`。本文を訂正すると新しい通知になり、URLや日次要約だけの訂正では再送しない。
-- 日次要約（`summary`）を見出しに付けるのは、そのサーバーへその日に最初に送る通知だけ。同じ日の2通目からは「この日の追加分：記事の更新 1件」の形で、その通知の項目を種類ごとに数えて出す。2026-10-09、追記のたびに同じ要約が先頭に出て、どの通知も同じ話に見えるとオーナーから指摘があり、`bot/core.mjs` の `pendingBatches` を直した。
-- Discordの文字数・項目数制限を超える日は項目の境目で分割する。メンションは許可しない。
+- 通知の正本は `changelog`。**1通は1ページ**（2026-10-16、オーナーの指示「ページごとに投稿して。今のは文字だらけで解りづらい」）。同じ日に同じページ（節の違いはまとめる）へ向いた項目は1通にまとめ、ニュースは1件ずつ別の通にする。
+- 1通の見出しはページの題名で、ページへのリンクとそのページのカードの絵を付ける。本文はそのページで変わった事の一覧（種類と更新内容）だけ。下の行に日付・対象地域・通知ID。出典はリンク先のページで読める。
+- 同日の追記も拾う。送信済み判定はAtomと同じ日付・`type`・`text`。本文を訂正すると新しい通知になり、URLや日次要約だけの訂正では再送しない。同じページの項目の一部だけが送信済みなら、残りの行だけで送る。
+- 日次要約（`summary`）はDiscordには載せない（サイトの更新情報とAtomには載る）。
+- 1項目が長すぎる時はビルドを止める。メンションは許可しない。
+- 公開データ `discord-updates.json` は schemaVersion 2（1通ごとに `page`・`keys`・`lines`）。形を変えた時は、サイトの公開の直後に `npm run discord:deploy` でBotも入れ替えてから `npm run notify` を流す。古いBotは新しい形を受け取らず、配信しないで止まる。
 - 配信結果はサーバーごとに成功・失敗、チャンネルID・メッセージIDを出力する。1件失敗しても他のサーバーの配信は続け、全体の終了コードは失敗にする。Discordの429はSDKが指定時間を待って処理する。
 - サイト公開とDiscord配信は別の結果として報告する。配信に失敗しても、公開済みのサイトを戻したり、`deploy` を流し直したりしない。
 

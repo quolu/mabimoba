@@ -25,26 +25,18 @@ export class SubscriptionStore {
   }
 }
 
-// 日次要約はその日の最初の通知だけに付ける。追記の通知へ同じ要約を付けると、毎回同じ書き出しになる。
-const followUpSummary = fields => {
-  const counts = new Map();
-  for (const field of fields) { const type = field.name.split(' · ')[0]; counts.set(type, (counts.get(type) ?? 0) + 1); }
-  return 'この日の追加分：' + [...counts].map(([type, count]) => `${type} ${count}件`).join('・');
-};
-
+// 1通は1ページ。同じページの更新の一部だけが未送信なら、残りの行だけで送り直す。
 export function pendingBatches(snapshot, seen) {
   const known = new Set(seen);
-  const started = new Set(snapshot.batches.filter(batch => batch.keys.some(key => known.has(key))).map(batch => batch.date));
   return snapshot.batches.flatMap(batch => {
     const indexes = batch.keys.flatMap((key, i) => known.has(key) ? [] : [i]);
     if (!indexes.length) return [];
     const keys = indexes.map(i => batch.keys[i]);
     const id = hash(keys.join('\n')).slice(0, 16);
     const embed = batch.payload.embeds[0];
-    const fields = indexes.map(i => embed.fields[i]);
     return [{ id, keys, payload: { ...batch.payload, embeds: [{ ...embed,
-      description: started.has(batch.date) ? followUpSummary(fields) : embed.description,
-      fields, footer: { text: embed.footer.text.replace(/通知ID [0-9a-f]+$/, `通知ID ${id}`) }
+      description: indexes.map(i => batch.lines[i]).join('\n'),
+      footer: { text: embed.footer.text.replace(/通知ID [0-9a-f]+$/, `通知ID ${id}`) }
     }] } }];
   });
 }
@@ -93,8 +85,7 @@ export class DeliveryService {
       const message = await this.api.get(sub.channelId, messageId);
       const expected = sub.pending.payload.embeds[0], actual = message.embeds?.[0];
       if (!actual || message.channel_id !== sub.channelId || actual.footer?.text !== expected.footer.text ||
-        ['title', 'description', 'url'].some(key => actual[key] !== expected[key]) ||
-        JSON.stringify(actual.fields?.map(({ name, value }) => ({ name, value }))) !== JSON.stringify(expected.fields)) throw new Error('DISCORD_CONFIRM_MISMATCH');
+        ['title', 'description', 'url'].some(key => actual[key] !== expected[key])) throw new Error('DISCORD_CONFIRM_MISMATCH');
       this.acknowledge(sub, sub.pending, message);
       return { guildId, messageId, mode: 'confirmed' };
     });
@@ -154,7 +145,7 @@ export async function loadPublishedSnapshot(origin, fetcher = fetch) {
     return response.json();
   };
   const [snapshot, health] = await Promise.all([get('/discord-updates.json'), get('/healthz')]);
-  if (snapshot.schemaVersion !== 1 || !/^[0-9a-f]{12}$/.test(snapshot.revision) || snapshot.revision !== health.revision || health.status !== 'ok' ||
-    !Array.isArray(snapshot.batches) || snapshot.batches.some(batch => !Array.isArray(batch.keys) || batch.keys.length !== batch.payload?.embeds?.[0]?.fields?.length)) throw new Error('DISCORD_PUBLIC_REVISION_MISMATCH');
+  if (snapshot.schemaVersion !== 2 || !/^[0-9a-f]{12}$/.test(snapshot.revision) || snapshot.revision !== health.revision || health.status !== 'ok' ||
+    !Array.isArray(snapshot.batches) || snapshot.batches.some(batch => !Array.isArray(batch.keys) || !Array.isArray(batch.lines) || batch.keys.length !== batch.lines.length || !batch.payload?.embeds?.[0])) throw new Error('DISCORD_PUBLIC_REVISION_MISMATCH');
   return snapshot;
 }

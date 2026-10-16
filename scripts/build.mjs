@@ -5,6 +5,7 @@ import { planNotifications } from './discord-updates.mjs';
 import { checkRecipes, recipeViews, baseMaterials } from './recipes.mjs';
 import { buildCrafting } from './crafting.mjs';
 import { checkBarter, barterViews } from './barter.mjs';
+import { cardName, cardHash, CARD_LEDGER } from './cards.mjs';
 const deployTarget = JSON.parse(await readFile(new URL('../deploy/target.json', import.meta.url), 'utf8'));
 const botOrigin = `https://${deployTarget.domain}`;
 const data = JSON.parse(await readFile('content/portal.json', 'utf8'));
@@ -65,12 +66,15 @@ const dotted = date => date.replaceAll('-','.');
 // X・Discord・LINEなどでリンクを貼った時のカード。画像を作り直した時だけURLの?v=が変わり、共有先の古い画像が入れ替わる。
 const shareImage = `${site}/assets/og-card.jpg?v=${createHash('sha256').update(await readFile('public/assets/og-card.jpg')).digest('hex').slice(0,8)}`;
 const shareImageAlt = 'マビモバ攻略ポータル。韓国の先行情報を、日本語で。草原で羊と過ごす公式イラスト';
+// ページごとのカード。撮ってあるカードはここへ入れ、無いページ（ホームと404）は共通のカードを使う。
+const pageCards = new Map();
+const shareImageFor = route => pageCards.get(route) ?? { url: shareImage, alt: shareImageAlt };
 const shareTitle = title => title==='ホーム'?'マビモバ攻略ポータル':title+' | マビモバ攻略ポータル';
 const updateTone = {'新しい記事':'blue','記事の更新':'green','データの更新':'green','Xの情報':'amber','サイトの改良':'navy'};
 const updateItem = i => `<li>${badge(i.type,updateTone[i.type]??'')}${i.url?`<a href="${e(i.url)}">${e(i.text)}</a>`:`<span>${e(i.text)}</span>`}</li>`;
 function layout(title,body,route='/',description='日本版を遊んで確かめた攻略と、韓国の先行情報を日本語で整理。初心者ロードマップ、採集図鑑、職業図鑑、ダンジョン・成長データ、生活ガイドと日韓のX情報。') {
  const active = nav.find(([url])=>url!=='/'&&route.startsWith(url))?.[0]??'/';
- return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${e(title==='ホーム'?'マビモバ攻略ポータル':title+' | マビモバ攻略ポータル')}</title><meta name="description" content="${e(description)}"><meta name="theme-color" content="#102c35"><link rel="canonical" href="https://mabimoba.kitepon.dev${route}"><meta property="og:site_name" content="マビモバ攻略ポータル"><meta property="og:locale" content="ja_JP"><meta property="og:type" content="website"><meta property="og:url" content="${site}${route}"><meta property="og:title" content="${e(shareTitle(title))}"><meta property="og:description" content="${e(description)}"><meta property="og:image" content="${shareImage}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${shareImageAlt}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${e(shareTitle(title))}"><meta name="twitter:description" content="${e(description)}"><meta name="twitter:image" content="${shareImage}"><meta name="twitter:image:alt" content="${shareImageAlt}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="alternate" type="application/atom+xml" title="${feedTitle}" href="/feed.xml"><link rel="stylesheet" href="/style.css?v=${revision}"><script src="/app.js?v=${revision}" defer></script></head><body>
+ return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${e(title==='ホーム'?'マビモバ攻略ポータル':title+' | マビモバ攻略ポータル')}</title><meta name="description" content="${e(description)}"><meta name="theme-color" content="#102c35"><link rel="canonical" href="https://mabimoba.kitepon.dev${route}"><meta property="og:site_name" content="マビモバ攻略ポータル"><meta property="og:locale" content="ja_JP"><meta property="og:type" content="website"><meta property="og:url" content="${site}${route}"><meta property="og:title" content="${e(shareTitle(title))}"><meta property="og:description" content="${e(description)}"><meta property="og:image" content="${shareImageFor(route).url}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${e(shareImageFor(route).alt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${e(shareTitle(title))}"><meta name="twitter:description" content="${e(description)}"><meta name="twitter:image" content="${shareImageFor(route).url}"><meta name="twitter:image:alt" content="${e(shareImageFor(route).alt)}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="alternate" type="application/atom+xml" title="${feedTitle}" href="/feed.xml"><link rel="stylesheet" href="/style.css?v=${revision}"><script src="/app.js?v=${revision}" defer></script></head><body>
  <a class="skip-link" href="#main">本文へ移動</a><aside class="sidebar" id="navigation"><a class="brand" href="/" aria-label="マビモバ攻略ポータル ホーム"><span class="brand-mark">${icon('compass')}</span><span><strong>マビモバ</strong><small>攻略ポータル</small></span></a><button class="nav-close" type="button" aria-label="メニューを閉じる">×</button><p class="nav-heading">エリンの冒険手帳</p><nav aria-label="メインナビゲーション">${nav.map(([url,label,ico])=>`<a href="${url}" ${active===url?'aria-current="page"':''}>${icon(ico)}<span>${label}</span></a>`).join('')}</nav><div class="sidebar-bottom"><a href="/about/">情報の読み方・出典</a><span>by <a href="https://kitepon.dev/">kitepon.dev</a></span><p>非公式ファンサイト</p></div></aside>
  <div class="app-shell"><header class="topbar"><button class="menu-button" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="navigation">${icon('menu')}</button><span class="topbar-label">MABINOGI MOBILE <span>FIELD GUIDE</span></span><a class="search-shortcut" href="/search/">${icon('search')}<span>攻略・職業・韓国語で検索</span><kbd>/</kbd></a><span class="header-region">日本語で読む海外攻略</span></header><main id="main" tabindex="-1">${body}</main><footer class="footer"><div><strong>マビモバ攻略ポータル</strong><p>日本版を遊んで確かめた事と、韓国の先行情報から。</p></div><div><a href="/about/">掲載方針・画像の出典</a><p>情報確認日 ${data.updatedAt} · <a href="/updates/">サイトの更新情報</a> · 日本語名は一部仮訳</p></div><p class="copyright">本サイトはNEXONおよびdevCATの公式サイトではありません。ゲーム・公式画像の権利は各権利者に帰属します。<br>© 2026 NEXON Co., Ltd. & devCAT CO., LTD. All Rights reserved. ／ 韓国公式素材 © NEXON Korea Corp. & devCAT CO., LTD.</p></footer></div></body></html>`;
 }
@@ -173,9 +177,34 @@ if(data.discord.enabled)pages.set('/discord/', { title: 'Discordボット', desc
 pages.set('/search/',{title:'攻略を検索',body:pageHeading('SEARCH THE FIELD GUIDE','攻略を検索','日本語・韓国語で、攻略記事、職業、条件・報酬、X情報をまとめて探せます。')+`<form class="search-form" action="/search/" method="get" role="search"><input type="search" class="search-input" id="site-search" name="q" placeholder="例：ルーン、深部、룬、アビス" aria-label="攻略・職業・用語を検索"><button class="button dark" type="submit">検索</button></form><div class="toolbar" data-search-examples>${['ルーン','アビス','釣り','日本版','룬','장궁병'].map(t=>`<a class="filter-chip" href="/search/?q=${encodeURIComponent(t)}">${t}</a>`).join('')}</div><p id="search-count" class="section-note" aria-live="polite">検索語を入力してください。</p><div id="search-results" class="search-results"></div><noscript><div class="info-box">検索にはJavaScriptが必要です。<a href="/guides/">攻略ガイド一覧</a>や<a href="/classes/">職業図鑑</a>から探せます。</div></noscript>`});
 for(const a of data.articles)pages.set(articleHref(a.id),{title:a.title,body:articlePage(a),description:a.description});
 for(const f of data.families)pages.set(`/classes/${f.id}/`,{title:f.title+'系統の職業',body:familyPage(f),description:f.description});
+// ページとニュースの1件ずつにカードを作る。値は撮る前に dist/cards.json へ出し、`npm run cards` が読む。
+const markSvg = name => `<g transform="translate(18 18) scale(2.5)" fill="none" stroke="#a5e5ce" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${paths[name]}"/></g>`;
+const tileSvg = category => `<rect width="96" height="96" rx="22" fill="#e4efeb"/>${emblems[category]}`;
+const cardSpecs = [];
+for (const [route, p] of pages) {
+ if (route === '/') continue;
+ const article = data.articles.find(a => articleHref(a.id) === route), family = data.families.find(f => `/classes/${f.id}/` === route);
+ const section = nav.filter(([url]) => url !== '/' && route.startsWith(url)).sort((a, b) => b[0].length - a[0].length)[0];
+ const kicker = article ? `攻略ガイド · ${article.category}` : family ? '職業図鑑' : section && section[0] !== route ? section[1] : 'マビノギモバイル';
+ const art = article?.image ? { image: article.image } : family ? { image: family.image, fit: 'portrait' } : article ? { svg: tileSvg(article.category) } : { svg: markSvg(section?.[2] ?? (route === '/search/' ? 'search' : 'book')) };
+ cardSpecs.push({ key: route, kicker, title: p.title, description: p.description ?? '', art });
+}
+for (const n of data.news) cardSpecs.push({ key: `/news/#${n.id}`, kicker: `ニュース · ${n.region ?? '韓国版'} · ${n.tag}`, title: n.title, description: n.summary, art: { svg: markSvg('news') } });
+const cardLedger = JSON.parse(await readFile(CARD_LEDGER, 'utf8').catch(error => { if (error.code === 'ENOENT') return '{}'; throw error; }));
+const cardUrls = new Map(), staleCards = [];
+for (const spec of cardSpecs) {
+ spec.name = cardName(spec.key); spec.hash = await cardHash(spec);
+ if (cardLedger[spec.name] !== spec.hash) { staleCards.push(spec.name); continue; }
+ const url = `${site}/assets/cards/${spec.name}.jpg?v=${spec.hash}`;
+ cardUrls.set(spec.key, url);
+ if (pages.has(spec.key)) pageCards.set(spec.key, { url, alt: `${spec.title}（マビモバ攻略ポータル）` });
+}
+if (new Set(cardSpecs.map(spec => spec.name)).size !== cardSpecs.length) throw new Error('CARD_NAME_DUPLICATE');
+await writeFile('dist/cards.json', JSON.stringify(cardSpecs));
+if (staleCards.length && process.env.MABIMOBA_CARDS_PENDING !== '1') throw new Error(`CARDS_STALE: カードを撮り直してください（npm run cards）: ${staleCards.slice(0, 8).join(', ')}${staleCards.length > 8 ? ` ほか${staleCards.length - 8}件` : ''}`);
 await writeFile('dist/search-index.json',JSON.stringify(index));
 await mkdir('dist/data',{recursive:true});await writeFile('dist/data/recipes.json',JSON.stringify(recipes));await writeFile('dist/data/barter.json',JSON.stringify(barterView.data));await writeFile('dist/data/crafting.json',JSON.stringify(crafting));await writeFile('dist/data/crafting-examples.json',JSON.stringify(craftingExamples));
-await writeFile('dist/discord-updates.json', JSON.stringify({ schemaVersion: 1, revision, latestDate: data.changelog[0].date, batches: planNotifications(data, [], botOrigin) }));
+await writeFile('dist/discord-updates.json', JSON.stringify({ schemaVersion: 2, revision, latestDate: data.changelog[0].date, batches: planNotifications(data, [], botOrigin, new Map([['/', { title: 'マビモバ攻略ポータル', image: shareImage }], ...cardSpecs.map(spec => [spec.key, { title: spec.title, image: cardUrls.get(spec.key) }])])) }));
 await writeFile('dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+[...pages.keys()].map(route=>`<url><loc>https://mabimoba.kitepon.dev${route}</loc><lastmod>${data.updatedAt}</lastmod></url>`).join('')+'</urlset>');
 await writeFile('dist/feed.xml',feed());
 await writeFile('dist/robots.txt','User-agent: *\nAllow: /\nSitemap: https://mabimoba.kitepon.dev/sitemap.xml\n');
