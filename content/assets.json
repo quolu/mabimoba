@@ -128,6 +128,370 @@
       "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
       "note": "公式イラスト「Day in the Pastures」を縮小して右側に置き、左側にサイト名と紹介文を添えた共有用の画像。イラストには文字を重ねず、画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
       "file": "og-card.jpg"
+    },
+    {
+      "name": "Erin Story 4",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/254fc3b5-1dec-41d8-b440-36d4ad6cdcc5/%EC%97%90%EB%A6%B0%EC%9D%B4%EC%95%BC%EA%B8%B04%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "丘の上から山と森の谷を見下ろす旅人。ステンドグラス風の韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "erin-story-4.webp"
+    },
+    {
+      "name": "Erin Story 2",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/65414a2f-b180-43ec-8750-6487f95139a8/%EC%97%90%EB%A6%B0%EC%9D%B4%EC%95%BC%EA%B8%B02%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "翼のある像と戦士たちを描いたステンドグラス風の韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "erin-story-2.webp"
+    },
+    {
+      "name": "Goddess Descends Chapter 1",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/912f9ad9-2350-4358-8d33-e20d9c392c87/%EC%97%AC%EC%8B%A0%EA%B0%95%EB%A6%BC1%EC%9E%A5%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "剣士や黒い翼の女性など、メインストーリーの登場人物が並ぶ韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "goddess-ch1.webp"
+    },
+    {
+      "name": "Nao and the Owl",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/9142ae32-c524-4316-8b7d-02e437beb162/%EB%82%98%EC%98%A4%EC%99%80%EB%B6%80%EC%97%89%EC%9D%B4%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "空の上でフクロウを腕にとまらせるナオ。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "nao-owl.webp"
+    },
+    {
+      "name": "Erin Story 1",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/accec930-5623-493b-a434-8f3e327fa23a/%EC%97%90%EB%A6%B0%EC%9D%B4%EC%95%BC%EA%B8%B01%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "城と町を背に光を放つ女神。ステンドグラス風の韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "erin-story-1.webp"
+    },
+    {
+      "name": "Classes",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/d0ac775e-0b77-4513-a837-42ca92d1a4f3/%ED%81%B4%EB%9E%98%EC%8A%A4%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "空を飛ぶように並ぶ、いろいろなクラスの冒険者。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "classes-sky.webp"
+    },
+    {
+      "name": "Encounter with Glas Ghaibhleann",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/efbf5f7b-dc6d-43d8-9071-6b7c1fb80da1/%EA%B8%80%EB%9D%BC%EC%8A%A4%EA%B8%B0%EB%B8%8C%EB%84%A8%EA%B3%BC%EC%9D%98%EC%A1%B0%EC%9A%B0%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "巨大な敵グラスギブネンと戦う冒険者たち。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "glas-encounter.webp"
+    },
+    {
+      "name": "Festival in Dunbarton",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/f83403c4-7636-4b6a-a8d8-1bd1970e3b32/%EB%8D%98%EB%B0%94%ED%8A%BC%EC%97%90%EC%84%9C%EC%9D%98%EC%B6%95%EC%A0%9C%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "旗が飾られたダンバートンの通りと、お祭りでにぎわう人々。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "dunbarton-festival.webp"
+    },
+    {
+      "name": "Erin Story 3",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250801/ffad2ccb-a859-4474-8542-d307180b728a/%EC%97%90%EB%A6%B0%EC%9D%B4%EC%95%BC%EA%B8%B03%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/en/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "騎士・魔法使い・弓使いを描いたステンドグラス風の韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "erin-story-3.webp"
+    },
+    {
+      "name": "신규 클래스 기사（新クラスの紹介動画のサムネイル）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260422/cf67acc1-aa65-4723-954a-a32c2f35e2d2/%EC%8B%A0%EA%B7%9C%ED%81%B4%EB%9E%98%EC%8A%A4%EA%B8%B0%EC%82%AC%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EC%9A%A9%EC%8D%B8%EB%84%A4%EC%9D%BC.jpg",
+      "dimensions": [
+        845,
+        480
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Video",
+      "note": "韓国公式サイトのメディア（動画のサムネイル）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "旗の下に並ぶ鎧の騎士たち。韓国公式動画のサムネイル",
+      "caption": "韓国公式サイトの動画のサムネイル（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "class-banners.webp"
+    },
+    {
+      "name": "암흑술사（暗黒術士の紹介動画のサムネイル）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251015/2a4aab29-fe92-4da0-8b04-01683379c00b/%EC%95%94%ED%9D%91%EC%88%A0%EC%82%AC%EC%98%81%EC%83%81%EC%8D%B8%EB%84%A4%EC%9D%BC.jpg",
+      "dimensions": [
+        845,
+        480
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Video",
+      "note": "韓国公式サイトのメディア（動画のサムネイル）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "開いた本の上で魔法を使うフードの魔法使い。韓国公式動画のサムネイル",
+      "caption": "韓国公式サイトの動画のサムネイル（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "dark-mage.webp"
+    },
+    {
+      "name": "화이트 서큐버스 레이드 PV（ホワイトサキュバスのレイド動画のサムネイル）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250623/85fc268f-92ab-44a3-b401-9f835bf20fe5/25061901%ED%99%94%EC%9D%B4%ED%8A%B8%EC%84%9C%ED%81%90%EB%B2%84%EC%8A%A4%EB%A0%88%EC%9D%B4%EB%93%9CPV.png",
+      "dimensions": [
+        854,
+        480
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Video",
+      "note": "韓国公式サイトのメディア（動画のサムネイル）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "白い髪のサキュバス。韓国公式のレイド動画のサムネイル（英字の題名入り）",
+      "caption": "韓国公式サイトの動画のサムネイル（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "succubus-raid.webp"
+    },
+    {
+      "name": "전격술사 PV（電撃術士の紹介動画のサムネイル）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250618/0a3250b5-b117-4f54-a7b5-373a01d2cb1d/25061301%EC%A0%84%EA%B2%A9%EC%88%A0%EC%82%ACPV.png",
+      "dimensions": [
+        854,
+        480
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Video",
+      "note": "韓国公式サイトのメディア（動画のサムネイル）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "青い稲妻の杖を持つ魔法使い。韓国公式動画のサムネイル",
+      "caption": "韓国公式サイトの動画のサムネイル（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "lightning-mage.webp"
+    },
+    {
+      "name": "도적 PV（盗賊の紹介動画のサムネイル）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250423/d35c2dd8-60e1-483a-99e7-4bc051ffe9b7/25042401%EB%8F%84%EC%A0%81PV.png",
+      "dimensions": [
+        854,
+        480
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Video",
+      "note": "韓国公式サイトのメディア（動画のサムネイル）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "並んで構える冒険者たち。韓国公式動画のサムネイル",
+      "caption": "韓国公式サイトの動画のサムネイル（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "heroes.webp"
+    },
+    {
+      "name": "OST 영상（サウンドトラック動画のサムネイル）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250326/3d82d2c6-8f0c-4a3f-a0b6-ab5f82be7a67/25032702OST%EC%98%81%EC%83%81.png",
+      "dimensions": [
+        854,
+        480
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Video",
+      "note": "韓国公式サイトのメディア（動画のサムネイル）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "星空の下で並んで立つ冒険者と動物たち。韓国公式動画のサムネイル",
+      "caption": "韓国公式サイトの動画のサムネイル（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "grand-launching.webp"
+    },
+    {
+      "name": "세계관 영상（世界観の紹介動画のサムネイル）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250205/85683d52-853c-4191-b872-fe543357e9a5/10%EC%84%B8%EA%B3%84%EA%B4%80%EC%98%81%EC%83%81.png",
+      "dimensions": [
+        854,
+        480
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Video",
+      "note": "韓国公式サイトのメディア（動画のサムネイル）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "赤い光の中に浮かぶ翼の影。韓国公式動画のサムネイル",
+      "caption": "韓国公式サイトの動画のサムネイル（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "red-silhouette.webp"
+    },
+    {
+      "name": "공식 홈페이지 미디어 이미지（ハロウィンの夜）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20261015/3c3fbff5-0e23-4754-b77c-ff89302f621e/1%EA%B3%B5%EC%8B%9D%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EB%AF%B8%EB%94%94%EC%96%B4%EC%8D%B8%EB%84%A4%EC%9D%BC740x416.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "月夜の町でハロウィンの仮装をした冒険者たち。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "halloween-night.webp"
+    },
+    {
+      "name": "공식 홈페이지 미디어 이미지（ランタンの夜）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260916/1f1d9dc3-f2de-40c5-8bae-01b05330d907/1%EA%B3%B5%EC%8B%9D%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EB%AF%B8%EB%94%94%EC%96%B4%EC%8D%B8%EB%84%A4%EC%9D%BC740x416.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "ランタンを手に夜の町を歩く冒険者たち。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "lantern-night.webp"
+    },
+    {
+      "name": "공식 홈페이지 미디어 이미지（ネコと遊ぶ）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260722/6392c4da-e30a-430a-87c3-9cb4e9246381/%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "草むらでネコたちに囲まれる魔法使い。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "chibi-cats.webp"
+    },
+    {
+      "name": "공식 홈페이지 미디어 이미지（海辺の桟橋）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260715/b504d592-e7b4-4fc6-883b-fc10f10d473a/1%EA%B3%B5%EC%8B%9D%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EB%AF%B8%EB%94%94%EC%96%B4%EC%8D%B8%EB%84%A4%EC%9D%BC740x416.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "晴れた海辺の桟橋に立つ白いワンピースの人物。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "sea-pier.webp"
+    },
+    {
+      "name": "공식 홈페이지 미디어 이미지（荒野の戦い）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260624/93af7269-a50c-4e9e-86db-9f4270e0648d/%EC%8D%B8%EB%84%A4%EC%9D%BC20.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "荒野で巨大な魔物に挑む冒険者たち。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "desert-battle.webp"
+    },
+    {
+      "name": "공식 홈페이지 미디어 이미지（ピクニック）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260429/119e05a2-ede1-4b4c-8555-4bb61e14ba0b/1%EA%B3%B5%EC%8B%9D%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EB%AF%B8%EB%94%94%EC%96%B4%EC%8D%B8%EB%84%A4%EC%9D%BC740x416.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "花畑で料理を広げてくつろぐ冒険者たち。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "picnic.webp"
+    },
+    {
+      "name": "공식 홈페이지 미디어 이미지（ダンジョンの戦い）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260422/3b6ea4b2-e4c6-4698-a907-08c3235a68e4/%EC%9D%B4%EB%AF%B8%EC%A7%801%EA%B3%B5%EC%8B%9D%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EB%AF%B8%EB%94%94%EC%96%B4%EC%8D%B8%EB%84%A4%EC%9D%BC740x4162.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "獅子の盾を構えて魔物の群れと戦う冒険者たち。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "lion-shield.webp"
+    },
+    {
+      "name": "함께하는 우리（いっしょにいる私たち）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260326/16770b60-8967-4340-b7a5-8b46530258d9/%EB%AF%B8%EB%94%94%EC%96%B4%ED%95%A8%EA%BB%98%ED%95%98%EB%8A%94%EC%9A%B0%EB%A6%AC%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "ケーキと花束を囲んで集まる町の人々。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "together.webp"
+    },
+    {
+      "name": "함께 맞는 새 아침（いっしょに迎える新しい朝）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260210/1d614e1b-7ab8-4bcf-bd82-41464c0efc4f/9%EA%B3%B5%EC%8B%9D%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EB%AF%B8%EB%94%94%EC%96%B4%EC%9D%B4%EB%AF%B8%EC%A7%80%ED%95%A8%EA%BB%98%EB%A7%9E%EB%8A%94%EC%83%88%EC%95%84%EC%B9%A8%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "海に昇る朝日を見る冒険者たち。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "new-morning.webp"
+    },
+    {
+      "name": "공식 홈페이지 미디어 이미지（月と風の精霊）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260114/49890847-c799-4cb2-8a87-93cf97edae2a/%EC%8D%B8%EB%84%A4%EC%9D%BC16.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "満月の夜、風の中に浮かぶ精霊エイレル。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "eirel-moon.webp"
+    },
+    {
+      "name": "공식 홈페이지 미디어 이미지（空に昇るランタン）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251229/9247cadf-cbda-4149-90bd-c67f8d63f39d/11%EA%B3%B5%EC%8B%9D%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EB%AF%B8%EB%94%94%EC%96%B4%EC%8D%B8%EB%84%A4%EC%9D%BC15.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "夜空に昇るたくさんのランタンを見上げる人々。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "sky-lanterns.webp"
+    },
+    {
+      "name": "여신강림 4장（女神降臨 第4章）",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251217/7f3db534-a3e5-4dca-9b9b-6c6d149ad584/9%EA%B3%B5%EC%8B%9D%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EB%AF%B8%EB%94%94%EC%96%B4%EC%9D%B4%EB%AF%B8%EC%A7%80%EC%97%AC%EC%8B%A0%EA%B0%95%EB%A6%BC4%EC%9E%A5%EC%8D%B8%EB%84%A4%EC%9D%BC.png",
+      "dimensions": [
+        740,
+        416
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.com/Media/Image",
+      "note": "韓国公式サイトのメディア（イメージ）の画像。画像内のロゴと著作権表記を残している。権利者はNEXON Korea Corp. / devCAT Corp.",
+      "alt": "黒い翼を広げた女性の影と、身構える冒険者たち。韓国公式イラスト",
+      "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
+      "file": "goddess-ch4.webp"
     }
   ],
   "rightsObserved": "公式フッターにAll Rights reserved表記あり。画像の再配布・加工・ファンサイト利用を明示許可する素材利用規定は今回の確認範囲では未確認。"

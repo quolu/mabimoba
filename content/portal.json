@@ -1,8 +1,34 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-16",
+  "updatedAt": "2026-10-17",
   "region": "韓国版",
   "changelog": [
+    {
+      "date": "2026-10-17",
+      "summary": "ダンジョンと狩り場の推奨レベルの一覧を作った。記事と一覧のページに公式イラストを入れ、製作・加工の一覧の品物に絵を付けた",
+      "items": [
+        {
+          "type": "データの更新",
+          "text": "ダンジョンの推奨レベル：日本版の6つのダンジョンと深部ダンジョンを、階と難易度ごとの推奨レベルで一覧に。レベルを動かすと、合う所が光る",
+          "url": "/dungeons/"
+        },
+        {
+          "type": "データの更新",
+          "text": "狩り場の推奨レベル：オオカミの森・女神の庭・氷の峡谷の推奨レベル、フィールドボス、日本版で見た敵と採れる物",
+          "url": "/hunting-grounds/"
+        },
+        {
+          "type": "サイトの改良",
+          "text": "攻略ガイドの全部の記事と、一覧のページに公式イラストを入れた",
+          "url": "/guides/"
+        },
+        {
+          "type": "サイトの改良",
+          "text": "製作・加工の一覧の品物に、種類ごとの絵を付けた。等級は地の色、S・SSは星で見分けられる",
+          "url": "/recipes/"
+        }
+      ]
+    },
     {
       "date": "2026-10-16",
       "summary": "日本版のハロウィンのログインプレゼント（10月16日〜18日）をニュースに載せた。ページごとに共有用のカードを作った",
@@ -2128,6 +2154,36 @@
       "region": "日本",
       "checkedAt": "2026-10-16",
       "asOf": "2026-10-15"
+    },
+    {
+      "id": "namu-dungeon",
+      "title": "마비노기 모바일/던전（ナムウィキ。ダンジョンごとの推奨レベルの表）",
+      "url": "https://namu.wiki/w/%EB%A7%88%EB%B9%84%EB%85%B8%EA%B8%B0%20%EB%AA%A8%EB%B0%94%EC%9D%BC/%EB%8D%98%EC%A0%84",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-16",
+      "asOf": "2026-10-05"
+    },
+    {
+      "id": "namu-hunting",
+      "title": "마비노기 모바일/사냥터（ナムウィキ。狩り場ごとの推奨レベルとエリア）",
+      "url": "https://namu.wiki/w/%EB%A7%88%EB%B9%84%EB%85%B8%EA%B8%B0%20%EB%AA%A8%EB%B0%94%EC%9D%BC/%EC%82%AC%EB%83%A5%ED%84%B0",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-16",
+      "asOf": "2026-09-22"
+    },
+    {
+      "id": "inven-dungeon-levels",
+      "title": "모비노기 던전 종류별 입장 레벨（韓国Invenの掲示板投稿）",
+      "url": "https://www.inven.co.kr/board/mabimo/6366/164",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-16",
+      "asOf": "2025-04-23"
     }
   ],
   "articles": [
@@ -2295,7 +2351,7 @@
         "first-steps",
         "my-home"
       ],
-      "image": null,
+      "image": "chibi-cats.webp",
       "checkedAt": "2026-10-14",
       "region": "日本版",
       "readingMinutes": 6
@@ -2321,7 +2377,7 @@
         "first-steps",
         "jp-launch-checklist"
       ],
-      "image": null,
+      "image": "erin-story-4.webp",
       "checkedAt": "2026-10-12",
       "region": "日本版",
       "readingMinutes": 4,
@@ -2503,7 +2559,6 @@
             "日本版の実機で10月12日に確かめた内容。森の狩り場で開くと、上の切り替えは[設備]だけだった。並んだ札は、金属加工、革加工、木材加工、調理台などの作る設備で、「鍛冶屋」は無かった。キャラクターが立ち止まっていて、乗り物に乗っていない時でも同じだった。",
             "[一般フィールド]の採集場所には札があり、狩り場には無い、と見られる。見たのは下の4か所で、決まりとして確かめた物ではない。日本公式ゲームガイドの「クイックナビゲーター」にも、場所で中身が変わる決まりは書かれていない。",
             "札の並びも、場所で違った。羊の場所では「鍛冶屋」が左の列の2つめ、畑の場所では右の列の1つめだった。",
-            "10月12日の15時にこの記事を公開した時は、最初に開いた場所を「狩り場」と書いていた。正しくは羊の採集の場所で、同じ日の夕方に直した。",
             "狩り場から修理に戻る時は、マップで町の鍛冶屋のNPCを選んで[ここに移動]を押す手がある。"
           ],
           "link": {
@@ -2605,7 +2660,7 @@
         "dungeon-basics",
         "water-bottle"
       ],
-      "image": null,
+      "image": "nao-owl.webp",
       "checkedAt": "2026-10-12",
       "region": "日本版",
       "readingMinutes": 5,
@@ -2826,7 +2881,7 @@
         "jp-launch-checklist",
         "dungeon-basics"
       ],
-      "image": null,
+      "image": "sky-lanterns.webp",
       "checkedAt": "2026-10-14",
       "region": "日本版",
       "readingMinutes": 5,
@@ -3125,7 +3180,7 @@
         "dungeon-basics",
         "life-tools"
       ],
-      "image": null,
+      "image": "grand-launching.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -3169,7 +3224,7 @@
         "rune-presets",
         "gem-guide"
       ],
-      "image": null,
+      "image": "erin-story-2.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -3211,7 +3266,7 @@
         "rune-basics",
         "equipment-conversion"
       ],
-      "image": null,
+      "image": "dark-mage.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -3254,7 +3309,7 @@
         "equipment-appraisal",
         "auto-setup"
       ],
-      "image": null,
+      "image": "erin-story-3.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -3297,7 +3352,7 @@
         "rune-basics",
         "gem-guide"
       ],
-      "image": null,
+      "image": "class-banners.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -3344,7 +3399,7 @@
         {
           "title": "韓国版の資料と違うところ",
           "paragraphs": [
-            "この記事は10月7日の公開時、韓国公式ガイドをもとに仮訳で書いていた。10月9日に日本公式ゲームガイドと照らし合わせて、日本版の内容に書き直した。仮訳の「魔族の印」は「魔族の証」、「深層ダンジョン」は「深部ダンジョン」が日本版の名称。",
+            "韓国版の資料を訳すと「魔族の印」「深層ダンジョン」になる物は、日本版では「魔族の証」「深部ダンジョン」と呼ぶ。",
             "途中でやめた時のシルバーコイン：韓国公式ガイドは、進み具合に関係なく入場に使った分が全部戻る、と書いている。日本公式ゲームガイドは「進行度に応じて一定量」。日本版では全部は戻らない前提で考える。",
             "深部ダンジョンの難易度：韓国公式ガイドは[HARD]と[VERY HARD]にあたる2つを挙げている。日本公式ゲームガイドに書かれているのは[HARD]だけ。日本版にVERY HARDがあるかは、このガイドからは分からない。実機で見たアルビの深部の入場の画面は、札が HARD の1つだけだった（下の節）。",
             "入口の開け方：韓国公式ガイドは、ダンジョンにはクエストの進行中に入ることになり、[マップ]でダンジョンの入口を選んでも入れる、と説明している。日本公式ゲームガイドの「ダンジョン」「深部ダンジョン」には、この説明が無い。"
@@ -3472,7 +3527,7 @@
         "quest-blocked",
         "ghost-tower"
       ],
-      "image": null,
+      "image": "lion-shield.webp",
       "checkedAt": "2026-10-12",
       "region": "日本版",
       "readingMinutes": 4,
@@ -3591,7 +3646,6 @@
         {
           "title": "韓国版の資料と違うところ",
           "paragraphs": [
-            "この記事は10月7日の公開時、日本版にまだアビスが無かったので、韓国公式ガイドをもとに書いていた。10月14日に日本版へ追加されたので、日本公式ゲームガイドの内容に書き直した。",
             "解放の条件：韓国公式ガイドは Lv.100 と、クエスト「깊은 바다의 심연으로」（深い海の深淵へ・仮訳）。日本版は Lv.65 と「深き闇の彼方へ」。",
             "難易度：韓国公式ガイドは入門・難しい・非常に難しい・地獄の段階で、次の難度を開くには11分のタイムアタックが要る。日本公式ゲームガイドは EASY・HARD・VERY HARD の3つで、前の段階のタイムアタックに関係なく解放される。",
             "入場の条件：韓国公式ガイドは、戦闘力と魔導抵抗の条件があり、パーティーリーダーが条件を満たす必要がある、と書いている。日本公式ゲームガイドには、この条件が書かれていない。報酬箱を買うと残りの報酬回数を使う、という韓国公式ガイドの説明も、日本のガイドには無い。"
@@ -3623,7 +3677,7 @@
         "dungeon-basics",
         "time-table"
       ],
-      "image": null,
+      "image": "goddess-ch4.webp",
       "checkedAt": "2026-10-14",
       "region": "日本版",
       "readingMinutes": 4,
@@ -3655,7 +3709,7 @@
         "time-table",
         "titles"
       ],
-      "image": null,
+      "image": "red-silhouette.webp",
       "checkedAt": "2026-10-14",
       "region": "日本版",
       "readingMinutes": 4,
@@ -3818,7 +3872,7 @@
         "combat-counter",
         "ghost-tower"
       ],
-      "image": null,
+      "image": "eirel-moon.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -3860,7 +3914,7 @@
         "dungeon-basics",
         "raid-guide"
       ],
-      "image": null,
+      "image": "desert-battle.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -4026,7 +4080,7 @@
         "rune-basics",
         "dungeon-basics"
       ],
-      "image": null,
+      "image": "succubus-raid.webp",
       "checkedAt": "2026-10-12",
       "region": "日本版",
       "readingMinutes": 6,
@@ -4223,7 +4277,7 @@
         "dungeon-basics",
         "first-steps"
       ],
-      "image": null,
+      "image": "goddess-ch1.webp",
       "checkedAt": "2026-10-09",
       "region": "日本版",
       "readingMinutes": 5,
@@ -4265,7 +4319,7 @@
         "quest-blocked",
         "level-42-gate"
       ],
-      "image": null,
+      "image": "heroes.webp",
       "checkedAt": "2026-10-12",
       "region": "日本版",
       "readingMinutes": 6,
@@ -4672,7 +4726,7 @@
         "dungeon-basics",
         "succubus-quest"
       ],
-      "image": null,
+      "image": "new-morning.webp",
       "checkedAt": "2026-10-09",
       "region": "日本版",
       "readingMinutes": 4,
@@ -4709,7 +4763,7 @@
         "life-tools",
         "water-bottle"
       ],
-      "image": null,
+      "image": "dunbarton-festival.webp",
       "checkedAt": "2026-10-15",
       "region": "韓国版",
       "readingMinutes": 6,
@@ -5114,7 +5168,7 @@
         "crafting",
         "first-steps"
       ],
-      "image": null,
+      "image": "sea-pier.webp",
       "checkedAt": "2026-10-14",
       "region": "日本版",
       "readingMinutes": 5,
@@ -5443,7 +5497,7 @@
         "campfire-life",
         "quick-navigator"
       ],
-      "image": null,
+      "image": "pasture.webp",
       "checkedAt": "2026-10-12",
       "region": "日本版",
       "readingMinutes": 4,
@@ -5480,7 +5534,7 @@
         "quest-blocked",
         "campfire-life"
       ],
-      "image": null,
+      "image": "lantern-night.webp",
       "checkedAt": "2026-10-15",
       "region": "日本版",
       "readingMinutes": 6,
@@ -5749,8 +5803,6 @@
           "title": "韓国公式ガイドとの違い",
           "basis": "韓国版の資料",
           "paragraphs": [
-            "この記事は10月7日の公開時、韓国公式ガイドをもとに仮訳で書いていた。10月12日に日本公式ゲームガイドと照らし合わせて、日本版の内容に書き直した。",
-            "足りない材料をクエストにするボタンは、仮訳で「クエスト作成」と書いていた。日本公式ゲームガイドの表記は[クエストに追加]。",
             "韓国公式ガイドは、材料の期限が切れて連続製作が止まった時、まだ試していない分の材料が戻る、と書いている。日本公式ゲームガイドの「製作」には、材料の期限の話が無い。",
             "韓国公式ガイドは、製作法を完成品や材料の名前で検索できる、と書いている。日本公式ゲームガイドには、検索の説明が無い。"
           ]
@@ -5884,7 +5936,7 @@
         {
           "title": "この記事の元と、まだ確かめていないこと",
           "paragraphs": [
-            "この記事は10月7日の公開時、韓国公式ガイドをもとに「焚き火でできること」の題で書いていた。10月13日に日本公式ゲームガイドと照らし合わせて、日本版の内容に書き直した。日本版の呼び方は「キャンプファイア」。使えるようになるクエストの名前と、訪問設定の3つの選択肢は、日本公式ゲームガイドで分かった。"
+            "日本版の呼び方は「キャンプファイア」（韓国版の資料を訳すと「焚き火」）。使えるようになるクエストの名前と、訪問設定の3つの選択肢は、日本公式ゲームガイドによる。"
           ],
           "unknown": [
             "座っている間に回復する量と速さ",
@@ -5904,7 +5956,7 @@
         "rune-basics",
         "crafting"
       ],
-      "image": null,
+      "image": "picnic.webp",
       "checkedAt": "2026-10-13",
       "region": "日本版",
       "readingMinutes": 3
@@ -5957,7 +6009,7 @@
           "title": "釣り竿の手入れと、まだ分からないこと",
           "paragraphs": [
             "生活道具は使うと耐久度が減る。減った道具は、鍛冶師のNPCに話しかけて[修理]を選ぶと直せる。日本公式ゲームガイドの「生活道具」には、生活道具の修理は失敗しない、とある。性能の高い生活道具は製作で手に入る。",
-            "この記事は10月7日の公開時、韓国のプレイヤー投稿（2025年3月）と韓国公式ガイドをもとに書いていた。10月10日に日本公式ゲームガイドと照らし合わせて、日本版の内容に書き直した。韓国の投稿は、釣り竿とエサを同じNPCから買うと紹介していた。日本公式ゲームガイドは、どちらも雑貨屋で買えると書いている。",
+            "韓国のプレイヤー投稿（2025年3月）は、釣り竿とエサを同じNPCから買うと紹介していた。日本公式ゲームガイドは、どちらも雑貨屋で買えると書いている。",
             "釣り場ごとに釣れる魚、モードごとの待ち時間、エサの種類と値段は、日本公式ゲームガイドに書かれていない。確かめられる資料がそろってから載せる。"
           ]
         }
@@ -6012,7 +6064,7 @@
         "crafting",
         "campfire-life"
       ],
-      "image": null,
+      "image": "together.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -6053,7 +6105,7 @@
         "gem-guide",
         "enhancement"
       ],
-      "image": null,
+      "image": "classes-sky.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -6095,7 +6147,7 @@
         "rune-basics",
         "gem-guide"
       ],
-      "image": null,
+      "image": "lightning-mage.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -6136,7 +6188,7 @@
         "gem-guide",
         "enhancement"
       ],
-      "image": null,
+      "image": "erin-story-1.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 3
@@ -6171,7 +6223,7 @@
         "raid-guide",
         "combat-counter"
       ],
-      "image": null,
+      "image": "glas-encounter.webp",
       "checkedAt": "2026-10-07",
       "region": "韓国版",
       "readingMinutes": 2
@@ -6212,7 +6264,7 @@
         "campfire-life",
         "life-tools"
       ],
-      "image": null,
+      "image": "halloween-night.webp",
       "checkedAt": "2026-10-07",
       "region": "台湾・香港・マカオ版",
       "readingMinutes": 3

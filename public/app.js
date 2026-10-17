@@ -60,3 +60,23 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape'){syncNavigat
 mobile.addEventListener('change',syncNavigation);syncNavigation();
 const sourcesFold=document.querySelector('#sources details');
 if(sourcesFold){const openSources=()=>{if(location.hash==='#sources')sourcesFold.open=true};addEventListener('hashchange',openSources);openSources()}
+// ダンジョン・狩り場：レベルを動かすと、推奨レベル以下の所を薄く、近い所（推奨〜+5）を濃く光らせる。
+for (const finder of document.querySelectorAll('[data-level-finder]')) {
+ const range = finder.querySelector('[data-level-range]'), out = finder.querySelector('[data-level-out]'), result = finder.querySelector('[data-level-result]');
+ const cells = [...document.querySelectorAll('[data-lv]')];
+ const update = () => {
+  const level = Number(range.value);
+  out.textContent = 'Lv.' + level;
+  const fits = [];
+  for (const cell of cells) {
+   const need = Number(cell.dataset.lv);
+   cell.classList.toggle('ok', need <= level && level - need > 5);
+   const fit = need <= level && level - need <= 5;
+   cell.classList.toggle('fit', fit);
+   if (fit && !cell.closest('.ko')) fits.push(cell.dataset.place);
+  }
+  result.innerHTML = fits.length ? '<strong>今のレベルに合う所：</strong>' + fits.slice(0, 8).map(t => t.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))).join('、') + (fits.length > 8 ? ` ほか${fits.length - 8}か所` : '') + '（濃い色。薄い色は推奨より5以上上で、楽に回れる所）' : '日本版にある所で、推奨レベルがこのレベルに近い所はありません。';
+ };
+ range.addEventListener('input', update);
+ update();
+}
