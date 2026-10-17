@@ -80,3 +80,7 @@ for (const finder of document.querySelectorAll('[data-level-finder]')) {
  range.addEventListener('input', update);
  update();
 }
+// 絵の上では右クリックのメニュー（スマホは長押しのメニュー）とドラッグを出さない。
+const isPicture = target => target instanceof Element && Boolean(target.closest('img, .scene, .item-icon'));
+document.addEventListener('contextmenu', event => { if (isPicture(event.target)) event.preventDefault(); });
+document.addEventListener('dragstart', event => { if (isPicture(event.target)) event.preventDefault(); });

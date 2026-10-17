@@ -190,3 +190,5 @@
 .item-icon.legend{background:linear-gradient(160deg,#6a5224,#3a2c14);border-color:#b08a3a}
 .item-icon .stars{text-shadow:0 0 2px #000,0 0 2px #000}
 .item-icon .plus{color:#7ee0b4;text-shadow:0 0 2px #000,0 0 2px #000}
+/* 絵を長押し・右クリック・ドラッグで保存しにくくする（オーナーの指示、2026-10-17） */
+img,.scene{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-user-select:none}
