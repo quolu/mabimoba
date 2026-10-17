@@ -492,6 +492,786 @@
       "alt": "黒い翼を広げた女性の影と、身構える冒険者たち。韓国公式イラスト",
       "caption": "韓国公式サイトのイラスト（© NEXON Korea Corp. & devCAT Corp.）",
       "file": "goddess-ch4.webp"
+    },
+    {
+      "name": "イメージ 001（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_001.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "森の中、焚き火を囲んで歌う冒険者たちと動物。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-01.webp"
+    },
+    {
+      "name": "イメージ 002（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_002.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "城と町を背に光を放つ女神。ステンドグラス風。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-02.webp"
+    },
+    {
+      "name": "イメージ 003（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_003.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "翼のある像と戦う人々。ステンドグラス風。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-03.webp"
+    },
+    {
+      "name": "イメージ 004（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_004.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "騎士・魔法使い・弓使い。ステンドグラス風。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-04.webp"
+    },
+    {
+      "name": "イメージ 005（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_005.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "丘の上から山と谷を見下ろす旅人。ステンドグラス風。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-05.webp"
+    },
+    {
+      "name": "イメージ 006（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_006.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "メインストーリーの登場人物たち。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-06.webp"
+    },
+    {
+      "name": "イメージ 007（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_007.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "空の上でフクロウを腕にとまらせるナオ。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-07.webp"
+    },
+    {
+      "name": "イメージ 008（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_008.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "羊のいる草原でくつろぐ冒険者。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-08.webp"
+    },
+    {
+      "name": "イメージ 009（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_009.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "小川のほとりで釣りをする冒険者。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-09.webp"
+    },
+    {
+      "name": "イメージ 010（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_010.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "巨大な敵グラスギブネンと戦う冒険者たち。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-10.webp"
+    },
+    {
+      "name": "イメージ 011（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_011.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "旗が飾られたダンバートンのお祭り。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-11.webp"
+    },
+    {
+      "name": "イメージ 012（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_012.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "ティルコネイルの村で出会う人々。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-12.webp"
+    },
+    {
+      "name": "イメージ 013（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_013.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "夜の町で武器を構える冒険者たち。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-13.webp"
+    },
+    {
+      "name": "イメージ 014（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/media/img-assets/image_014.webp",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/media/image",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "晴れた海辺の桟橋に立つナオ。日本公式イラスト",
+      "caption": "日本公式イラスト（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/media-14.webp"
+    },
+    {
+      "name": "ナオ（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-1-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "ナオ。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-nao.webp"
+    },
+    {
+      "name": "タルラーク（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-2-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "タルラーク。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-tarlach.webp"
+    },
+    {
+      "name": "ルエリ（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-3-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "ルエリ。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-ruairi.webp"
+    },
+    {
+      "name": "マリー（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-4-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "マリー。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-mari.webp"
+    },
+    {
+      "name": "クリステル（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-5-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "クリステル。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-kristell.webp"
+    },
+    {
+      "name": "ダンカン（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-6-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "ダンカン。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-duncan.webp"
+    },
+    {
+      "name": "ティイ（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-7-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "ティイ。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-tieve.webp"
+    },
+    {
+      "name": "カダン（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-8-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "カダン。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-kadan.webp"
+    },
+    {
+      "name": "マウラス（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-9-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "マウラス。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-mores.webp"
+    },
+    {
+      "name": "モルガント（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-10-pc.webp",
+      "dimensions": [
+        1788,
+        2231
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "モルガント。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-morgant.webp"
+    },
+    {
+      "name": "モリアン（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-11-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "モリアン。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-morrighan.webp"
+    },
+    {
+      "name": "キホール（日本公式のキャラクター紹介）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-12-pc.webp",
+      "dimensions": [
+        1788,
+        2445
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "キホール。日本公式のキャラクター紹介の絵",
+      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/npc-cichol.webp"
+    },
+    {
+      "name": "クラス紹介 warrior 1（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-1-1-img-pc.webp",
+      "dimensions": [
+        2000,
+        2071
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-warrior-1.webp"
+    },
+    {
+      "name": "クラス紹介 warrior 2（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-1-2-img-pc.webp",
+      "dimensions": [
+        2000,
+        2071
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-warrior-2.webp"
+    },
+    {
+      "name": "クラス紹介 warrior 3（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-1-3-img-pc.webp",
+      "dimensions": [
+        2000,
+        2071
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-warrior-3.webp"
+    },
+    {
+      "name": "クラス紹介 warrior 4（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-1-4-img-pc.webp",
+      "dimensions": [
+        2000,
+        2071
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-warrior-4.webp"
+    },
+    {
+      "name": "クラス紹介 archer 1（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-2-1-img-pc.webp",
+      "dimensions": [
+        2000,
+        2265
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-archer-1.webp"
+    },
+    {
+      "name": "クラス紹介 archer 2（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-2-2-img-pc.webp",
+      "dimensions": [
+        2000,
+        2138
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-archer-2.webp"
+    },
+    {
+      "name": "クラス紹介 archer 3（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-2-3-img-pc.webp",
+      "dimensions": [
+        2000,
+        2071
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-archer-3.webp"
+    },
+    {
+      "name": "クラス紹介 archer 4（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-2-4-img-pc.webp",
+      "dimensions": [
+        2000,
+        1972
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-archer-4.webp"
+    },
+    {
+      "name": "クラス紹介 mage 1（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-3-1-img-pc.webp",
+      "dimensions": [
+        2000,
+        2071
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-mage-1.webp"
+    },
+    {
+      "name": "クラス紹介 mage 2（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-3-2-img-pc.webp",
+      "dimensions": [
+        2000,
+        2079
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-mage-2.webp"
+    },
+    {
+      "name": "クラス紹介 mage 3（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-3-3-img-pc.webp",
+      "dimensions": [
+        2000,
+        2393
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-mage-3.webp"
+    },
+    {
+      "name": "クラス紹介 mage 4（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-3-4-img-pc.webp",
+      "dimensions": [
+        2000,
+        2303
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-mage-4.webp"
+    },
+    {
+      "name": "クラス紹介 healer 1（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-4-1-img-pc.webp",
+      "dimensions": [
+        2000,
+        2120
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-healer-1.webp"
+    },
+    {
+      "name": "クラス紹介 healer 2（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-4-2-img-pc.webp",
+      "dimensions": [
+        2000,
+        2191
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-healer-2.webp"
+    },
+    {
+      "name": "クラス紹介 healer 3（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-4-3-img-pc.webp",
+      "dimensions": [
+        2000,
+        1853
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-healer-3.webp"
+    },
+    {
+      "name": "クラス紹介 healer 4（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-4-4-img-pc.webp",
+      "dimensions": [
+        2000,
+        2071
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-healer-4.webp"
+    },
+    {
+      "name": "クラス紹介 bard 1（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-5-1-img-pc.webp",
+      "dimensions": [
+        2000,
+        1951
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-bard-1.webp"
+    },
+    {
+      "name": "クラス紹介 bard 2（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-5-2-img-pc.webp",
+      "dimensions": [
+        2000,
+        2247
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-bard-2.webp"
+    },
+    {
+      "name": "クラス紹介 bard 3（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-5-3-img-pc.webp",
+      "dimensions": [
+        2000,
+        2265
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-bard-3.webp"
+    },
+    {
+      "name": "クラス紹介 bard 4（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-5-4-img-pc.webp",
+      "dimensions": [
+        2000,
+        2236
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-bard-4.webp"
+    },
+    {
+      "name": "クラス紹介 rogue 1（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-6-1-img-pc.webp",
+      "dimensions": [
+        2000,
+        2071
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-rogue-1.webp"
+    },
+    {
+      "name": "クラス紹介 rogue 2（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-6-2-img-pc.webp",
+      "dimensions": [
+        2000,
+        2071
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-rogue-2.webp"
+    },
+    {
+      "name": "クラス紹介 rogue 3（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-6-3-img-pc.webp",
+      "dimensions": [
+        2000,
+        2396
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-rogue-3.webp"
+    },
+    {
+      "name": "クラス紹介 rogue 4（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/class-switch-assets/class-6-4-img-pc.webp",
+      "dimensions": [
+        2000,
+        2071
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/class",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のクラス紹介の絵",
+      "caption": "日本公式のクラス紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/class-rogue-4.webp"
+    },
+    {
+      "name": "ワールドマップ（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/world-map.webp",
+      "dimensions": [
+        3000,
+        3000
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/world",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "羊皮紙に描かれたエリンの地図。日本公式のワールドの絵",
+      "caption": "日本公式のワールドマップ（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/erin-map.webp"
+    },
+    {
+      "name": "お知らせの画像：10月14日(水) アップデートのお知らせ",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20261013/b9f18a96-aa51-403c-82d4-e8256c57c193/bnrmm20261014periodicupdate900x675news.png",
+      "dimensions": [
+        900,
+        675
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/news/update/3562989",
+      "note": "日本公式のお知らせに掲載された画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のお知らせ「10月14日(水) アップデートのお知らせ」の画像",
+      "caption": "日本公式のお知らせの画像（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "news/jp-update-2026-10-14.webp"
+    },
+    {
+      "name": "お知らせの画像：ダンバートンに不気味な気配が！",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20261013/94f913f4-762c-4b93-955d-91a8d8d2da60/bnrmm20261014ominous900x675news.png",
+      "dimensions": [
+        900,
+        675
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/news/event/3562986",
+      "note": "日本公式のお知らせに掲載された画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のお知らせ「ダンバートンに不気味な気配が！」の画像",
+      "caption": "日本公式のお知らせの画像（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "news/jp-halloween-2026-10-14.webp"
+    },
+    {
+      "name": "お知らせの画像：「7段階の成長ミッション」開催！",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20261005/b0e139c9-0659-4631-8469-3e4c46c6eded/7900x675.png",
+      "dimensions": [
+        900,
+        675
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/news/event/3559238",
+      "note": "日本公式のお知らせに掲載された画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のお知らせ「「7段階の成長ミッション」開催！」の画像",
+      "caption": "日本公式のお知らせの画像（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "news/jp-events-2026-10-07.webp"
+    },
+    {
+      "name": "お知らせの画像：正式サービス開始記念プレゼント！",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20261007/318655d8-e377-4ccb-87c9-5c9454b79a99/bnrmm20261007PresentCampnews900x675.png",
+      "dimensions": [
+        900,
+        675
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/news/notice/3559220",
+      "note": "日本公式のお知らせに掲載された画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のお知らせ「正式サービス開始記念プレゼント！」の画像",
+      "caption": "日本公式のお知らせの画像（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "news/jp-gift-2026-10-07.webp"
+    },
+    {
+      "name": "お知らせの画像：正式サービス開始のご案内",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20261006/8cbe3c98-d365-47a0-bc11-df6449074c29/900x675.png",
+      "dimensions": [
+        900,
+        675
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/news/notice/3559219",
+      "note": "日本公式のお知らせに掲載された画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のお知らせ「正式サービス開始のご案内」の画像",
+      "caption": "日本公式のお知らせの画像（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "news/jp-prereg-2026-10-07.webp"
+    },
+    {
+      "name": "お知らせの画像：端末登録のご案内",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20261006/66d3cd57-a2c2-4fea-9fe3-aad6af8de350/900x675.png",
+      "dimensions": [
+        900,
+        675
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/news/notice/3559212",
+      "note": "日本公式のお知らせに掲載された画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のお知らせ「端末登録のご案内」の画像",
+      "caption": "日本公式のお知らせの画像（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "news/jp-account-2026-10-07.webp"
+    },
+    {
+      "name": "お知らせの画像：冒険者パスのご案内",
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20261006/4858bebc-11c3-4a5b-94a0-5d40f8446382/900x675.png",
+      "dimensions": [
+        900,
+        675
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/news/update/3559229",
+      "note": "日本公式のお知らせに掲載された画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "日本公式のお知らせ「冒険者パスのご案内」の画像",
+      "caption": "日本公式のお知らせの画像（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "news/jp-shop-2026-10-07.webp"
+    },
+    {
+      "name": "ワールドマップの一部（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/world-map.webp",
+      "dimensions": [
+        3000,
+        3000
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/world",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "羊皮紙に描かれたエリンの地図（町と狩り場のあたりを切り抜き）。日本公式のワールドの絵",
+      "caption": "日本公式のワールドマップの一部（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/erin-map-wide.webp"
+    },
+    {
+      "name": "ワールドマップの一部（日本公式）",
+      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/world-map.webp",
+      "dimensions": [
+        3000,
+        3000
+      ],
+      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/world",
+      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
+      "alt": "エリンの地図の一部。メニューの背景",
+      "caption": "日本公式のワールドマップの一部（© NEXON Co., Ltd. & devCAT CO., LTD.）",
+      "file": "jp/sidebar-map.webp"
     }
   ],
   "rightsObserved": "公式フッターにAll Rights reserved表記あり。画像の再配布・加工・ファンサイト利用を明示許可する素材利用規定は今回の確認範囲では未確認。"

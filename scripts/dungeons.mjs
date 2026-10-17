@@ -59,9 +59,9 @@ export function dungeonViews(d, { e, badge, icon, sourceList, emblem }) {
  const jpD = d.dungeons.filter(g => g.japan), koD = d.dungeons.filter(g => !g.japan);
  const jpH = d.hunting.filter(h => h.japan), koH = d.hunting.filter(h => !h.japan);
  const sources = `<section id="sources" class="sources-section"><details><summary>出典と資料の基準日（${d.sources.length}件）</summary>${sourceList(d.sources)}<p class="section-note">推奨レベルの表は韓国のナムウィキとInvenのまとめ（どちらもプレイヤーが書いた物）による。日本版の画面で ${d.jpCheckedOn.slice(5).replace('-', '月')}日に見た値は、印を付けた所だけで、どれも表と同じだった。</p></details></section>`;
- const head = (kicker, title, lead, art, meta) => `<div class="place-hero">${scene(art, '')}<div class="place-hero-text"><span class="eyebrow">${kicker}</span><h1>${e(title)}</h1><p>${e(lead)}</p><div class="article-meta">${meta.map(m => `<span>${m}</span>`).join('')}</div></div></div>`;
+ const head = (kicker, title, lead, art, meta) => `<div class="place-hero">${art.endsWith('.webp') ? `<img class="place-hero-img" src="/assets/${art}" alt="" width="960" height="540" fetchpriority="high">` : scene(art, '')}<div class="place-hero-text"><span class="eyebrow">${kicker}</span><h1>${e(title)}</h1><p>${e(lead)}</p><div class="article-meta">${meta.map(m => `<span>${m}</span>`).join('')}</div></div></div>`;
 
- const dungeonBody = `<div class="breadcrumbs"><a href="/">ホーム</a> / <a href="/database/">データベース</a> / ダンジョンの推奨レベル</div>${head('DUNGEON LEVELS', 'ダンジョンの推奨レベル', '日本版にある6つのダンジョンと深部ダンジョンを、階と難易度ごとの推奨レベルで並べました。レベルを動かすと、今の自分に合う所が光ります。', 'ruins', [`確認 ${d.checkedAt}`, `日本版 ${jpD.length}・韓国版の先行 ${koD.length}`])}
+ const dungeonBody = `<div class="breadcrumbs"><a href="/">ホーム</a> / <a href="/database/">データベース</a> / ダンジョンの推奨レベル</div>${head('DUNGEON LEVELS', 'ダンジョンの推奨レベル', '日本版にある6つのダンジョンと深部ダンジョンを、階と難易度ごとの推奨レベルで並べました。レベルを動かすと、今の自分に合う所が光ります。', 'lion-shield.webp', [`確認 ${d.checkedAt}`, `日本版 ${jpD.length}・韓国版の先行 ${koD.length}`])}
 <div class="place-layout"><div class="points-box"><h2>この一覧のポイント</h2><ul>${[
   '難易度は NORMAL・HARD・VERY HARD の3つ。推奨レベルは階と難易度で決まる。',
   '通常ダンジョンの入場はシルバーコイン10枚。深部ダンジョンは魔族の供物1個（供物はLv.55からたまる）。',
@@ -74,7 +74,7 @@ ${finder('dungeons')}
 <section><h2>韓国版で先に来ているダンジョン</h2><p class="section-note">日本版ではまだ見ていないダンジョン。名前は韓国語からの仮訳で、日本版で来た時に名前と値を確かめ直す。</p><div class="place-grid">${koD.map(dungeonCard).join('')}</div></section>
 <section class="advice-box"><h2>ダンジョンの仕組みを読む</h2><ul class="place-links">${[['/guides/dungeon-basics/', '通常ダンジョンと深部ダンジョンの違い'], ['/guides/abyss-guide/', 'アビスの解放条件と週次報酬'], ['/guides/ghost-tower/', '亡霊の塔'], ['/guides/raid-guide/', 'レイドの始め方'], ['/hunting-grounds/', '狩り場の推奨レベル']].map(([href, t]) => `<li><a href="${href}">${e(t)} ${icon('chevron')}</a></li>`).join('')}</ul></section>${sources}</div>`;
 
- const huntBody = `<div class="breadcrumbs"><a href="/">ホーム</a> / <a href="/database/">データベース</a> / 狩り場の推奨レベル</div>${head('HUNTING GROUNDS', '狩り場の推奨レベル', '女神像の祭壇から入る狩り場を、難易度ごとの推奨レベル、フィールドボス、日本版で見た敵と採れる物で並べました。', 'garden', [`確認 ${d.checkedAt}`, `日本版 ${jpH.length}・韓国版の先行 ${koH.length}`])}
+ const huntBody = `<div class="breadcrumbs"><a href="/">ホーム</a> / <a href="/database/">データベース</a> / 狩り場の推奨レベル</div>${head('HUNTING GROUNDS', '狩り場の推奨レベル', '女神像の祭壇から入る狩り場を、難易度ごとの推奨レベル、フィールドボス、日本版で見た敵と採れる物で並べました。', 'jp/media-08.webp', [`確認 ${d.checkedAt}`, `日本版 ${jpH.length}・韓国版の先行 ${koH.length}`])}
 <div class="place-layout"><div class="points-box"><h2>この一覧のポイント</h2><ul>${[
   '狩り場は各地の女神像の祭壇から入る。難易度は NORMAL・HARD・VERY HARD。',
   'エリア任務（メイン任務）はシルバーコインを使う。失敗しても、達成したサブ任務の数に応じて一部が戻る。',

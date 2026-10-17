@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Zen+Old+Mincho:wght@700;900&display=swap');
 .discord-stats{padding:20px 24px;margin-bottom:22px;border:1px solid #c9dfd6;border-radius:10px;background:#eaf4ee}
 .article-body .discord-stats p{font-size:30px;font-weight:800;line-height:1.5;margin:8px 0;color:var(--green)}
 .article-body .discord-stats p[data-status=loading],.article-body .discord-stats p[data-status=error]{font-size:14px;font-weight:500;color:var(--muted)}
@@ -192,3 +192,97 @@
 .item-icon .plus{color:#7ee0b4;text-shadow:0 0 2px #000,0 0 2px #000}
 /* 絵を長押し・右クリック・ドラッグで保存しにくくする（オーナーの指示、2026-10-17） */
 img,.scene{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-user-select:none}
+
+/* ===== エリンの羊皮紙（2026-10-17、オーナー「もっとマビノギの世界を反映したグラフィカルに」） ===== */
+:root{--parch:#f3e8cf;--parch-2:#ead9b4;--parch-card:#fffaf0;--ink-brown:#4a3420;--gold:#b8893a;--line:#e2d3b0;--paper:#f3e8cf;--serif:'Zen Old Mincho','Noto Sans JP',serif}
+body{background-color:var(--parch);background-image:radial-gradient(ellipse at 20% 0%,rgba(255,250,235,.7),transparent 60%),radial-gradient(ellipse at 100% 100%,rgba(184,137,58,.16),transparent 55%),url(/assets/paper.webp)}
+h1,h2,h3,.brand strong,.place-title h3,.teaser-card strong{font-family:var(--serif);letter-spacing:.04em}
+.topbar{background:rgba(255,250,238,.88);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.sidebar{background:linear-gradient(180deg,rgba(26,33,30,.94),rgba(34,28,20,.96)),url(/assets/jp/sidebar-map.webp) center/cover}
+.sidebar nav a[aria-current]{background:rgba(184,137,58,.22);color:#f6dfa3;box-shadow:inset 3px 0 #e2b65a}
+.sidebar nav a:hover{background:rgba(255,236,190,.1)}
+.brand-mark{border-color:#8a6a3a;color:#f2c56b}
+.article-body,.article-card,.data-card,.recipe-card,.place-card,.level-ruler,.level-finder,.news-detail,.search-result,.tested-card,.quick-links a,.gather-banner,.news-card,.update-entry,.family-card,.class-list>div{background-color:var(--parch-card);border-color:var(--line)}
+.article-body{box-shadow:0 1px 0 #fff inset,0 10px 30px rgba(74,52,32,.08)}
+.article-card,.tested-card,.place-card,.recipe-card,.news-card{box-shadow:0 6px 18px rgba(74,52,32,.07)}
+/* 見出しの下の飾り線（ケルトの結び目風） */
+.article-body h2,.place-layout>section>h2,.section-heading h2{position:relative;padding-bottom:12px}
+.article-body h2::after,.place-layout>section>h2::after,.section-heading h2::after{content:'';position:absolute;left:0;bottom:0;width:150px;height:10px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='10'%3E%3Cpath d='M0 5h58M92 5h58' stroke='%23b8893a' stroke-width='1.2'/%3E%3Cpath d='M75 1l4 4-4 4-4-4zM66 5l3-3 3 3-3 3zM84 5l3-3 3 3-3 3z' fill='%23b8893a'/%3E%3C/svg%3E") no-repeat}
+.points-box{background:linear-gradient(160deg,#2b2418,#1c2a26);border:1px solid #6b5432;box-shadow:inset 0 0 0 4px rgba(184,137,58,.15)}
+.points-box h2{color:#f2c56b}
+.points-box h2::after{display:none}
+.eyebrow{color:var(--gold)}
+.badge{border:1px solid rgba(74,52,32,.08)}
+.footer{background:linear-gradient(180deg,transparent,rgba(184,137,58,.12))}
+/* 公式イラストの額縁 */
+.page-banner,.heading-art,.article-figure,.hero-art,.article-hero{border:3px solid #fff8e8;outline:1px solid #cdb27a;box-shadow:0 10px 26px rgba(74,52,32,.18)}
+/* ホームの看板：日本公式イラストを順に切り替える */
+.hero-slides{position:relative;overflow:hidden;min-height:300px;background:#1c2a26}
+.hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;aspect-ratio:auto;opacity:0;animation:heroFade 30s infinite;animation-delay:calc(var(--i) * 6s)}
+.hero-slides img:first-child{position:relative;opacity:1}
+@keyframes heroFade{0%{opacity:0;transform:scale(1.04)}4%{opacity:1}20%{opacity:1}26%{opacity:0;transform:scale(1)}100%{opacity:0}}
+.hero-slides img:first-child{animation-name:heroFadeFirst}
+@keyframes heroFadeFirst{0%{opacity:1}20%{opacity:1}26%{opacity:0}96%{opacity:0}100%{opacity:1}}
+.hero-slides>span{z-index:2}
+@media(prefers-reduced-motion:reduce){.hero-slides img{animation:none}.hero-slides img:not(:first-child){display:none}}
+.home-hero{background:linear-gradient(135deg,#2b2418,#1c2a26);border:3px solid #fff8e8;outline:1px solid #cdb27a;box-shadow:0 14px 34px rgba(74,52,32,.22)}
+.hero-copy h1{font-family:var(--serif)}
+/* エリンで出会う人々 */
+.npc-strip{display:grid;grid-auto-flow:column;grid-auto-columns:150px;gap:14px;overflow-x:auto;padding:6px 2px 14px;scroll-snap-type:x mandatory}
+.npc-card{margin:0;scroll-snap-align:start;background:radial-gradient(ellipse at 50% 85%,rgba(184,137,58,.35),transparent 65%),linear-gradient(180deg,#fffaf0,#efe0bd);border:1px solid var(--line);border-radius:14px;padding:10px 6px 8px;text-align:center;box-shadow:0 6px 16px rgba(74,52,32,.1)}
+.npc-card img{height:210px;width:auto;margin:0 auto;object-fit:contain;filter:drop-shadow(0 6px 6px rgba(0,0,0,.25))}
+.npc-card strong{display:block;font-family:var(--serif);font-size:15px;margin-top:6px}
+/* エリンの地図 */
+.map-frame{position:relative;border-radius:16px;overflow:hidden;border:3px solid #fff8e8;outline:1px solid #cdb27a;box-shadow:0 14px 34px rgba(74,52,32,.2)}
+.map-frame>img{width:100%;height:420px;object-fit:cover;object-position:50% 40%}
+.map-links{position:absolute;left:16px;right:16px;bottom:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.map-links a{background:rgba(43,36,24,.86);color:#f6e7c4;border:1px solid #b8893a;border-radius:12px;padding:12px 14px;font-size:12px;line-height:1.6;backdrop-filter:blur(2px)}
+.map-links strong{display:block;font-family:var(--serif);font-size:18px;color:#f6dfa3}
+.map-links a:hover{background:rgba(43,36,24,.96)}
+@media(max-width:760px){.map-frame>img{height:300px}.map-links{grid-template-columns:1fr;position:static;padding:10px;background:#2b2418}.npc-strip{grid-auto-columns:120px}.npc-card img{height:170px}}
+/* 記事の絵 */
+.article-hero{margin:-35px -35px 24px;border-radius:12px 12px 0 0;overflow:hidden;position:relative;border-width:0 0 3px;outline:0}
+.article-hero img{width:100%;height:auto;max-height:380px;object-fit:cover;aspect-ratio:16/9}
+.article-hero figcaption{position:absolute;right:10px;bottom:8px;font-size:10px;color:#fff;background:rgba(0,0,0,.4);padding:2px 8px;border-radius:4px}
+.article-figure.mid{margin:26px 0;border-radius:12px;overflow:hidden;position:relative}
+.article-figure.mid img{width:100%;height:auto;max-height:300px;object-fit:cover}
+.article-figure.mid figcaption{position:absolute;right:8px;bottom:6px;font-size:10px;color:#fff;background:rgba(0,0,0,.4);padding:2px 8px;border-radius:4px}
+.npc-in-article{margin:20px 0;padding:14px 16px;border-radius:12px;background:linear-gradient(160deg,#fbf3df,#f1e3c0);border:1px solid var(--line)}
+.npc-in-article h2{font-size:14px;margin:0 0 10px;padding:0}
+.npc-in-article h2::after{display:none}
+.npc-row{display:flex;gap:10px;flex-wrap:wrap}
+.npc-card.small{width:104px;padding:6px 4px}
+.npc-card.small img{height:140px}
+.npc-card.small strong{font-size:13px}
+.chip-icon{width:24px;height:24px;border-radius:6px;vertical-align:middle;margin:-3px 6px -3px -6px;background:#262d3b}
+@media(max-width:1250px){.article-hero{margin:-25px -25px 20px}}
+@media(max-width:760px){.article-hero{margin:-24px -20px 18px}.npc-card.small{width:88px}.npc-card.small img{height:118px}}
+.class-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0 6px}
+.class-gallery figure{margin:0;background:radial-gradient(ellipse at 50% 90%,rgba(184,137,58,.35),transparent 70%),linear-gradient(180deg,#fffaf0,#ecdcb6);border:1px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center}
+.class-gallery img{height:190px;width:100%;object-fit:contain;filter:drop-shadow(0 6px 6px rgba(0,0,0,.25))}
+.class-gallery figcaption{font-family:var(--serif);font-weight:700;font-size:14px;margin-top:4px}
+@media(max-width:760px){.class-gallery{grid-template-columns:repeat(2,1fr)}.class-gallery img{height:160px}}
+.news-detail .news-image{float:right;width:min(300px,40%);height:auto;margin:0 0 12px 18px;border-radius:10px;border:2px solid #fff8e8;outline:1px solid #cdb27a}
+.news-card .news-image{width:calc(100% + 40px);max-width:none;margin:-20px -20px 12px;height:150px;object-fit:cover}
+.news-card{overflow:hidden}
+@media(max-width:760px){.news-detail .news-image{float:none;width:100%;margin:0 0 12px}}
+.place-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.news-card .news-image{margin:-18px -20px 12px}@media(max-width:1250px){.news-card .news-image{width:calc(100% + 32px);margin:-16px -16px 12px}}
+.data-card{overflow:hidden}
+.data-art{width:calc(100% + 48px);max-width:none;margin:-24px -24px 14px;height:140px;object-fit:cover}
+.class-lineup{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:8px}
+.class-lineup a{display:flex;flex-direction:column;align-items:center;background:radial-gradient(ellipse at 50% 80%,rgba(184,137,58,.3),transparent 70%),linear-gradient(180deg,#fffaf0,#ecdcb6);border:1px solid var(--line);border-radius:12px;padding:8px 4px;text-align:center;transition:transform .2s}
+.class-lineup a:hover{transform:translateY(-3px)}
+.class-lineup img{height:150px;width:100%;object-fit:contain;filter:drop-shadow(0 5px 5px rgba(0,0,0,.25))}
+.class-lineup span{font-family:var(--serif);font-weight:700;font-size:14px}
+.class-lineup small{font-size:11px;color:var(--muted)}
+.tested-card{overflow:hidden}.tested-thumb{width:calc(100% + 36px);max-width:none;margin:-18px -18px 10px;height:96px;object-fit:cover}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.related-card{display:flex;flex-direction:column;background:var(--parch-card);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:transform .2s;box-shadow:0 6px 16px rgba(74,52,32,.08)}
+.related-card:hover{transform:translateY(-3px)}
+.related-card img{width:100%;height:110px;object-fit:cover}
+.related-card span{padding:10px 12px}
+.related-card strong{display:block;font-family:var(--serif);font-size:14px;line-height:1.6}
+.related-card small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:12px;color:var(--muted);margin-top:4px}
+.barter-item{display:inline-flex;align-items:center;gap:6px}
+.skill-card h2{display:flex;align-items:center;gap:6px}.skill-card h2 .item-icon{margin-right:2px}
