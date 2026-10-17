@@ -199,6 +199,10 @@
     { "id": "self-material", "item": "최상급 목재+", "count": 1 },
     { "id": "have-partial", "item": "상급 목재+", "count": 3, "have": { "상급 목재": 2, "나무 진액": 10, "상급 통나무+": 5 } },
     { "id": "have-covers-intermediate", "item": "합금강괴", "count": 2, "have": { "강철괴": 99, "석탄": 1 } },
-    { "id": "have-ignored-for-target", "item": "목재", "count": 3, "have": { "목재": 50 } }
+    { "id": "have-ignored-for-target", "item": "목재", "count": 3, "have": { "목재": 50 } },
+    { "id": "radiant-crystal", "item": "광휘의 결정", "count": 1 },
+    { "id": "ice-crystal", "item": "얼음의 결정", "count": 1 },
+    { "id": "sturdy-mushroom-powder", "item": "튼튼 버섯 가루", "count": 1 },
+    { "id": "recovery-potion", "item": "회복 물약", "count": 1 }
   ]
 }

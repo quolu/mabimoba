@@ -565,7 +565,7 @@
    "id": "i60448e1b",
    "ko": "광휘의 결정",
    "ja": "光輝の結晶",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -817,7 +817,7 @@
    "id": "idecf78ce",
    "ko": "끈기 풀",
    "ja": "ネバネバ草",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -2553,7 +2553,7 @@
    "id": "i18d551fb",
    "ko": "상급 양털+",
    "ja": "上級羊毛+",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -2735,21 +2735,21 @@
    "id": "ib8339f17",
    "ko": "새록 버섯",
    "ja": "メキメキキノコ",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
    "id": "ibafcb303",
    "ko": "새록 버섯 진액",
    "ja": "メキメキキノコのエキス",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
    "id": "i8f152c1a",
    "ko": "새록 버섯 포자",
    "ja": "メキメキキノコの胞子",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -2777,7 +2777,7 @@
    "id": "i6c81ce2d",
    "ko": "생채기꽃 가루",
    "ja": "止血花の粉",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -3239,14 +3239,14 @@
    "id": "i7447abb4",
    "ko": "쑥쑥 버섯",
    "ja": "ノビノビキノコ",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
    "id": "icb0d3d2e",
    "ko": "쑥쑥 버섯 진액",
    "ja": "ノビノビキノコのエキス",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -3407,7 +3407,7 @@
    "id": "ia9d1a15b",
    "ko": "양배추",
    "ja": "キャベツ",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -3449,7 +3449,7 @@
    "id": "i421189d8",
    "ko": "얼음의 결정",
    "ja": "氷の結晶",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -3799,7 +3799,7 @@
    "id": "ia0c9966e",
    "ko": "전기의 결정",
    "ja": "電気の結晶",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -4303,7 +4303,7 @@
    "id": "i7d880b36",
    "ko": "치즈",
    "ja": "チーズ",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -4660,28 +4660,28 @@
    "id": "i8f6b8112",
    "ko": "튼튼 버섯",
    "ja": "元気キノコ",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
    "id": "i426cb215",
    "ko": "튼튼 버섯 가루",
    "ja": "元気キノコの粉",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
    "id": "i09ce3d67",
    "ko": "튼튼 버섯 진액",
    "ja": "元気キノコのエキス",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
    "id": "i56ac0023",
    "ko": "튼튼 버섯 포자",
    "ja": "元気キノコの胞子",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {

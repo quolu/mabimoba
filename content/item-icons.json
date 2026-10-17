@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "note": "日本版のゲーム画面（保管箱）の枠から切り出した品物のアイコン。右下の持ち数の数字は消してある。",
+  "items": {
+    "ide73113e": {
+      "name": "タマネギ",
+      "file": "items/ide73113e.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i136539bc": {
+      "name": "トウモロコシ",
+      "file": "items/i136539bc.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i52dcc82d": {
+      "name": "ジャガイモ",
+      "file": "items/i52dcc82d.webp",
+      "seenAt": "2026-10-17"
+    },
+    "idc8baf59": {
+      "name": "封印の結晶",
+      "file": "items/idc8baf59.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i72c6b672": {
+      "name": "炎の結晶",
+      "file": "items/i72c6b672.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i73dd9ea4": {
+      "name": "クモの糸",
+      "file": "items/i73dd9ea4.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i3a4e7067": {
+      "name": "鉄鉱",
+      "file": "items/i3a4e7067.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i276f836b": {
+      "name": "銅鉱",
+      "file": "items/i276f836b.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ib3a3182e": {
+      "name": "石ころ",
+      "file": "items/ib3a3182e.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i60448e1b": {
+      "name": "光輝の結晶",
+      "file": "items/i60448e1b.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i1106c735": {
+      "name": "廃墟のマナストーン",
+      "file": "items/i1106c735.webp",
+      "seenAt": "2026-10-17"
+    },
+    "id235083e": {
+      "name": "峡谷のマナストーン",
+      "file": "items/id235083e.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i421189d8": {
+      "name": "氷の結晶",
+      "file": "items/i421189d8.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ia0c9966e": {
+      "name": "電気の結晶",
+      "file": "items/ia0c9966e.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i2db984c8": {
+      "name": "革",
+      "file": "items/i2db984c8.webp",
+      "seenAt": "2026-10-17"
+    },
+    "if506f03c": {
+      "name": "上級生皮",
+      "file": "items/if506f03c.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i18d551fb": {
+      "name": "上級羊毛+",
+      "file": "items/i18d551fb.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ib7bbd08c": {
+      "name": "生皮",
+      "file": "items/ib7bbd08c.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i971ce6fd": {
+      "name": "上級生皮+",
+      "file": "items/i971ce6fd.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i89478847": {
+      "name": "丸太",
+      "file": "items/i89478847.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i224320dd": {
+      "name": "カブトムシ",
+      "file": "items/i224320dd.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i032c6874": {
+      "name": "上級羊毛",
+      "file": "items/i032c6874.webp",
+      "seenAt": "2026-10-17"
+    },
+    "if5ae78ba": {
+      "name": "鉱石",
+      "file": "items/if5ae78ba.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i56d0e6b9": {
+      "name": "生地+",
+      "file": "items/i56d0e6b9.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i43942b11": {
+      "name": "氷",
+      "file": "items/i43942b11.webp",
+      "seenAt": "2026-10-17"
+    },
+    "icb344c38": {
+      "name": "白銅鉱",
+      "file": "items/icb344c38.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ia5e5218b": {
+      "name": "卵",
+      "file": "items/ia5e5218b.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i0b6ce11c": {
+      "name": "生地",
+      "file": "items/i0b6ce11c.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i19266c8a": {
+      "name": "シルク",
+      "file": "items/i19266c8a.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i6fce3182": {
+      "name": "羊毛",
+      "file": "items/i6fce3182.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i18164463": {
+      "name": "粘土",
+      "file": "items/i18164463.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i806c4c7d": {
+      "name": "木の枝",
+      "file": "items/i806c4c7d.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ibafcb303": {
+      "name": "メキメキキノコのエキス",
+      "file": "items/ibafcb303.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i426cb215": {
+      "name": "元気キノコの粉",
+      "file": "items/i426cb215.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i8f152c1a": {
+      "name": "メキメキキノコの胞子",
+      "file": "items/i8f152c1a.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ib8339f17": {
+      "name": "メキメキキノコ",
+      "file": "items/ib8339f17.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i86b266f7": {
+      "name": "ブラッディハーブ",
+      "file": "items/i86b266f7.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i8f6b8112": {
+      "name": "元気キノコ",
+      "file": "items/i8f6b8112.webp",
+      "seenAt": "2026-10-17"
+    },
+    "idecf78ce": {
+      "name": "ネバネバ草",
+      "file": "items/idecf78ce.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i7d880b36": {
+      "name": "チーズ",
+      "file": "items/i7d880b36.webp",
+      "seenAt": "2026-10-17"
+    },
+    "icb0d3d2e": {
+      "name": "ノビノビキノコのエキス",
+      "file": "items/icb0d3d2e.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i09ce3d67": {
+      "name": "元気キノコのエキス",
+      "file": "items/i09ce3d67.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ice2cf76a": {
+      "name": "水が入った瓶",
+      "file": "items/ice2cf76a.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i8fc2f4af": {
+      "name": "幽霊ホタル",
+      "file": "items/i8fc2f4af.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ie4591d6c": {
+      "name": "白花チョウ",
+      "file": "items/ie4591d6c.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i153ff43e": {
+      "name": "牛乳",
+      "file": "items/i153ff43e.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ide20deef": {
+      "name": "ハーブ",
+      "file": "items/ide20deef.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ibbeb935a": {
+      "name": "マナハーブ",
+      "file": "items/ibbeb935a.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i7fd81b7e": {
+      "name": "マヨネーズ",
+      "file": "items/i7fd81b7e.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ia9d1a15b": {
+      "name": "キャベツ",
+      "file": "items/ia9d1a15b.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i8e083c9c": {
+      "name": "タンニンパウダー",
+      "file": "items/i8e083c9c.webp",
+      "seenAt": "2026-10-17"
+    },
+    "if529b0a5": {
+      "name": "コショウ",
+      "file": "items/if529b0a5.webp",
+      "seenAt": "2026-10-17"
+    },
+    "ic08d0e23": {
+      "name": "生命のマナストーン",
+      "file": "items/ic08d0e23.webp",
+      "seenAt": "2026-10-17"
+    },
+    "if0de2ca9": {
+      "name": "チクタクホタル",
+      "file": "items/if0de2ca9.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i3b74d2c9": {
+      "name": "夕陽チョウ",
+      "file": "items/i3b74d2c9.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i29310b1c": {
+      "name": "凝縮された風",
+      "file": "items/i29310b1c.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i0320c999": {
+      "name": "コインテントウムシ",
+      "file": "items/i0320c999.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i1380d914": {
+      "name": "リンゴ",
+      "file": "items/i1380d914.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i6c81ce2d": {
+      "name": "止血花の粉",
+      "file": "items/i6c81ce2d.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i7447abb4": {
+      "name": "ノビノビキノコ",
+      "file": "items/i7447abb4.webp",
+      "seenAt": "2026-10-17"
+    },
+    "i56ac0023": {
+      "name": "元気キノコの胞子",
+      "file": "items/i56ac0023.webp",
+      "seenAt": "2026-10-17"
+    }
+  }
+}
