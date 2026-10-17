@@ -1985,8 +1985,8 @@
   {
    "id": "i7d7f0b82",
    "ko": "분해된 장비 부품",
-   "ja": "分解された装備部品",
-   "jaConfirmed": false,
+   "ja": "分解された装備の部品",
+   "jaConfirmed": true,
    "craftable": false
   },
   {
