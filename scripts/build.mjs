@@ -99,7 +99,7 @@ function pageHeading(kicker,title,description) {const art=headingArt[title],figu
 const heroSlides=['08','01','11','12','14'];
 const jpAlt=file=>assets.assets.find(x=>x.file===file)?.alt??'日本公式イラスト';
 // ホームで紹介するNPC。名前は日本公式のキャラクター紹介の字。
-const npcs=[['nao','ナオ'],['tarlach','タルラーク'],['mari','マリー'],['ruairi','ルエリ'],['kristell','クリステル'],['duncan','ダンカン'],['tieve','ティイ'],['kadan','カダン'],['mores','マウラス'],['morrighan','モリアン'],['cichol','キホール'],['morgant','モルガント']].map(([id,ja])=>({id,ja}));
+const npcs=[['nao','ナオ'],['tarlach','タルラーク'],['mari','マリー'],['ruairi','ルエリ'],['kristell','クリステル'],['duncan','ダンカン'],['tieve','ティイ'],['kadan','カダン'],['mores','マウラス'],['morrighan','モリガン'],['cichol','キホール']].map(([id,ja])=>({id,ja}));
 function home() {
  return `<div class="home-hero"><div class="hero-copy"><span class="eyebrow">YOUR ADVENTURE IN ERIN</span><h1>エリンを、<br>もっと楽しむ。</h1><p>日本版を遊んで確かめた攻略。<br>韓国の先行情報も、日本語で。</p><a class="button light" href="/beginner/">初心者ロードマップ</a><span class="hero-note">マビノギモバイル 非公式攻略ポータル</span></div><div class="hero-art hero-slides">${heroSlides.map((n,i)=>`<img src="/assets/erin/media-${n}.webp" alt="${e(jpAlt(`erin/media-${n}.webp`))}" width="960" height="540"${i?' loading="lazy"':' fetchpriority="high"'} style="--i:${i}">`).join('')}<span>ILLUSTRATION : NEXON / devCAT</span></div></div>
  <div class="launch-strip">${badge('日本版 10月7日開始','blue')}<p>開始記念のプレゼント、毎日のボーナス、期限のあるイベントを日本公式の告知から整理しました。</p><a href="/guides/jp-launch-checklist/">スタートガイドを読む</a></div>

@@ -793,20 +793,7 @@
       "file": "erin/npc-mores.webp"
     },
     {
-      "name": "モルガント（日本公式のキャラクター紹介）",
-      "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-10-pc.webp",
-      "dimensions": [
-        1788,
-        2231
-      ],
-      "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
-      "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
-      "alt": "モルガント。日本公式のキャラクター紹介の絵",
-      "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
-      "file": "erin/npc-morgant.webp"
-    },
-    {
-      "name": "モリアン（日本公式のキャラクター紹介）",
+      "name": "モリガン（日本公式のキャラクター紹介）",
       "url": "https://static.nexon.co.jp/mabinogimobile/official_SUet1U2lbpVnyhZI/about/chara-switch-assets/chara-main-img-11-pc.webp",
       "dimensions": [
         1788,
@@ -814,7 +801,7 @@
       ],
       "sourcePage": "https://mabinogimobile.nexon.co.jp/about/character",
       "note": "日本公式サイトの画像。権利者はNEXON Co., Ltd. / devCAT CO., LTD.",
-      "alt": "モリアン。日本公式のキャラクター紹介の絵",
+      "alt": "モリガン。日本公式のキャラクター紹介の絵",
       "caption": "日本公式のキャラクター紹介（© NEXON Co., Ltd. & devCAT CO., LTD.）",
       "file": "erin/npc-morrighan.webp"
     },
