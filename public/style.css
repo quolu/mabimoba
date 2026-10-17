@@ -198,7 +198,7 @@ img,.scene{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-w
 body{background-color:var(--parch);background-image:radial-gradient(ellipse at 20% 0%,rgba(255,250,235,.7),transparent 60%),radial-gradient(ellipse at 100% 100%,rgba(184,137,58,.16),transparent 55%),url(/assets/paper.webp)}
 h1,h2,h3,.brand strong,.place-title h3,.teaser-card strong{font-family:var(--serif);letter-spacing:.04em}
 .topbar{background:rgba(255,250,238,.88);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.sidebar{background:linear-gradient(180deg,rgba(26,33,30,.94),rgba(34,28,20,.96)),url(/assets/jp/sidebar-map.webp) center/cover}
+.sidebar{background:linear-gradient(180deg,rgba(26,33,30,.94),rgba(34,28,20,.96)),url(/assets/erin/sidebar-map.webp) center/cover}
 .sidebar nav a[aria-current]{background:rgba(184,137,58,.22);color:#f6dfa3;box-shadow:inset 3px 0 #e2b65a}
 .sidebar nav a:hover{background:rgba(255,236,190,.1)}
 .brand-mark{border-color:#8a6a3a;color:#f2c56b}

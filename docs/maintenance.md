@@ -124,7 +124,7 @@
 2026-10-17、オーナーの指示（「ゲーマー向けだよ。もっとマビノギの世界を反映したグラフィカルにして欲しいし、公式素材もたくさんつかってよ」「画像が3倍は足りない」）で作り直した。
 
 - 色合いは日本公式のワールドマップの羊皮紙に合わせた（`style.css` の末尾「エリンの羊皮紙」）。紙の質感は `public/assets/paper.webp`（自作）。見出しは Zen Old Mincho、見出しの下に飾り線。
-- 公式の絵は、まず日本公式サイトから取る：イメージ `https://mabinogimobile.nexon.co.jp/media/image`（`static.nexon.co.jp/.../media/img-assets/image_0NN.webp`）、キャラクター `/about/character`（`about/chara-switch-assets/chara-main-img-N-pc.webp`）、クラス `/about/class`（`about/class-switch-assets/class-<系統>-<番号>-img-pc.webp`、1が見習い）、ワールド `/about/world`（`about/world-map.webp`）、お知らせの画像（記事の本文の 900×675）。`public/assets/jp/` と `public/assets/news/` に置き、素材台帳に書く。人物の絵は `-trim` で余白を切る。
+- 公式の絵は、まず日本公式サイトから取る：イメージ `https://mabinogimobile.nexon.co.jp/media/image`（`static.nexon.co.jp/.../media/img-assets/image_0NN.webp`）、キャラクター `/about/character`（`about/chara-switch-assets/chara-main-img-N-pc.webp`）、クラス `/about/class`（`about/class-switch-assets/class-<系統>-<番号>-img-pc.webp`、1が見習い）、ワールド `/about/world`（`about/world-map.webp`）、お知らせの画像（記事の本文の 900×675）。`public/assets/erin/` と `public/assets/notices/` に置き、素材台帳に書く。人物の絵は `-trim` で余白を切る。
 - 使い場所：ホームの看板（`heroSlides`、日本公式イメージを順に切り替え）、「エリンで出会う人々」（`npcs`）、「エリンの地図」、記事の上の絵と途中の絵（`artPools`。分類ごと、記事の並び順で選ぶ）、記事に名前が出るNPCの絵（`npcBlock`）、「続けて読みたい」の絵、職業図鑑のクラスの絵（`classGallery`・`class-lineup`）、データベースのカード（`dbArt`）、ニュースの `image`、採集図鑑の見出し（`skillIcons`）、物々交換の品物のアイコン、札（chips）の品物のアイコン。
 - 新しい記事には `image` を付ける。途中の絵は自動で入る。ニュースは日本公式のお知らせなら本文の画像を `image` に付ける。
 - 確認のヘッドレス撮影は、看板の切り替えが止まらないので `--force-prefers-reduced-motion` を付ける。縦に大きすぎる窓（1280×2600など）は止まるので、1300くらいまでにする。
@@ -138,7 +138,7 @@
 - 種類の絵は `<symbol>` で各ページに1回だけ置き、品物ごとに `<use>` で使う。
 - 本物のアイコン（2026-10-17から）：日本版のゲーム画面の保管箱の枠から切り出した絵を `public/assets/items/<品物のid>-<中身のハッシュ8桁>.webp` に置き、`content/item-icons.json` の `items`（品物の id → `name`・`file`・`seenAt`）に書く。ある品物はそれを、無い品物は描いた絵を出す。切り出しの絵は右下に持ち数の数字が重なっているので、白い字とふちを周りの色で埋めて消してから置く。名前は画面で読んで確定した物だけを使う。画面で名前を見た品物は、`content/recipes.json` の `jaConfirmed` も `true` にする。
 - アイコンは、ページの中の絵としてだけ使う。まとめて落とせる形（素材集や一覧のファイル）では配らない（オーナーの裁定、2026-10-17）。
-- 絵のアドレスを直接開いても見られないようにしてある（2026-10-17、オーナーの指示「直接開けないようにして」）。`deploy/nginx.conf` で、`/assets/` 直下と `/assets/items/` の `.webp` は、Referer がこのサイトの時だけ返し、それ以外は403。Cloudflare に溜めさせないよう `Cache-Control: private`。共有用カード（`/assets/cards/`）と `og-card.jpg` は、X・Discordが読むので対象外。新しい絵は webp で置けば同じ扱いになる。絵の上では、右クリック・長押しのメニューとドラッグを出さない（`public/app.js` と `style.css` の `-webkit-touch-callout:none` など。2026-10-17、オーナーの指示）。画面の写しや開発者の道具での保存までは止められない。Cloudflareに溜まった写しを消す権限は今の合鍵に無い（purge は401）。絵を差し替えた時は、ファイルの名前を変えて新しいアドレスにする（品物のアイコンは名前に中身のハッシュを付けている）。Referer を送らない設定のブラウザでは、絵が出ない。
+- 絵のアドレスを直接開いても見られないようにしてある（2026-10-17、オーナーの指示「直接開けないようにして」）。`deploy/nginx.conf` で、`/assets/` の下の `.webp`（`cards/` を除く）は、Referer がこのサイトの時だけ返し、それ以外は403。Cloudflare に溜めさせないよう `Cache-Control: private`。共有用カード（`/assets/cards/`）と `og-card.jpg` は、X・Discordが読むので対象外。新しい絵は webp で置けば同じ扱いになる。絵の上では、右クリック・長押しのメニューとドラッグを出さない（`public/app.js` と `style.css` の `-webkit-touch-callout:none` など。2026-10-17、オーナーの指示）。画面の写しや開発者の道具での保存までは止められない。Cloudflareに溜まった写しを消す権限は今の合鍵に無い（purge は401）。絵を差し替えた時は、ファイルの名前を変えて新しいアドレスにする（品物のアイコンは名前に中身のハッシュを付けている）。Referer を送らない設定のブラウザでは、絵が出ない。
 
 ### サイトの更新情報を書く
 

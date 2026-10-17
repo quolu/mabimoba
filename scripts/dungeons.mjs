@@ -74,7 +74,7 @@ ${finder('dungeons')}
 <section><h2>韓国版で先に来ているダンジョン</h2><p class="section-note">日本版ではまだ見ていないダンジョン。名前は韓国語からの仮訳で、日本版で来た時に名前と値を確かめ直す。</p><div class="place-grid">${koD.map(dungeonCard).join('')}</div></section>
 <section class="advice-box"><h2>ダンジョンの仕組みを読む</h2><ul class="place-links">${[['/guides/dungeon-basics/', '通常ダンジョンと深部ダンジョンの違い'], ['/guides/abyss-guide/', 'アビスの解放条件と週次報酬'], ['/guides/ghost-tower/', '亡霊の塔'], ['/guides/raid-guide/', 'レイドの始め方'], ['/hunting-grounds/', '狩り場の推奨レベル']].map(([href, t]) => `<li><a href="${href}">${e(t)} ${icon('chevron')}</a></li>`).join('')}</ul></section>${sources}</div>`;
 
- const huntBody = `<div class="breadcrumbs"><a href="/">ホーム</a> / <a href="/database/">データベース</a> / 狩り場の推奨レベル</div>${head('HUNTING GROUNDS', '狩り場の推奨レベル', '女神像の祭壇から入る狩り場を、難易度ごとの推奨レベル、フィールドボス、日本版で見た敵と採れる物で並べました。', 'jp/media-08.webp', [`確認 ${d.checkedAt}`, `日本版 ${jpH.length}・韓国版の先行 ${koH.length}`])}
+ const huntBody = `<div class="breadcrumbs"><a href="/">ホーム</a> / <a href="/database/">データベース</a> / 狩り場の推奨レベル</div>${head('HUNTING GROUNDS', '狩り場の推奨レベル', '女神像の祭壇から入る狩り場を、難易度ごとの推奨レベル、フィールドボス、日本版で見た敵と採れる物で並べました。', 'erin/media-08.webp', [`確認 ${d.checkedAt}`, `日本版 ${jpH.length}・韓国版の先行 ${koH.length}`])}
 <div class="place-layout"><div class="points-box"><h2>この一覧のポイント</h2><ul>${[
   '狩り場は各地の女神像の祭壇から入る。難易度は NORMAL・HARD・VERY HARD。',
   'エリア任務（メイン任務）はシルバーコインを使う。失敗しても、達成したサブ任務の数に応じて一部が戻る。',
