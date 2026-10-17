@@ -1,7 +1,15 @@
 {
   "schemaVersion": 1,
   "checkedAt": "2026-10-16",
-  "sources": ["namu-dungeon", "namu-hunting", "inven-dungeon-levels", "jp-guide-dungeon", "jp-guide-deep-dungeon", "jp-guide-entry-cost", "jp-guide-hunting-ground"],
+  "sources": [
+    "namu-dungeon",
+    "namu-hunting",
+    "inven-dungeon-levels",
+    "jp-guide-dungeon",
+    "jp-guide-deep-dungeon",
+    "jp-guide-entry-cost",
+    "jp-guide-hunting-ground"
+  ],
   "jpCheckedOn": "2026-10-11",
   "dungeons": [
     {
@@ -13,15 +21,42 @@
       "scene": "cave",
       "mood": "声が反響する岩の洞窟。最初に入るダンジョン。",
       "floors": [
-        { "floor": "1F", "levels": [7, 25, 50] },
-        { "floor": "2F", "levels": [11, 27, 51] }
+        {
+          "floor": "1F",
+          "levels": [
+            7,
+            25,
+            50
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            11,
+            27,
+            51
+          ]
+        }
       ],
       "deep": [
-        { "floor": "深部1F", "level": 58, "power": 10415 },
-        { "floor": "深部2F", "level": 60, "power": 11044 }
+        {
+          "floor": "深部1F",
+          "level": 58,
+          "power": 10415
+        },
+        {
+          "floor": "深部2F",
+          "level": 60,
+          "power": 11044
+        }
       ],
       "checks": [
-        { "label": "深部1F エリア3", "difficulty": "HARD", "level": 58, "cost": "魔族の供物 1" }
+        {
+          "label": "深部1F エリア3",
+          "difficulty": "HARD",
+          "level": 58,
+          "cost": "魔族の供物 1"
+        }
       ]
     },
     {
@@ -33,18 +68,57 @@
       "scene": "moss",
       "mood": "湿った苔と大きな木の根が這う洞窟。",
       "floors": [
-        { "floor": "1F", "levels": [19, 32, 55] },
-        { "floor": "2F", "levels": [22, 33, 56] }
+        {
+          "floor": "1F",
+          "levels": [
+            19,
+            32,
+            55
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            22,
+            33,
+            56
+          ]
+        }
       ],
       "deep": [
-        { "floor": "深部1F", "level": 63, "power": 12592, "minLevel": 59 },
-        { "floor": "深部2F", "level": 65, "power": 13663, "minLevel": 59 }
+        {
+          "floor": "深部1F",
+          "level": 63,
+          "power": 12592,
+          "minLevel": 59
+        },
+        {
+          "floor": "深部2F",
+          "level": 65,
+          "power": 13663,
+          "minLevel": 59
+        }
       ],
       "deepNote": "2025年4月のInvenのまとめでは、深部1Fが Lv.62、深部2Fが Lv.63 だった。新しいナムウィキの値を載せている。",
       "checks": [
-        { "label": "1F エリア1〜3", "difficulty": "VERY HARD", "level": 55, "cost": "シルバーコイン 10" },
-        { "label": "2F エリア1", "difficulty": "VERY HARD", "level": 56, "cost": "シルバーコイン 10" },
-        { "label": "2F エリア2・3", "difficulty": "HARD", "level": 33, "cost": "シルバーコイン 10" }
+        {
+          "label": "1F エリア1〜3",
+          "difficulty": "VERY HARD",
+          "level": 55,
+          "cost": "シルバーコイン 10"
+        },
+        {
+          "label": "2F エリア1",
+          "difficulty": "VERY HARD",
+          "level": 56,
+          "cost": "シルバーコイン 10"
+        },
+        {
+          "label": "2F エリア2・3",
+          "difficulty": "HARD",
+          "level": 33,
+          "cost": "シルバーコイン 10"
+        }
       ]
     },
     {
@@ -56,16 +130,45 @@
       "scene": "mansion",
       "mood": "冷たい空気がしみこむ、昔の大富豪の屋敷。",
       "floors": [
-        { "floor": "1F", "levels": [24, 40, 60] },
-        { "floor": "2F", "levels": [29, 41, 61] }
+        {
+          "floor": "1F",
+          "levels": [
+            24,
+            40,
+            60
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            29,
+            41,
+            61
+          ]
+        }
       ],
       "deep": [
-        { "floor": "深部1F", "level": 65, "power": 14978, "minLevel": 63 },
-        { "floor": "深部2F", "level": 65, "power": 15873, "minLevel": 63 }
+        {
+          "floor": "深部1F",
+          "level": 65,
+          "power": 14978,
+          "minLevel": 63
+        },
+        {
+          "floor": "深部2F",
+          "level": 65,
+          "power": 15873,
+          "minLevel": 63
+        }
       ],
-      "boss": { "text": "2F エリア3のボスはサキュバス。メインクエストでも訪れる。", "href": "/guides/succubus-quest/", "label": "サキュバスのクエストを読む" },
+      "boss": {
+        "text": "2F エリア3のボスはサキュバス。メインクエストでも訪れる。",
+        "href": "/guides/succubus-quest/",
+        "label": "サキュバスのクエストを読む"
+      },
       "jpNote": "日本版の実機では、ラビ1F エリア1・2の HARD がシルバーコイン10枚だった。",
-      "jpNoteHref": "/guides/level-42-gate/"
+      "jpNoteHref": "/guides/level-42-gate/",
+      "photo": "scenes/rabbie-1f.webp"
     },
     {
       "id": "math",
@@ -76,12 +179,34 @@
       "scene": "ruins",
       "mood": "古い記憶が眠る地下の遺跡。",
       "floors": [
-        { "floor": "1F", "levels": [35, 48, 62] },
-        { "floor": "2F", "levels": [42, 49, 63] }
+        {
+          "floor": "1F",
+          "levels": [
+            35,
+            48,
+            62
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            42,
+            49,
+            63
+          ]
+        }
       ],
       "deep": [
-        { "floor": "深部1F", "level": 65, "power": 22000 },
-        { "floor": "深部2F", "level": 65, "power": 23000 }
+        {
+          "floor": "深部1F",
+          "level": 65,
+          "power": 22000
+        },
+        {
+          "floor": "深部2F",
+          "level": 65,
+          "power": 23000
+        }
       ]
     },
     {
@@ -93,15 +218,42 @@
       "scene": "island",
       "mood": "離れ小島にそびえる灰色の遺跡。",
       "floors": [
-        { "floor": "1F", "levels": [45, 56, 64] },
-        { "floor": "2F", "levels": [47, 57, 64] }
+        {
+          "floor": "1F",
+          "levels": [
+            45,
+            56,
+            64
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            47,
+            57,
+            64
+          ]
+        }
       ],
       "deep": [
-        { "floor": "深部1F", "level": 83, "power": 23700 },
-        { "floor": "深部2F", "level": 85, "power": 25200 }
+        {
+          "floor": "深部1F",
+          "level": 83,
+          "power": 23700
+        },
+        {
+          "floor": "深部2F",
+          "level": 85,
+          "power": 25200
+        }
       ],
       "checks": [
-        { "label": "1F エリア2・3", "difficulty": "HARD", "level": 56, "cost": "シルバーコイン 10" }
+        {
+          "label": "1F エリア2・3",
+          "difficulty": "HARD",
+          "level": 56,
+          "cost": "シルバーコイン 10"
+        }
       ]
     },
     {
@@ -113,12 +265,34 @@
       "scene": "dusk",
       "mood": "夕闇の色をした、もう一つの島の遺跡。",
       "floors": [
-        { "floor": "1F", "levels": [53, 58, 65] },
-        { "floor": "2F", "levels": [54, 59, 65] }
+        {
+          "floor": "1F",
+          "levels": [
+            53,
+            58,
+            65
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            54,
+            59,
+            65
+          ]
+        }
       ],
       "deep": [
-        { "floor": "深部1F", "level": 85, "power": 27300 },
-        { "floor": "深部2F", "level": 85, "power": 28800 }
+        {
+          "floor": "深部1F",
+          "level": 85,
+          "power": 27300
+        },
+        {
+          "floor": "深部2F",
+          "level": 85,
+          "power": 28800
+        }
       ]
     },
     {
@@ -130,12 +304,34 @@
       "scene": "mine",
       "mood": "鉄と土のにおいが残る、捨てられた鉱山。",
       "floors": [
-        { "floor": "1F", "levels": [56, 65, 80] },
-        { "floor": "2F", "levels": [57, 65, 80] }
+        {
+          "floor": "1F",
+          "levels": [
+            56,
+            65,
+            80
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            57,
+            65,
+            80
+          ]
+        }
       ],
       "deep": [
-        { "floor": "深部1F", "level": 85, "power": 29600 },
-        { "floor": "深部2F", "level": 85, "power": 30500 }
+        {
+          "floor": "深部1F",
+          "level": 85,
+          "power": 29600
+        },
+        {
+          "floor": "深部2F",
+          "level": 85,
+          "power": 30500
+        }
       ]
     },
     {
@@ -147,12 +343,34 @@
       "scene": "mine",
       "mood": "冷たい風が吹き抜ける、さらに深い鉱山。",
       "floors": [
-        { "floor": "1F", "levels": [59, 65, 81] },
-        { "floor": "2F", "levels": [60, 65, 81] }
+        {
+          "floor": "1F",
+          "levels": [
+            59,
+            65,
+            81
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            60,
+            65,
+            81
+          ]
+        }
       ],
       "deep": [
-        { "floor": "深部1F", "level": 85, "power": 33100 },
-        { "floor": "深部2F", "level": 85, "power": 34000 }
+        {
+          "floor": "深部1F",
+          "level": 85,
+          "power": 33100
+        },
+        {
+          "floor": "深部2F",
+          "level": 85,
+          "power": 34000
+        }
       ]
     },
     {
@@ -164,12 +382,32 @@
       "scene": "tomb",
       "mood": "魂が泣き叫ぶ、王の地下墓所。",
       "floors": [
-        { "floor": "1F", "levels": [66, 82, 97] },
-        { "floor": "2F", "levels": [67, 83, 97] }
+        {
+          "floor": "1F",
+          "levels": [
+            66,
+            82,
+            97
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            67,
+            83,
+            97
+          ]
+        }
       ],
       "deep": [
-        { "floor": "深部1F", "level": 95 },
-        { "floor": "深部2F", "level": 95 }
+        {
+          "floor": "深部1F",
+          "level": 95
+        },
+        {
+          "floor": "深部2F",
+          "level": 95
+        }
       ]
     },
     {
@@ -181,8 +419,22 @@
       "scene": "tomb",
       "mood": "戦火に倒れた王の地下墓所。",
       "floors": [
-        { "floor": "1F", "levels": [69, 84, 98] },
-        { "floor": "2F", "levels": [73, 85, 98] }
+        {
+          "floor": "1F",
+          "levels": [
+            69,
+            84,
+            98
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            73,
+            85,
+            98
+          ]
+        }
       ]
     },
     {
@@ -194,8 +446,22 @@
       "scene": "water",
       "mood": "誰が造ったか分からない地下水路。",
       "floors": [
-        { "floor": "1F", "levels": [90, 99, null] },
-        { "floor": "2F", "levels": [90, 99, null] }
+        {
+          "floor": "1F",
+          "levels": [
+            90,
+            99,
+            null
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            90,
+            99,
+            null
+          ]
+        }
       ]
     },
     {
@@ -207,8 +473,22 @@
       "scene": "forest",
       "mood": "女神が歩いたと伝わる森の小道。",
       "floors": [
-        { "floor": "1F", "levels": [93, 100, null] },
-        { "floor": "2F", "levels": [95, 100, null] }
+        {
+          "floor": "1F",
+          "levels": [
+            93,
+            100,
+            null
+          ]
+        },
+        {
+          "floor": "2F",
+          "levels": [
+            95,
+            100,
+            null
+          ]
+        }
       ]
     }
   ],
@@ -221,12 +501,23 @@
       "scene": "wolf",
       "near": "ティルコネイルの近く",
       "mood": "谷の向こうにオオカミが出る森。最初に入る狩り場。",
-      "levels": [19, 25, 34],
+      "levels": [
+        19,
+        25,
+        34
+      ],
       "areas": 7,
       "fieldBoss": "フェリー",
-      "enemies": ["フェリー"],
-      "gather": ["クモの糸", "静かな光の群れ"],
-      "notes": ["韓国版では、黒い穴と結界が出ない、ただ一つの狩り場。"]
+      "enemies": [
+        "フェリー"
+      ],
+      "gather": [
+        "クモの糸",
+        "静かな光の群れ"
+      ],
+      "notes": [
+        "韓国版では、黒い穴と結界が出ない、ただ一つの狩り場。"
+      ]
     },
     {
       "id": "goddess-garden",
@@ -236,12 +527,29 @@
       "scene": "garden",
       "near": "トゥガルドアイルとダンバートンの間",
       "mood": "命を抱く木々の住みか。",
-      "levels": [39, 41, 48],
+      "levels": [
+        39,
+        41,
+        48
+      ],
       "areas": 5,
       "fieldBoss": "クラブバッハ",
-      "enemies": ["凶暴な黄色バチ", "凶暴な赤色クマ", "凶暴な灰色アライグマ", "凶暴な褐色キツネ", "感染したスライム", "感染した巨大スライム"],
-      "gather": ["使えそうな木", "銅の鉱脈", "温かな光の群れ"],
-      "notes": ["韓国版の資料では、赤いクマが先に襲ってくるので、エリア2の採集は落ち着かない。"]
+      "enemies": [
+        "凶暴な黄色バチ",
+        "凶暴な赤色クマ",
+        "凶暴な灰色アライグマ",
+        "凶暴な褐色キツネ",
+        "感染したスライム",
+        "感染した巨大スライム"
+      ],
+      "gather": [
+        "使えそうな木",
+        "銅の鉱脈",
+        "温かな光の群れ"
+      ],
+      "notes": [
+        "韓国版の資料では、赤いクマが先に襲ってくるので、エリア2の採集は落ち着かない。"
+      ]
     },
     {
       "id": "ice-valley",
@@ -251,12 +559,24 @@
       "scene": "ice",
       "near": "シドスネッターとコレンの間",
       "mood": "迷い込んだ冬が居座る谷。そりで一気に下れる道もある。",
-      "levels": [54, 59, 63],
+      "levels": [
+        54,
+        59,
+        63
+      ],
       "areas": 9,
       "fieldBoss": "クラマ",
-      "enemies": ["獰猛な雪原ダイアウルフ"],
-      "gather": ["止血花", "冷たい光の群れ"],
-      "notes": ["韓国版の資料では、スッキリキノコが採れるのはここだけ。上級のポーションの多くが材料に使う。"]
+      "enemies": [
+        "獰猛な雪原ダイアウルフ"
+      ],
+      "gather": [
+        "止血花",
+        "冷たい光の群れ"
+      ],
+      "notes": [
+        "韓国版の資料では、スッキリキノコが採れるのはここだけ。上級のポーションの多くが材料に使う。"
+      ],
+      "photo": "scenes/ice-valley.webp"
     },
     {
       "id": "cloud-wilds",
@@ -266,9 +586,15 @@
       "scene": "desert",
       "near": "韓国版ではガイレフの丘とバンホールの間",
       "mood": "砂嵐が旅人の行く手をふさぐ荒野。",
-      "levels": [61, 65, 74],
+      "levels": [
+        61,
+        65,
+        74
+      ],
       "areas": 9,
-      "notes": ["韓国版では2025年6月19日のアップデートで追加。"]
+      "notes": [
+        "韓国版では2025年6月19日のアップデートで追加。"
+      ]
     },
     {
       "id": "sen-mag",
@@ -278,9 +604,15 @@
       "scene": "plain",
       "near": "韓国版ではバンホールとイメンマハの間",
       "mood": "裂け目の傷あとが残る広い大地。",
-      "levels": [null, null, null],
+      "levels": [
+        null,
+        null,
+        null
+      ],
       "areas": 8,
-      "notes": ["韓国版では2025年9月25日のアップデートで追加。中にペカ古墳とペロン古墳の入口がある。"]
+      "notes": [
+        "韓国版では2025年9月25日のアップデートで追加。中にペカ古墳とペロン古墳の入口がある。"
+      ]
     },
     {
       "id": "pale-mountain",
@@ -290,9 +622,14 @@
       "scene": "castle",
       "near": "韓国版ではイメンマハの近く",
       "mood": "冷たい風が泣き叫ぶ古い城跡。",
-      "levels": [null, null],
+      "levels": [
+        null,
+        null
+      ],
       "areas": 8,
-      "notes": ["韓国版では2026年6月25日のアップデートで追加。難易度は2つ。"]
+      "notes": [
+        "韓国版では2026年6月25日のアップデートで追加。難易度は2つ。"
+      ]
     }
   ]
 }
