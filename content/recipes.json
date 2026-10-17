@@ -879,8 +879,8 @@
   {
    "id": "i3cff25b0",
    "ko": "네잎클로버",
-   "ja": "四つ葉のクローバー",
-   "jaConfirmed": false,
+   "ja": "４つ葉のクローバー",
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -3469,8 +3469,8 @@
   {
    "id": "ieae1a854",
    "ko": "연금술 부스러기",
-   "ja": "錬金術のくず",
-   "jaConfirmed": false,
+   "ja": "錬金術の残滓",
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -4296,7 +4296,7 @@
    "id": "i70da3aa9",
    "ko": "치명타 비약",
    "ja": "クリティカルの秘薬",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {

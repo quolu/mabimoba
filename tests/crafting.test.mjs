@@ -7,7 +7,8 @@ import { buildCrafting } from '../scripts/crafting.mjs';
 const recipes = JSON.parse(await readFile(new URL('../content/recipes.json', import.meta.url), 'utf8'));
 const portal = JSON.parse(await readFile(new URL('../content/portal.json', import.meta.url), 'utf8'));
 const extra = JSON.parse(await readFile(new URL('../content/crafting.json', import.meta.url), 'utf8'));
-const { crafting, examples } = buildCrafting(recipes, portal, extra);
+const barter = JSON.parse(await readFile(new URL('../content/barter.json', import.meta.url), 'utf8'));
+const { crafting, examples } = buildCrafting(recipes, portal, extra, barter);
 const id = ko => recipes.items.find(i => i.ko === ko).id;
 const ko = itemId => recipes.items.find(i => i.id === itemId).ko;
 const recipeOf = recipeId => recipes.recipes.find(x => x.id === recipeId);
@@ -84,12 +85,15 @@ test('公開するデータは、参照が切れていない', () => {
     for (const y of d.yields) assert.ok(y.item === null ? y.sure === null : items.has(y.item) && typeof y.sure === 'boolean', `${d.id} ${y.name}`);
   }
   for (const i of crafting.items) {
-    for (const s of i.sources) assert.ok(places.get(s).yields.some(y => y.item === i.id), i.ko);
-    assert.equal(i.obtain, i.craftable ? 'craft' : i.sources.length ? 'gather' : 'unknown', i.ko);
+    for (const s of i.sources) assert.ok(places.get(s).japan && places.get(s).yields.some(y => y.item === i.id), i.ko);
+    for (const s of i.krSources) assert.ok(!places.get(s).japan && places.get(s).yields.some(y => y.item === i.id), i.ko);
+    for (const r of i.routes) assert.ok(r.check === 'kr' && sources.has(r.source) && (r.kind === 'barter' ? r.npc.ja && r.give.ja : r.npc?.ja || r.text), i.ko);
+    assert.equal(i.obtain, i.craftable ? 'craft' : i.sources.length ? 'gather' : i.krSources.length || i.routes.length ? 'other' : 'unknown', i.ko);
     assert.equal(i.sourceKnown, i.obtain !== 'unknown', i.ko);
     assert.ok(!(i.jaConfirmed && i.jaSeen), i.ko);
   }
   for (const s of crafting.sections) assert.ok(sources.has(s.source), s.id);
+  for (const d of crafting.destinations) assert.equal(d.japan, d.check !== 'kr', d.id);
   // 採集図鑑に載せた行き先は、全部入っている。
   for (const s of portal.gathering.skills) for (const d of s.destinations) assert.ok(places.has(`${s.id}:${d.name}`), d.name);
 });
@@ -114,8 +118,11 @@ test('使えない作り方、勧める作り方、画面の字を持ってい�
   assert.deepEqual([steak.group.ja, steak.group.jaConfirmed, steak.skill.ja, steak.skill.jaConfirmed, steak.jpChecked], ['STR特化', true, '料理', true, true]);
   assert.equal(crafting.gatherRun.max, 10);
   const thick = crafting.destinations.find(d => d.id === 'logging:太い木'), tree = crafting.destinations.find(d => d.id === 'logging:チクチクの木');
-  assert.deepEqual([thick.yieldsCheck, thick.yields.map(y => y.check)], ['screen', ['screen']]);
-  assert.deepEqual([tree.yieldsCheck, tree.yields.map(y => y.check)], ['media', ['media', 'media']]);
+  // yieldsCheck は日本版の資料の品物だけで決める。韓国版の資料で足した品物は後ろに並ぶ。
+  const jpChecks = d => d.yields.filter(y => y.check !== 'kr').map(y => y.check);
+  assert.deepEqual([thick.yieldsCheck, jpChecks(thick)], ['screen', ['screen']]);
+  assert.deepEqual([tree.yieldsCheck, jpChecks(tree)], ['media', ['media', 'media']]);
+  assert.deepEqual(thick.yields.map(y => y.check), [...jpChecks(thick), ...thick.yields.slice(1).map(() => 'kr')]);
   assert.ok(crafting.recipes.find(x => x.item === id('부드러운 목재')).jpNote);
   assert.equal(crafting.recipes.find(x => x.item === id('목재')).jpNote, null);
   const time = ko => { const x = crafting.recipes.find(x => x.item === id(ko)); return [x.seconds, x.secondsCheck, x.secondsTable, x.secondsNote !== null]; };
@@ -137,9 +144,27 @@ test('名前まで確かで採集だけで揃う品物は、全部、答えの�
   for (const c of examples.cases) assert.deepEqual(c.output, craftPlan(recipes, c.input.item, c.input.count, { have: c.input.have, prefer: c.input.prefer }), c.id);
 });
 
+test('採集の行き先は、韓国版の資料で採れる物を全部並べ、ほかの手に入れ方も持つ', () => {
+  const place = pid => crafting.destinations.find(d => d.id === pid), item = ko => crafting.items.find(i => i.ko === ko);
+  // 薬草採集のハーブでは、ハーブのほかに四つ葉のクローバーも採れる。
+  assert.deepEqual(place('herb:ハーブ').yields.map(y => y.ko), ['허브', '새초롱꽃', '네잎클로버', '황금 네잎클로버']);
+  const clover = item('네잎클로버');
+  assert.equal(clover.obtain, 'gather');
+  assert.ok(clover.sources.includes('herb:ハーブ') && clover.sources.every(s => place(s).japan));
+  assert.deepEqual(new Set(clover.routes.map(r => r.kind)), new Set(['barter', 'shop']));
+  // 日本版の資料に無い行き先は japan: false で、品物の sources には入れない。
+  const silver = item('은 광석');
+  assert.deepEqual([silver.obtain, silver.sources, silver.krSources], ['other', [], ['mining:銀の鉱脈']]);
+  assert.equal(place('mining:銀の鉱脈').japan, false);
+  // 日本版の資料の品物の確かさは、韓国版の資料を足しても変わらない。
+  assert.ok(crafting.items.filter(i => i.gatherOnlySure).every(i => i.sources.length || i.craftable));
+  const scrap = item('연금술 부스러기');
+  assert.deepEqual(scrap.routes.map(r => r.kind), ['barter', 'barter', 'dungeon', 'other']);
+});
+
 test('中身が同じなら revision は同じで、変われば変わる', () => {
-  assert.equal(buildCrafting(recipes, portal, extra).crafting.revision, crafting.revision);
+  assert.equal(buildCrafting(recipes, portal, extra, barter).crafting.revision, crafting.revision);
   const changed = structuredClone(extra);
   changed.recommendedLv['목재'] = 5;
-  assert.notEqual(buildCrafting(recipes, portal, changed).crafting.revision, crafting.revision);
+  assert.notEqual(buildCrafting(recipes, portal, changed, barter).crafting.revision, crafting.revision);
 });

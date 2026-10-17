@@ -5,7 +5,7 @@
   "changelog": [
     {
       "date": "2026-10-17",
-      "summary": "ダンジョンと狩り場の推奨レベルの一覧を作った。サイトをエリンの羊皮紙の色合いに作り直し、日本公式の絵をたくさん入れた",
+      "summary": "ダンジョンと狩り場の推奨レベルの一覧を作り、製作の材料に手に入れ方を添えた。サイトをエリンの羊皮紙の色合いに作り直し、日本公式の絵をたくさん入れた",
       "items": [
         {
           "type": "データの更新",
@@ -20,6 +20,16 @@
         {
           "type": "データの更新",
           "text": "製作・加工の一覧：最上級自動回復ポーションの材料の名前を、日本版の画面の字「分解された装備の部品」に直した",
+          "url": "/recipes/potions/"
+        },
+        {
+          "type": "データの更新",
+          "text": "製作・加工の一覧：作り方の無い材料に、手に入れ方（採集の行き先、店、物々交換など）を一言で添えた。韓国版の資料による物には「韓国版」の印",
+          "url": "/recipes/"
+        },
+        {
+          "type": "データの更新",
+          "text": "製作・加工の一覧：クリティカルの秘薬と、材料の「４つ葉のクローバー」「錬金術の残滓」の名前を、日本版の画面の字に直した",
           "url": "/recipes/potions/"
         },
         {
@@ -2199,6 +2209,86 @@
       "region": "韓国",
       "checkedAt": "2026-10-16",
       "asOf": "2025-04-23"
+    },
+    {
+      "id": "namu-life-skill",
+      "title": "마비노기 모바일/생활 스킬（ナムウィキ。採集の行き先ごとに採れる物の表）",
+      "url": "https://namu.wiki/w/%EB%A7%88%EB%B9%84%EB%85%B8%EA%B8%B0%20%EB%AA%A8%EB%B0%94%EC%9D%BC/%EC%83%9D%ED%99%9C%20%EC%8A%A4%ED%82%AC",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-17",
+      "asOf": "2026-10-16"
+    },
+    {
+      "id": "inven-shop-tir",
+      "title": "「NPC販売情報」ティルコネイル（韓国Invenの掲示板投稿）",
+      "url": "https://www.inven.co.kr/board/mabimo/6366/43",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-17",
+      "asOf": "2025-04-15"
+    },
+    {
+      "id": "inven-shop-dunbarton",
+      "title": "「NPC販売情報」ダンバートン（韓国Invenの掲示板投稿）",
+      "url": "https://www.inven.co.kr/board/mabimo/6366/51",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-17",
+      "asOf": "2025-04-16"
+    },
+    {
+      "id": "inven-shop-colhen",
+      "title": "「NPC販売情報」コレン（韓国Invenの掲示板投稿）",
+      "url": "https://www.inven.co.kr/board/mabimo/6366/53",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-17",
+      "asOf": "2025-04-16"
+    },
+    {
+      "id": "inven-shop-dugald",
+      "title": "「NPC販売情報」トウガルドアイル（韓国Invenの掲示板投稿）",
+      "url": "https://www.inven.co.kr/board/mabimo/6366/57",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-17",
+      "asOf": "2025-04-16"
+    },
+    {
+      "id": "inven-life-power",
+      "title": "生活力を上げる方法のまとめ（韓国Invenの掲示板投稿）",
+      "url": "https://www.inven.co.kr/board/mabimo/6366/225",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-17",
+      "asOf": "2025-04-29"
+    },
+    {
+      "id": "inven-alt-character",
+      "title": "サブキャラクターを育てる理由（韓国Invenの掲示板投稿）",
+      "url": "https://www.inven.co.kr/board/mabimo/6366/103",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-17",
+      "asOf": "2025-04-19"
+    },
+    {
+      "id": "begchi-alchemy-scrap",
+      "title": "연금술 부스러기 파밍 방법（韓国の攻略ブログ）",
+      "url": "https://mabinogi-mobile.begchi.com/%EC%97%B0%EA%B8%88%EC%88%A0-%EB%B6%80%EC%8A%A4%EB%9F%AC%EA%B8%B0-%ED%8C%8C%EB%B0%8D-%EB%B0%A9%EB%B2%95",
+      "kind": "community",
+      "language": "ko",
+      "region": "韓国",
+      "checkedAt": "2026-10-17",
+      "asOf": "2025-04-16"
     }
   ],
   "articles": [

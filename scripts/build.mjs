@@ -20,7 +20,7 @@ const barterSource = await readFile('content/barter.json', 'utf8');
 const barter = JSON.parse(barterSource);
 checkBarter(barter, recipes, new Set(data.sources.map(s => s.id)));
 const craftingSource = await readFile('content/crafting.json', 'utf8');
-const { crafting, examples: craftingExamples } = buildCrafting(recipes, data, JSON.parse(craftingSource));
+const { crafting, examples: craftingExamples } = buildCrafting(recipes, data, JSON.parse(craftingSource), barter);
 const dungeonSource = await readFile('content/dungeons.json', 'utf8');
 const dungeonData = JSON.parse(dungeonSource);
 checkDungeons(dungeonData, new Set(data.sources.map(s => s.id)));
@@ -199,7 +199,31 @@ function about() {
  return pageHeading('ABOUT THIS FIELD GUIDE','情報の読み方・出典','このサイトは、海外の先行情報を日本語で整理する非公式の攻略ポータルです。')+`<div class="article-body"><h2>地域と資料の基準日を見る</h2><p>攻略記事とDBの主な対象は韓国版です。日本版で使う場合はゲーム内の表示を照合してください。「確認日」は原文を確認した日、「資料の基準日」は公式ガイドが示したゲームの状態です。古い基準のガイドは現在の調整が反映されていない可能性があります。</p><h2>公式仕様と攻略の提案</h2><p>仕様はNEXONの公式ガイドを優先して掲載しています。記事の「進め方のヒント」とロードマップの順番は、読んだ資料をもとに編集部が組み立てた提案です。プレイヤーの実戦記録は投稿として表示し、単独の検証や感想を確定仕様と同じ扱いにしていません。記事末尾の出典欄では、「公式」「公式X」「攻略媒体」「プレイヤー投稿」を分けて表示します。「公式X」は、公式アカウントのXの投稿です。編集部が日本版の実機で確かめた内容は、確かめた日と範囲を本文に書いています。</p><h2>職業名と日本版の掲載状況</h2><p>日本公式で確認できる職業名は日本公式の表記を使い、韓国先行の名前と用語には仮訳を含みます。職業図鑑の「日本公式に掲載」は紹介ページに載っているという意味です。海外の性能や解放条件が日本版でも同じとは限りません。</p><h2>Xの情報</h2><p>日本語・韓国語を検索し、公式発表、攻略、プレイ記録、感想を分けて紹介しています。本文や画像の全文転載は行わず、投稿者・投稿時刻・原文リンクを掲載します。公式アカウントは日本公式サイトからのリンクも確認しました。</p><h2>画像の出典</h2><p>イラストと人物画像はマビノギモバイルの韓国公式メディア・公式クラス紹介を、日本版の記事の画像は日本公式のお知らせを参照しています。本サイトはNEXONやdevCATによる公式・公認サイトではありません。公式画像・ゲームの著作権は各権利者に帰属します。</p><p>${link('https://m.nexon.com/terms/1497','日本公式の著作物利用ガイドライン')}</p><div class="asset-list">${assets.assets.map(a=>`<div class="asset-credit">${asset(a.file,a.name)}<p>${e(a.name)} · ${a.dimensions.join(' × ')}<br>${e(a.note)}</p>${link(a.sourcePage,'公式の掲載元')}</div>`).join('')}</div><p class="section-note">製作・加工の一覧の品物のアイコンは、日本版のゲーム画面（保管箱）から切り出し、右下の持ち数の数字を消した物です（${Object.keys(itemPhotos).length}品。© NEXON Co., Ltd. &amp; devCAT CO., LTD.）。アイコンが無い品物は、編集部が種類ごとに描いた絵です。ダンジョンと狩り場の挿絵も編集部が描いた物です。</p><h2>参照した資料</h2>${sourceList(data.sources.map(s=>s.id))}<h2>情報の更新</h2><p>最終更新は ${data.updatedAt}。何を追加・変更したかは<a href="/updates/">サイトの更新情報</a>に日付ごとに記録しています。更新日時と各記事の出典を確認して利用してください。閲覧だけでXや公式サイトの新着を自動取得する仕組みではありません。</p></div>`;
 }
 const dungeonView = dungeonViews(dungeonData, { e, badge, icon, sourceList, emblem });
-const recipeView = recipeViews(recipes, { e, badge, icon, emblem, sourceList, discord: data.discord.enabled, gatherable: crafting.counts.baseWithSources, itemPhotos });
+// 作り方の無い材料に、手に入れ方を一言で添える。採集は日本版の資料にある行き先のうち、要るレベルの低い所。
+const howToGet = (() => {
+ const place = new Map(crafting.destinations.map(d => [d.id, d]));
+ const kinds = { shop: 'の店', barter: 'と交換', dungeon: 'ダンジョン', drop: '敵が落とす', mission: '狩り場の任務', decompose: '分解', other: 'ほかの手に入れ方' };
+ const out = new Map();
+ for (const i of crafting.items) {
+  if (i.craftable || i.obtain === 'unknown') continue;
+  // 日本版の資料で採れると分かる行き先を先に。韓国版の資料だけの時は、店や交換を先に出す。
+  let text, kr;
+  const jpSeen = i.sources.filter(s => place.get(s).yields.find(y => y.item === i.id).check !== 'kr');
+  const gather = jpSeen.length ? jpSeen : i.routes.length ? [] : i.sources;
+  if (gather.length) {
+   const d = gather.map(s => place.get(s)).sort((a, b) => a.level - b.level)[0];
+   text = `採集：${d.name}${i.sources.length > 1 ? 'ほか' : ''}`;
+   kr = !jpSeen.length;
+  } else if (i.routes.length) {
+   const r = i.routes.find(r => r.kind === 'shop' && r.npc) ?? i.routes.find(r => r.kind === 'barter') ?? i.routes[0];
+   text = r.npc ? `${r.npc.ja}${kinds[r.kind]}` : kinds[r.kind];
+   kr = true;
+  } else { text = `採集：${place.get(i.krSources[0]).name}`; kr = true; }
+  out.set(i.id, { text, kr });
+ }
+ return out;
+})();
+const recipeView = recipeViews(recipes, { e, badge, icon, emblem, sourceList, discord: data.discord.enabled, gatherable: crafting.counts.baseWithSources, itemPhotos, howToGet });
 const index = [
  ...data.articles.map(a=>({kind:'攻略ガイド',title:a.title,description:a.description,url:articleHref(a.id),text:[a.title,a.category,a.description,...(a.points??[]),...a.sections.flatMap(sectionText),...a.advice].join(' ')})),
  ...data.families.flatMap(f=>f.classes.map(c=>({kind:'職業図鑑',title:c.name+' / '+c.korean,description:f.title+'系統 · '+f.role+(c.japanListed?' · 日本公式に掲載':' · 韓国先行情報'),url:`/classes/${f.id}/#${c.id}`,text:f.title+' '+f.korean+' '+f.description+' '+c.name+' '+c.korean}))),

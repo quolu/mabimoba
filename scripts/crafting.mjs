@@ -1,12 +1,13 @@
 // 製作・加工の作り方（content/recipes.json）に、採集図鑑（content/portal.json の gathering）の行き先と、
 // 行き先で採れる品物（content/crafting.json）をつないで、公開するデータを作る。
+// 採集のほかの手に入れ方（物々交換、店、ダンジョンなど）は、物々交換の一覧（content/barter.json）と content/crafting.json から足す。
 // 出す物は /data/crafting.json と、計算の答えの例 /data/crafting-examples.json。項目と計算の決まりは docs/crafting-data.md。
 import { createHash } from 'node:crypto';
 import { craftPlan } from './recipes.mjs';
 
 const RULE_URL = 'https://github.com/quolu/mabimoba/blob/main/docs/crafting-data.md';
 
-export function buildCrafting(recipes, portal, extra) {
+export function buildCrafting(recipes, portal, extra, barter) {
  const bad = why => { throw new Error(`CRAFTING_INVALID: ${why}`); };
  if (extra?.schemaVersion !== 1 || !/^\d{4}-\d{2}-\d{2}$/.test(extra.checkedAt) || !extra.lead || !Number.isInteger(extra.gatherRun?.max)) bad('見出しの内容が不足');
  const checks = new Set(Object.keys(extra.checks));
@@ -58,21 +59,53 @@ export function buildCrafting(recipes, portal, extra) {
    areaGroups: place ?? [],
    tool: own ? own.tool : skill.tool, toolCheck: own ? own.toolCheck : skill.toolCheck,
    yields: names.map(name => { const t = tie(name); return { name, item: t.item?.id ?? null, sure: t.sure, check: seen.includes(name) ? 'screen' : 'media', ...(t.note ? { note: t.note } : {}) }; }),
-   yieldsCheck: names.every(name => seen.includes(name)) ? 'screen' : 'media', yieldsSource: skill.source
+   yieldsCheck: names.every(name => seen.includes(name)) ? 'screen' : 'media', yieldsSource: skill.source, japan: true
   };
  });
+
+ // 韓国版の資料（ナムウィキ）の、行き先ごとに採れる物の全部。日本版の資料にある行き先には、無い品物を後ろへ足す。
+ // 日本版の資料に無い行き先は、japan: false の行き先として足す。
+ const kr = extra.krGathering;
+ if (!sourceById.has(kr?.source)) bad('韓国版の採集の出典');
+ const krYield = ko => {
+  const item = byKo.get(extra.krAliases[ko] ?? ko);
+  const name = item?.ja ?? extra.krNames[ko] ?? bad(`韓国版の品物の名前が無い ${ko}`);
+  return { name, ko, item: item?.id ?? null, sure: item ? true : null, check: 'kr' };
+ };
+ const krPaired = new Set();
+ for (const k of kr.destinations) {
+  const skill = skillById.get(k.skill) ?? bad(`韓国版の行き先のスキル ${k.skill}`);
+  if (!k.ko || !Number.isInteger(k.level) || !k.yields?.length || !k.jp === !k.ja) bad(`韓国版の行き先 ${k.ko}`);
+  let d;
+  if (k.jp) {
+   d = destinations.find(x => x.id === `${k.skill}:${k.jp}`) ?? bad(`韓国版の行き先の対が無い ${k.jp}`);
+   if (krPaired.has(d.id)) bad(`韓国版の行き先が重複 ${k.jp}`);
+   krPaired.add(d.id);
+  } else {
+   d = { id: `${k.skill}:${k.ja}`, skill: k.skill, skillName: skill.name, name: k.ja, level: k.level, check: 'kr', areaType: null, areas: [], areaCheck: null, areaGroups: [], tool: skill.tool, toolCheck: skill.toolCheck, yields: [], yieldsCheck: 'kr', yieldsSource: kr.source, japan: false };
+   destinations.push(d);
+  }
+  d.ko = k.ko; d.levelKr = k.level; d.yieldsSourceKr = kr.source;
+  for (const y of [...k.yields, ...(kr.common[k.skill] ?? [])].map(krYield)) {
+   const same = d.yields.find(x => (y.item && x.item === y.item) || x.name === y.name);
+   if (same) same.ko ??= y.ko;
+   else d.yields.push(y);
+  }
+ }
+ for (const d of destinations) if (d.japan && !krPaired.has(d.id)) bad(`日本版の行き先に韓国版の対が無い ${d.id}`);
  if (new Set(destinations.map(d => d.id)).size !== destinations.length) bad('行き先が重複');
  for (const [skill, rows] of Object.entries(extra.yields)) for (const name of Object.keys(rows)) if (!destinations.some(d => d.id === `${skill}:${name}`)) bad(`採れる品物の行き先が無い ${skill}:${name}`);
  for (const group of [extra.mediaAreas, extra.destinationTools, extra.screenYields]) for (const [skill, rows] of Object.entries(group)) for (const name of Object.keys(rows)) if (!destinations.some(d => d.id === `${skill}:${name}`)) bad(`行き先が無い ${skill}:${name}`);
 
  // 品物。採れる行き先と、別の書き方を足す。
  const nameOf = new Map(recipes.items.map(i => [i.id, i]));
- const sourcesOf = new Map(), aliasesOf = new Map(), seenInJp = new Set();
+ const sourcesOf = new Map(), krSourcesOf = new Map(), aliasesOf = new Map(), seenInJp = new Set();
  for (const d of destinations) for (const y of d.yields) {
   if (!y.item) continue;
-  if (!sourcesOf.has(y.item)) sourcesOf.set(y.item, []);
-  sourcesOf.get(y.item).push(d.id);
-  if (y.name === nameOf.get(y.item).ja) seenInJp.add(y.item);
+  const to = d.japan ? sourcesOf : krSourcesOf;
+  if (!to.has(y.item)) to.set(y.item, []);
+  if (!to.get(y.item).includes(d.id)) to.get(y.item).push(d.id);
+  if (y.check !== 'kr' && y.name === nameOf.get(y.item).ja) seenInJp.add(y.item);
  }
  for (const [name, t] of Object.entries(extra.ties)) {
   const item = itemOfKo(t.ko);
@@ -113,9 +146,34 @@ export function buildCrafting(recipes, portal, extra) {
   if (s.id !== 'no-bench' && (!label || !checks.has(check))) bad(`製作台 ${s.id}`);
   return { ...s, jaCheck: check ?? null, aliases: label && label !== s.ja ? [{ name: label, sure: true, note: extra.stationLabelNote }] : [] };
  });
- const sureSource = new Set(destinations.flatMap(d => d.yields.filter(y => y.sure).map(y => y.item)));
+ const sureSource = new Set(destinations.filter(d => d.japan).flatMap(d => d.yields.filter(y => y.sure && y.check !== 'kr').map(y => y.item)));
+
+ // 採集のほかの手に入れ方。どれも韓国版の資料にだけある事なので、check は kr。
+ const regionById = new Map(barter.regions.map(r => [r.id, r]));
+ const npcView = n => ({ ko: n.ko, ja: n.ja, jaConfirmed: n.jaConfirmed, region: n.region, regionJa: (regionById.get(n.region) ?? bad(`NPCの地域 ${n.ko}`)).ja });
+ const npcById = new Map(barter.npcs.map(n => [n.id, n])), npcByKo = new Map(barter.npcs.map(n => [n.ko, n]));
+ const shopNpc = ko => npcByKo.get(ko) ?? (extra.shopNpcs[ko] ? { ko, ...extra.shopNpcs[ko] } : bad(`店のNPC ${ko}`));
+ const thing = ko => { const r = byKo.get(ko); if (r) return { item: r.id, ko, ja: r.ja, jaConfirmed: r.jaConfirmed }; const b = barter.items.find(i => i.ko === ko) ?? bad(`交換の品物 ${ko}`); return { item: null, ko, ja: b.ja, jaConfirmed: b.jaConfirmed }; };
+ const routesOf = new Map(), routeSources = new Set();
+ const addRoute = (ko, r) => {
+  if (!sourceById.has(r.source)) bad(`手に入れ方の出典 ${r.source}`);
+  routeSources.add(r.source);
+  const id = itemOfKo(ko).id;
+  if (!routesOf.has(id)) routesOf.set(id, []);
+  routesOf.get(id).push({ ...r, check: 'kr' });
+ };
+ for (const t of barter.trades) if (byKo.has(t.get.item)) addRoute(t.get.item, { kind: 'barter', trade: t.id, npc: npcView(npcById.get(t.npc)), qty: t.get.qty, give: { ...thing(t.give.item), qty: t.give.qty }, limit: t.limit, source: barter.sources[0] });
+ for (const s of extra.shops) {
+  if (!['gold', 'heart'].includes(s.currency) || !Number.isInteger(s.price) || !s.limit) bad(`店 ${s.npc} ${s.item}`);
+  addRoute(s.item, { kind: 'shop', npc: npcView(shopNpc(s.npc)), price: s.price, currency: s.currency, limit: s.limit, ...(s.note ? { note: s.note } : {}), source: s.source });
+ }
+ const routeKinds = new Set(['shop', 'dungeon', 'drop', 'mission', 'decompose', 'other']);
+ for (const [ko, list] of Object.entries(extra.routes)) for (const r of list) {
+  if (!routeKinds.has(r.kind) || !r.text) bad(`手に入れ方 ${ko}`);
+  addRoute(ko, { kind: r.kind, text: r.text, source: r.source });
+ }
  const items = recipes.items.map(i => {
-  const sources = sourcesOf.get(i.id) ?? [];
+  const sources = sourcesOf.get(i.id) ?? [], krSources = krSourcesOf.get(i.id) ?? [], routes = routesOf.get(i.id) ?? [];
   let depth = 0, gatherOnly = null, gatherOnlySure = null;
   if (i.craftable) {
    const plan = craftPlan(recipes, i.id, 1);
@@ -129,12 +187,12 @@ export function buildCrafting(recipes, portal, extra) {
    id: i.id, ko: i.ko, ja: i.ja, aliases: aliasesOf.get(i.id) ?? [], jaConfirmed: i.jaConfirmed, jaSeen: !i.jaConfirmed && seenInJp.has(i.id),
    craftable: i.craftable, recipes: recipes.recipes.filter(x => x.item === i.id).map(x => x.id),
    recommendedRecipe: recommendedRecipe.get(i.id)?.recipe ?? null, recommendedWhy: recommendedRecipe.get(i.id)?.why ?? null,
-   obtain: i.craftable ? 'craft' : sources.length ? 'gather' : 'unknown',
-   sources, sourceKnown: i.craftable || sources.length > 0, depth, gatherOnly, gatherOnlySure
+   obtain: i.craftable ? 'craft' : sources.length ? 'gather' : krSources.length || routes.length ? 'other' : 'unknown',
+   sources, krSources, routes, sourceKnown: i.craftable || sources.length + krSources.length + routes.length > 0, depth, gatherOnly, gatherOnlySure
   };
  });
 
- const used = new Set([...recipes.sections.map(s => s.source), ...(recipes.jpSources ?? []), ...skills.map(s => s.source), ...portal.gathering.sources]);
+ const used = new Set([...recipes.sections.map(s => s.source), ...(recipes.jpSources ?? []), ...skills.map(s => s.source), ...portal.gathering.sources, kr.source, ...routeSources]);
  const base = items.filter(i => !i.craftable);
  const body = {
   schemaVersion: 1,
@@ -149,7 +207,8 @@ export function buildCrafting(recipes, portal, extra) {
    items: items.length, recipes: outRecipes.length, destinations: destinations.length,
    baseItems: base.length, baseWithSources: base.filter(i => i.sources.length).length,
    gatherOnlyItems: items.filter(i => i.gatherOnly).length, gatherOnlySureItems: items.filter(i => i.gatherOnlySure).length,
-   jaConfirmed: items.filter(i => i.jaConfirmed).length, jpChecked: outRecipes.filter(x => x.jpChecked).length
+   jaConfirmed: items.filter(i => i.jaConfirmed).length, jpChecked: outRecipes.filter(x => x.jpChecked).length,
+   japanDestinations: destinations.filter(d => d.japan).length, baseWithOtherWays: base.filter(i => i.obtain === 'other').length, baseUnknown: base.filter(i => i.obtain === 'unknown').length
   },
   stations,
   sections: recipes.sections,

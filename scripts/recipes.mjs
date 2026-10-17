@@ -129,7 +129,10 @@ export function recipeViews(r, h) {
  };
  const material = m => {
   const i = items.get(m.item), first = byItem.get(m.item)?.[0];
-  const name = `${pic(i, 's')}<span class="mat-name">${e(i.ja)}<small lang="ko">${e(i.ko)}</small></span>`;
+  // 作り方の無い材料には、手に入れ方を名前の下に添える。
+  const how = !first && h.howToGet?.get(m.item);
+  const hint = how ? `<span class="mat-how">${e(how.text)}${how.kr ? '<i>韓国版</i>' : ''}</span>` : '';
+  const name = `${pic(i, 's')}<span class="mat-name">${e(i.ja)}<small lang="ko">${e(i.ko)}</small>${hint}</span>`;
   return `<li>${first ? `<a href="${recipeHref(first)}">${name}</a>` : `<span>${name}</span>`}<b>${m.qty === null ? '個数不明' : '×' + m.qty}</b></li>`;
  };
  const card = x => {

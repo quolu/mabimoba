@@ -4,7 +4,7 @@
 
 - データ：`https://mabimoba.kitepon.dev/data/crafting.json`
 - 計算の答えの例：`https://mabimoba.kitepon.dev/data/crafting-examples.json`
-- 作る所：`scripts/crafting.mjs`（`content/recipes.json`、`content/portal.json` の `gathering`、`content/crafting.json` から組み立てる）
+- 作る所：`scripts/crafting.mjs`（`content/recipes.json`、`content/portal.json` の `gathering`、`content/crafting.json`、`content/barter.json` から組み立てる）
 - 計算：`scripts/recipes.mjs` の `craftPlan`
 
 作り方は韓国版の資料（2025年4月〜6月）が元で、日本版で確かめられたのは一部。確かめた度合いは、項目ごとに印で持っている。印の無い値を、日本版の事実として扱わない。
@@ -23,6 +23,8 @@
 | `record` | 日本版の実機の記録を、攻略媒体や公式の一覧と照らして、同じだった |
 | `guide` | 日本公式ゲームガイドに書かれている |
 | `media` | 日本版の攻略媒体（GameWith）の記事にだけ書かれている |
+| `table` | 元の表（韓国版）の値のまま。日本版の画面では確かめていない |
+| `kr` | 韓国版の資料（ナムウィキ、Invenの投稿、韓国の攻略ブログ）にだけ書かれている。日本版では確かめていない |
 
 ### `items`（品物）
 
@@ -37,14 +39,36 @@
 | `craftable` | この一覧に作り方があるか |
 | `recipes` | その品物の作り方の `id`。並びは `recipes` と同じ。作り方の無い品物は空 |
 | `recommendedRecipe`、`recommendedWhy` | 作り方が2つ以上ある品物で、勧める作り方の `id` と、その訳。ほかは `null`。確かめた事ではなく、編集部の見方 |
-| `obtain` | `craft`（作る）、`gather`（採集の行き先が分かっている）、`unknown`（手に入れる先を調べていない） |
-| `sources` | 採れる行き先の `id`。作る品物と、行き先が分からない品物は空 |
+| `obtain` | `craft`（作る）、`gather`（日本版の資料にある行き先で採れる）、`other`（作れず、日本版の資料にある行き先でも採れないが、`krSources` か `routes` に手に入れ方がある）、`unknown`（手に入れ方が分からない） |
+| `sources` | 採れる行き先の `id`。日本版の資料にある行き先（`japan` が `true`）だけ。採れると書いた資料が韓国版だけの品物も入る（行き先の `yields` の `check` が `kr`）。作る品物にも入る |
+| `krSources` | 韓国版の資料にだけある行き先（`japan` が `false`）のうち、採れる行き先の `id`。2026-10-17に足した |
+| `routes` | 採集のほかの手に入れ方。下の「手に入れ方（`routes`）」。2026-10-17に足した |
 | `sourceKnown` | `obtain` が `unknown` でなければ `true` |
 | `depth` | 元の材料まで何段あるか。元の材料は 0、元の材料だけで作れる品物は 1 |
 | `gatherOnly` | 作る品物だけ。元の材料が全部、採集の行き先につながっていれば `true`。個数の無い材料がある時は `false` |
-| `gatherOnlySure` | `gatherOnly` のうち、その品物、途中の品物、元の材料の名前が全部 `jaConfirmed` で、行き先とのつながりも確かな物 |
+| `gatherOnlySure` | `gatherOnly` のうち、その品物、途中の品物、元の材料の名前が全部 `jaConfirmed` で、行き先とのつながりも確かな物。韓国版の資料で足した品物（`check` が `kr`）は、確かなつながりに数えない |
 
-`obtain` が `unknown` の品物は、採集で採れないと決まった物ではない。店、分解、敵、ダンジョンのどれで手に入るかを、まだ分けていない。
+`obtain` が `unknown` の品物は、採集で採れないと決まった物ではない。調べた資料に手に入れ方が見つからなかった物。
+
+`obtain` は、作れる品物なら `routes` があっても `craft`。採集の行き先と `routes` の両方がある品物は `gather`。どの値でも、`sources`、`krSources`、`routes` は全部入れてある。
+
+### 手に入れ方（`routes`）
+
+品物ごとの、採集のほかの手に入れ方の並び。どれも韓国版の資料にだけ書かれている事で、`check` はみな `kr`。日本版で同じとは限らない。`source` は出典の `id`。
+
+| `kind` | 中身 |
+|---|---|
+| `barter` | NPCとの物々交換。`trade`（物々交換の一覧の交換の `id`）、`npc`、`qty`（もらう数）、`give`（渡す品物。`{ item, ko, ja, jaConfirmed, qty }`。`item` は製作・加工の一覧に無い品物では `null`）、`limit` |
+| `shop` | NPCの店で買う。`npc`、`price`、`currency`（`gold` か `heart`＝ハートトークン）、`limit`、`note`（条件がある時だけ）。`npc` が無い `shop` は、選択ボックスを買って選ぶ物などで、`text` に書いてある |
+| `dungeon` | ダンジョンの報酬。`text` |
+| `drop` | 敵やボスが落とす。`text` |
+| `mission` | 狩り場の任務の報酬。`text` |
+| `decompose` | ほかの品物を分解して手に入る。`text` |
+| `other` | そのほか。`text` |
+
+`npc` は `{ ko, ja, jaConfirmed, region, regionJa }`。`jaConfirmed` が `false` の名前は仮訳。`limit` は `{ count, per, scope }`。`per` は `day` か `week`、`scope` は `character`（キャラクターごと）か `server`（同じサーバーのキャラクター全員で分け合う）。`count` と `per` が `null` は、回数の制限が無い。
+
+店の値段と回数は、週ごとに買える物がナムウィキ（2026-10-14の版）、回数の制限が無い物（道具の部品、紙）がInvenの投稿（2025年4月）による。
 
 ### `recipes`（作り方）
 
@@ -91,10 +115,14 @@
 | `areaType`、`areas`、`areaCheck` | 場所。`areaType` は行き先のカードに出た「一般フィールド」「狩り場」。分かっていない時は `null` と空。カードに種類が2つ出た行き先（クモの糸、使えそうな木）は、`areaType` が `null` で、`areas` に全部の場所が入る |
 | `areaGroups` | カードに出た場所を、種類ごとに分けた物。`{ type, areas }` の並び（2026-10-13に足した）。画面で場所を見ていない行き先は空 |
 | `tool`、`toolCheck` | 要る道具。日常採集は `null`（道具なし）。水、井戸、乳牛は空き瓶 |
-| `yields` | 採れる品物。`{ name, item, sure, check }`。`name` は資料の表記、`item` は品物の `id`（この一覧に無い品物は `null`）。`sure` が `false` は、つながりが推測。`check` が `screen` は、日本版の実機でその行き先から手に入ったのを見た品物 |
-| `yieldsCheck`、`yieldsSource` | 採れる品物を確かめた度合い（全部の品物を実機で見た行き先だけ `screen`）と、攻略媒体の資料 |
+| `yields` | 採れる品物。`{ name, ko, item, sure, check }`。`name` は資料の表記（韓国版の資料で足した品物は、一覧の `ja` か仮訳）、`ko` は韓国語の名前（分かる物だけ）、`item` は品物の `id`（この一覧に無い品物は `null`）。`sure` が `false` は、つながりが推測。`check` が `screen` は日本版の実機でその行き先から手に入ったのを見た品物、`media` は日本版の攻略媒体の表、`kr` は韓国版の資料（ナムウィキ）にだけある品物 |
+| `yieldsCheck`、`yieldsSource` | 日本版の資料の品物（`check` が `kr` でない物）を確かめた度合い（全部を実機で見た行き先だけ `screen`）と、その資料。韓国版の資料にだけある行き先は `kr` |
+| `japan` | `true` は、日本版の資料（実機、攻略媒体）にある行き先。`false` は、韓国版の資料にだけある行き先で、日本版にあるかは分からない（2026-10-17に足した） |
+| `ko`、`levelKr`、`yieldsSourceKr` | 韓国版の資料での行き先の名前、要るスキルレベル、採れる品物の資料。`level` は日本版の値で、韓国版と違う行き先がある（止血花は日本版 15、韓国版 20） |
 
-採れる品物は、攻略媒体の表の「主に入手できるもの」による。実機で見た品物には、`check` に `screen` を付けている。先頭の品物が狙いの品物で、後ろの品物は一緒に出る事がある物、と読める並びだが、出る割合は書かれていない。
+採れる品物は、日本版の攻略媒体の表の「主に入手できるもの」を先に、韓国版の資料（ナムウィキ「마비노기 모바일/생활 스킬」）の表にある残りの品物を後ろに並べた。ナムウィキで全部の行き先に共通と書かれた品物（追加の長い茎、虫取りの凝縮された風、釣りの雑魚や結晶など）も、その行き先の品物に入れてある。先頭の品物がその行き先の狙いの品物で、後ろの品物は一緒に、多くは低い割合で出る物。出る割合は書かれていない。例：薬草採集の「ハーブ」は、ハーブ、鳥ちょうちん花（仮訳）、４つ葉のクローバー、黄金の４つ葉のクローバー（仮訳）。
+
+日本版の資料に無い行き先（`japan` が `false`）は、`id` を `<スキルのid>:<仮訳の名前>` にした。場所（`areas`）は空。
 
 `gatherRun.max` は、行き先のカードの[近くで探す]の1回で採集する回数（10）。画面の追跡に「採集 n/10」と出る。1回の採集で手に入る個数は確かめていないので、採れた数は持ち物の数で数える。
 
@@ -146,5 +174,7 @@
 - 推奨 Lv.：`content/crafting.json` の `recommendedLv`。日本版の実機で元の表と違う様子が見えた作り方は `jpNotes`。
 - 設備の札の字（`stationLabels`）、画面で見たタブの字（`screenGroups`）と製作スキルの名前（`confirmedSkills`）、使えない作り方（`unusable`）、勧める作り方（`recommendedRecipes`）、1回の採集の回数（`gatherRun`）：どれも `content/crafting.json`。
 - 名前、個数、条件：`content/recipes.json`（手順書の「製作・加工の一覧」）。
+- 韓国版の資料の行き先と採れる品物：`content/crafting.json` の `krGathering`（`jp` は日本版の資料にある行き先の名前、無い行き先は `ja` に仮訳）。一覧に無い品物の仮訳は `krNames`、韓国語の書き方の違いは `krAliases`。
+- 手に入れ方：物々交換は `content/barter.json` の `trades` から自動で入る。店は `content/crafting.json` の `shops`（製作・加工の一覧にある品物だけ。物々交換の一覧に無いNPCは `shopNpcs`）、ほかは `routes`。
 
 直したら `npm run check` と `npm test`。つながりが切れている時は `CRAFTING_INVALID` で止まる。

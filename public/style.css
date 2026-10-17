@@ -294,3 +294,4 @@ h1,h2,h3,.brand strong,.place-title h3,.teaser-card strong{font-family:var(--ser
 @media(max-width:760px){.section-head-art{width:96px}}
 .place-photo{width:100%;height:100%;object-fit:cover}
 .photo-note{position:absolute;top:8px;right:8px;font-size:10px;color:#fff;background:rgba(0,0,0,.45);padding:2px 8px;border-radius:4px}
+.mat-how{align-self:flex-start;margin-top:3px;font-size:11px;line-height:1.5;color:#2a4d58;background:#e9f0ef;border-radius:8px;padding:1px 8px}.mat-how i{font-style:normal;margin-left:6px;color:#8a5a00}
