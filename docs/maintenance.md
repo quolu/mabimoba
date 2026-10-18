@@ -127,7 +127,7 @@
 - 色合いは日本公式のワールドマップの羊皮紙に合わせた（`style.css` の末尾「エリンの羊皮紙」）。紙の質感は `public/assets/paper.webp`（自作）。見出しは Zen Old Mincho、見出しの下に飾り線。
 - 公式の絵は、まず日本公式サイトから取る：イメージ `https://mabinogimobile.nexon.co.jp/media/image`（`static.nexon.co.jp/.../media/img-assets/image_0NN.webp`）、キャラクター `/about/character`（`about/chara-switch-assets/chara-main-img-N-pc.webp`）、クラス `/about/class`（`about/class-switch-assets/class-<系統>-<番号>-img-pc.webp`、1が見習い）、ワールド `/about/world`（`about/world-map.webp`）、お知らせの画像（記事の本文の 900×675）。`public/assets/erin/` と `public/assets/notices/` に置き、素材台帳に書く。人物の絵は `-trim` で余白を切る。
 - 使い場所：ホームの看板（`heroSlides`、日本公式イメージを順に切り替え）、「エリンで出会う人々」（`npcs`）、「エリンの地図」、記事の上の絵と途中の絵（`artPools`。分類ごと、記事の並び順で選ぶ）、記事に名前が出るNPCの絵（`npcBlock`）、「続けて読みたい」の絵、職業図鑑のクラスの絵（`classGallery`・`class-lineup`）、データベースのカード（`dbArt`）、ニュースの `image`、採集図鑑の見出し（`skillIcons`）、物々交換の品物のアイコン、札（chips）の品物のアイコン。
-- 製作・加工の一覧の分類の絵は、日本版のゲームの製作の画面の分類のカード（`public/assets/craft/<分類のid>.webp`）。ポーション・包帯・秘薬は「アイテム」、多目的製作は「デコ」のカード。初心者ロードマップの段の絵は `roadArt`。
+- 製作・加工の一覧の分類の絵は、日本版のゲームの製作の画面の分類のカード（`public/assets/craft/<分類のid>.webp`）。ポーション・包帯・秘薬は「アイテム」、多目的製作は生活道具製作と同じ「道具」のカード（日本版の画面では、道具の札が多目的製作台）、デコ製作は「デコ」のカード。初心者ロードマップの段の絵は `roadArt`。
 - 新しい記事には `image` を付ける。途中の絵は自動で入る。ニュースは日本公式のお知らせなら本文の画像を `image` に付ける。
 - 確認のヘッドレス撮影は、看板の切り替えが止まらないので `--force-prefers-reduced-motion` を付ける。縦に大きすぎる窓（1280×2600など）は止まるので、1300くらいまでにする。
 

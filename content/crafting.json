@@ -149,16 +149,18 @@
     "armor-bench": "防具製作台",
     "potion-bench": "ポーション製作台",
     "cooking-bench": "調理台",
-    "multipurpose-bench": "多目的製作台"
+    "multipurpose-bench": "多目的製作台",
+  "deco-bench": "デコ製作台"
   },
   "stationNameChecks": {
     "metal-facility": "guide", "wood-facility": "guide", "leather-facility": "guide", "fabric-facility": "guide", "potion-facility": "guide", "food-facility": "guide",
-    "weapon-bench": "screen", "armor-bench": "screen", "potion-bench": "screen", "cooking-bench": "screen", "multipurpose-bench": "screen"
+    "weapon-bench": "screen", "armor-bench": "screen", "potion-bench": "screen", "cooking-bench": "screen", "multipurpose-bench": "screen",
+  "deco-bench": "screen"
   },
   "screenGroups": {
     "food": ["간편", "힘 특화", "솜씨 특화", "지력 특화", "쉐어링", "기타"]
   },
-  "confirmedSkills": ["요리", "대장 기술", "목공", "매직 크래프트", "중갑 제작", "경갑 제작", "천옷 제작", "물약 조제"],
+  "confirmedSkills": ["요리", "대장 기술", "목공", "매직 크래프트", "중갑 제작", "경갑 제작", "천옷 제작", "물약 조제", "핸디크래프트"],
   "unusable": {
     "최상급 목재+": "元の表で、品物と同じ名前が材料に書かれている。誤記と見られ、正しい材料が分からない。"
   },
