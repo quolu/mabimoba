@@ -1,6 +1,6 @@
 {
  "schemaVersion": 1,
- "checkedAt": "2026-10-15",
+ "checkedAt": "2026-10-18",
  "region": "韓国版",
  "lead": "製作台と加工施設で作れる品物と、その材料の一覧。韓国版の攻略掲示板にまとめられた表を元にしていて、日本版で同じかどうかは、一部しか確かめられていない。",
  "points": [
@@ -2574,7 +2574,7 @@
    "id": "i091f273d",
    "ko": "상급 옷감",
    "ja": "上級生地",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -2769,15 +2769,15 @@
   {
    "id": "i17990d00",
    "ko": "생채기꽃",
-   "ja": "止血花",
+   "ja": "すり傷花",
    "jaConfirmed": false,
    "craftable": false
   },
   {
    "id": "i6c81ce2d",
    "ko": "생채기꽃 가루",
-   "ja": "止血花の粉",
-   "jaConfirmed": true,
+   "ja": "すり傷花の粉",
+   "jaConfirmed": false,
    "craftable": true
   },
   {
@@ -3098,15 +3098,15 @@
   {
    "id": "i0414e955",
    "ko": "숨숨꽃",
-   "ja": "かくれ花",
-   "jaConfirmed": false,
+   "ja": "止血花",
+   "jaConfirmed": true,
    "craftable": false
   },
   {
    "id": "ic67a8f9b",
    "ko": "숨숨꽃 가루",
-   "ja": "かくれ花の粉",
-   "jaConfirmed": false,
+   "ja": "止血花の粉",
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -5840,7 +5840,7 @@
    "stationLv": 2,
    "skill": null,
    "skillLv": null,
-   "seconds": 7200,
+   "seconds": 6000,
    "materials": [
     {
      "item": "i56d0e6b9",
@@ -5854,6 +5854,10 @@
      "item": "i6fce3182",
      "qty": 8
     }
+   ],
+   "secondsTable": 7200,
+   "notes": [
+    "元の表では7,200秒（2時間）。日本版の実機の画面（2026-10-17）は「加工時間1時間40分所要」だったので、1時間40分にした"
    ]
   },
   {
