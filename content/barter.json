@@ -1,6 +1,6 @@
 {
  "schemaVersion": 1,
- "checkedAt": "2026-10-14",
+ "checkedAt": "2026-10-19",
  "asOf": "2026-10-14",
  "region": "韓国版",
  "lead": "NPCに品物を渡して、別の品物を受け取る物々交換の一覧。町ごとに、渡す物ともらう物、回数の上限を並べた。韓国版の今の内容で、日本版で同じかはまだ確かめていない。",
@@ -132,7 +132,7 @@
    "id": "nc4cead5a",
    "ko": "말콤",
    "ja": "マルコム",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "region": "tir"
   },
   {
@@ -208,8 +208,8 @@
   {
    "id": "nf0bcff0e",
    "ko": "발터",
-   "ja": "ウォルター",
-   "jaConfirmed": false,
+   "ja": "バルター",
+   "jaConfirmed": true,
    "region": "dunbarton"
   },
   {
@@ -237,7 +237,7 @@
    "id": "ncc222e5e",
    "ko": "아이라",
    "ja": "アイラ",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "region": "dunbarton"
   },
   {
