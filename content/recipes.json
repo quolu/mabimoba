@@ -1,13 +1,13 @@
 {
  "schemaVersion": 1,
- "checkedAt": "2026-10-18",
+ "checkedAt": "2026-10-19",
  "region": "韓国版",
  "lead": "製作台と加工施設で作れる品物と、その材料の一覧。韓国版の攻略掲示板にまとめられた表を元にしていて、日本版で同じかどうかは、一部しか確かめられていない。",
  "points": [
   "載せているのは、加工6施設と、武器、防具、アクセサリ、生活道具、フード、ポーション・包帯・秘薬、多目的製作、デコ製作の作り方。",
   "元の資料は韓国版（2025年4月〜6月の投稿）。日本版と品物や個数が違う事がある。デコ製作だけは韓国版の資料に無いので、日本版の画面で見た作り方を載せている。",
   "品物の名前は、日本版の画面や公式ガイドで確かめられた物に「日本版の名前」の印を付けた。印の無い名前は、日本版の名前の付け方に揃えた仮訳。韓国語の元の名前を併記している。",
-  "日本版の画面と見比べられた作り方は9件。9件とも、材料と個数、製作台とスキルのレベルが同じだった。",
+  "日本版の画面と見比べられた作り方は12件。12件とも、材料と個数、製作台とスキルのレベルが同じだった。",
   "加工の時間のうち9つの品物（木材、木材+、上級木材、上級木材+、アイアンインゴット、スチールインゴット、合金インゴット、上級生地、スッキリキノコのエキス）は、日本版の画面で見た時間を載せている。韓国版の表より短い物がある（木材+は6分、スチールインゴットは5分、合金インゴットと上級木材と上級生地は1時間40分）。上級木材は人によって全体の長さが違い、約4時間の例もあった。",
   "材料の名前を押すと、その材料の作り方へ移る。"
  ],
@@ -327,7 +327,7 @@
    "id": "i5965b802",
    "ko": "가죽+",
    "ja": "革+",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -2679,7 +2679,7 @@
    "id": "iaf6ef295",
    "ko": "상급 치명타 비약",
    "ja": "上級クリティカルの秘薬",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -3281,7 +3281,7 @@
    "id": "i68b2ff7b",
    "ko": "쑥쑥 버섯 포자",
    "ja": "ノビノビキノコの胞子",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -5252,6 +5252,69 @@
    "craftable": false
   },
   {
+   "id": "ic6d030ce",
+   "ko": null,
+   "ja": "シンプルなL字型カウンターAデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "ia5607928",
+   "ko": null,
+   "ja": "シンプルなL字型カウンターBデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "i89341335",
+   "ko": null,
+   "ja": "シンプルなシンクAデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "ide796036",
+   "ko": null,
+   "ja": "シンプルなシンクBデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "id9ec4453",
+   "ko": null,
+   "ja": "シンプルな矢印スタンドAデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "idd0f1828",
+   "ko": null,
+   "ja": "上品なソファCデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "if18308e4",
+   "ko": null,
+   "ja": "上品なベッドAデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "i88810095",
+   "ko": null,
+   "ja": "上品なベッドCデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "ia52156b1",
+   "ko": null,
+   "ja": "上品なベッドEデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
    "id": "ieac1a8ae",
    "ko": null,
    "ja": "実用的な四角テーブルAデコボックス",
@@ -5285,6 +5348,41 @@
    "ja": "座標変換機",
    "jaConfirmed": true,
    "craftable": false
+  },
+  {
+   "id": "ie930f627",
+   "ko": null,
+   "ja": "心地よいシンクBデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "i1c0be5f9",
+   "ko": null,
+   "ja": "心地よい折りたたみ式パーテーションAデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "i5e1c8825",
+   "ko": null,
+   "ja": "心地よい折りたたみ式パーテーションDデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "i486b209b",
+   "ko": null,
+   "ja": "心地よい本棚Aデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "i183a7649",
+   "ko": null,
+   "ja": "心地よい本棚Bデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
   },
   {
    "id": "ifcca5da3",
@@ -5437,6 +5535,13 @@
    "id": "icc47c16f",
    "ko": null,
    "ja": "落ち着いた楕円形テーブルBデコボックス",
+   "jaConfirmed": true,
+   "craftable": true
+  },
+  {
+   "id": "if57a915a",
+   "ko": null,
+   "ja": "落ち着いた食器棚Eデコボックス",
    "jaConfirmed": true,
    "craftable": true
   }
@@ -6457,7 +6562,8 @@
      "item": "i045e3ff6",
      "qty": 3
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "rcb0d3d2e",
@@ -20403,7 +20509,8 @@
      "item": "ieae1a854",
      "qty": 10
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "rc5c64f88",
@@ -20550,7 +20657,8 @@
      "item": "ieae1a854",
      "qty": 20
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r1481b738",
@@ -23742,6 +23850,534 @@
      "item": "i2db984c8",
      "qty": 20
     }
+   ]
+  },
+  {
+   "id": "rf57a915a",
+   "section": "deco",
+   "group": null,
+   "item": "if57a915a",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 2,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 8,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i596a61b7",
+     "qty": 3
+    },
+    {
+     "item": "i89478847",
+     "qty": 20
+    },
+    {
+     "item": "i18164463",
+     "qty": 20
+    },
+    {
+     "item": "i3a4e7067",
+     "qty": 5
+    }
+   ]
+  },
+  {
+   "id": "rd9ec4453",
+   "section": "deco",
+   "group": null,
+   "item": "id9ec4453",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 9,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i8c446023",
+     "qty": 4
+    },
+    {
+     "item": "i8855fb2d",
+     "qty": 1
+    },
+    {
+     "item": "i89478847",
+     "qty": null
+    }
+   ],
+   "notes": [
+    "「丸太」の個数は、日本版の画面の記録で読めていない"
+   ]
+  },
+  {
+   "id": "rdd0f1828",
+   "section": "deco",
+   "group": null,
+   "item": "idd0f1828",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 10,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i596a61b7",
+     "qty": null
+    },
+    {
+     "item": "i0aca3f61",
+     "qty": 7
+    },
+    {
+     "item": "i0b6ce11c",
+     "qty": null
+    },
+    {
+     "item": "i18d551fb",
+     "qty": 10
+    }
+   ],
+   "notes": [
+    "「デコ製作部品」の個数は、日本版の画面の記録で読めていない",
+    "「生地」の個数は、日本版の画面の記録で読めていない"
+   ]
+  },
+  {
+   "id": "r486b209b",
+   "section": "deco",
+   "group": null,
+   "item": "i486b209b",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 10,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i8c446023",
+     "qty": 3
+    },
+    {
+     "item": "i0aca3f61",
+     "qty": 45
+    },
+    {
+     "item": "i045e3ff6",
+     "qty": 300
+    },
+    {
+     "item": "i2db984c8",
+     "qty": 14
+    },
+    {
+     "item": "i5965b802",
+     "qty": 6
+    }
+   ]
+  },
+  {
+   "id": "r183a7649",
+   "section": "deco",
+   "group": null,
+   "item": "i183a7649",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 10,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i8c446023",
+     "qty": 3
+    },
+    {
+     "item": "i0aca3f61",
+     "qty": null
+    },
+    {
+     "item": "i045e3ff6",
+     "qty": 300
+    },
+    {
+     "item": "i2db984c8",
+     "qty": 14
+    },
+    {
+     "item": "i5965b802",
+     "qty": null
+    }
+   ],
+   "notes": [
+    "「上級丸太」の個数は、日本版の画面の記録で読めていない",
+    "「革+」の個数は、日本版の画面の記録で読めていない"
+   ]
+  },
+  {
+   "id": "rc6d030ce",
+   "section": "deco",
+   "group": null,
+   "item": "ic6d030ce",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 12,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i8c446023",
+     "qty": 4
+    },
+    {
+     "item": "i0aca3f61",
+     "qty": 27
+    },
+    {
+     "item": "i89478847",
+     "qty": 6
+    }
+   ]
+  },
+  {
+   "id": "ra5607928",
+   "section": "deco",
+   "group": null,
+   "item": "ia5607928",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 12,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i8c446023",
+     "qty": null
+    },
+    {
+     "item": "i0aca3f61",
+     "qty": 27
+    },
+    {
+     "item": "i89478847",
+     "qty": 6
+    }
+   ],
+   "notes": [
+    "「デコ製作部品+」の個数は、日本版の画面の記録で読めていない"
+   ]
+  },
+  {
+   "id": "rf18308e4",
+   "section": "deco",
+   "group": null,
+   "item": "if18308e4",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 12,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i596a61b7",
+     "qty": null
+    },
+    {
+     "item": "i89478847",
+     "qty": 20
+    },
+    {
+     "item": "i032c6874",
+     "qty": 10
+    },
+    {
+     "item": "i6fce3182",
+     "qty": 20
+    }
+   ],
+   "notes": [
+    "「デコ製作部品」の個数は、日本版の画面の記録で読めていない"
+   ]
+  },
+  {
+   "id": "r88810095",
+   "section": "deco",
+   "group": null,
+   "item": "i88810095",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 12,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i596a61b7",
+     "qty": null
+    },
+    {
+     "item": "i89478847",
+     "qty": 20
+    },
+    {
+     "item": "i032c6874",
+     "qty": 10
+    },
+    {
+     "item": "i6fce3182",
+     "qty": 20
+    }
+   ],
+   "notes": [
+    "「デコ製作部品」の個数は、日本版の画面の記録で読めていない"
+   ]
+  },
+  {
+   "id": "ra52156b1",
+   "section": "deco",
+   "group": null,
+   "item": "ia52156b1",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 12,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i596a61b7",
+     "qty": null
+    },
+    {
+     "item": "i89478847",
+     "qty": 20
+    },
+    {
+     "item": "i032c6874",
+     "qty": 10
+    },
+    {
+     "item": "i6fce3182",
+     "qty": 20
+    }
+   ],
+   "notes": [
+    "「デコ製作部品」の個数は、日本版の画面の記録で読めていない"
+   ]
+  },
+  {
+   "id": "r1c0be5f9",
+   "section": "deco",
+   "group": null,
+   "item": "i1c0be5f9",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 12,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i8c446023",
+     "qty": null
+    },
+    {
+     "item": "i596a61b7",
+     "qty": 2
+    },
+    {
+     "item": "i89478847",
+     "qty": 20
+    }
+   ],
+   "notes": [
+    "「デコ製作部品+」の個数は、日本版の画面の記録で読めていない"
+   ]
+  },
+  {
+   "id": "r5e1c8825",
+   "section": "deco",
+   "group": null,
+   "item": "i5e1c8825",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 12,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i8c446023",
+     "qty": 2
+    },
+    {
+     "item": "i596a61b7",
+     "qty": null
+    },
+    {
+     "item": "i89478847",
+     "qty": 20
+    },
+    {
+     "item": "i09ce3d67",
+     "qty": null
+    }
+   ],
+   "notes": [
+    "「デコ製作部品」の個数は、日本版の画面の記録で読めていない",
+    "「元気キノコのエキス」の個数は、日本版の画面の記録で読めていない"
+   ]
+  },
+  {
+   "id": "r89341335",
+   "section": "deco",
+   "group": null,
+   "item": "i89341335",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 12,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i8c446023",
+     "qty": 4
+    },
+    {
+     "item": "i0aca3f61",
+     "qty": 15
+    },
+    {
+     "item": "i89478847",
+     "qty": null
+    },
+    {
+     "item": "i276f836b",
+     "qty": 10
+    }
+   ],
+   "notes": [
+    "「丸太」の個数は、日本版の画面の記録で読めていない"
+   ]
+  },
+  {
+   "id": "rde796036",
+   "section": "deco",
+   "group": null,
+   "item": "ide796036",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 12,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i8c446023",
+     "qty": 4
+    },
+    {
+     "item": "i0aca3f61",
+     "qty": 15
+    },
+    {
+     "item": "i89478847",
+     "qty": 4
+    },
+    {
+     "item": "i276f836b",
+     "qty": 10
+    }
+   ]
+  },
+  {
+   "id": "re930f627",
+   "section": "deco",
+   "group": null,
+   "item": "ie930f627",
+   "yield": 1,
+   "station": "deco-bench",
+   "stationLv": 3,
+   "skill": {
+    "ko": "핸디크래프트",
+    "ja": "ハンディクラフト"
+   },
+   "skillLv": 12,
+   "seconds": null,
+   "materials": [
+    {
+     "item": "i8c446023",
+     "qty": null
+    },
+    {
+     "item": "i596a61b7",
+     "qty": 3
+    },
+    {
+     "item": "i89478847",
+     "qty": 16
+    },
+    {
+     "item": "i8855fb2d",
+     "qty": null
+    },
+    {
+     "item": "i276f836b",
+     "qty": 10
+    }
+   ],
+   "notes": [
+    "「デコ製作部品+」の個数は、日本版の画面の記録で読めていない",
+    "「木材」の個数は、日本版の画面の記録で読めていない"
    ]
   }
  ]
