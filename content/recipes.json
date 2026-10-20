@@ -502,7 +502,7 @@
    "id": "i580f2de2",
    "ko": "개량된 호미",
    "ja": "改良された鍬",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -2917,7 +2917,7 @@
    "id": "idf382e38",
    "ko": "설탕",
    "ja": "砂糖",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -5581,7 +5581,8 @@
      "item": "i3a4e7067",
      "qty": 10
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r53db50a9",
@@ -6110,7 +6111,8 @@
      "item": "i6fce3182",
      "qty": 10
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r19266c8a",
@@ -18216,7 +18218,8 @@
      "item": "id0c742b8",
      "qty": 1
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r8faf2a24",
