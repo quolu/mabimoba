@@ -5,7 +5,7 @@ RUN apk add --no-cache 'ca-certificates-bundle>=20261020-r0'
 COPY bot/package.json bot/package-lock.json ./bot/
 RUN npm --prefix bot ci --omit=dev --ignore-scripts
 COPY bot/*.mjs ./bot/
-COPY scripts/recipes.mjs ./scripts/recipes.mjs
+COPY scripts/recipes.mjs scripts/item-icons.mjs ./scripts/
 COPY deploy/target.json ./deploy/target.json
 USER node
 # 起動の引数ではなく環境変数で指定し、監査の照合（NODE_OPTIONS）から見えるようにする。
