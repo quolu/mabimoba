@@ -177,7 +177,9 @@
     "철판 갑옷 상의SS": 22,
     "조개찜": 20,
     "크림소스 스테이크": 20,
-    "알리오 올리오": 20
+    "알리오 올리오": 20,
+    "크리스탈 스태프S": 13,
+    "마블 힐링 완드S": 13
   },
   "krGathering": {
     "source": "namu-life-skill",
@@ -573,6 +575,9 @@
     { "id": "sturdy-mushroom-powder", "item": "튼튼 버섯 가루", "count": 1 },
     { "id": "hemostatic-flower-powder", "item": "숨숨꽃 가루", "count": 1 },
     { "id": "recovery-potion", "item": "회복 물약", "count": 1 },
-    { "id": "supreme-recovery-potion", "item": "최상급 회복 물약", "count": 1 }
+    { "id": "supreme-recovery-potion", "item": "최상급 회복 물약", "count": 1 },
+    { "id": "crystal-staff-s", "item": "크리스탈 스태프S", "count": 1 },
+    { "id": "marble-healing-wand-s", "item": "마블 힐링 완드S", "count": 1 },
+    { "id": "arc-divine-staff-s", "item": "아크 디바인 스태프S", "count": 1 }
   ]
 }

@@ -1685,7 +1685,7 @@
    "id": "ie2ae701d",
    "ko": "마블 힐링 완드S",
    "ja": "マーブルヒーリングワンドS",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -3301,8 +3301,8 @@
   {
    "id": "i68b3a1d7",
    "ko": "아크 디바인 스태프S",
-   "ja": "アークディバインスタッフS",
-   "jaConfirmed": false,
+   "ja": "アークディヴァインスタッフS",
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -4534,7 +4534,7 @@
    "id": "i27addc50",
    "ko": "크리스탈 스태프S",
    "ja": "クリスタルスタッフS",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": true
   },
   {
@@ -5979,7 +5979,7 @@
    "stationLv": 1,
    "skill": null,
    "skillLv": null,
-   "seconds": 480,
+   "seconds": 300,
    "materials": [
     {
      "item": "i2db984c8",
@@ -5989,6 +5989,11 @@
      "item": "i8e083c9c",
      "qty": 4
     }
+   ],
+   "secondsTable": 480,
+   "jpChecked": true,
+   "notes": [
+    "元の表では480秒（8分）。日本版の実機の画面（2026-10-20）は「加工時間5分所要」だったので、5分にした"
    ]
   },
   {
@@ -10172,7 +10177,8 @@
      "item": "i53db50a9",
      "qty": 3
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "rbc1102e0",
@@ -10448,7 +10454,8 @@
      "item": "i53db50a9",
      "qty": 3
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r8af3b17f",
