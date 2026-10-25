@@ -1363,7 +1363,7 @@
    "id": "iebf008d3",
    "ko": "딸기",
    "ja": "イチゴ",
-   "jaConfirmed": false,
+   "jaConfirmed": true,
    "craftable": false
   },
   {
@@ -6434,7 +6434,8 @@
      "item": "ice2cf76a",
      "qty": 1
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r426cb215",
@@ -19470,7 +19471,8 @@
      "item": "idf382e38",
      "qty": 4
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r3f8be5a2",
@@ -19950,7 +19952,8 @@
      "item": "i7447abb4",
      "qty": 2
     }
-   ]
+   ],
+   "jpChecked": true
   },
   {
    "id": "r72f6884f",
