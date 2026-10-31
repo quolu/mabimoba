@@ -249,6 +249,8 @@ Bot専用の依存パッケージは `bot/package.json` とlockfileで管理す�
 
 内容・デザインの不具合は、原因を確認して修正commitを公開する。直前の正常commitへの切り戻しが必要な場合は、既定ブランチの祖先である40桁SHAを `npm run deploy -- <SHA>` に渡す。Git履歴は書き換えない。
 
+main-serverのimageは、`mabimoba`・`mabimoba-discord` とも新しい3世代だけを残す。`npm run deploy` と `npm run discord:deploy` が成功の後に古い世代を消す。消えた版へは同じコマンドで作り直して戻せる。buildキャッシュは他の製品と共有なので、配備では消さない。
+
 初回ドメイン設定そのものを取り消す場合は、記録されたCaddyバックアップとTunnelバックアップを確認する。共有設定の復元で他のサービスの新しい変更を消さないよう、追加したホストだけを取り除く。DNSは追加したCNAMEだけを対象にする。
 
 ## 定期更新

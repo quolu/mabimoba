@@ -110,3 +110,7 @@ for url in ['https://' + TARGET['domain'] + '/healthz'] + TARGET['existingSmokeU
 receipt={'revision':TARGET['revision'],'deployedAt':stamp,'checks':checks}
 (state / 'deployment.json').write_text(json.dumps(receipt, indent=2))
 announce(json.dumps(receipt, ensure_ascii=False))
+
+# 新しい3世代だけ残す。古い版へは deploy で作り直して戻せる。使用中のimageはdockerが断るので、失敗は公開の結果に混ぜない。
+for image in run('docker', 'image', 'ls', 'mabimoba', '--format', '{{.Repository}}:{{.Tag}}').splitlines()[3:]:
+    subprocess.run(['docker', 'image', 'rm', image], capture_output=True)
