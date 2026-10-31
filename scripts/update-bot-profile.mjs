@@ -27,7 +27,7 @@ try {
     git(['fetch', 'origin', target.branch]);
     git(['merge-base', '--is-ancestor', 'HEAD', `origin/${target.branch}`]);
     const program = `
-import {readFileSync, mkdirSync, writeFileSync} from 'node:fs';
+import {readFileSync, writeFileSync} from 'node:fs';
 import {homedir} from 'node:os';
 import {join} from 'node:path';
 const desired = ${JSON.stringify({ description, images, name: name ?? null })};
@@ -48,9 +48,8 @@ const oldImage = async (kind,id,hash) => {
 try {
   const before = await request('applications','GET');
   const beforeUser = (Object.keys(desired.images).length || desired.name) ? await request('users','GET') : null;
-  const state = join(homedir(), '.local/state/mabimoba');
-  mkdirSync(state,{recursive:true,mode:0o700});
-  const backup = join(state,'profile-before-'+Date.now()+'.json');
+  // NASが外れている時はこの置き場が無いので、Discordを変える前に書けずに止まる。
+  const backup = '/var/mnt/qnap-backups/main-server/products/mabimoba/discord-profile/profile-before-'+Date.now()+'.json';
   const previous = {applicationId:before.id,application:{description:before.description}};
   if(desired.images.avatar) previous.application.icon = await oldImage('app-icons',before.id,before.icon);
   if(beforeUser) {

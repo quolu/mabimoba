@@ -180,7 +180,7 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 2. cleanなcheckoutで `npm run deploy` を実行する。
 3. `deploy` はoriginの既定ブランチの祖先であることを確認し、そのcommitからサーバーのコンテナを構築する。専用コンテナだけを更新する。
 4. 初回だけCaddy・Tunnel・DNSに新規ホストを追加する。Caddyのtarバックアップ、候補の構文確認、reloadを実行する。共有コンテナは再起動しない。
-5. HTTPSのhealthと既存サービスの到達が確認できた時だけ公開成功とする。バックアップと公開記録はサーバー上の `~/.local/state/mabimoba/` に置く。
+5. HTTPSのhealthと既存サービスの到達が確認できた時だけ公開成功とする。公開記録はサーバー上の `~/.local/state/mabimoba/` に、バックアップはQNAPに置く（「imageと控えの保持」）。
 6. 公開URLで変更したページ・検索・スマホ表示を確認する。公開の確認結果を残す。
 7. `changelog` に項目を足した公開では、公開確認の直後に `npm run notify` でDiscordへ配信する。定期更新の時刻を待たない（2026-10-09、オーナーの指示）。結果は公開とは別に報告する。
 
@@ -222,7 +222,7 @@ Bot専用の依存パッケージは `bot/package.json` とlockfileで管理す�
 
 ### Botプロフィールを更新する
 
-プロフィールの概要は `content/discord-profile.json` を正本にする。公開中の製品サイトで用途を確かめ、400文字以内に収める。変更をcheck・commit・pushした後、`npm run discord:profile` でDiscordへ反映する。`avatar`・`banner` に `bot/assets/` のPNGを指定すると、Botの画像とアプリのアイコンも同じコマンドで揃える。生成条件・寸法・ハッシュは `bot/assets/artwork.json` に記録する。Discord公式APIで指定項目を更新し、読み戻して確認する。更新前の概要と画像はmain-serverの専用stateへ保存する。Botの再起動は不要。
+プロフィールの概要は `content/discord-profile.json` を正本にする。公開中の製品サイトで用途を確かめ、400文字以内に収める。変更をcheck・commit・pushした後、`npm run discord:profile` でDiscordへ反映する。`avatar`・`banner` に `bot/assets/` のPNGを指定すると、Botの画像とアプリのアイコンも同じコマンドで揃える。生成条件・寸法・ハッシュは `bot/assets/artwork.json` に記録する。Discord公式APIで指定項目を更新し、読み戻して確認する。更新前の概要と画像はQNAPの控えの置き場へ保存する（「imageと控えの保持」）。Botの再起動は不要。
 
 `name` を書くと、Botの名前（メンバー一覧とメッセージに出る名前）も同じコマンドで変える。2026-10-13、オーナーの決裁で「マビモバ更新通知」から「マビモバ攻略ポータル」に変えた。変える前の名前は、画像と同じ控えに残る。Discordは名前を短い間に何度も変えられないので、決まった名前を1回だけ流す。招待の画面に出るアプリの名前は、Developer PortalのGeneral Informationで直す（このコマンドでは変えられない）。
 
@@ -249,7 +249,12 @@ Bot専用の依存パッケージは `bot/package.json` とlockfileで管理す�
 
 内容・デザインの不具合は、原因を確認して修正commitを公開する。直前の正常commitへの切り戻しが必要な場合は、既定ブランチの祖先である40桁SHAを `npm run deploy -- <SHA>` に渡す。Git履歴は書き換えない。
 
-main-serverのimageは、`mabimoba`・`mabimoba-discord` とも新しい3世代だけを残す。`npm run deploy` と `npm run discord:deploy` が成功の後に古い世代を消す。消えた版へは同じコマンドで作り直して戻せる。buildキャッシュは他の製品と共有なので、配備では消さない。
+## imageと控えの保持
+
+- **image**：main-serverの `mabimoba`・`mabimoba-discord` は、それぞれ稼働中と戻し用1世代を上限にする。戻し用は、稼働中を除いて一番新しいもの。`npm run deploy` と `npm run discord:deploy` が成功の後に、それより古い世代を自動で消す（`deploy/remote.py`・`deploy/bot.py`）。消した版へは `npm run deploy -- <SHA>` で作り直して戻せる。検証用の別名のimageは、検証が終わったらその場で消す。buildキャッシュは他の製品と共有なので、配備では消さない。
+- **控え**：配備や設定変更の前に取る控えは、主機ではなくQNAPの `/var/mnt/qnap-backups/main-server/products/mabimoba/` の下に置く。配備の控えは `deploy/`、プロフィールの控えは `discord-profile/`、手で取る時は用途ごとの置き場を作る。置き場は0700、ファイルは0600。トークンは控えに入れない。
+- 手で取る時は、先に `findmnt -T /var/mnt/qnap-backups` で `192.168.1.3:/server-backups`（nfs4・rw）を確かめる。mountが無い時は主機へ書かず、作業を止める。`deploy/remote.py` と `scripts/update-bot-profile.mjs` が使う置き場は、NASが外れていると無いので、書けずに止まる。
+- 主機の `~/.local/state/mabimoba/` は、動いている状態だけを置く（`deployment.json`、`discord/`、配信のロック）。控えを置かない。
 
 初回ドメイン設定そのものを取り消す場合は、記録されたCaddyバックアップとTunnelバックアップを確認する。共有設定の復元で他のサービスの新しい変更を消さないよう、追加したホストだけを取り除く。DNSは追加したCNAMEだけを対象にする。
 

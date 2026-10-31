@@ -31,6 +31,8 @@ except subprocess.CalledProcessError as error:
 print(run('docker', 'exec', 'mabimoba-discord', 'node', '-e', "fetch('http://127.0.0.1:8081/healthz').then(async r=>{console.log(await r.text());if(!r.ok)process.exit(1)})"), flush=True)
 print(json.dumps({'revision': TARGET['revision'], 'bot': '起動確認済み'}, ensure_ascii=False), flush=True)
 
-# 新しい3世代だけ残す。使用中のimageはdockerが断るので、失敗は配備の結果に混ぜない。
-for image in run('docker', 'image', 'ls', 'mabimoba-discord', '--format', '{{.Repository}}:{{.Tag}}').splitlines()[3:]:
+# 稼働中と戻し用1世代だけ残す。消せなくても配備の結果には混ぜず、次の配備でまた消す。
+current = 'mabimoba-discord:' + TARGET['revision']
+images = run('docker', 'image', 'ls', 'mabimoba-discord', '--format', '{{.Repository}}:{{.Tag}}').splitlines()
+for image in [image for image in images if image != current][1:]:
     subprocess.run(['docker', 'image', 'rm', image], capture_output=True)

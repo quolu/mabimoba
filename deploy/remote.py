@@ -29,13 +29,15 @@ announce('ポータルが起動しました。公開経路を設定していま�
 
 state = Path.home() / '.local/state/mabimoba'
 state.mkdir(parents=True, exist_ok=True)
+# NASが外れている時はこの置き場が無いので、書けずに止まる。主機へは控えを書かない。
+backups = Path('/var/mnt/qnap-backups/main-server/products/mabimoba/deploy')
 stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
 caddy = Path(TARGET['caddyFile'])
 snippet = (root / 'deploy/Caddyfile.snippet').read_text()
 current = caddy.read_text()
 if TARGET['domain'] not in current:
-    run('tar', '-czf', str(state / ('caddy-' + stamp + '.tar.gz')), '-C', str(caddy.parent), caddy.name)
-    candidate = state / ('Caddyfile-' + stamp)
+    run('tar', '-czf', str(backups / ('caddy-' + stamp + '.tar.gz')), '-C', str(caddy.parent), caddy.name)
+    candidate = backups / ('Caddyfile-' + stamp)
     candidate.write_text(current.rstrip() + '\n\n' + snippet)
     run('docker', 'cp', str(candidate), 'caddy:/tmp/Caddyfile.mabimoba')
     run('docker', 'exec', 'caddy', 'caddy', 'validate', '--config', '/tmp/Caddyfile.mabimoba', '--adapter', 'caddyfile')
@@ -74,7 +76,7 @@ routes = [r for r in config['ingress'] if r.get('hostname') == TARGET['domain']]
 if routes and routes[0]['service'] != TARGET['originService']:
     raise RuntimeError('CLOUDFLARE_ROUTE_CONFLICT: 既存routeの転送先が異なります')
 if not routes:
-    (state / ('tunnel-' + stamp + '.json')).write_text(json.dumps(config, indent=2))
+    (backups / ('tunnel-' + stamp + '.json')).write_text(json.dumps(config, indent=2))
     config['ingress'].insert(len(config['ingress'])-1, {'hostname':TARGET['domain'], 'service':TARGET['originService'], 'originRequest':{'noTLSVerify':True,'matchSNItoHost':True}})
     cf(path, 'PUT', {'config':config})
 dns_path = 'zones/' + zone['id'] + '/dns_records'
@@ -111,6 +113,8 @@ receipt={'revision':TARGET['revision'],'deployedAt':stamp,'checks':checks}
 (state / 'deployment.json').write_text(json.dumps(receipt, indent=2))
 announce(json.dumps(receipt, ensure_ascii=False))
 
-# 新しい3世代だけ残す。古い版へは deploy で作り直して戻せる。使用中のimageはdockerが断るので、失敗は公開の結果に混ぜない。
-for image in run('docker', 'image', 'ls', 'mabimoba', '--format', '{{.Repository}}:{{.Tag}}').splitlines()[3:]:
+# 稼働中と戻し用1世代だけ残す。古い版へは deploy で作り直して戻せる。消せなくても公開の結果には混ぜず、次の配備でまた消す。
+current = 'mabimoba:' + TARGET['revision']
+images = run('docker', 'image', 'ls', 'mabimoba', '--format', '{{.Repository}}:{{.Tag}}').splitlines()
+for image in [image for image in images if image != current][1:]:
     subprocess.run(['docker', 'image', 'rm', image], capture_output=True)
