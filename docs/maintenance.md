@@ -268,7 +268,7 @@ Bot専用の依存パッケージは `bot/package.json` とlockfileで管理す�
 
 1. 日本版公式のニュース4種（[お知らせ](https://mabinogimobile.nexon.co.jp/news/notice)・[アップデート](https://mabinogimobile.nexon.co.jp/news/update)・[イベント](https://mabinogimobile.nexon.co.jp/news/event)・[不具合対応状況](https://mabinogimobile.nexon.co.jp/news/knownissues)）。前回の実行以降に増えた告知を全件読む。不具合対応状況は個別ページが無く一覧だけで、2ページ目以降もある。件数、ステータス、最終更新日の変化を見て、記事 `jp-known-issues` を直す。
 2. 日本公式X `MabinogiM_JP`。メンテナンス・不具合・告知の速報として読み、公式サイトの告知と照合する。
-3. 韓国版公式の[アップデート](https://mabinogimobile.nexon.com/News/Update)・[告知](https://mabinogimobile.nexon.com/News/Notice)・[イベント](https://mabinogimobile.nexon.com/News/Events)。アップデートノートは木曜が基本。日本版より先行する内容として扱い、日本版への適用未確認を消さない。読み方は下の「韓国公式の読み方」。
+3. 韓国版公式の[アップデート](https://mabinogimobile.nexon.com/News/Update)・[告知](https://mabinogimobile.nexon.com/News/Notice)・[イベント](https://mabinogimobile.nexon.com/News/Events)・[開発者ノート](https://mabinogimobile.nexon.com/News/Devnote)。アップデートノートは木曜が基本。開発者ノート（에린 노트）は大きな更新の前に予告として出る（2026-11-04に一覧へ加えた。それまで読んでいなかった）。日本版より先行する内容として扱い、日本版への適用未確認を消さない。読み方は下の「韓国公式の読み方」。
 4. 日本語・韓国語のX（プレイヤー投稿）。検索語は上の「内容を更新する」と同じ。不具合と攻略の観測として読み、単独の投稿を仕様の正本にしない。
 5. 台湾・香港・マカオ版公式。サービス開始や大型更新などの節目だけ扱う。
 
