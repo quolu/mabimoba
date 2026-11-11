@@ -208,7 +208,9 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 `content/portal.json` の `discord.enabled` がfalseの間は、メニューと `/discord/` を生成しない。Botの配備・招待URLの確認後にtrueへ進め、実際に公開する日付の `changelog` へ追加する。先の日付に公開済みと記録しない。
 
 1. Discord Developer Portalでアプリ「マビモバ攻略ポータル」を作る（2026-10-13に「マビモバ更新通知」から名前を変えた）。BotのPublic Botを有効、Requires OAuth2 Code Grantを無効、Privileged Gateway Intentsは全て無効にする。InstallationはGuild Installを有効にし、インストールリンクをカスタムURLの `https://mabimoba.kitepon.dev/discord/invite` にする。正規URLが `bot` と `applications.commands` のスコープ、必要な権限を指定する。
-2. Botトークンは入力カードまたはログイン済みのブラウザから、SSHの標準入力でmain-serverの `~/.config/mabimoba/discord-token` へ直接保管する。フォルダ0700・ファイル0600・実行ユーザーUID1000で読み取り可能にする。値は会話・引数・ログ・リポジトリへ出さない。読み取ったトークンを標準入力に渡して `npm run discord:configure -- <アプリID>` を実行すると、DiscordでアプリIDを照合してから保管する。Botの接続時にもApplication IDをDiscordから取得する。
+2. Botトークンは1Passwordの保管庫「開発工場」の項目「Discord Bot トークン（Mabimoba）」の `credential` だけに置く（2026-11-11、オーナーの指示で平文のファイル `~/.config/mabimoba/discord-token` から移して消した。移行の担当はサクラ）。参照は `deploy/target.json` の `discordTokenRef`。値は会話・引数・ログ・リポジトリへ出さない。入れ替える時は1Passwordの値を替えて `npm run discord:deploy` を流す。
+   - トークンの流れ：1Password →（main-serverの `op run`、`deploy/bot.py` の `docker compose up` だけ）→ コンテナの環境変数 `DISCORD_TOKEN` → `bot/server.mjs` がDiscordへ接続。`npm run discord:profile` は、main-serverで `op run -- node` として同じ参照を読む。
+   - Dockerの自動の起こし直しは、Dockerが保存した環境変数を使うので1Passwordへつながらなくても起きる。`op` が読めない時、配備はDockerまで進まずに失敗する。
 3. cleanなmainのcheckoutで `npm run discord:deploy` を実行する。既定ブランチの祖先commitだけを対象に、ポータルから独立した専用コンテナを起動する。Botコードを変えた時も同じコマンドで更新する。
 4. ポータルを `npm run deploy` で公開する。通常のコンテンツ更新ではBotを再起動しない。Botは公開済みの `discord-updates.json` を読むため、サイトの公開だけで最新内容へ追従する。
 5. `/discord/invite` がDiscordの招待ページへ転送することを確認する。招待リンクは「チャンネルの管理」「チャンネルを見る」「メッセージを送信」「埋め込みリンク」「メッセージ履歴を読む」を指定する。管理者権限は要求しない。

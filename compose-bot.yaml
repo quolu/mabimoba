@@ -8,8 +8,8 @@ services:
     restart: unless-stopped
     read_only: true
     init: true
-    secrets:
-      - discord-token
+    environment:
+      DISCORD_TOKEN: ${DISCORD_TOKEN:?1Passwordから op run で渡す（deploy/bot.py）}
     volumes:
       - ${HOME}/.local/state/mabimoba/discord:/data
     tmpfs:
@@ -23,9 +23,6 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
-secrets:
-  discord-token:
-    file: ${HOME}/.config/mabimoba/discord-token
 networks:
   public-web:
     external: true

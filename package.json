@@ -13,7 +13,6 @@
     "test": "node --test tests/*.test.mjs",
     "test:notify": "node --test tests/discord-*.test.mjs",
     "discord:deploy": "node scripts/deploy-bot.mjs",
-    "discord:configure": "node scripts/configure-bot.mjs",
     "discord:profile": "node scripts/update-bot-profile.mjs"
   },
   "engines": {

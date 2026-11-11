@@ -27,11 +27,9 @@ try {
     git(['fetch', 'origin', target.branch]);
     git(['merge-base', '--is-ancestor', 'HEAD', `origin/${target.branch}`]);
     const program = `
-import {readFileSync, writeFileSync} from 'node:fs';
-import {homedir} from 'node:os';
-import {join} from 'node:path';
+import {writeFileSync} from 'node:fs';
 const desired = ${JSON.stringify({ description, images, name: name ?? null })};
-const token = readFileSync(join(homedir(), '.config/mabimoba/discord-token'), 'utf8').trim();
+const token = process.env.DISCORD_TOKEN;
 const request = async (resource, method, body) => {
   const response = await fetch('https://discord.com/api/v10/'+resource+'/@me', {method, redirect:'error',
     headers:{Authorization:'Bot '+token,'Content-Type':'application/json','User-Agent':'mabimoba-profile/1.0'},
@@ -71,7 +69,7 @@ try {
     avatar:afterUser?.avatar,banner:afterUser?.banner,verified:true,backup},null,2));
 } catch(error) {console.error(error.message?.startsWith('DISCORD_')?error.message:'DISCORD_PROFILE_FAILED');process.exitCode=1;}
 `;
-    execFileSync('ssh', [target.sshHost, 'node --input-type=module'], { input: program, stdio: ['pipe', 'inherit', 'inherit'] });
+    execFileSync('ssh', [target.sshHost, `DISCORD_TOKEN=${target.discordTokenRef} op run -- node --input-type=module`], { input: program, stdio: ['pipe', 'inherit', 'inherit'] });
   }
 } catch (error) {
   console.error(error.message?.startsWith('DISCORD_') ? error.message : error.status ? 'DISCORD_PROFILE_REMOTE_FAILED' : 'DISCORD_PROFILE_IO_FAILED');

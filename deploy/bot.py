@@ -10,21 +10,15 @@ if run('git', 'status', '--porcelain'):
 run('git', 'fetch', 'origin', TARGET['branch'])
 run('git', 'merge-base', '--is-ancestor', TARGET['revision'], 'origin/' + TARGET['branch'])
 run('git', 'checkout', '--detach', TARGET['revision'])
-secret = Path.home() / '.config/mabimoba/discord-token'
-if not secret.is_file() or secret.stat().st_size == 0:
-    raise RuntimeError('DISCORD_TOKEN_MISSING: Botトークンの登録が必要です')
-# nodeユーザーへ読取だけを許可し、トークンを環境変数とログに出さない。
-if secret.stat().st_uid != 1000:
-    raise RuntimeError('DISCORD_TOKEN_OWNER_INVALID: Botの実行ユーザーへ読み取りを許可してください')
-secret.chmod(0o600)
 state = Path.home() / '.local/state/mabimoba/discord'
 state.mkdir(parents=True, exist_ok=True, mode=0o700)
 if state.stat().st_uid != 1000:
     raise RuntimeError('DISCORD_STATE_OWNER_INVALID: Botの実行ユーザーで保存できません')
-env = dict(os.environ, MABIMOBA_REVISION=TARGET['revision'])
+# トークンは1Passwordだけにある。buildは参照の文字列のままで足り、upだけ op run が値に替えて渡す。
+env = dict(os.environ, MABIMOBA_REVISION=TARGET['revision'], DISCORD_TOKEN=TARGET['discordTokenRef'])
 try:
     run('docker', 'compose', '-f', 'compose-bot.yaml', '-p', 'mabimoba-discord', 'build', env=env)
-    run('docker', 'compose', '-f', 'compose-bot.yaml', '-p', 'mabimoba-discord', 'up', '-d', '--wait', '--wait-timeout', '120', env=env)
+    run('op', 'run', '--', 'docker', 'compose', '-f', 'compose-bot.yaml', '-p', 'mabimoba-discord', 'up', '-d', '--wait', '--wait-timeout', '120', env=env)
 except subprocess.CalledProcessError as error:
     print(error.stderr[-5000:], flush=True)
     raise

@@ -8,7 +8,7 @@ import { createRecipeCache } from './materials.mjs';
 
 const target = JSON.parse(readFileSync(new URL('../deploy/target.json', import.meta.url), 'utf8'));
 const origin = `https://${target.domain}`;
-const token = readFileSync('/run/secrets/discord-token', 'utf8').trim();
+const token = (process.env.DISCORD_TOKEN ?? '').trim();
 if (!token || /\s/.test(token)) throw new Error('DISCORD_TOKEN_INVALID: Botトークンを確認してください');
 const store = new SubscriptionStore('/data/subscriptions.json');
 const client = new Client({ intents: [GatewayIntentBits.Guilds], rest: { retries: 0, timeout: 20000 } });
