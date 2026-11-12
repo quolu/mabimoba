@@ -46,8 +46,8 @@ if TARGET['domain'] not in current:
 elif snippet.strip() not in current:
     raise RuntimeError('CADDY_ROUTE_CONFLICT: 同じホスト名の設定が異なります')
 
-credential = Path(TARGET['cloudflareCredentialFile']).read_text()
-token = next(line.split('=', 1)[1].strip().strip('\"\x27') for line in credential.splitlines() if line.startswith('CF_API_TOKEN='))
+# The env file holds a 1Password reference; deploy.mjs starts this script under `op run --env-file`, which puts the token here.
+token = os.environ['CF_API_TOKEN']
 def cf(path, method='GET', payload=None):
     req = urllib.request.Request('https://api.cloudflare.com/client/v4/' + path, method=method,
         data=json.dumps(payload).encode() if payload is not None else None,
