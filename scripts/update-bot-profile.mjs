@@ -69,7 +69,7 @@ try {
     avatar:afterUser?.avatar,banner:afterUser?.banner,verified:true,backup},null,2));
 } catch(error) {console.error(error.message?.startsWith('DISCORD_')?error.message:'DISCORD_PROFILE_FAILED');process.exitCode=1;}
 `;
-    execFileSync('ssh', [target.sshHost, `DISCORD_TOKEN=${target.discordTokenRef} op run -- node --input-type=module`], { input: program, stdio: ['pipe', 'inherit', 'inherit'] });
+    execFileSync('ssh', [target.sshHost, `unset OP_SERVICE_ACCOUNT_TOKEN; ~/.local/bin/dotagents-op-run --env-file <(echo DISCORD_TOKEN=${target.discordTokenRef}) -- node --input-type=module`], { input: program, stdio: ['pipe', 'inherit', 'inherit'] });
   }
 } catch (error) {
   console.error(error.message?.startsWith('DISCORD_') ? error.message : error.status ? 'DISCORD_PROFILE_REMOTE_FAILED' : 'DISCORD_PROFILE_IO_FAILED');

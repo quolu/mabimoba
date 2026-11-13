@@ -9,6 +9,6 @@
   "originService": "https://caddy:443",
   "caddyFile": "/home/kite/license-server/Caddyfile",
   "cloudflareCredentialFile": "/home/kite/.config/cloudflare-api.env",
-  "discordTokenRef": "op://ablyc4nqivsby66iw463zofefu/76vpybb5i6dfirfftctvtkmp24/credential",
+  "discordTokenRef": "op://ggbi3k6jlcmj5d5xc3ty6e42ye/6pxfjtpfpci3r4b3nwtnb37npy/credential",
   "existingSmokeUrls": ["https://kitepon.dev/", "https://bank.kitepon.dev/"]
 }

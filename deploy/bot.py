@@ -1,4 +1,4 @@
-import json, os, subprocess
+import json, os, subprocess, tempfile
 from pathlib import Path
 
 def run(*args, env=None):
@@ -14,11 +14,17 @@ state = Path.home() / '.local/state/mabimoba/discord'
 state.mkdir(parents=True, exist_ok=True, mode=0o700)
 if state.stat().st_uid != 1000:
     raise RuntimeError('DISCORD_STATE_OWNER_INVALID: Botの実行ユーザーで保存できません')
-# トークンは1Passwordだけにある。buildは参照の文字列のままで足り、upだけ op run が値に替えて渡す。
+# トークンは1Passwordの保管庫「ホスト main-server」だけにある。buildは参照の文字列のままで足り、
+# upだけ dotagents-op-run がホスト専用の読取専用tokenで値に替えて渡す。
+# ログインシェルの開発工場tokenが残っていると dotagents-op-run がそちらを使うので外す。
 env = dict(os.environ, MABIMOBA_REVISION=TARGET['revision'], DISCORD_TOKEN=TARGET['discordTokenRef'])
+env.pop('OP_SERVICE_ACCOUNT_TOKEN', None)
 try:
     run('docker', 'compose', '-f', 'compose-bot.yaml', '-p', 'mabimoba-discord', 'build', env=env)
-    run('op', 'run', '--', 'docker', 'compose', '-f', 'compose-bot.yaml', '-p', 'mabimoba-discord', 'up', '-d', '--wait', '--wait-timeout', '120', env=env)
+    with tempfile.NamedTemporaryFile('w', suffix='.env') as refs:
+        refs.write('DISCORD_TOKEN=' + TARGET['discordTokenRef'] + '\n')
+        refs.flush()
+        run(str(Path.home() / '.local/bin/dotagents-op-run'), '--env-file', refs.name, '--', 'docker', 'compose', '-f', 'compose-bot.yaml', '-p', 'mabimoba-discord', 'up', '-d', '--wait', '--wait-timeout', '120', env=env)
 except subprocess.CalledProcessError as error:
     print(error.stderr[-5000:], flush=True)
     raise

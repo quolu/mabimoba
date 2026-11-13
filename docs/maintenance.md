@@ -210,8 +210,9 @@ CloudflareのAPIトークンは1Passwordだけにある（2026-11-11、オーナ
 `content/portal.json` の `discord.enabled` がfalseの間は、メニューと `/discord/` を生成しない。Botの配備・招待URLの確認後にtrueへ進め、実際に公開する日付の `changelog` へ追加する。先の日付に公開済みと記録しない。
 
 1. Discord Developer Portalでアプリ「マビモバ攻略ポータル」を作る（2026-10-13に「マビモバ更新通知」から名前を変えた）。BotのPublic Botを有効、Requires OAuth2 Code Grantを無効、Privileged Gateway Intentsは全て無効にする。InstallationはGuild Installを有効にし、インストールリンクをカスタムURLの `https://mabimoba.kitepon.dev/discord/invite` にする。正規URLが `bot` と `applications.commands` のスコープ、必要な権限を指定する。
-2. Botトークンは1Passwordの保管庫「開発工場」の項目「Discord Bot トークン（Mabimoba）」の `credential` だけに置く（2026-11-11、オーナーの指示で平文のファイル `~/.config/mabimoba/discord-token` から移して消した。移行の担当はサクラ）。参照は `deploy/target.json` の `discordTokenRef`。値は会話・引数・ログ・リポジトリへ出さない。入れ替える時は1Passwordの値を替えて `npm run discord:deploy` を流す。
-   - トークンの流れ：1Password →（main-serverの `op run`、`deploy/bot.py` の `docker compose up` だけ）→ コンテナの環境変数 `DISCORD_TOKEN` → `bot/server.mjs` がDiscordへ接続。`npm run discord:profile` は、main-serverで `op run -- node` として同じ参照を読む。
+2. Botトークンは1Passwordの保管庫「ホスト main-server」の項目「Discord Bot トークン」の `credential` だけに置く（2026-11-11、オーナーの指示で平文のファイル `~/.config/mabimoba/discord-token` から保管庫「開発工場」へ移して消した。2026-11-13、main-serverが共有の開発工場tokenを使わなくなるのに合わせて、ホスト専用の保管庫へ読み先を替えた。移行の担当はサクラ）。参照は `deploy/target.json` の `discordTokenRef`。値は会話・引数・ログ・リポジトリへ出さない。入れ替える時は1Passwordの値を替えて `npm run discord:deploy` を流す。
+   - トークンの流れ：1Password →（main-serverの `~/.local/bin/dotagents-op-run --env-file <参照だけの一時ファイル>`、`deploy/bot.py` の `docker compose up` だけ）→ コンテナの環境変数 `DISCORD_TOKEN` → `bot/server.mjs` がDiscordへ接続。`npm run discord:profile` も、main-serverで `dotagents-op-run ... -- node` として同じ参照を読む。
+   - `dotagents-op-run` は、systemd-credsに入ったmain-server専用の読取専用tokenで読み、子のprocessにはtokenを渡さない。ただし環境に `OP_SERVICE_ACCOUNT_TOKEN` があるとそちらを使う。sshのログインシェルは開発工場のtokenを持っているので、呼ぶ前に必ず外す（外さないと `OP_READ_FAILED`）。
    - Dockerの自動の起こし直しは、Dockerが保存した環境変数を使うので1Passwordへつながらなくても起きる。`op` が読めない時、配備はDockerまで進まずに失敗する。
 3. cleanなmainのcheckoutで `npm run discord:deploy` を実行する。既定ブランチの祖先commitだけを対象に、ポータルから独立した専用コンテナを起動する。Botコードを変えた時も同じコマンドで更新する。
 4. ポータルを `npm run deploy` で公開する。通常のコンテンツ更新ではBotを再起動しない。Botは公開済みの `discord-updates.json` を読むため、サイトの公開だけで最新内容へ追従する。
