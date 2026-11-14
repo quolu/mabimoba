@@ -10,4 +10,5 @@ run('git',['merge-base','--is-ancestor',revision,`origin/${target.branch}`]);
 const remote=await readFile(new URL('../deploy/remote.py',import.meta.url),'utf8');
 const config=JSON.stringify({...target,revision});
 const input=`import json\nTARGET=json.loads(${JSON.stringify(config)})\n${remote}`;
-run('ssh',[target.sshHost,`op run --env-file=${target.cloudflareCredentialFile} -- python3 -`],{input,stdio:['pipe','inherit','inherit']});
+// The login shell exports the shared token, which dotagents-op-run would prefer over the host read-only token.
+run('ssh',[target.sshHost,`unset OP_SERVICE_ACCOUNT_TOKEN; ~/.local/bin/dotagents-op-run --env-file ${target.cloudflareCredentialFile} -- python3 -`],{input,stdio:['pipe','inherit','inherit']});

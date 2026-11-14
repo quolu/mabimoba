@@ -46,7 +46,7 @@ if TARGET['domain'] not in current:
 elif snippet.strip() not in current:
     raise RuntimeError('CADDY_ROUTE_CONFLICT: 同じホスト名の設定が異なります')
 
-# The env file holds a 1Password reference; deploy.mjs starts this script under `op run --env-file`, which puts the token here.
+# The env file holds a 1Password reference; deploy.mjs starts this script under `dotagents-op-run --env-file` (host read-only token), which puts the token here.
 token = os.environ['CF_API_TOKEN']
 def cf(path, method='GET', payload=None):
     req = urllib.request.Request('https://api.cloudflare.com/client/v4/' + path, method=method,

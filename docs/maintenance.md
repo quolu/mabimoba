@@ -176,7 +176,7 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 
 公開先・既存経路・配置先は `deploy/target.json` を読む。SSH接続、GitHubへのread権限、サーバー上の既存Cloudflare資格情報が必要。値をリポジトリやログへ複製しない。
 
-CloudflareのAPIトークンは1Passwordだけにある（2026-11-11、オーナーの指示による移行）。main-serverの `deploy/target.json` の `cloudflareCredentialFile` には値ではなく1Passwordの参照（`CF_API_TOKEN=op://…`）が書いてある。`npm run deploy` はmain-serverで `op run --env-file=<そのファイル> -- python3 -` として `deploy/remote.py` を起こし、`remote.py` は環境変数 `CF_API_TOKEN` を読む。`op` が読めない時は、コンテナを作る前に失敗する。
+CloudflareのAPIトークンは1Passwordだけにある（2026-11-11、オーナーの指示による移行）。main-serverの `deploy/target.json` の `cloudflareCredentialFile` には値ではなく1Passwordの参照（`CF_API_TOKEN=op://…`）が書いてある。参照の先は、2026-11-14からmain-server専用の保管庫「ホスト main-server」の項目（サクラの移行）。`npm run deploy` はmain-serverで `unset OP_SERVICE_ACCOUNT_TOKEN; ~/.local/bin/dotagents-op-run --env-file <そのファイル> -- python3 -` として `deploy/remote.py` を起こし、`remote.py` は環境変数 `CF_API_TOKEN` を読む。`dotagents-op-run` はホスト専用の読み取り専用tokenで参照を読み、子にはtokenを渡さない。ログインシェルが共有の開発工場tokenを持っていると、そちらが先に使われてホストの保管庫を読めないので、先に外す。読めない時は、コンテナを作る前に失敗する。
 
 1. 対象ファイルだけをcommitし、通常pushする。
 2. cleanなcheckoutで `npm run deploy` を実行する。
