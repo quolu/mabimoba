@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 const target=JSON.parse(await readFile(new URL('../deploy/target.json',import.meta.url)));
 const token=process.env.CF_API_TOKEN;
-if(!token)throw new Error('CF_API_TOKEN_MISSING: auth exec node scripts/deploy.mjs で起動してください');
+if(!token)throw new Error('CF_API_TOKEN_MISSING: 環境変数 CF_API_TOKEN を渡してください（BellTeamでは auth exec node scripts/deploy.mjs）');
 const run=(command,args,options={})=>execFileSync(command,args,{encoding:'utf8',stdio:['pipe','pipe','inherit'],...options});
 if(run('git',['status','--porcelain']).trim())throw new Error('DEPLOY_DIRTY: 未commitの変更があります');
 run('git',['fetch','origin',target.branch]);

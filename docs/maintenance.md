@@ -176,7 +176,7 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 
 公開先・既存経路・配置先は `deploy/target.json` を読む。SSH接続、GitHubへのread権限、サーバー上の既存Cloudflare資格情報が必要。値をリポジトリやログへ複製しない。
 
-CloudflareのAPIトークンは、BellTeamの認証ブローカーが環境変数 `CF_API_TOKEN` として渡す（2026-11-27、オーナーの指示で旧1Passwordの保管庫「ホスト main-server」から移行。担当はサクラ）。公開は更新担当の席で `auth exec node scripts/deploy.mjs [-- commit]` として、リポジトリの根から流す。`deploy.mjs` は値をsshの標準入力の前置きでmain-serverの `python3 -` へ渡し、`deploy/remote.py` は環境変数 `CF_API_TOKEN` を読む。値は引数・ログ・リポジトリへ出さない。main-serverに1Passwordは要らず、製品は普通の環境変数だけを読む。`CF_API_TOKEN` が無ければ、ssh する前に `CF_API_TOKEN_MISSING` で止まる。
+CloudflareのAPIトークンは、BellTeamの認証ブローカーが環境変数 `CF_API_TOKEN` として渡す（2026-11-27、オーナーの指示で旧1Passwordの保管庫「ホスト main-server」から移行。担当はサクラ）。公開は更新担当の席で `auth exec node scripts/deploy.mjs [-- commit]` として、リポジトリの根から流す。`deploy.mjs` は値をsshの標準入力の前置きでmain-serverの `python3 -` へ渡し、`deploy/remote.py` は環境変数 `CF_API_TOKEN` を読む。値は引数・ログ・リポジトリへ出さない。製品は普通の環境変数だけを読み、1Passwordにも認証ブローカーにも縛られない（BellTeamの席では `auth exec` で渡すだけで、ほかの環境では環境変数を自分で渡せば動く）。`CF_API_TOKEN` が無ければ、ssh する前に `CF_API_TOKEN_MISSING` で止まる。
 
 1. 対象ファイルだけをcommitし、通常pushする。
 2. cleanなcheckoutで `npm run deploy` を実行する。

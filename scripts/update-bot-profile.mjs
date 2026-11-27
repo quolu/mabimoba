@@ -27,7 +27,7 @@ try {
     git(['fetch', 'origin', target.branch]);
     git(['merge-base', '--is-ancestor', 'HEAD', `origin/${target.branch}`]);
     const token = process.env.DISCORD_TOKEN;
-    if (!token) throw new Error('DISCORD_TOKEN_MISSING: auth exec node scripts/update-bot-profile.mjs で起動してください');
+    if (!token) throw new Error('DISCORD_TOKEN_MISSING: 環境変数 DISCORD_TOKEN を渡してください（BellTeamでは auth exec node scripts/update-bot-profile.mjs）');
     const program = `
 process.env.DISCORD_TOKEN=${JSON.stringify(token)};
 import {writeFileSync} from 'node:fs';
