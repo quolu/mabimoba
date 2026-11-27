@@ -26,7 +26,10 @@ try {
     if (git(['status', '--porcelain']).trim()) throw new Error('DISCORD_PROFILE_DIRTY: 先に変更をcommitしてください');
     git(['fetch', 'origin', target.branch]);
     git(['merge-base', '--is-ancestor', 'HEAD', `origin/${target.branch}`]);
+    const token = process.env.DISCORD_TOKEN;
+    if (!token) throw new Error('DISCORD_TOKEN_MISSING: auth exec node scripts/update-bot-profile.mjs で起動してください');
     const program = `
+process.env.DISCORD_TOKEN=${JSON.stringify(token)};
 import {writeFileSync} from 'node:fs';
 const desired = ${JSON.stringify({ description, images, name: name ?? null })};
 const token = process.env.DISCORD_TOKEN;
@@ -69,7 +72,7 @@ try {
     avatar:afterUser?.avatar,banner:afterUser?.banner,verified:true,backup},null,2));
 } catch(error) {console.error(error.message?.startsWith('DISCORD_')?error.message:'DISCORD_PROFILE_FAILED');process.exitCode=1;}
 `;
-    execFileSync('ssh', [target.sshHost, `unset OP_SERVICE_ACCOUNT_TOKEN; ~/.local/bin/dotagents-op-run --env-file <(echo DISCORD_TOKEN=${target.discordTokenRef}) -- node --input-type=module`], { input: program, stdio: ['pipe', 'inherit', 'inherit'] });
+    execFileSync('ssh', [target.sshHost, 'node --input-type=module'], { input: program, stdio: ['pipe', 'inherit', 'inherit'] });
   }
 } catch (error) {
   console.error(error.message?.startsWith('DISCORD_') ? error.message : error.status ? 'DISCORD_PROFILE_REMOTE_FAILED' : 'DISCORD_PROFILE_IO_FAILED');

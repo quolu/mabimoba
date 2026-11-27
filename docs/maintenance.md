@@ -176,7 +176,7 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 
 公開先・既存経路・配置先は `deploy/target.json` を読む。SSH接続、GitHubへのread権限、サーバー上の既存Cloudflare資格情報が必要。値をリポジトリやログへ複製しない。
 
-CloudflareのAPIトークンは1Passwordだけにある（2026-11-11、オーナーの指示による移行）。main-serverの `deploy/target.json` の `cloudflareCredentialFile` には値ではなく1Passwordの参照（`CF_API_TOKEN=op://…`）が書いてある。参照の先は、2026-11-14からmain-server専用の保管庫「ホスト main-server」の項目（サクラの移行）。`npm run deploy` はmain-serverで `unset OP_SERVICE_ACCOUNT_TOKEN; ~/.local/bin/dotagents-op-run --env-file <そのファイル> -- python3 -` として `deploy/remote.py` を起こし、`remote.py` は環境変数 `CF_API_TOKEN` を読む。`dotagents-op-run` はホスト専用の読み取り専用tokenで参照を読み、子にはtokenを渡さない。ログインシェルが共有の開発工場tokenを持っていると、そちらが先に使われてホストの保管庫を読めないので、先に外す。読めない時は、コンテナを作る前に失敗する。
+CloudflareのAPIトークンは、BellTeamの認証ブローカーが環境変数 `CF_API_TOKEN` として渡す（2026-11-27、オーナーの指示で旧1Passwordの保管庫「ホスト main-server」から移行。担当はサクラ）。公開は更新担当の席で `auth exec node scripts/deploy.mjs [-- commit]` として、リポジトリの根から流す。`deploy.mjs` は値をsshの標準入力の前置きでmain-serverの `python3 -` へ渡し、`deploy/remote.py` は環境変数 `CF_API_TOKEN` を読む。値は引数・ログ・リポジトリへ出さない。main-serverに1Passwordは要らず、製品は普通の環境変数だけを読む。`CF_API_TOKEN` が無ければ、ssh する前に `CF_API_TOKEN_MISSING` で止まる。
 
 1. 対象ファイルだけをcommitし、通常pushする。
 2. cleanなcheckoutで `npm run deploy` を実行する。
@@ -210,10 +210,9 @@ CloudflareのAPIトークンは1Passwordだけにある（2026-11-11、オーナ
 `content/portal.json` の `discord.enabled` がfalseの間は、メニューと `/discord/` を生成しない。Botの配備・招待URLの確認後にtrueへ進め、実際に公開する日付の `changelog` へ追加する。先の日付に公開済みと記録しない。
 
 1. Discord Developer Portalでアプリ「マビモバ攻略ポータル」を作る（2026-10-13に「マビモバ更新通知」から名前を変えた）。BotのPublic Botを有効、Requires OAuth2 Code Grantを無効、Privileged Gateway Intentsは全て無効にする。InstallationはGuild Installを有効にし、インストールリンクをカスタムURLの `https://mabimoba.kitepon.dev/discord/invite` にする。正規URLが `bot` と `applications.commands` のスコープ、必要な権限を指定する。
-2. Botトークンは1Passwordの保管庫「ホスト main-server」の項目「Discord Bot トークン」の `credential` だけに置く（2026-11-11、オーナーの指示で平文のファイル `~/.config/mabimoba/discord-token` から保管庫「開発工場」へ移して消した。2026-11-13、main-serverが共有の開発工場tokenを使わなくなるのに合わせて、ホスト専用の保管庫へ読み先を替えた。移行の担当はサクラ）。参照は `deploy/target.json` の `discordTokenRef`。値は会話・引数・ログ・リポジトリへ出さない。入れ替える時は1Passwordの値を替えて `npm run discord:deploy` を流す。
-   - トークンの流れ：1Password →（main-serverの `~/.local/bin/dotagents-op-run --env-file <参照だけの一時ファイル>`、`deploy/bot.py` の `docker compose up` だけ）→ コンテナの環境変数 `DISCORD_TOKEN` → `bot/server.mjs` がDiscordへ接続。`npm run discord:profile` も、main-serverで `dotagents-op-run ... -- node` として同じ参照を読む。
-   - `dotagents-op-run` は、systemd-credsに入ったmain-server専用の読取専用tokenで読み、子のprocessにはtokenを渡さない。ただし環境に `OP_SERVICE_ACCOUNT_TOKEN` があるとそちらを使う。sshのログインシェルは開発工場のtokenを持っているので、呼ぶ前に必ず外す（外さないと `OP_READ_FAILED`）。
-   - Dockerの自動の起こし直しは、Dockerが保存した環境変数を使うので1Passwordへつながらなくても起きる。`op` が読めない時、配備はDockerまで進まずに失敗する。
+2. Botトークンは認証ブローカーの項目（`auth exec node scripts/deploy-bot.mjs`・`auth exec node scripts/update-bot-profile.mjs`、環境変数 `DISCORD_TOKEN`）だけに置く（2026-11-27、旧1Passwordの保管庫「ホスト main-server」から移行。移行の担当はサクラ）。値は会話・引数・ログ・リポジトリへ出さない。入れ替える時はサクラに項目の値を替えてもらい、`auth exec node scripts/deploy-bot.mjs` を流す。
+   - トークンの流れ：認証ブローカー → 環境変数 `DISCORD_TOKEN`（`deploy-bot.mjs`）→ sshの標準入力の前置き → main-serverの `deploy/bot.py` の `docker compose up` → コンテナの環境変数 `DISCORD_TOKEN` → `bot/server.mjs` がDiscordへ接続。`npm run discord:profile` も、同じ前置きでmain-serverの `node` へ渡す。
+   - Dockerの自動の起こし直しは、Dockerが保存した環境変数を使うので認証ブローカーへつながらなくても起きる。
 3. cleanなmainのcheckoutで `npm run discord:deploy` を実行する。既定ブランチの祖先commitだけを対象に、ポータルから独立した専用コンテナを起動する。Botコードを変えた時も同じコマンドで更新する。
 4. ポータルを `npm run deploy` で公開する。通常のコンテンツ更新ではBotを再起動しない。Botは公開済みの `discord-updates.json` を読むため、サイトの公開だけで最新内容へ追従する。
 5. `/discord/invite` がDiscordの招待ページへ転送することを確認する。招待リンクは「チャンネルの管理」「チャンネルを見る」「メッセージを送信」「埋め込みリンク」「メッセージ履歴を読む」を指定する。管理者権限は要求しない。

@@ -1,6 +1,8 @@
 import { execFileSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 const target=JSON.parse(await readFile(new URL('../deploy/target.json',import.meta.url)));
+const token=process.env.CF_API_TOKEN;
+if(!token)throw new Error('CF_API_TOKEN_MISSING: auth exec node scripts/deploy.mjs で起動してください');
 const run=(command,args,options={})=>execFileSync(command,args,{encoding:'utf8',stdio:['pipe','pipe','inherit'],...options});
 if(run('git',['status','--porcelain']).trim())throw new Error('DEPLOY_DIRTY: 未commitの変更があります');
 run('git',['fetch','origin',target.branch]);
@@ -9,6 +11,6 @@ if(!/^[0-9a-f]{40}$/.test(revision))throw new Error('DEPLOY_REVISION_INVALID: 40
 run('git',['merge-base','--is-ancestor',revision,`origin/${target.branch}`]);
 const remote=await readFile(new URL('../deploy/remote.py',import.meta.url),'utf8');
 const config=JSON.stringify({...target,revision});
-const input=`import json\nTARGET=json.loads(${JSON.stringify(config)})\n${remote}`;
-// The login shell exports the shared token, which dotagents-op-run would prefer over the host read-only token.
-run('ssh',[target.sshHost,`unset OP_SERVICE_ACCOUNT_TOKEN; ~/.local/bin/dotagents-op-run --env-file ${target.cloudflareCredentialFile} -- python3 -`],{input,stdio:['pipe','inherit','inherit']});
+// The token travels only on ssh stdin (never argv), so main-server needs no 1Password.
+const input=`import json,os\nos.environ['CF_API_TOKEN']=${JSON.stringify(token)}\nTARGET=json.loads(${JSON.stringify(config)})\n${remote}`;
+run('ssh',[target.sshHost,'python3 -'],{input,stdio:['pipe','inherit','inherit']});

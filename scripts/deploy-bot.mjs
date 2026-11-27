@@ -1,11 +1,13 @@
 import { execFileSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 const target = JSON.parse(await readFile(new URL('../deploy/target.json', import.meta.url)));
+const token = process.env.DISCORD_TOKEN;
+if (!token) throw new Error('DISCORD_TOKEN_MISSING: auth exec node scripts/deploy-bot.mjs で起動してください');
 const run = (command, args, options = {}) => execFileSync(command, args, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'inherit'], ...options });
 if (run('git', ['status', '--porcelain']).trim()) throw new Error('DEPLOY_DIRTY: 未commitの変更があります');
 run('git', ['fetch', 'origin', target.branch]);
 const revision = run('git', ['rev-parse', 'HEAD']).trim();
 run('git', ['merge-base', '--is-ancestor', revision, `origin/${target.branch}`]);
 const remote = await readFile(new URL('../deploy/bot.py', import.meta.url), 'utf8');
-const input = `import json\nTARGET=json.loads(${JSON.stringify(JSON.stringify({ ...target, revision }))})\n${remote}`;
+const input = `import json, os\nos.environ['DISCORD_TOKEN']=${JSON.stringify(token)}\nTARGET=json.loads(${JSON.stringify(JSON.stringify({ ...target, revision }))})\n${remote}`;
 run('ssh', [target.sshHost, 'python3 -'], { input, stdio: ['pipe', 'inherit', 'inherit'] });

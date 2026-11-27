@@ -9,7 +9,7 @@ services:
     read_only: true
     init: true
     environment:
-      DISCORD_TOKEN: ${DISCORD_TOKEN:?1Passwordから op run で渡す（deploy/bot.py）}
+      DISCORD_TOKEN: ${DISCORD_TOKEN:?scripts/deploy-bot.mjs が渡す（auth exec node scripts/deploy-bot.mjs）}
     volumes:
       - ${HOME}/.local/state/mabimoba/discord:/data
     tmpfs:
