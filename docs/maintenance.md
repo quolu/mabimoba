@@ -176,7 +176,7 @@ Xの調査は既存のxarticle connectorの `x_search` を使える。初版は�
 
 公開先・既存経路・配置先は `deploy/target.json` を読む。SSH接続、GitHubへのread権限、サーバー上の既存Cloudflare資格情報が必要。値をリポジトリやログへ複製しない。
 
-CloudflareのAPIトークンは、BellTeamの認証ブローカーが環境変数 `CF_API_TOKEN` として渡す（2026-11-27、オーナーの指示で旧1Passwordの保管庫「ホスト main-server」から移行。担当はサクラ）。公開は更新担当の席で `auth exec node scripts/deploy.mjs [-- commit]` として、リポジトリの根から流す。`deploy.mjs` は値をsshの標準入力の前置きでmain-serverの `python3 -` へ渡し、`deploy/remote.py` は環境変数 `CF_API_TOKEN` を読む。値は引数・ログ・リポジトリへ出さない。製品は普通の環境変数だけを読み、1Passwordにも認証ブローカーにも縛られない（BellTeamの席では `auth exec` で渡すだけで、ほかの環境では環境変数を自分で渡せば動く）。`CF_API_TOKEN` が無ければ、ssh する前に `CF_API_TOKEN_MISSING` で止まる。
+Cloudflare APIは `scripts/deploy.mjs` が手元から呼ぶ（`remote.py` は docker・Caddy・公開確認だけで、`build`・`backup-tunnel`・`verify` の3段に分けてsshで流す）。鍵は2通りで渡せる。環境変数 `CF_API_TOKEN` があればそれで直接呼ぶ（製品は認証仲介を必須にしない）。無ければ、BellTeamの認証仲介の項目 `cloudflare-ca9fed97`（`auth http`、Bearer、`/client/v4/` 以下のGET・POST・PUT）で呼ぶ。この時、鍵は仲介の中にあり、席にもmain-serverにも届かない（2026-11-28、オーナーの指示「鍵そのものを渡すな」で、旧 `auth exec` による環境変数の受け渡しから替えた。担当はサクラ）。仲介は呼び出し元を作業フォルダで見分けるので、`scripts/api-transport.mjs` が席のフォルダ（クローンの2つ上）で `auth http` を起こす。公開は `node scripts/deploy.mjs [commit]`（`npm run deploy`）でそのまま流す。仲介が使えず `CF_API_TOKEN` も無ければ、ssh する前に `CF_API_TOKEN_MISSING` で止まる。
 
 1. 対象ファイルだけをcommitし、通常pushする。
 2. cleanなcheckoutで `npm run deploy` を実行する。
