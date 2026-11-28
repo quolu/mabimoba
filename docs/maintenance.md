@@ -210,7 +210,7 @@ Cloudflare APIは `scripts/deploy.mjs` が手元から呼ぶ（`remote.py` は d
 `content/portal.json` の `discord.enabled` がfalseの間は、メニューと `/discord/` を生成しない。Botの配備・招待URLの確認後にtrueへ進め、実際に公開する日付の `changelog` へ追加する。先の日付に公開済みと記録しない。
 
 1. Discord Developer Portalでアプリ「マビモバ攻略ポータル」を作る（2026-10-13に「マビモバ更新通知」から名前を変えた）。BotのPublic Botを有効、Requires OAuth2 Code Grantを無効、Privileged Gateway Intentsは全て無効にする。InstallationはGuild Installを有効にし、インストールリンクをカスタムURLの `https://mabimoba.kitepon.dev/discord/invite` にする。正規URLが `bot` と `applications.commands` のスコープ、必要な権限を指定する。
-2. Botトークンは認証ブローカーの項目（`auth exec node scripts/deploy-bot.mjs`・`auth exec node scripts/update-bot-profile.mjs`、環境変数 `DISCORD_TOKEN`）だけに置く（2026-11-27、旧1Passwordの保管庫「ホスト main-server」から移行。移行の担当はサクラ）。値は会話・引数・ログ・リポジトリへ出さない。入れ替える時はサクラに項目の値を替えてもらい、`auth exec node scripts/deploy-bot.mjs` を流す。
+2. Botトークンは認証仲介の中だけにある。プロフィールの更新（`node scripts/update-bot-profile.mjs`）は手元から認証仲介の項目 `discord-ca9fed97`（`auth http`、`https://discord.com/api/v10`、`Authorization: Bot`、GET・PATCH）で呼び、鍵は席にもmain-serverにも届かない（2026-11-28、オーナーの指示で `auth exec` から替えた。担当はサクラ）。環境変数 `DISCORD_TOKEN` があればそれで直接呼ぶ（認証仲介を必須にしない）。画像は1枚ずつ送る。常駐Botの配備（`scripts/deploy-bot.mjs`）は、ゲートウェイ接続にトークンが要るので、まだ `auth exec` の環境変数で渡している（仲介のゲートウェイ中継ができるまで）。値は会話・引数・ログ・リポジトリへ出さない。入れ替える時はサクラに項目の値を替えてもらい、`auth exec node scripts/deploy-bot.mjs` を流す。
    - トークンの流れ：認証ブローカー → 環境変数 `DISCORD_TOKEN`（`deploy-bot.mjs`）→ sshの標準入力の前置き → main-serverの `deploy/bot.py` の `docker compose up` → コンテナの環境変数 `DISCORD_TOKEN` → `bot/server.mjs` がDiscordへ接続。`npm run discord:profile` も、同じ前置きでmain-serverの `node` へ渡す。
    - Dockerの自動の起こし直しは、Dockerが保存した環境変数を使うので認証ブローカーへつながらなくても起きる。
 3. cleanなmainのcheckoutで `npm run discord:deploy` を実行する。既定ブランチの祖先commitだけを対象に、ポータルから独立した専用コンテナを起動する。Botコードを変えた時も同じコマンドで更新する。

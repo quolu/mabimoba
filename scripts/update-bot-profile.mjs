@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
+import { request } from './api-transport.mjs';
 
 try {
   const profile = JSON.parse(await readFile(new URL('../content/discord-profile.json', import.meta.url), 'utf8'));
@@ -26,53 +27,46 @@ try {
     if (git(['status', '--porcelain']).trim()) throw new Error('DISCORD_PROFILE_DIRTY: 先に変更をcommitしてください');
     git(['fetch', 'origin', target.branch]);
     git(['merge-base', '--is-ancestor', 'HEAD', `origin/${target.branch}`]);
-    const token = process.env.DISCORD_TOKEN;
-    if (!token) throw new Error('DISCORD_TOKEN_MISSING: 環境変数 DISCORD_TOKEN を渡してください（BellTeamでは auth exec node scripts/update-bot-profile.mjs）');
-    const program = `
-process.env.DISCORD_TOKEN=${JSON.stringify(token)};
-import {writeFileSync} from 'node:fs';
-const desired = ${JSON.stringify({ description, images, name: name ?? null })};
-const token = process.env.DISCORD_TOKEN;
-const request = async (resource, method, body) => {
-  const response = await fetch('https://discord.com/api/v10/'+resource+'/@me', {method, redirect:'error',
-    headers:{Authorization:'Bot '+token,'Content-Type':'application/json','User-Agent':'mabimoba-profile/1.0'},
-    ...(body ? {body:JSON.stringify(body)} : {}), signal:AbortSignal.timeout(20000)});
-  if(!response.ok) throw new Error('DISCORD_PROFILE_HTTP_'+resource+'_'+method+'_'+response.status);
-  return response.json();
-};
-const oldImage = async (kind,id,hash) => {
-  if(!hash) return null;
-  const response = await fetch('https://cdn.discordapp.com/'+kind+'/'+id+'/'+hash+'.png?size=4096', {redirect:'error',signal:AbortSignal.timeout(20000)});
-  if(!response.ok) throw new Error('DISCORD_PROFILE_IMAGE_BACKUP_HTTP_'+response.status);
-  return 'data:image/png;base64,'+Buffer.from(await response.arrayBuffer()).toString('base64');
-};
-try {
-  const before = await request('applications','GET');
-  const beforeUser = (Object.keys(desired.images).length || desired.name) ? await request('users','GET') : null;
-  // NASが外れている時はこの置き場が無いので、Discordを変える前に書けずに止まる。
-  const backup = '/var/mnt/qnap-backups/main-server/products/mabimoba/discord-profile/profile-before-'+Date.now()+'.json';
-  const previous = {applicationId:before.id,application:{description:before.description}};
-  if(desired.images.avatar) previous.application.icon = await oldImage('app-icons',before.id,before.icon);
-  if(beforeUser) {
-    previous.user = {username:beforeUser.username};
-    if(desired.images.avatar) previous.user.avatar = await oldImage('avatars',beforeUser.id,beforeUser.avatar);
-    if(desired.images.banner) previous.user.banner = await oldImage('banners',beforeUser.id,beforeUser.banner);
-  }
-  writeFileSync(backup,JSON.stringify(previous),{mode:0o600});
-  // ボットの名前（メンバー一覧とメッセージに出る方）。招待の画面に出るアプリの名前は、Developer Portalでしか変えられない。
-  if(desired.name && beforeUser.username!==desired.name) await request('users','PATCH',{username:desired.name});
-  const updatedUser = Object.keys(desired.images).length ? await request('users','PATCH',desired.images) : null;
-  const updatedApp = await request('applications','PATCH',{description:desired.description,...(desired.images.avatar?{icon:desired.images.avatar}:{})});
-  const after = await request('applications','GET');
-  const afterUser = beforeUser ? await request('users','GET') : null;
-  if(after.description!==desired.description || (desired.images.avatar && (!updatedApp.icon || after.icon!==updatedApp.icon))) throw new Error('DISCORD_PROFILE_MISMATCH');
-  for(const key of Object.keys(desired.images)) if(!updatedUser[key] || afterUser[key]!==updatedUser[key]) throw new Error('DISCORD_PROFILE_IMAGE_MISMATCH_'+key);
-  if(desired.name && afterUser.username!==desired.name) throw new Error('DISCORD_PROFILE_NAME_MISMATCH');
-  console.log(JSON.stringify({applicationId:after.id,name:after.name,username:afterUser?.username,previousUsername:beforeUser?.username,characters:after.description.length,icon:after.icon,
-    avatar:afterUser?.avatar,banner:afterUser?.banner,verified:true,backup},null,2));
-} catch(error) {console.error(error.message?.startsWith('DISCORD_')?error.message:'DISCORD_PROFILE_FAILED');process.exitCode=1;}
-`;
-    execFileSync('ssh', [target.sshHost, 'node --input-type=module'], { input: program, stdio: ['pipe', 'inherit', 'inherit'] });
+    // Botトークンは来ない。DISCORD_TOKEN があればそれで直接、無ければ認証仲介の項目 discord-ca9fed97 で呼ぶ。
+    const api = async (resource, method, body) => {
+      const { status, body: text } = await request({ tokenVar: 'DISCORD_TOKEN', authScheme: 'Bot', origin: 'https://discord.com', item: 'discord-ca9fed97', method,
+        path: '/api/v10/' + resource + '/@me', body: body === undefined ? undefined : JSON.stringify(body) });
+      if (status >= 400) throw new Error('DISCORD_PROFILE_HTTP_' + resource + '_' + method + '_' + status);
+      return JSON.parse(text);
+    };
+    const oldImage = async (kind, id, hash) => {
+      if (!hash) return null;
+      const response = await fetch('https://cdn.discordapp.com/' + kind + '/' + id + '/' + hash + '.png?size=4096', { redirect: 'error', signal: AbortSignal.timeout(20000) });
+      if (!response.ok) throw new Error('DISCORD_PROFILE_IMAGE_BACKUP_HTTP_' + response.status);
+      return 'data:image/png;base64,' + Buffer.from(await response.arrayBuffer()).toString('base64');
+    };
+    try {
+      const before = await api('applications', 'GET');
+      const beforeUser = (Object.keys(images).length || name) ? await api('users', 'GET') : null;
+      const previous = { applicationId: before.id, application: { description: before.description } };
+      if (images.avatar) previous.application.icon = await oldImage('app-icons', before.id, before.icon);
+      if (beforeUser) {
+        previous.user = { username: beforeUser.username };
+        if (images.avatar) previous.user.avatar = await oldImage('avatars', beforeUser.id, beforeUser.avatar);
+        if (images.banner) previous.user.banner = await oldImage('banners', beforeUser.id, beforeUser.banner);
+      }
+      // 控えはmain-serverのQNAPへ置く。NASが外れている時は、Discordを変える前に書けずに止まる。
+      const backup = '/var/mnt/qnap-backups/main-server/products/mabimoba/discord-profile/profile-before-' + Date.now() + '.json';
+      execFileSync('ssh', [target.sshHost, 'umask 077; cat > ' + backup], { input: JSON.stringify(previous), stdio: ['pipe', 'inherit', 'inherit'] });
+      // ボットの名前（メンバー一覧とメッセージに出る方）。招待の画面に出るアプリの名前は、Developer Portalでしか変えられない。
+      if (name && beforeUser.username !== name) await api('users', 'PATCH', { username: name });
+      // 画像1枚ずつ送る（認証仲介の本文の上限に収めるため）。
+      let updatedUser = {};
+      for (const key of Object.keys(images)) updatedUser = { ...updatedUser, ...(await api('users', 'PATCH', { [key]: images[key] })) };
+      const updatedApp = await api('applications', 'PATCH', { description, ...(images.avatar ? { icon: images.avatar } : {}) });
+      const after = await api('applications', 'GET');
+      const afterUser = beforeUser ? await api('users', 'GET') : null;
+      if (after.description !== description || (images.avatar && (!updatedApp.icon || after.icon !== updatedApp.icon))) throw new Error('DISCORD_PROFILE_MISMATCH');
+      for (const key of Object.keys(images)) if (!updatedUser[key] || afterUser[key] !== updatedUser[key]) throw new Error('DISCORD_PROFILE_IMAGE_MISMATCH_' + key);
+      if (name && afterUser.username !== name) throw new Error('DISCORD_PROFILE_NAME_MISMATCH');
+      console.log(JSON.stringify({ applicationId: after.id, name: after.name, username: afterUser?.username, previousUsername: beforeUser?.username, characters: after.description.length, icon: after.icon,
+        avatar: afterUser?.avatar, banner: afterUser?.banner, verified: true, backup }, null, 2));
+    } catch (error) { console.error(error.message?.startsWith('DISCORD_') ? error.message : 'DISCORD_PROFILE_FAILED'); process.exitCode = 1; }
   }
 } catch (error) {
   console.error(error.message?.startsWith('DISCORD_') ? error.message : error.status ? 'DISCORD_PROFILE_REMOTE_FAILED' : 'DISCORD_PROFILE_IO_FAILED');
