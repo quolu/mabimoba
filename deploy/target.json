@@ -6,7 +6,7 @@
   "domain": "mabimoba.kitepon.dev",
   "zone": "kitepon.dev",
   "tunnelName": "home-server",
-  "originService": "https://caddy:443",
+  "originService": "http://192.168.1.2:80",
   "caddyFile": "/home/kite/license-server/Caddyfile",
   "botSocket": "/home/kite/BellTeam/runtime/data/shared/tools/auth-mediation/run-sockets/mabimoba-bot/control.sock",
   "existingSmokeUrls": ["https://kitepon.dev/", "https://bank.kitepon.dev/"]
