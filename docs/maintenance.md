@@ -210,7 +210,7 @@ Cloudflare APIは `scripts/deploy.mjs` が手元から呼ぶ（`remote.py` は d
 `content/portal.json` の `discord.enabled` がfalseの間は、メニューと `/discord/` を生成しない。Botの配備・招待URLの確認後にtrueへ進め、実際に公開する日付の `changelog` へ追加する。先の日付に公開済みと記録しない。
 
 1. Discord Developer Portalでアプリ「マビモバ攻略ポータル」を作る（2026-10-13に「マビモバ更新通知」から名前を変えた）。BotのPublic Botを有効、Requires OAuth2 Code Grantを無効、Privileged Gateway Intentsは全て無効にする。InstallationはGuild Installを有効にし、インストールリンクをカスタムURLの `https://mabimoba.kitepon.dev/discord/invite` にする。正規URLが `bot` と `applications.commands` のスコープ、必要な権限を指定する。
-2. Botトークンは認証仲介の中だけにある。プロフィールの更新（`node scripts/update-bot-profile.mjs`）は手元から認証仲介の項目 `discord-ca9fed97`（`auth http`、`https://discord.com/api/v10`、`Authorization: Bot`、GET・PATCH）で呼び、鍵は席にもmain-serverにも届かない（2026-11-28、オーナーの指示で `auth exec` から替えた。担当はサクラ）。環境変数 `DISCORD_TOKEN` があればそれで直接呼ぶ（認証仲介を必須にしない）。画像は1枚ずつ送る。常駐Botの配備（`scripts/deploy-bot.mjs`）は、ゲートウェイ接続にトークンが要るので、まだ `auth exec` の環境変数で渡している（仲介のゲートウェイ中継ができるまで）。値は会話・引数・ログ・リポジトリへ出さない。入れ替える時はサクラに項目の値を替えてもらい、`auth exec node scripts/deploy-bot.mjs` を流す。
+2. Botトークンは認証仲介の中だけにある。プロフィールの更新（`node scripts/update-bot-profile.mjs`）は手元から認証仲介の項目 `discord-ca9fed97`（`auth http`、`https://discord.com/api/v10`、`Authorization: Bot`、GET・PATCH）で呼び、鍵は席にもmain-serverにも届かない（2026-11-28、オーナーの指示で `auth exec` から替えた。担当はサクラ）。環境変数 `DISCORD_TOKEN` があればそれで直接呼ぶ（認証仲介を必須にしない）。画像は1枚ずつ送る。2026-11-28に鍵なしで実機の更新が通った（verified）。常駐Botの配備（`scripts/deploy-bot.mjs`）は、ゲートウェイ接続にトークンが要るので、まだ `auth exec` の環境変数で渡している（仲介のゲートウェイ中継ができるまで）。値は会話・引数・ログ・リポジトリへ出さない。入れ替える時はサクラに項目の値を替えてもらい、`auth exec node scripts/deploy-bot.mjs` を流す。
    - トークンの流れ：認証ブローカー → 環境変数 `DISCORD_TOKEN`（`deploy-bot.mjs`）→ sshの標準入力の前置き → main-serverの `deploy/bot.py` の `docker compose up` → コンテナの環境変数 `DISCORD_TOKEN` → `bot/server.mjs` がDiscordへ接続。`npm run discord:profile` も、同じ前置きでmain-serverの `node` へ渡す。
    - Dockerの自動の起こし直しは、Dockerが保存した環境変数を使うので認証ブローカーへつながらなくても起きる。
 3. cleanなmainのcheckoutで `npm run discord:deploy` を実行する。既定ブランチの祖先commitだけを対象に、ポータルから独立した専用コンテナを起動する。Botコードを変えた時も同じコマンドで更新する。
@@ -282,7 +282,7 @@ Bot専用の依存パッケージは `bot/package.json` とlockfileで管理す�
 
 オーナーが契約しているNordVPNの、ソウルのHTTPSプロキシを経由して読む。同日、一覧・アップデートノート・公式ガイドが韓国語の本文で取得できた。
 
-- 取得は更新担当の席にあるヘルパー（`integrations/nordvpn/kr-fetch.py URL 出力ファイル [URL 出力ファイル ...]`）で行う。認証情報は鍵の保管先から読み、リポジトリ・ログ・会話へ出さない。保管先の読み出しには回数の上限があるので、一覧や記事は1回の実行にまとめて渡す。
+- 取得は更新担当の席にあるヘルパー（`integrations/nordvpn/kr-fetch.py URL 出力ファイル [URL 出力ファイル ...]`）で行う。NordVPNの認証情報は認証仲介の中にあり、このヘルパーへは来ない（仲介の項目 `mabinogi-nexon`、`auth http`、2026-11-28から。仲介側が動き出すまでは取得が `NG` になる）。一覧や記事は1回の実行にまとめて渡す。
 - プロキシは `krNNN.proxy.nordvpn.com:89` の「Standard VPN servers」の台を使う。「Dedicated IP」の台は正しい認証情報でも407になる。
 - 経由するのは韓国公式を読む通信だけ。一回の実行で読むのは、一覧と前回以降に増えた記事、変更を確かめる公式ガイドに留める。
 
