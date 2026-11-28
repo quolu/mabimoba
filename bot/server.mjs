@@ -1,7 +1,7 @@
 import { Client, Events, GatewayIntentBits, PermissionFlagsBits, ChannelType, Routes, SlashCommandBuilder } from 'discord.js';
 import { handleInteraction, neededPermissions } from './commands.mjs';
 import { createServer } from 'node:http';
-import { readFileSync, existsSync, copyFileSync, mkdirSync, rmSync, chmodSync } from 'node:fs';
+import { readFileSync, mkdirSync, rmSync, chmodSync } from 'node:fs';
 import { join } from 'node:path';
 import { SubscriptionStore, DeliveryService, loadPublishedSnapshot, failureCode } from './core.mjs';
 import { createPublicHandler } from './public-http.mjs';
@@ -15,9 +15,6 @@ if (!token || /\s/.test(token)) throw new Error('DISCORD_TOKEN_INVALID: Botト�
 const stateDir = process.env.STATE_DIR ?? '/data';
 const socketDir = process.env.SOCKET_DIR;
 mkdirSync(stateDir, { recursive: true });
-// shortcut: 旧Dockerの保存先からの1回だけの引っ越し。移行が済んだら（2026-11-28）このブロックを消す。
-const seed = new URL('../../subscriptions.seed.json', import.meta.url);
-if (!existsSync(join(stateDir, 'subscriptions.json')) && existsSync(seed)) copyFileSync(seed, join(stateDir, 'subscriptions.json'));
 const store = new SubscriptionStore(join(stateDir, 'subscriptions.json'));
 const client = new Client({ intents: [GatewayIntentBits.Guilds], rest: { retries: 0, timeout: 20000 } });
 const delivery = new DeliveryService(store, {
