@@ -9,6 +9,14 @@ services:
       - /tmp
     security_opt:
       - no-new-privileges:true
+    volumes:
+      # ボットのUNIXソケットがあるフォルダ（認証仲介の run が作る）。nginxが /discord/invite・/discord/stats をここへ中継する。
+      - type: bind
+        source: /home/kite/BellTeam/runtime/data/shared/tools/auth-mediation/run-sockets/mabimoba-bot
+        target: /run/mabimoba-bot
+        read_only: true
+        bind:
+          create_host_path: false
     networks:
       - public-web
     logging:

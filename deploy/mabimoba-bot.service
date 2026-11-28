@@ -1,0 +1,10 @@
+[Unit]
+Description=Mabimoba Discord bot (runs inside the BellTeam authentication module; the token never leaves it)
+[Service]
+# 認証仲介の項目 mabimoba-bot の固定コマンド（node bot/server.mjs）を仲介の中で動かす。落ちたらここで起こし直す。
+WorkingDirectory=%h/.local/state/mabimoba
+ExecStart=%h/.local/bin/auth run mabimoba-bot
+Restart=on-failure
+RestartSec=10
+[Install]
+WantedBy=default.target

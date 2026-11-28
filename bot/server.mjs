@@ -1,7 +1,8 @@
 import { Client, Events, GatewayIntentBits, PermissionFlagsBits, ChannelType, Routes, SlashCommandBuilder } from 'discord.js';
 import { handleInteraction, neededPermissions } from './commands.mjs';
 import { createServer } from 'node:http';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync, copyFileSync, mkdirSync, rmSync, chmodSync } from 'node:fs';
+import { join } from 'node:path';
 import { SubscriptionStore, DeliveryService, loadPublishedSnapshot, failureCode } from './core.mjs';
 import { createPublicHandler } from './public-http.mjs';
 import { createRecipeCache } from './materials.mjs';
@@ -10,7 +11,14 @@ const target = JSON.parse(readFileSync(new URL('../deploy/target.json', import.m
 const origin = `https://${target.domain}`;
 const token = (process.env.DISCORD_TOKEN ?? '').trim();
 if (!token || /\s/.test(token)) throw new Error('DISCORD_TOKEN_INVALID: Botトークンを確認してください');
-const store = new SubscriptionStore('/data/subscriptions.json');
+// 認証仲介の「run」で動く時は、STATE_DIR（消えない保存先）と SOCKET_DIR（main-serverから届く置き場）が環境変数で来る。
+const stateDir = process.env.STATE_DIR ?? '/data';
+const socketDir = process.env.SOCKET_DIR;
+mkdirSync(stateDir, { recursive: true });
+// shortcut: 旧Dockerの保存先からの1回だけの引っ越し。移行が済んだら（2026-11-28）このブロックを消す。
+const seed = new URL('../../subscriptions.seed.json', import.meta.url);
+if (!existsSync(join(stateDir, 'subscriptions.json')) && existsSync(seed)) copyFileSync(seed, join(stateDir, 'subscriptions.json'));
+const store = new SubscriptionStore(join(stateDir, 'subscriptions.json'));
 const client = new Client({ intents: [GatewayIntentBits.Guilds], rest: { retries: 0, timeout: 20000 } });
 const delivery = new DeliveryService(store, {
   send: (channelId, body) => client.rest.post(Routes.channelMessages(channelId), { body }),
@@ -71,12 +79,12 @@ client.once(Events.ClientReady, async () => {
     for (const guild of client.guilds.cache.values()) await setupGuild(guild);
   } catch (error) { logError('startup-failed', error); process.exit(1); }
 });
-createServer(async (request, response) => {
+const server = createServer(async (request, response) => {
   response.setHeader('Content-Type', 'application/json; charset=utf-8');
   response.setHeader('Cache-Control', 'no-store');
   const path = new URL(request.url, 'http://localhost').pathname;
   if (handlePublicRequest(request, response)) return;
-  if (request.method !== 'POST' || path !== '/notify' || request.socket.remoteAddress !== '127.0.0.1') { response.writeHead(404); response.end(JSON.stringify({ error: 'NOT_FOUND' })); return; }
+  if (request.method !== 'POST' || path !== '/notify' || !(socketDir || request.socket.remoteAddress === '127.0.0.1')) { response.writeHead(404); response.end(JSON.stringify({ error: 'NOT_FOUND' })); return; }
   try {
     if (!ready()) throw new Error('DISCORD_NOT_READY');
     let body = ''; for await (const chunk of request) { body += chunk; if (body.length > 4096) throw new Error('DISCORD_REQUEST_TOO_LARGE'); }
@@ -88,7 +96,13 @@ createServer(async (request, response) => {
     else result = await delivery.dispatch(snapshot, options.dryRun === true);
     response.end(JSON.stringify(result));
   } catch (error) { response.writeHead(500); response.end(JSON.stringify({ ok: false, error: error.message.startsWith('DISCORD_') ? error.message : failureCode(error) })); }
-}).listen(8081, '0.0.0.0');
+});
+// 仲介の中のコンテナのTCPポートはmain-serverから届かないので、UNIXソケットで受ける。ソケットのあるフォルダに触れる人だけが /notify を呼べる。
+if (socketDir) {
+  const socketPath = join(socketDir, 'control.sock');
+  rmSync(socketPath, { force: true });
+  server.listen(socketPath, () => chmodSync(socketPath, 0o666));
+} else server.listen(8081, '0.0.0.0');
 
 for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => { client.destroy(); process.exit(0); });
 try { await client.login(token); } catch (error) { logError('login-failed', error); process.exit(1); }

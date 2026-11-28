@@ -201,7 +201,7 @@ Cloudflare APIは `scripts/deploy.mjs` が手元から呼ぶ（`remote.py` は d
 - 通知の設定（`/マビモバ`）とは別のコマンドで、サーバーの誰でも使える。
 - どこまで選んだかは、部品の `custom_id`（`mat:<種類>:<個数>:<分類>:<グループ>:<ページ>`）に持たせる。ボットの側に状態を残さない。1つのグループが25品を超える時は、前後のボタンでページを替える。防具は、鎧の種類（`group.sub`）でもう一段分けてある。
 - データは公開サイトの `/data/recipes.json` を読む。10分たつと取り直し、取得に失敗した時は前のデータで答える。
-- 計算は `scripts/recipes.mjs` の `baseMaterials`（中身は `craftPlan`。同じ途中の品物が2か所で要る時は、合わせてから切り上げる。2026-10-13に、枝ごとに切り上げて多めに出ていたのを直した）、画面と返事の組み立ては `bot/materials.mjs`。ボットのコンテナには `scripts/recipes.mjs` も入れている。
+- 計算は `scripts/recipes.mjs` の `baseMaterials`（中身は `craftPlan`。同じ途中の品物が2か所で要る時は、合わせてから切り上げる。2026-10-13に、枝ごとに切り上げて多めに出ていたのを直した）、画面と返事の組み立ては `bot/materials.mjs`。ボットは `scripts/recipes.mjs` も、リポジトリの同じ版から読む。
 - サイトの案内は `/discord/`（メニューの名前は「Discordボット」。2026-10-13に「Discord更新通知」から変えた）。できる事、`/材料` の手順、計算の例を載せる。製作・加工の一覧の各ページとホームからも、この案内へ送る（`scripts/recipes.mjs` の `botBox`）。ボットにできる事が増えたら、この案内と `content/discord-profile.json` の紹介文も直す。
 - 中身を変えた時は `npm test`（`npm run test:notify` はボットの分だけ）を通してから `npm run discord:deploy`。コマンドの登録は、ボットの起動時に行う。分類やグループを増やした時は、どの画面も部品の上限（選ぶ欄は25件まで）に収まる事を、同じテストが確かめる。
 
@@ -210,19 +210,19 @@ Cloudflare APIは `scripts/deploy.mjs` が手元から呼ぶ（`remote.py` は d
 `content/portal.json` の `discord.enabled` がfalseの間は、メニューと `/discord/` を生成しない。Botの配備・招待URLの確認後にtrueへ進め、実際に公開する日付の `changelog` へ追加する。先の日付に公開済みと記録しない。
 
 1. Discord Developer Portalでアプリ「マビモバ攻略ポータル」を作る（2026-10-13に「マビモバ更新通知」から名前を変えた）。BotのPublic Botを有効、Requires OAuth2 Code Grantを無効、Privileged Gateway Intentsは全て無効にする。InstallationはGuild Installを有効にし、インストールリンクをカスタムURLの `https://mabimoba.kitepon.dev/discord/invite` にする。正規URLが `bot` と `applications.commands` のスコープ、必要な権限を指定する。
-2. Botトークンは認証仲介の中だけにある。プロフィールの更新（`node scripts/update-bot-profile.mjs`）は手元から認証仲介の項目 `discord-ca9fed97`（`auth http`、`https://discord.com/api/v10`、`Authorization: Bot`、GET・PATCH）で呼び、鍵は席にもmain-serverにも届かない（2026-11-28、オーナーの指示で `auth exec` から替えた。担当はサクラ）。環境変数 `DISCORD_TOKEN` があればそれで直接呼ぶ（認証仲介を必須にしない）。画像は1枚ずつ送る。2026-11-28に鍵なしで実機の更新が通った（verified）。常駐Botの配備（`scripts/deploy-bot.mjs`）は、ゲートウェイ接続にトークンが要るので、まだ `auth exec` の環境変数で渡している（仲介のゲートウェイ中継ができるまで）。値は会話・引数・ログ・リポジトリへ出さない。入れ替える時はサクラに項目の値を替えてもらい、`auth exec node scripts/deploy-bot.mjs` を流す。
-   - トークンの流れ：認証ブローカー → 環境変数 `DISCORD_TOKEN`（`deploy-bot.mjs`）→ sshの標準入力の前置き → main-serverの `deploy/bot.py` の `docker compose up` → コンテナの環境変数 `DISCORD_TOKEN` → `bot/server.mjs` がDiscordへ接続。`npm run discord:profile` も、同じ前置きでmain-serverの `node` へ渡す。
+2. Botトークンは認証仲介の中だけにある。プロフィールの更新（`node scripts/update-bot-profile.mjs`）は手元から認証仲介の項目 `discord-ca9fed97`（`auth http`、`https://discord.com/api/v10`、`Authorization: Bot`、GET・PATCH）で呼び、鍵は席にもmain-serverにも届かない（2026-11-28、オーナーの指示で `auth exec` から替えた。担当はサクラ）。環境変数 `DISCORD_TOKEN` があればそれで直接呼ぶ（認証仲介を必須にしない）。画像は1枚ずつ送る。2026-11-28に鍵なしで実機の更新が通った（verified）。常駐Botは認証仲介の「run」の中で動かし、トークン（環境変数 `DISCORD_TOKEN`）は仲介の項目 `mabimoba-bot` だけにある。席にも、main-serverにも、会話・引数・ログ・リポジトリにも出さない。入れ替える時はサクラに項目の値を替えてもらい、`node scripts/deploy-bot.mjs` でBotを起こし直す。
+   - 動く場所と流れ：main-serverのユーザーunit `mabimoba-bot`（`deploy/mabimoba-bot.service`、落ちたら10秒で起こし直す）が `auth run mabimoba-bot` を実行する → 仲介が、BellTeamのコンテナの中で席の `runtime/mabimoba-bot/` の `node bot/server.mjs` を、環境変数 `DISCORD_TOKEN`・`STATE_DIR`（消えない保存先）・`SOCKET_DIR`（main-serverから届くフォルダ）つきで起こす → `bot/server.mjs` がDiscordへ接続する。仲介は固定コマンドだけを起こし、unitが止まると仲介もプロセスを終える。`npm run discord:profile` は別で、手元から `auth http` を呼ぶ。
    - Dockerの自動の起こし直しは、Dockerが保存した環境変数を使うので認証ブローカーへつながらなくても起きる。
-3. cleanなmainのcheckoutで `npm run discord:deploy` を実行する。既定ブランチの祖先commitだけを対象に、ポータルから独立した専用コンテナを起動する。Botコードを変えた時も同じコマンドで更新する。
+3. cleanなmainのcheckoutで `npm run discord:deploy`（`node scripts/deploy-bot.mjs`）を実行する。既定ブランチの祖先commitだけを対象に、席の `runtime/mabimoba-bot/` をそのcommitへ合わせて `npm ci` し、main-serverのunitを入れ直して、UNIXソケットの `/healthz` が通るまで待つ。Botコードを変えた時も同じコマンドで更新する。
 4. ポータルを `npm run deploy` で公開する。通常のコンテンツ更新ではBotを再起動しない。Botは公開済みの `discord-updates.json` を読むため、サイトの公開だけで最新内容へ追従する。
 5. `/discord/invite` がDiscordの招待ページへ転送することを確認する。招待リンクは「チャンネルの管理」「チャンネルを見る」「メッセージを送信」「埋め込みリンク」「メッセージ履歴を読む」を指定する。管理者権限は要求しない。
 6. 実際のサーバーへ招待し、通知先で開始・状態・停止を確認する。初回は最新日の更新だけを送り、過去の日付は既読の基準として記録する。
 
-Bot専用の依存パッケージは `bot/package.json` とlockfileで管理する。Node.jsとdiscord.jsを使い、Gateway接続は `Guilds` intentだけに限定する。ポータル本体の依存パッケージは増やさない。Caddy・Cloudflareの共有設定も変更しない。招待URLと導入サーバー数の取得だけをポータルのnginxからBotへ中継し、配信操作のHTTP受付はコンテナ内のloopbackだけに限定する。
+Bot専用の依存パッケージは `bot/package.json` とlockfileで管理する。Node.jsとdiscord.jsを使い、Gateway接続は `Guilds` intentだけに限定する。ポータル本体の依存パッケージは増やさない。Caddy・Cloudflareの共有設定も変更しない。招待URLと導入サーバー数の取得だけをポータルのnginxからBotへ中継し、配信操作のHTTP受付は、ソケットのあるフォルダに触れる人だけが呼べるUNIXソケットで受ける（BellTeamのコンテナのTCPポートはmain-serverから届かない）。ポータルのnginxは、そのフォルダを読み取り専用で入れて `proxy_pass http://unix:…` で中継する（`compose.yaml`・`deploy/nginx.conf`）。
 
 招待ページの導入サーバー数は、ページを開くたびに `/discord/stats` から取得する。Botが接続中に保持する参加サーバーの総数を返し、通知を停止したサーバーも含める。サーバー名・ID・通知先は公開しない。集計値を保存せず、応答はキャッシュしない。Discord未接続時は503を返し、ページにも取得失敗を表示する。
 
-状態はmain-serverの `~/.local/state/mabimoba/discord/subscriptions.json`。秘密トークンとは分け、コンテナを作り直しても保持する。Mac・ルピーの席はこの記録を直接編集せず、常駐Botの正規コマンドを呼ぶ。
+状態は、仲介が `STATE_DIR` として渡す消えない保存先の `subscriptions.json`（仲介の保存先の下。`runtime/subscriptions.seed.json` が席にある間は、保存先が空の時の最初の1回だけそれを写す）。秘密トークンとは分け、再起動しても保持する。Mac・ルピーの席はこの記録を直接編集せず、常駐Botの正規コマンドを呼ぶ。
 
 ### Botプロフィールを更新する
 
@@ -255,7 +255,7 @@ Bot専用の依存パッケージは `bot/package.json` とlockfileで管理す�
 
 ## imageと控えの保持
 
-- **image**：main-serverの `mabimoba`・`mabimoba-discord` は、それぞれ稼働中と戻し用1世代を上限にする。戻し用は、稼働中を除いて一番新しいもの。`npm run deploy` と `npm run discord:deploy` が成功の後に、それより古い世代を自動で消す（`deploy/remote.py`・`deploy/bot.py`）。消した版へは `npm run deploy -- <SHA>` で作り直して戻せる。検証用の別名のimageは、検証が終わったらその場で消す。buildキャッシュは他の製品と共有なので、配備では消さない。
+- **image**：main-serverの `mabimoba` は、それぞれ稼働中と戻し用1世代を上限にする。戻し用は、稼働中を除いて一番新しいもの。`npm run deploy` が成功の後に、それより古い世代を自動で消す（`deploy/remote.py`）。消した版へは `npm run deploy -- <SHA>` で作り直して戻せる。検証用の別名のimageは、検証が終わったらその場で消す。buildキャッシュは他の製品と共有なので、配備では消さない。
 - **控え**：配備や設定変更の前に取る控えは、主機ではなくQNAPの `/var/mnt/qnap-backups/main-server/products/mabimoba/` の下に置く。配備の控えは `deploy/`、プロフィールの控えは `discord-profile/`、手で取る時は用途ごとの置き場を作る。置き場は0700、ファイルは0600。トークンは控えに入れない。
 - 手で取る時は、先に `findmnt -T /var/mnt/qnap-backups` で `192.168.1.3:/server-backups`（nfs4・rw）を確かめる。mountが無い時は主機へ書かず、作業を止める。`deploy/remote.py` と `scripts/update-bot-profile.mjs` が使う置き場は、NASが外れていると無いので、書けずに止まる。
 - 主機の `~/.local/state/mabimoba/` は、動いている状態だけを置く（`deployment.json`、`discord/`、配信のロック）。控えを置かない。

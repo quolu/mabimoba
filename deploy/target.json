@@ -8,5 +8,6 @@
   "tunnelName": "home-server",
   "originService": "https://caddy:443",
   "caddyFile": "/home/kite/license-server/Caddyfile",
+  "botSocket": "/home/kite/BellTeam/runtime/data/shared/tools/auth-mediation/run-sockets/mabimoba-bot/control.sock",
   "existingSmokeUrls": ["https://kitepon.dev/", "https://bank.kitepon.dev/"]
 }
